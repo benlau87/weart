@@ -1,0 +1,4 @@
+.htaccess
+.htpasswd
+/wp-content/uploads
+wp-config.php
