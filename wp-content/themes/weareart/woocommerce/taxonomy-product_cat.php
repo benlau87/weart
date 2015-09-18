@@ -27,11 +27,14 @@ get_header( 'shop' ); ?>
 #	do_action( 'woocommerce_before_main_content' );
 ?>
 <?php 
+
+// get category
 $term = get_queried_object(); 
 $children = get_terms( $term->taxonomy, array(
 'parent'    => $term->term_id,
 'hide_empty' => false
 ) );
+
 if($children) { 
 ?>
 	<div id="content">
@@ -61,7 +64,12 @@ if($children) {
 			</div>
 		</div>
 	</div>
-<?php } else { ?>
+<?php } else { 
+	// get user by category-slug
+	$user = get_user_by('login',$term->slug);
+	$user_info = get_userdata($user->ID);
+	$user_meta = get_user_meta($user->ID);
+	?>
 	<div id="content">
 		<div class="showcase">
 			<div class="container">
@@ -74,42 +82,47 @@ if($children) {
 					?>
 					<div class="showcase-content">	
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-							<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
+							<h1 class="page-title"><?= $user_info->display_name; ?></h1>
 						<?php endif; ?>
 						<div class="showcase2-content">						
-							<p>
-							<?php
-							/**
-							 * woocommerce_archive_description hook
-							 *
-							 * @hooked woocommerce_taxonomy_archive_description - 10
-							 * @hooked woocommerce_product_archive_description - 10
-							 */
-							do_action( 'woocommerce_archive_description' );
-							?>
-						</p>
+							<p><?= $user_meta['description'][0]; ?></p>
 						</div>
+						<?php if(!empty($user_info->user_url)) { ?>
 						<div class="visit-website">
-							<a href="#" class="btn btn-inverted"> <span> VISIT Website </span></a>
+							<a href="<?= $user_info->user_url; ?>" class="btn btn-inverted"> <span> VISIT Website </span></a>
 						</div>
+						<?php } ?>
+						<?php if(!empty($user_meta['facebook'][0]) || !empty($user_meta['twitter'][0]) || !empty($user_meta['googleplus'][0]) || !empty($user_meta['pinterest'][0]) || !empty($user_meta['linkedin'][0])) { ?>
 						<div class="content-social-share">
 							<span> Share </span>
 							<ul>
-								<li><a class="style1" href="https://www.facebook.com/sharer/sharer.php?u=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li><a class="style2" href="https://twitter.com/home?status=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-								<li><a class="style3" href="https://plus.google.com/share?url=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-								<li><a class="style4" href="https://pinterest.com/pin/create/button/?url=http://mo.themestudio.net/portfolios/portfolio-2/&amp;media=&amp;" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-								<li><a class="style6" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<?php if(!empty($user_meta['facebook'][0])) { ?>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<?php } ?>
+								<?php if(!empty($user_meta['twitter'][0])) { ?>
+								<li><a href="https://twitter.com/home?status=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<?php } ?>
+								<?php if(!empty($user_meta['googleplus'][0])) { ?>
+								<li><a href="https://plus.google.com/share?url=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+								<?php } ?>
+								<?php if(!empty($user_meta['pinterest'][0])) { ?>
+								<li><a href="https://pinterest.com/pin/create/button/?url=http://mo.themestudio.net/portfolios/portfolio-2/&amp;media=&amp;" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+								<?php } ?>
+								<?php if(!empty($user_meta['linkedin'][0])) { ?>
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<?php } ?>
 							</ul>
-						</div>                    				
+						</div>
+						<?php } ?>						
 					</div>
 				</div>
 
 				<div class="col-md-8 col-sm-8 col-xs-12">
 				<?php
+					woocommerce_product_loop_start();
 					while ( have_posts() ) : the_post(); ?>
 					
-			<?php woocommerce_product_loop_start(); ?>
+
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
 			<?php endwhile; // end of the loop. ?>

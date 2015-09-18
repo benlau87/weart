@@ -2,6 +2,7 @@
 /* includes */
 include('functions/functions-woocommerce.php');
 include('functions/functions-artists.php');
+include('form-register.php');
 
 /* waa general setup */
 add_action( 'after_setup_theme', 'waa_setup' );

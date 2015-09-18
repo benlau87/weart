@@ -9,7 +9,8 @@
 function modify_user_contact_methods( $user_contact ) {
 
 	// Add user contact methods
-	$user_contact['skype']   = __( 'Skype Username'   );
+	$user_contact['pinterest']   = __( 'Pinterest Username'   );
+	$user_contact['linkedin']   = __( 'LinkedIn User'   );
 	$user_contact['twitter'] = __( 'Twitter Username' );
 
 	// Remove user contact methods
@@ -27,7 +28,7 @@ add_filter( 'user_contactmethods', 'modify_user_contact_methods' );
 add_action( 'admin_menu', 'register_artist_order_page' );
 
 function register_artist_order_page(){
-	add_menu_page( 'My Orders', 'Orders', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
+	add_menu_page( 'My Sales', 'Sales', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
 }
 
 
@@ -79,7 +80,7 @@ function artist_get_orders() {
 function artists_order_page($userid){
 	?>	
 	<div class="wrap">
-		<h1 style="margin-bottom:10px">Orders <?php echo $userid; ?></h1>
+		<h1 style="margin-bottom:10px"><?= _e('My Sales', 'waa'); ?></h1>
 		<?php 
 		if( current_user_can( 'edit_products' ) ) {
 			$orders = artist_get_orders();

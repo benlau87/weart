@@ -70,6 +70,10 @@ hr { border:none; height:1px; background:#eeeeee; }
 	color:#fff;
 }
 
+.btn:hover, .btn:focus, .btn.focus {
+	color:inherit;
+}
+
 #top {
 	margin-top:20px;
 }
@@ -157,6 +161,7 @@ hr { border:none; height:1px; background:#eeeeee; }
     padding-right: 20px;
     position: relative;
     overflow: hidden;
+		padding-bottom:20px;
 }
 
 .showcase h1 { 
@@ -187,7 +192,6 @@ hr { border:none; height:1px; background:#eeeeee; }
 
 .content-social-share { 
 	margin-top: 20px;
-  padding-bottom: 30px;
 	text-align: center;
 	float:left;
 	width:100%;
@@ -233,8 +237,43 @@ hr { border:none; height:1px; background:#eeeeee; }
 .content-social-share a:hover {
   color: inherit;
 }
-
-
 ul.products li.product.type-product {
-	width:100%;
+	width: 47%;
+  margin: 0 3% 2.992em 0;
+	padding:20px;
+	background:#fff;
+}
+.woocommerce ul.products li.product h3 {
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "Crimson Text",serif;
+	padding-bottom:0;
+	letter-spacing:0;
+}
+
+.woocommerce ul.products li.product .dimensions { 
+	color:#7d7d7d;
+	font-size:14px;
+}
+
+.woocommerce ul.products li.product .artist {
+	display:block;
+	padding-top:5px;
+}
+
+.woocommerce ul.products li.product .city {
+	display:block;
+	color:#7d7d7d;
+	line-height:14px;
+	font-size:14px;
+}
+
+.woocommerce ul.products li.product .price {
+	color:#000;
+	position:absolute;
+	bottom:20px;
+	right:20px;
+	font-size:16px;
+	line-height:16px;
+	margin:0;
 }

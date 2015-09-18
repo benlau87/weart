@@ -45,10 +45,8 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 <li <?php post_class( $classes ); ?>>
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-	<a href="<?php the_permalink(); ?>">
-	
-	<?php the_post_thumbnail('large'); ?>
-	
+	<a href="<?php the_permalink(); ?>">	
+		<?php the_post_thumbnail('large'); ?>	
 	</a>
 	<a href="<?php the_permalink(); ?>">
 
@@ -69,14 +67,27 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			 */
 			do_action( 'woocommerce_shop_loop_item_title' );
 
+			
+			
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
 			 *
 			 * @hooked woocommerce_template_loop_rating - 5
 			 * @hooked woocommerce_template_loop_price - 10
-			 */
+			 */		
+			remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+			do_action( 'woocommerce_after_shop_loop_item_title' );			
+			
+			// show category title
+			$category = $wp_query->queried_object;
+			$category_parent = get_term_by( 'id', $category->parent, 'product_cat');
+			echo '<span class="artist">' . $category->name . '</span>';
+			echo '<span class="city">' . $category_parent->name . '</span>';
+			
+			add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+			remove_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);
 			do_action( 'woocommerce_after_shop_loop_item_title' );
-		?>
+			?>
 
 	</a>
 
@@ -87,7 +98,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 		 *
 		 * @hooked woocommerce_template_loop_add_to_cart - 10
 		 */
-		do_action( 'woocommerce_after_shop_loop_item' );
+		#do_action( 'woocommerce_after_shop_loop_item' );
 
 	?>
 

@@ -38,5 +38,19 @@ function format_currency_price($price) {
      return $format;
 }
 
+add_action( 'woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9 );
+function cj_show_dimensions() {
+	global $product;
+	$dimensions = $product->get_dimensions();
+	$dimensions = explode( ' x ', $dimensions );
+	$dimension_h = explode(' ', $dimensions[1], 2);
+  if ( is_array($dimensions ) ) {
+		echo '<span class="dimensions">';
+		echo $dimensions[0] . ' B x ' . $dimension_h[0] . ' H ' . $dimension_h[1];
+		echo '</span>';
+	}
+}
+
+
 
 ?>
