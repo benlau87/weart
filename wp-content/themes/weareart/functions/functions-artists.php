@@ -21,6 +21,67 @@ function modify_user_contact_methods( $user_contact ) {
 }
 add_filter( 'user_contactmethods', 'modify_user_contact_methods' );
 
+function waa_add_country_field_user_profile( $user ) {
+?>
+	<h3><?php _e('Extra Profile Information', 'your_textdomain'); ?></h3>
+	
+<?php
+
+global $woocommerce;
+    $countries_obj   = new WC_Countries();
+    $countries   = $countries_obj->__get('countries');
+    echo '<table class="form-table">
+		<tr>
+			<th>
+				<label for="artist_country">' . __('Country', 'waa') . '</label></th><td>';
+
+    woocommerce_form_field('artist_country', array(
+    'type'       => 'select',
+    'class'      => array( 'country_to_state country_select ' ),
+    'options'    => $countries,
+		'custom_attributes' => array('data-selected' => esc_attr( get_the_author_meta( 'artist_country', $user->ID ) ))
+    )
+    );
+    echo '</td></tr></table>'; ?>
+		
+		<script>
+		jQuery(document).ready(function($) {
+			$('#artist_country option').each(function() {
+				if($(this).val() == $('#artist_country').attr('data-selected'))
+					$(this).attr('selected',true);
+			});
+		});
+		</script>
+		<table class="form-table">
+<tr>
+	<th>
+		<label for="artist_city"><?php _e('City'); ?></label>
+	</th>
+	<td>
+		<input type="text" name="artist_city" id="artist_city" value="<?php echo esc_attr( get_the_author_meta( 'artist_city', $user->ID ) ); ?>" class="regular-text" />
+	</td>
+</tr>
+</table>
+<?php
+}
+
+function waa_save_country_field_user_profile( $user_id ) {
+	
+	if ( !current_user_can( 'edit_user', $user_id ) )
+		return FALSE;
+	
+	update_usermeta( $user_id, 'artist_country', $_POST['artist_country'] );
+	update_usermeta( $user_id, 'artist_city', $_POST['artist_city'] );
+}
+
+add_action( 'show_user_profile', 'waa_add_country_field_user_profile' );
+add_action( 'edit_user_profile', 'waa_add_country_field_user_profile' );
+
+add_action( 'personal_options_update', 'waa_save_country_field_user_profile' );
+add_action( 'edit_user_profile_update', 'waa_save_country_field_user_profile' );
+
+
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Create menu entry for wp-admin
@@ -29,7 +90,17 @@ add_action( 'admin_menu', 'register_artist_order_page' );
 
 function register_artist_order_page(){
 	add_menu_page( 'My Sales', 'Sales', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
+	add_menu_page( 'My Products', 'Products', 'edit_products', 'artists_products', '', '', 40 ); 
+	#add_submenu_page( 'artists_products', 'Add Product', 'Add product', 'edit_products', 'artists_add_product', '', 41); 
 }
+
+
+add_action( 'admin_menu' , 'my_function_name' );
+	function my_function_name() {
+	global $menu;
+	$menu[40][2] = home_url('/') . 'wp-admin/edit.php?s&post_type=product&product_cat=pablo-picasso';
+}
+
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -126,9 +197,53 @@ function artists_order_page($userid){
 					</tbody>
 				</table>	
 				<br>
-				<?= _e('Total orders: ', 'waa') . '<strong>' . $order_count . '</strong><br>';
+				<?= _e('Total orders: ', 'waa') . '<strong>' . ($order_count ? $order_count : '0') . '</strong><br>';
 				echo _e('Total revenue: ', 'waa') . '<strong>' . format_currency_price($total_revenue) . '</strong><br>'; ?>
 			</div>
 	</div>
 	<?php } else { echo 'You do not have permission for this page'; } 
-	} ?>
+	} 
+	
+	
+	
+	
+/**
+ * Automatically save artist category when adding a Product
+ *
+ */
+function save_artist_category( $post_id, $post, $update ) {
+    $slug = 'product';
+    // If this isn't a 'book' post, don't update it.
+    if ( $slug != $post->post_type ) {
+        return;
+    }
+		global $current_user;
+    $current_user = wp_get_current_user();
+		$user_login = $current_user->user_login;
+		$cat_obj = get_term_by('slug',$user_login,'product_cat');
+		$cat_id = $cat_obj->term_id;
+		
+    // - Update the post's metadata.
+     wp_set_post_terms( $post_id, array($cat_id), 'product_cat' );
+}
+add_action( 'save_post', 'save_artist_category', 10, 3 );
+
+
+add_action('admin_init','load_my_script');
+function load_my_script() {
+  global $pagenow;
+  if (($pagenow=='post.php' || $pagenow=='post-new.php') && get_current_user_role() == 'artist') {
+		wp_register_style( 'hide-cats', get_template_directory_uri() . '/css/hide-cats.css' );
+		wp_enqueue_style( 'hide-cats' );
+  }
+}
+
+function get_current_user_role() {
+	global $current_user;
+	#get_currentuserinfo();
+	$user_roles = $current_user->roles;
+	$user_role = array_shift($user_roles);
+	return $user_role;
+};
+	
+?>

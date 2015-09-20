@@ -31,8 +31,8 @@ get_header( 'shop' ); ?>
 // get category
 $term = get_queried_object(); 
 $children = get_terms( $term->taxonomy, array(
-'parent'    => $term->term_id,
-'hide_empty' => false
+	'parent'    => $term->term_id,
+	'hide_empty' => false
 ) );
 
 if($children) { 
@@ -69,12 +69,13 @@ if($children) {
 	$user = get_user_by('login',$term->slug);
 	$user_info = get_userdata($user->ID);
 	$user_meta = get_user_meta($user->ID);
+	#print_r($user_meta);
 	?>
 	<div id="content">
 		<div class="showcase">
 			<div class="container">
 				<div class="row">
-					<div class="sidebar-right col-md-4 col-sm-4 col-xs-12">
+					<div class="sidebar-right col-md-4 col-sm-6 col-xs-12">
 					<?php
 					if ( have_posts() ) :
 					#do_action( 'woocommerce_before_shop_loop' );
@@ -84,7 +85,15 @@ if($children) {
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 							<h1 class="page-title"><?= $user_info->display_name; ?></h1>
 						<?php endif; ?>
-						<div class="showcase2-content">						
+							<?php the_author_image_size(150, 150, $user->ID); ?>
+						<div class="showcase2-content">	
+							<span class="artist-location"><?= $user_meta['artist_city'][0]; ?>, <?= $user_meta['artist_country'][0]; ?></span><br>
+							<span class="artist-art-count">Artworks: <?= $wp_query->found_posts; ?></span>
+							<span class="artist-tags">Art Style:
+							<?php $artist_tags = wp_get_object_terms( $user->ID, 'style', array('fields' => 'names') );
+								$the_tags = rtrim(implode(', ', $artist_tags), ', ');
+								echo $the_tags;
+							?></span>
 							<p><?= $user_meta['description'][0]; ?></p>
 						</div>
 						<?php if(!empty($user_info->user_url)) { ?>
@@ -97,19 +106,19 @@ if($children) {
 							<span> Share </span>
 							<ul>
 								<?php if(!empty($user_meta['facebook'][0])) { ?>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['twitter'][0])) { ?>
-								<li><a href="https://twitter.com/home?status=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://twitter.com/home?status=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['googleplus'][0])) { ?>
-								<li><a href="https://plus.google.com/share?url=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="https://plus.google.com/share?url=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['pinterest'][0])) { ?>
-								<li><a href="https://pinterest.com/pin/create/button/?url=http://mo.themestudio.net/portfolios/portfolio-2/&amp;media=&amp;" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="https://pinterest.com/pin/create/button/?url=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-pinterest"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['linkedin'][0])) { ?>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=http://mo.themestudio.net/portfolios/portfolio-2/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 								<?php } ?>
 							</ul>
 						</div>
@@ -117,7 +126,7 @@ if($children) {
 					</div>
 				</div>
 
-				<div class="col-md-8 col-sm-8 col-xs-12">
+				<div class="col-md-8 col-sm-6 col-xs-12">
 				<?php
 					woocommerce_product_loop_start();
 					while ( have_posts() ) : the_post(); ?>

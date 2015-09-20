@@ -95,25 +95,6 @@ function waa_load_styles() {
 	wp_enqueue_style( 'Font-Awesome' );
 }
 
-
-add_action( 'comment_form_before', 'waa_enqueue_comment_reply_script' );
-function waa_enqueue_comment_reply_script() {
-	if ( get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
-}
-add_filter( 'the_title', 'waa_title' );
-function waa_title( $title ) {
-if ( $title == '' ) {
-return '&rarr;';
-} else {
-return $title;
-}
-}
-add_filter( 'wp_title', 'waa_filter_wp_title' );
-function waa_filter_wp_title( $title )
-{
-return $title . esc_attr( get_bloginfo( 'name' ) );
-}
-
 // Hide Wordpress update notifications
 function hide_update_notice_to_all_but_admin_users()
 {
@@ -123,7 +104,27 @@ function hide_update_notice_to_all_but_admin_users()
 }
 add_action( 'admin_head', 'hide_update_notice_to_all_but_admin_users', 1 );
 
+// check if category has children
 function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
     $children = get_categories( array( 'child_of' => $term_id, 'taxonomy' => $taxonomy ) );
     return ( $children );
 }
+
+
+// custom waa wordpress logo
+add_action('admin_head', 'waa_custom_logo');
+
+function waa_custom_logo() {
+echo '
+<style type="text/css">
+#header-logo { background-image: url('.get_bloginfo('template_directory').'/images/custom-logo.gif) !important; }
+</style>
+';
+}
+
+
+function remove_footer_admin () {
+echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | &copy; WeArt</p>';
+}
+
+add_filter('admin_footer_text', 'remove_footer_admin');

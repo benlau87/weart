@@ -39,7 +39,16 @@ $woocommerce_loop['loop'] ++;
 			 *
 			 * @hooked woocommerce_subcategory_thumbnail - 10
 			 */
-			do_action( 'woocommerce_before_subcategory_title', $category );
+			#do_action( 'woocommerce_before_subcategory_title', $category );
+			
+			
+			// category (artist) thumb
+			woocommerce_subcategory_thumbnail($category);
+			 
+			// random product (art) thumb
+			$post_array = get_posts(array('post_type' => 'product', 'term' => $category->term_id, 'numberposts' => 1, 'orderby' => rand));
+			$rand_post_id = $post_array[0]->ID;
+			echo get_the_post_thumbnail($rand_post_id, 'medium');			
 		?>
 
 		<h3>
