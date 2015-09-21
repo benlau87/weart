@@ -10,7 +10,13 @@
 <body <?php body_class(); ?>>
   <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
 
- <header class="navbar navbar-static-top" id="top" role="banner">
+<header class="navbar navbar-static-top
+<?php if(is_home()) {
+	$img = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_for_posts')),'full'); 
+  $featured_image = $img[0];
+	echo ' header-image" style="background-image:url(' . $featured_image . ')"';
+	} else { echo '"'; }
+?> id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
@@ -24,6 +30,11 @@
     <nav id="bs-navbar" class="collapse navbar-collapse">
       
 			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) ); ?>
-    </nav>
+    </nav>		
+			<?php if(is_home()) { ?>
+				<div class="hero-banner">
+					<h1>WeArt&nbsp;&nbsp;Blog</h2>
+				</div>
+			<?php } ?>
   </div>
 </header>

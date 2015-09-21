@@ -212,8 +212,9 @@ function artists_order_page($userid){
  *
  */
 function save_artist_category( $post_id, $post, $update ) {
+	if(get_current_user_role() == 'artist') {
     $slug = 'product';
-    // If this isn't a 'book' post, don't update it.
+    // If this isn't a 'product' post, don't update it.
     if ( $slug != $post->post_type ) {
         return;
     }
@@ -225,6 +226,7 @@ function save_artist_category( $post_id, $post, $update ) {
 		
     // - Update the post's metadata.
      wp_set_post_terms( $post_id, array($cat_id), 'product_cat' );
+	}
 }
 add_action( 'save_post', 'save_artist_category', 10, 3 );
 

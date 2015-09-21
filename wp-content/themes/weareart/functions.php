@@ -72,7 +72,10 @@ function waa_load_scripts() {
 	wp_enqueue_script( 'bootstrap' );
 
 	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js' );
-	wp_enqueue_script( 'custom' );
+	wp_enqueue_script( 'custom' );	
+	
+	wp_register_script( 'masonry', get_template_directory_uri() . '/js/masonry.min.js' );
+	wp_enqueue_script( 'masonry' );
 }
 
 /* add stylesheets */

@@ -8,3 +8,5 @@
  */
 ?>
 <ul class="products">
+	<li class="grid-sizer"></li>
+	<li class="gutter-sizer"></li>

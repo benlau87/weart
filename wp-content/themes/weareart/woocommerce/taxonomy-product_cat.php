@@ -54,9 +54,7 @@ if($children) {
 					?>
 
 					<?php woocommerce_product_loop_start(); ?>
-
 						<?php woocommerce_product_subcategories(); ?>
-					
 					<?php woocommerce_product_loop_end(); 
 					
 					endif; ?>
