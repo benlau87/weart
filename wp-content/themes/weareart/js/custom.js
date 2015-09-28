@@ -4,7 +4,7 @@
     var $container = $('ul.products');   
     $container.imagesLoaded( function(){
       $container.masonry({
-        itemSelector : 'li.product-category',
+        itemSelector : 'li.product',
 				columnWidth: '.grid-sizer',
 				gutter: '.gutter-sizer'
       });
@@ -18,5 +18,5 @@
 				gutter: '.gutter-sizer-masonry'
       });
     });
-   
-  });
+  
+});

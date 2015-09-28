@@ -77,7 +77,7 @@ if($children) {
 					<?php
 					if ( have_posts() ) :
 					#do_action( 'woocommerce_before_shop_loop' );
-					woocommerce_product_loop_start();
+					#woocommerce_product_loop_start();
 					?>
 					<div class="showcase-content">	
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>

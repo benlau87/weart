@@ -1131,7 +1131,7 @@ msgctxt "Plugin Installer"
 msgid "Recommended"
 msgstr "Recomendado"
 
-#: wp-admin/includes/upgrade.php:364
+#: wp-admin/includes/upgrade.php:365
 msgid ""
 "Your new WordPress site has been successfully set up at:\n"
 "\n"
@@ -2515,6 +2515,10 @@ msgstr "Añade elementos de menú desde la columna de la izquierda."
 msgid "Plugins extend and expand the functionality of WordPress. You may automatically install plugins from the <a href=\"%1$s\">WordPress Plugin Directory</a> or upload a plugin in .zip format via <a href=\"%2$s\">this page</a>."
 msgstr "Los plugins extienden y amplían las funcionalidades de WordPress. Puedes instalar automáticamente plugins del <a href=\"%1$s\">Directorio de Plugins de WordPress </a> o subir un plugin en formato Zip a través de <a href=\"%2$s\">esta página</a>."
 
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/hello-dolly/"
+msgstr "http://wordpress.org/plugins/hello-dolly/"
+
 #: wp-admin/includes/class-wp-upgrader.php:131
 msgid "The package contains no files."
 msgstr "El paquete no contiene archivos."
@@ -3648,6 +3652,22 @@ msgstr[1] "Rotos <span class=\"count\">(%s)</span>"
 msgid "Light"
 msgstr "Ligero"
 
+#. Plugin Name of the plugin/theme
+msgid "Hello Dolly"
+msgstr "Hello Dolly"
+
+#. Author of the plugin/theme
+msgid "Matt Mullenweg"
+msgstr "Matt Mullenweg"
+
+#. Author URI of the plugin/theme
+msgid "http://ma.tt/"
+msgstr "http://ma.tt/"
+
+#. Description of the plugin/theme
+msgid "This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words sung most famously by Louis Armstrong: Hello, Dolly. When activated you will randomly see a lyric from <cite>Hello, Dolly</cite> in the upper right of your admin screen on every page."
+msgstr "Esto no es solo un plugin, simboliza la esperanza y entusiasmo de toda una generación resumidas en las dos palabras más famosas cantadas por Louis Armstrong: Hello, Dolly. Cuando lo actives verás frases al azar de <cite>Hello, Dolly</cite> en la parte superior derecha de cada página de tu pantalla de administración."
+
 #: wp-admin/includes/screen.php:1066
 msgid "Show on screen"
 msgstr "Mostrar en pantalla"
@@ -4152,26 +4172,26 @@ msgstr "Muestra la Barra de Herramientas en el sitio"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:201
+#: wp-admin/about.php:209
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>Versión %1$s</strong> marcada como actualización de seguridad, soluciona el error %2$s."
 msgstr[1] "<strong>Versión %1$s</strong> marcada como actualización de seguridad, soluciona %2$s errores."
 
-#: wp-admin/about.php:208
+#: wp-admin/about.php:114 wp-admin/about.php:216
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Para más información, lee <a href=\"%s\">las notas de la versión</a>."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:205
+#: wp-admin/about.php:112 wp-admin/about.php:213
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>Versión %1$s</strong> marcada como actualización de seguridad, soluciona el error %2$s."
 msgstr[1] "<strong>Versión %1$s</strong> marcada como actualización de seguridad, soluciona %2$s errores."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs.
-#: wp-admin/about.php:197
+#: wp-admin/about.php:205
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>Versión %1$s</strong> soluciona el bug %2$s."
@@ -4181,7 +4201,7 @@ msgstr[1] "<strong>Versión %1$s</strong> soluciona %2$s bugs."
 msgid "Welcome to your WordPress Dashboard! This is the screen you will see when you log in to your site, and gives you access to all the site management features of WordPress. You can get help for any screen by clicking the Help tab in the upper corner."
 msgstr "¡Bienvenido a tu panel de WordPress! Esta es la pantalla que verás cuando inicies sesión en tu sitio, que te da acceso a todas las funciones de gestión del sitio de WordPress. Puedes obtener ayuda para cualquier pantalla haciendo clic en la pestaña Ayuda en la esquina superior."
 
-#: wp-admin/about.php:190
+#: wp-admin/about.php:111 wp-admin/about.php:198
 msgid "Maintenance and Security Release"
 msgid_plural "Maintenance and Security Releases"
 msgstr[0] "Versión de mantenimiento y seguridad"
@@ -4191,20 +4211,20 @@ msgstr[1] "Versiones de mantenimiento y seguridad"
 msgid "What&#8217;s New"
 msgstr "¿Qué hay de nuevo?"
 
-#: wp-admin/about.php:189
+#: wp-admin/about.php:197
 msgid "Security Release"
 msgid_plural "Security Releases"
 msgstr[0] "Versión de seguridad"
 msgstr[1] "Versiones de seguridad"
 
-#: wp-admin/about.php:188
+#: wp-admin/about.php:196
 msgid "Maintenance Release"
 msgid_plural "Maintenance Releases"
 msgstr[0] "Versión de mantenimiento"
 msgstr[1] "Versiones de mantenimiento"
 
 #. translators: 1: WordPress version number.
-#: wp-admin/about.php:193
+#: wp-admin/about.php:201
 msgid "<strong>Version %1$s</strong> addressed a security issue."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues."
 msgstr[0] "<strong>La versión %1$s</strong> resuelve un problema de seguridad."
@@ -4214,7 +4234,7 @@ msgstr[1] "<strong>La versión %1$s</strong> resuelve varios problemas de seguri
 msgid "This screen allows you to choose your default permalink structure. You can choose from common settings or create custom URL structures."
 msgstr "Esta pantalla te permite elegir la estructura de enlaces permanentes. Puedes elegir entre las más habituales o crear una estructura de URL personalizada."
 
-#: wp-admin/about.php:173
+#: wp-admin/about.php:181
 msgid "Return to Updates"
 msgstr "Volver a las actualizaciones"
 
@@ -4516,11 +4536,11 @@ msgstr "Es común la inclusión directa de wp-admin/includes/template.php en el 
 msgid "Welcome to WordPress %s"
 msgstr "Bienvenido a WordPress %s"
 
-#: wp-admin/about.php:176
+#: wp-admin/about.php:184
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Ve a Escritorio &rarr; Inicio"
 
-#: wp-admin/about.php:173
+#: wp-admin/about.php:181
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Vuelve a Escritorio &rarr; Actualizaciones"
 
@@ -4532,7 +4552,7 @@ msgstr "WordPress está creado por un equipo mundial de personas apasionadas de 
 msgid "Core Developers"
 msgstr "Jefe de Desarrollo"
 
-#: wp-admin/about.php:159
+#: wp-admin/about.php:167
 msgid "Under the Hood"
 msgstr "Bajo el Capó"
 
@@ -5292,11 +5312,11 @@ msgid "If you want to make changes but don&#8217;t want them to be overwritten w
 msgstr "Si quieres hacer cambios pero no quieres que se sobreescriban cuando se actualice el plugin, deberías pensar en escribir tu propio plugin. Para obtener información acerca de cómo editar plugins, escribir desde cero el tuyo, o simplemente entender mejor su anatomía, echa un vistazo a los enlaces de aquí abajo."
 
 #. translators: Default page slug
-#: wp-admin/includes/upgrade.php:227
+#: wp-admin/includes/upgrade.php:228
 msgid "sample-page"
 msgstr "pagina-ejemplo"
 
-#: wp-admin/includes/upgrade.php:225
+#: wp-admin/includes/upgrade.php:226
 msgid "Sample Page"
 msgstr "Página de ejemplo"
 
@@ -6282,7 +6302,7 @@ msgstr "No se encontraron sitios."
 msgid "You are not allowed to create pages on this site."
 msgstr "No tienes autorización para crear páginas en este sitio."
 
-#: wp-admin/includes/upgrade.php:380
+#: wp-admin/includes/upgrade.php:381
 msgid "New WordPress Site"
 msgstr "Nuevo sitio de WordPress"
 
@@ -6704,7 +6724,7 @@ msgid_plural "Must-Use <span class=\"count\">(%s)</span>"
 msgstr[0] "Debes Usar <span class=\"count\">(%s)</span>"
 msgstr[1] "Debes Usar <span class=\"count\">(%s)</span>"
 
-#: wp-admin/about.php:176
+#: wp-admin/about.php:184
 msgid "Go to Dashboard"
 msgstr "Ir al Escritorio"
 

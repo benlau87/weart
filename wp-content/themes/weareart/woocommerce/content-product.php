@@ -48,8 +48,9 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	<a href="<?php the_permalink(); ?>">	
 		<?php the_post_thumbnail('large'); ?>	
 	</a>
-	<a href="<?php the_permalink(); ?>">
-
+	<div class="art-info">
+		<header>
+			<a href="<?php the_permalink(); ?>">	
 		<?php
 			/**
 			 * woocommerce_before_shop_loop_item_title hook
@@ -67,7 +68,10 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			 */
 			do_action( 'woocommerce_shop_loop_item_title' );
 
-			
+			?>
+				</a>
+			</header>
+			<?php
 			
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
@@ -89,7 +93,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			do_action( 'woocommerce_after_shop_loop_item_title' );
 			?>
 
-	</a>
+	</div>
 
 	<?php
 
