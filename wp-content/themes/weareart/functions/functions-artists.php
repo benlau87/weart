@@ -89,16 +89,19 @@ add_action( 'edit_user_profile_update', 'waa_save_country_field_user_profile' );
 add_action( 'admin_menu', 'register_artist_order_page' );
 
 function register_artist_order_page(){
-	add_menu_page( 'My Sales', 'Sales', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
-	add_menu_page( 'My Products', 'Products', 'edit_products', 'artists_products', '', '', 40 ); 
-	#add_submenu_page( 'artists_products', 'Add Product', 'Add product', 'edit_products', 'artists_add_product', '', 41); 
+	if(get_current_user_role() == 'artist') {
+		add_menu_page( 'My Sales', 'Sales', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
+		add_menu_page( 'My Products', 'Products', 'edit_products', 'artists_products', '', '', 40 ); 
+		#add_submenu_page( 'artists_products', 'Add Product', 'Add product', 'edit_products', 'artists_add_product', '', 41); 
+	}
 }
 
 
 add_action( 'admin_menu' , 'my_function_name' );
 	function my_function_name() {
-	global $menu;
-	$menu[40][2] = home_url('/') . 'wp-admin/edit.php?s&post_type=product&product_cat=pablo-picasso';
+  global $menu;
+	global $current_user;
+	$menu[40][2] = home_url('/') . 'wp-admin/edit.php?s&post_type=product&author='.$current_user->id;
 }
 
 
@@ -148,6 +151,9 @@ function artist_get_orders() {
 }
 	
 
+/*-----------------------------------------------------------------------------------*/
+/*  Show Order for Artist
+/*-----------------------------------------------------------------------------------*/
 function artists_order_page($userid){
 	?>	
 	<div class="wrap">
@@ -206,11 +212,9 @@ function artists_order_page($userid){
 	
 	
 	
-	
-/**
- * Automatically save artist category when adding a Product
- *
- */
+/*-----------------------------------------------------------------------------------*/
+/*  Automatically save artist category when adding a Product
+/*-----------------------------------------------------------------------------------*/
 function save_artist_category( $post_id, $post, $update ) {
 	if(get_current_user_role() == 'artist') {
     $slug = 'product';
@@ -223,29 +227,146 @@ function save_artist_category( $post_id, $post, $update ) {
 		$user_login = $current_user->user_login;
 		$cat_obj = get_term_by('slug',$user_login,'product_cat');
 		$cat_id = $cat_obj->term_id;
+		$parent_cat_id = $cat_obj->parent;
 		
     // - Update the post's metadata.
-     wp_set_post_terms( $post_id, array($cat_id), 'product_cat' );
+     wp_set_post_terms( $post_id, array($cat_id, $parent_cat_id), 'product_cat' );
 	}
 }
 add_action( 'save_post', 'save_artist_category', 10, 3 );
 
-
-add_action('admin_init','load_my_script');
+/*-----------------------------------------------------------------------------------*/
+/*  Load custom css for artist to hide options
+/*-----------------------------------------------------------------------------------*/
 function load_my_script() {
   global $pagenow;
   if (($pagenow=='post.php' || $pagenow=='post-new.php') && get_current_user_role() == 'artist') {
 		wp_register_style( 'hide-cats', get_template_directory_uri() . '/css/hide-cats.css' );
 		wp_enqueue_style( 'hide-cats' );
+		wp_register_script( 'artist-backend', get_template_directory_uri() . '/js/artist-backend.js' );
+		wp_enqueue_script( 'artist-backend' );
   }
 }
+add_action('admin_init','load_my_script');
 
+
+/*-----------------------------------------------------------------------------------*/
+/*  Get current user role
+/*-----------------------------------------------------------------------------------*/
 function get_current_user_role() {
 	global $current_user;
 	#get_currentuserinfo();
 	$user_roles = $current_user->roles;
 	$user_role = array_shift($user_roles);
 	return $user_role;
-};
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/*  Show only posts and media related to logged in author
+/*-----------------------------------------------------------------------------------*/
+add_action('pre_get_posts', 'query_set_only_author' );
+function query_set_only_author( $wp_query ) {
+    global $current_user;
+    if( is_admin() && !current_user_can('edit_others_posts') ) {
+        $wp_query->set( 'author', $current_user->ID );
+        add_filter('views_edit-post', 'fix_post_counts');
+        add_filter('views_upload', 'fix_media_counts');
+    }
+}
+
+// Fix post counts
+function fix_post_counts($views) {
+    global $current_user, $wp_query;
+    unset($views['mine']);
+    $types = array(
+        array( 'status' =>  NULL ),
+        array( 'status' => 'publish' ),
+        array( 'status' => 'draft' ),
+        array( 'status' => 'pending' ),
+        array( 'status' => 'trash' )
+    );
+    foreach( $types as $type ) {
+        $query = array(
+            'author'      => $current_user->ID,
+            'post_type'   => 'post',
+            'post_status' => $type['status']
+        );
+        $result = new WP_Query($query);
+        if( $type['status'] == NULL ):
+            $class = ($wp_query->query_vars['post_status'] == NULL) ? ' class="current"' : '';
+            $views['all'] = sprintf(__('<a href="%s"'. $class .'>All <span class="count">(%d)</span></a>', 'all'),
+                admin_url('edit.php?post_type=post'),
+                $result->found_posts);
+        elseif( $type['status'] == 'publish' ):
+            $class = ($wp_query->query_vars['post_status'] == 'publish') ? ' class="current"' : '';
+            $views['publish'] = sprintf(__('<a href="%s"'. $class .'>Published <span class="count">(%d)</span></a>', 'publish'),
+                admin_url('edit.php?post_status=publish&post_type=post'),
+                $result->found_posts);
+        elseif( $type['status'] == 'draft' ):
+            $class = ($wp_query->query_vars['post_status'] == 'draft') ? ' class="current"' : '';
+            $views['draft'] = sprintf(__('<a href="%s"'. $class .'>Draft'. ((sizeof($result->posts) > 1) ? "s" : "") .' <span class="count">(%d)</span></a>', 'draft'),
+                admin_url('edit.php?post_status=draft&post_type=post'),
+                $result->found_posts);
+        elseif( $type['status'] == 'pending' ):
+            $class = ($wp_query->query_vars['post_status'] == 'pending') ? ' class="current"' : '';
+            $views['pending'] = sprintf(__('<a href="%s"'. $class .'>Pending <span class="count">(%d)</span></a>', 'pending'),
+                admin_url('edit.php?post_status=pending&post_type=post'),
+                $result->found_posts);
+        elseif( $type['status'] == 'trash' ):
+            $class = ($wp_query->query_vars['post_status'] == 'trash') ? ' class="current"' : '';
+            $views['trash'] = sprintf(__('<a href="%s"'. $class .'>Trash <span class="count">(%d)</span></a>', 'trash'),
+                admin_url('edit.php?post_status=trash&post_type=post'),
+                $result->found_posts);
+        endif;
+    }
+    return $views;
+}
+
+// Fix media counts
+function fix_media_counts($views) {
+    $_total_posts = array();
+    $_num_posts = array();
+    global $wpdb, $current_user, $post_mime_types, $avail_post_mime_types;
+    $views = array();
+    $count = $wpdb->get_results( "
+        SELECT post_mime_type, COUNT( * ) AS num_posts 
+        FROM $wpdb->posts 
+        WHERE post_type = 'attachment' 
+        AND post_author = $current_user->ID 
+        AND post_status != 'trash' 
+        GROUP BY post_mime_type
+    ", ARRAY_A );
+    foreach( $count as $row )
+        $_num_posts[$row['post_mime_type']] = $row['num_posts'];
+    $_total_posts = array_sum($_num_posts);
+    $detached = isset( $_REQUEST['detached'] ) || isset( $_REQUEST['find_detached'] );
+    if ( !isset( $total_orphans ) )
+        $total_orphans = $wpdb->get_var("
+            SELECT COUNT( * ) 
+            FROM $wpdb->posts 
+            WHERE post_type = 'attachment' 
+            AND post_author = $current_user->ID 
+            AND post_status != 'trash' 
+            AND post_parent < 1
+        ");
+    $matches = wp_match_mime_types(array_keys($post_mime_types), array_keys($_num_posts));
+    foreach ( $matches as $type => $reals )
+        foreach ( $reals as $real )
+            $num_posts[$type] = ( isset( $num_posts[$type] ) ) ? $num_posts[$type] + $_num_posts[$real] : $_num_posts[$real];
+    $class = ( empty($_GET['post_mime_type']) && !$detached && !isset($_GET['status']) ) ? ' class="current"' : '';
+    $views['all'] = "<a href='upload.php'$class>" . sprintf( __('All <span class="count">(%s)</span>', 'uploaded files' ), number_format_i18n( $_total_posts )) . '</a>';
+    foreach ( $post_mime_types as $mime_type => $label ) {
+        $class = '';
+        if ( !wp_match_mime_types($mime_type, $avail_post_mime_types) )
+            continue;
+        if ( !empty($_GET['post_mime_type']) && wp_match_mime_types($mime_type, $_GET['post_mime_type']) )
+            $class = ' class="current"';
+        if ( !empty( $num_posts[$mime_type] ) )
+            $views[$mime_type] = "<a href='upload.php?post_mime_type=$mime_type'$class>" . sprintf( translate_nooped_plural( $label[2], $num_posts[$mime_type] ), $num_posts[$mime_type] ) . '</a>';
+    }
+    $views['detached'] = '<a href="upload.php?detached=1"' . ( $detached ? ' class="current"' : '' ) . '>' . sprintf( __( 'Unattached <span class="count">(%s)</span>', 'detached files' ), $total_orphans ) . '</a>';
+    return $views;
+}
 	
 ?>

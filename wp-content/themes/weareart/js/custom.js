@@ -18,5 +18,14 @@
 				gutter: '.gutter-sizer-masonry'
       });
     });
+		
+		$("ul.products li.product").click(function() {
+			window.location = $(this).find(".title a").attr("href"); 
+			return false;
+		});
+		$("ul.products li.product a").click(function(e){
+			e.stopPropagation();
+			//show tooltip
+		});
   
 });

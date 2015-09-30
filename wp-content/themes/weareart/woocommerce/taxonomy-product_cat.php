@@ -35,6 +35,7 @@ $children = get_terms( $term->taxonomy, array(
 	'hide_empty' => false
 ) );
 
+// show artists
 if($children) { 
 ?>
 	<div id="content">
@@ -62,7 +63,9 @@ if($children) {
 			</div>
 		</div>
 	</div>
-<?php } else { 
+<?php } 
+// show artist profile page
+else { 
 	// get user by category-slug
 	$user = get_user_by('login',$term->slug);
 	$user_info = get_userdata($user->ID);
@@ -73,6 +76,11 @@ if($children) {
 		<div class="showcase">
 			<div class="container">
 				<div class="row">
+					<div class="artist-banner col-md-12">
+						banner
+					</div>
+				</div>
+				<div class="row">				
 					<div class="sidebar-right col-md-4 col-sm-6 col-xs-12">
 					<?php
 					if ( have_posts() ) :
@@ -158,4 +166,5 @@ if($children) {
 </div>
 </div>
 </div>
+
 <?php get_footer( 'shop' ); ?>

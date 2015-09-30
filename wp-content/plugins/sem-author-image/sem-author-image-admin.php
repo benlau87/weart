@@ -92,7 +92,7 @@ class author_image_admin {
 		}
 		
 		echo '<h3>'
-			. __('Author Image', 'sem-author-image')
+			. __('Profilfoto (quadratisch)', 'sem-author-image')
 			. '</h3>';
 		
 		global $profileuser;
@@ -115,7 +115,7 @@ class author_image_admin {
 						. ' id="delete_author_image" name="delete_author_image"'
 						. ' />'
 					. '&nbsp;'
-					. __('Delete author image', 'sem-author-image')
+					. __('Bild löschen', 'sem-author-image')
 					. '</label>';
 			} else {
 				echo __('This author image is not writable by the server.', 'sem-author-image');
@@ -127,7 +127,7 @@ class author_image_admin {
 		if ( !$author_image || is_writable(WP_CONTENT_DIR . '/authors/' . $author_image) ) {
 			echo '<tr valign-"top">'
 				. '<th scope="row">'
-				. __('New Image', 'sem-author-image')
+				. __('Neues Bild hochladen', 'sem-author-image')
 				. '</th>'
 				. '<td>';
 			
@@ -137,7 +137,7 @@ class author_image_admin {
 				. ' ';
 			
 			if ( defined('GLOB_BRACE') ) {
-				echo __('(jpg, jpeg or png)', 'sem-author-image') . "\n";
+				echo __('(maximale Größe: 300x300 Pixel, Format: JPG, JPEG or PNG)', 'sem-author-image') . "\n";
 			} else {
 				echo __('(jpg)', 'sem-author-image') . "\n";
 			}

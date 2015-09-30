@@ -131,7 +131,7 @@ function waa_registration_form_fields($type) {
 					<?php							
 						global $woocommerce;
 						$countries_obj   = new WC_Countries();
-						$countries   = $countries_obj->get_countries();
+						$countries   = $countries_obj->get_allowed_countries();
 					
 						woocommerce_form_field('waa_user_country', array(
 						'type'       => 'select',
@@ -139,9 +139,11 @@ function waa_registration_form_fields($type) {
 						'options'    => $countries
 						)
 						);
-						
-						// note: create city select with allowed cities
 					?>
+				</div>
+				<div class="form-group" id="region-select-container">
+					<label for="waa_user_region"><?php _e('Region wählen', 'waa'); ?></label>
+					<p class="form-row" id="waa_user_region_field"></p>
 				</div>
 				<div class="form-group">
 					<label for="waa_user_login"><?php _e('Benutzername', 'waa'); ?></label>
@@ -172,6 +174,41 @@ function waa_registration_form_fields($type) {
 		
 		<script>
 		jQuery(document).ready(function($) {
+			$('#region-select-container').hide();
+			$('#waa_user_country').change(function() {
+				var selected_country = $(this).val();
+				
+				if(selected_country) {
+					// get regions for selected country
+					if(selected_country == "CH")
+						$('#region-select-container > label').html('Kanton wählen');
+					$.ajax({
+						url: "<?= get_template_directory_uri(); ?>/js/"+selected_country+".regions.json",
+						dataType: 'json',
+						success: function( data ) {
+
+						var items = [];
+						$.each( data, function( code, region ) {
+							items.push( "<option value='" + region + "'>" + region + "</option>" );
+						});
+					 
+						var select = $( "<select/>", {
+							"id": "waa_user_region",
+							"name": "waa_user_region",
+							html: items.join( "" )
+						});
+						$( "#waa_user_region_field" ).html(select);
+						
+						// show regions-select 
+						$('#region-select-container').show();
+						},
+						error: function ( data ) {
+							$('#region-select-container').hide();
+							alert('Noch keine Regionen für '+selected_country+' hinterlegt.');
+						}
+					});
+				}					
+			});
 			$('[data-toggle="tooltip"]').tooltip();
 			$('#waa_registration_form input[type="submit"]').on('click', function(e) {
 				$('#waa_registration_form .required' ).each(function() {
@@ -305,6 +342,7 @@ function waa_add_new_member() {
 			$user_last	 	= $_POST["waa_user_last"];
 			$user_birthday= $_POST["waa_user_year"] . '-' . $_POST["waa_user_month"] . '-' . $_POST["waa_user_day"];
 			$user_country = $_POST["waa_user_country"];
+			$user_region = $_POST["waa_user_region"];
 		} else {
 			$user_email		= $_POST["waa_user_login"];
 		}
@@ -314,54 +352,58 @@ function waa_add_new_member() {
  
 		if(username_exists($user_login)) {
 			// Username already registered
-			waa_errors()->add('username_unavailable', __('Username already taken.'));
+			waa_errors()->add('username_unavailable', __('Benutzername ist bereits vergeben.', 'waa'));
 		}
 		if(!validate_username($user_login)) {
 			// invalid username
-			waa_errors()->add('username_invalid', __('Invalid username.'));
+			waa_errors()->add('username_invalid', __('Ungültiger Benutzername.', 'waa'));
 		}
 		if($user_login == '') {
 			// empty username
-			waa_errors()->add('username_empty', __('Please enter a username.'));
+			waa_errors()->add('username_empty', __('Bitte geben Sie einen Benutzernamen ein.', 'waa'));
 		}
 		
 		if($registration_type == 'artist') {
 			if($user_first == '') {
 				// empty firstname
-				waa_errors()->add('firstname_empty', __('Please enter your First Name.'));
+				waa_errors()->add('firstname_empty', __('Bitte geben Sie Ihren Vornamen ein.', 'waa'));
 			}
 			if($user_last == '') {
 				// empty lastname
-				waa_errors()->add('lastname_empty', __('Please enter your Last Name.'));
+				waa_errors()->add('lastname_empty', __('Bitte geben Sie Ihren Nachnamen ein.', 'waa'));
 			}
 			if($user_birthday == '') {
 				// empty birthday
-				waa_errors()->add('birthdate_empty', __('Please enter your birthday.'));
+				waa_errors()->add('birthdate_empty', __('Bitte geben Sie Ihr Geburtsdatum ein.', 'waa'));
 			}
 			if($user_country == '') {
 				// empty country
-				waa_errors()->add('country_empty', __('Please select your country.'));
+				waa_errors()->add('country_empty', __('Bitte wählen Sie ein Land aus.', 'waa'));
+			}
+			if($user_region == '') {
+				// empty region
+				waa_errors()->add('region_empty', __('Bitte wählen Sie eine Region aus.', 'waa'));
 			}
 			if(!is_email($user_email)) {
 				//invalid email
-				waa_errors()->add('email_invalid', __('Invalid email.'));
+				waa_errors()->add('email_invalid', __('Bitte geben Sie eine gültige E-Mail-Adresse ein..', 'waa'));
 			}
 			if(email_exists($user_email)) {
 				//Email address already registered
-				waa_errors()->add('email_used', __('Email already registered.'));
+				waa_errors()->add('email_used', __('Die angegebene E-Mail-Adresse wird bereits verwendet.', 'waa'));
 			}
 		}
 		if($user_pass == '') {
 			// passwords do not match
-			waa_errors()->add('password_empty', __('Please enter a password.'));
+			waa_errors()->add('password_empty', __('Bitte geben Sie ein Passwort ein.', 'waa'));
 		}
 		if($user_pass != $pass_confirm) {
 			// passwords do not match
-			waa_errors()->add('password_mismatch', __('Passwords do not match.'));
+			waa_errors()->add('password_mismatch', __('Bitte stellen Sie sicher, dass die eingegebenen Passwörter übereinstimmen und min. 6 Zeichen lang sind.', 'waa'));
 		}
 		if(!isset($user_legal)) {
 			// passwords do not match
-			waa_errors()->add('legal_empty', __('Please accept the terms and conditions.'));
+			waa_errors()->add('legal_empty', __('Bitte akzeptieren Sie die Allgemeinen Geschäftsbedingungen.'));
 		}
  
 		$errors = waa_errors()->get_error_messages();
@@ -385,6 +427,12 @@ function waa_add_new_member() {
 					
 					add_user_meta( $new_user_id, 'artist_birthday', $user_birthday );
 					add_user_meta( $new_user_id, 'artist_country', $user_country );
+					add_user_meta( $new_user_id, 'artist_region', $user_region );
+					
+					// create region category, if it doesnt exist yet					
+					if (!get_term_by('name', $user_region, 'product_cat')) {
+						wp_insert_term(__($user_region, 'waa'), 'product_cat', array('description' => $user_country));
+					}
 					
 					// send an email to the admin alerting them of the registration of an artist
 					wp_new_user_notification($new_user_id, 'artist');

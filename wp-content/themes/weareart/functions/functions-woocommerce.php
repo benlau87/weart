@@ -51,6 +51,14 @@ function cj_show_dimensions() {
 	}
 }
 
+function woocommerce_product_loop_tags() {
+    global $post, $product;
+
+    $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
+
+    echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( '', '', $tag_count, 'woocommerce' ) . ' ', '</span>' );
+}
+
 
 
 ?>

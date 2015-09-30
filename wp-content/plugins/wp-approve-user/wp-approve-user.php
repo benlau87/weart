@@ -808,16 +808,33 @@ class Obenland_Wp_Approve_User extends Obenland_Wp_Plugins_v301 {
 			update_user_meta( $id, 'wp-approve-user', true );
 			$first_name = get_user_meta($id, 'first_name', true);
 			$last_name = get_user_meta($id, 'last_name', true);
+			$user_region = get_user_meta($id, 'artist_region', true);
+			$user_region_parent = get_term_by('name', $user_region, 'product_cat');
+			$user_region_id = $user_region_parent->term_id;
 			$user_data = get_userdata($id);
 			$user_login = $user_data->user_login;
-			wp_insert_term(
-				$first_name . ' ' . $last_name, // the term 
-				'product_cat', // the taxonomy
-					array(
-						'slug' => $user_login,
-						'term_group' => 1
-					)
-				);
+			if (!get_term_by('slug', $user_login, 'product_cat')) {
+				wp_insert_term(
+					$first_name . ' ' . $last_name, // the term 
+					'product_cat', // the taxonomy
+						array(
+							'slug' => $user_login,
+							'parent' => $user_region_id
+						)
+					);
+			}				
+			
+			// grab all your posts from current user
+			$author_posts = get_posts(array('author' => $id, 'numberposts' => -1));
+
+			// loop through every part
+			foreach ( $author_posts as $post ) {				
+					$updated_post = array();
+					$updated_post['post_status'] = 'publish';
+					if($post['post_status'] == 'pending')
+						wp_update_post( $updated_post ); // update existing posts
+			}		
+			
 			do_action( 'wpau_approve', $id );
 		}
 
@@ -835,8 +852,8 @@ class Obenland_Wp_Approve_User extends Obenland_Wp_Plugins_v301 {
 	 * Updates user_meta to unapprove user.
 	 *
 	 * @author Konstantin Obenland
-	 * @since  1.1 - 12.02.2012
 	 * @access protected
+	 * @since  1.1 - 12.02.2012
 	 *
 	 * @return void
 	 */
@@ -853,6 +870,24 @@ class Obenland_Wp_Approve_User extends Obenland_Wp_Plugins_v301 {
 			}
 
 			update_user_meta( $id, 'wp-approve-user', false );
+			
+			// grab all posts from current user
+			$args = array('post_type' => 'product', 'post_status' => 'publish', 'author' => $id, 'posts_per_page' => -1);
+			$query = new WP_Query($args);
+			$author_posts = $query->get_posts();
+
+			// loop through every post and change status to "pending"
+				foreach ( $author_posts as $single_post ) {				
+						$updated_post = array('ID' => $single_post->ID, 'post_status' => 'pending');
+							wp_update_post( $updated_post ); // update existing posts
+				}	
+				
+			// get all sessions for user with ID $user_id
+			$sessions = WP_Session_Tokens::get_instance($id);
+
+			// we have got the sessions, destroy them all!
+			$sessions->destroy_all();
+			
 			do_action( 'wpau_unapprove', $id );
 		}
 

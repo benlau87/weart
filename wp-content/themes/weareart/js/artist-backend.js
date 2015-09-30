@@ -1,0 +1,1 @@
+ jQuery(function($){	 $('#post_status option[value="pending"]').remove(); });

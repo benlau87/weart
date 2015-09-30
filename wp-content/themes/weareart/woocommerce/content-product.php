@@ -50,7 +50,8 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	</a>
 	<div class="art-info">
 		<header>
-			<a href="<?php the_permalink(); ?>">	
+			<?php	woocommerce_product_loop_tags();	?>
+			<div class="title"><h3><a href="<?php the_permalink(); ?>">	
 		<?php
 			/**
 			 * woocommerce_before_shop_loop_item_title hook
@@ -69,8 +70,9 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			do_action( 'woocommerce_shop_loop_item_title' );
 
 			?>
-				</a>
+				</a></h3></div>
 			</header>
+			<footer>
 			<?php
 			
 			/**
@@ -80,19 +82,21 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			 * @hooked woocommerce_template_loop_price - 10
 			 */		
 			remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
-			do_action( 'woocommerce_after_shop_loop_item_title' );			
+			#do_action( 'woocommerce_after_shop_loop_item_title' );			
 			
 			// show category title
-			$category = $wp_query->queried_object;
+			$category = get_the_terms ($post->ID, 'product_cat');
+		#	print_r($category);
 			$category_parent = get_term_by( 'id', $category->parent, 'product_cat');
-			echo '<span class="artist">' . $category->name . '</span>';
-			echo '<span class="city">' . $category_parent->name . '</span>';
+		 if($category[1]->term_id)
+				echo '<span class="artist"><a href="'.get_term_link( $category[1]->term_id, 'product_cat' ).'">' . $category[1]->name . '</a></span>';
+			#echo '<span class="city">' . $category_parent->name . '</span>';
 			
 			add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 			remove_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);
-			do_action( 'woocommerce_after_shop_loop_item_title' );
+			#do_action( 'woocommerce_after_shop_loop_item_title' );
 			?>
-
+		</footer>
 	</div>
 
 	<?php

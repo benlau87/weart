@@ -43,14 +43,18 @@ $woocommerce_loop['loop'] ++;
 			
 			
 			// category (artist) thumb
-			woocommerce_subcategory_thumbnail($category);
-			 
+			#woocommerce_subcategory_thumbnail($category);
+			#print_r($category);
+			$user = get_user_by('login',$category->slug);
+		  the_author_image_size(150, 150, $user->ID); 
 			// random product (art) thumb
 			$post_array = get_posts(array('post_type' => 'product', 'term' => $category->term_id, 'numberposts' => 1, 'orderby' => rand));
 			$rand_post_id = $post_array[0]->ID;
-			echo get_the_post_thumbnail($rand_post_id, 'medium');			
-		?>
-
+			?>
+			
+		<div class="the_post_image">	
+		<?php echo get_the_post_thumbnail($rand_post_id, 'post-thumbnail');	?>
+		</div>
 		<h3>
 			<?php
 				echo $category->name;

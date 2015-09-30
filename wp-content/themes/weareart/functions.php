@@ -2,6 +2,7 @@
 /* includes */
 include('functions/functions-woocommerce.php');
 include('functions/functions-artists.php');
+include('functions/functions-shortcodes.php');
 include('form-register.php');
 
 /* waa general setup */
