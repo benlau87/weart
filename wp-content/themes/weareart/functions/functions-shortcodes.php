@@ -4,30 +4,45 @@ function waa_product_categories_art($atts) {
 			'number' => -1,
 			'order' => 'rand',
 		), $atts);
-		$content = '<ul class="products">';
-		$args = array( 'post_type' => 'product', 'posts_per_page' => $a['number'], 'orderby' => $a['order'] );
+		
+		/*$args = array( 'post_type' => 'product', 'posts_per_page' => $a['number'], 'orderby' => $a['order'], 'tax_query' => array('taxonomy' => '') );
 		$loop = new WP_Query( $args );
 		while ( $loop->have_posts() ) : $loop->the_post(); 
-		global $product; ?>
-<li class="product">    
-
-                    <a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
-
-                        <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-
-                        <?php if (has_post_thumbnail( $loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-
-                        <h3><?php the_title(); ?></h3>
-
-                        <span class="price"><?php echo $product->get_price_html(); ?></span>                    
-
-                    </a>
-
-                    <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-
-                </li>
-
-		<?php endwhile; wp_reset_query(); ?>
+		global $product; */
+		$taxonomyName = "product_cat";
+    $prod_categories = get_terms($taxonomyName, array(
+            'orderby'=> 'name',
+            'order' => 'ASC',
+            'hide_empty' => 1
+    ));  
+		echo '<ul class="products" id="artists-page">';
+			echo '<li class="grid-sizer"></li>';
+			echo '<li class="gutter-sizer"></li>';
+    foreach( $prod_categories as $prod_cat ) :
+	if($prod_cat->parent) {
+		$user = get_user_by('login',$prod_cat->slug);
+		$user_info = get_userdata($user->ID);
+		$user_meta = get_user_meta($user->ID);
+		$post_array = get_posts(array('post_type' => 'product', 'term' => $prod_cat->term_id, 'numberposts' => 1, 'orderby' => rand));
+		$rand_post_id = $post_array[0]->ID;
+			?>
+			<li class="product type-product">    
+				<a href="<?= get_term_link((int)$prod_cat->term_id, 'product_cat') ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $prod_cat->name); ?>">
+					<div class="the_post_image">	
+						<?php echo get_the_post_thumbnail($rand_post_id, 'post-thumbnail');	?>
+					</div>
+						<div class="artist"><?= $prod_cat->name; ?><br/>
+								<span class="artist-style">Stil: Street Art, Modern
+						</div>
+						<div class="artist-hover">
+							<div class="desc"><h3>Lorem Ipsum</h3>
+								<p>Lorem ipsum dolir Sit Amed</p>
+							</div>
+							<div class="bottom">Some more info..</div>
+						</div>
+				</a>
+			</li>
+	<?php } endforeach; ?>
 	</ul>
 <?php }
 add_shortcode('artists', 'waa_product_categories_art');

@@ -132,3 +132,15 @@ echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a>
 }
 
 add_filter('admin_footer_text', 'remove_footer_admin');
+
+
+/**
+ * Redirect non-admins to the homepage after logging into the site.
+ *
+ * @since 	1.0
+ */
+function waa_login_redirect( $redirect_to, $request, $user  ) {
+	global $current_user;
+	return ( is_array( $user->roles ) && in_array( 'artist', $user->roles ) ) ? admin_url('edit.php?s&post_type=product&author='.$current_user->id) : site_url();
+}
+add_filter( 'login_redirect', 'waa_login_redirect', 10, 3 );
