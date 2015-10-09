@@ -511,17 +511,16 @@ ul.products li.product-category.product {
 .gutter-sizer {
 	width:3%;
 }
-.page-id-16 .grid-sizer, #post-14 .grid-sizer {
+.page-id-16 .grid-sizer, #post-14 .grid-sizer, #artists-page .grid-sizer {
 	width: 32.5%;
 }
-.page-id-16 .gutter-sizer, #post-14 .grid-sizer {
+.page-id-16 .gutter-sizer, #post-14 .gutter-sizer, #artists-page .gutter-sizer {
 	width:1%;
 }
-.page-id-16 ul.products li.product.type-product {
+.page-id-16 ul.products li.product.type-product, #post-14 ul.products li.product.type-product, #artists-page li.product.type-product {
 	width: 32.5%;
 	margin:0 0 1% 0;
 }
-
 
 /* masonry product grid */
 ul.products li.product.type-product {
@@ -563,17 +562,6 @@ article h2 { font-size:18px; margin-top:25px; }
 *  [artists] Shortcode
 *
 */
-#artists-page li.product.type-product {
-	width:32%;
-	margin-right:0;
-	margin-bottom:1%;
-}
-#artists-page .grid-sizer {
-	width:32%;
-}
-#artists-page .gutter-sizer {
-	width:1%;
-}
 #artists-page li { 
 	position:relative;
 	z-index:1;
@@ -683,7 +671,16 @@ article h2 { font-size:18px; margin-top:25px; }
 	.showcase .gutter-sizer {
 		width:0;
 	}
-}
+	.page-id-16 .grid-sizer, #post-14 .grid-sizer, #artists-page .grid-sizer {
+	width: 49%;
+	}
+	.page-id-16 .gutter-sizer, #post-14 .gutter-sizer, #artists-page .gutter-sizer {
+		width:2%;
+	}
+	.page-id-16 ul.products li.product.type-product, #post-14 ul.products li.product.type-product, #artists-page li.product.type-product  {
+		width: 49%;
+		margin-bottom:1%;
+	}
 
 @media all and (max-width: 768px) {
 	 .hero-img { margin-left:-15px; margin-right:-15px; }
@@ -784,5 +781,15 @@ article h2 { font-size:18px; margin-top:25px; }
 	}
 	.gutter-sizer {
 		width:0;
+	}
+		.page-id-16 .grid-sizer, #post-14 .grid-sizer, #artists-page .grid-sizer {
+	width: 100%;
+	}
+	.page-id-16 .gutter-sizer, #post-14 .gutter-sizer, #artists-page .gutter-sizer {
+		width:0;
+	}
+	.page-id-16 ul.products li.product.type-product, #post-14 ul.products li.product.type-product, #artists-page li.product.type-product  {
+		width: 100%;
+		margin-bottom:1%;
 	}
 }
