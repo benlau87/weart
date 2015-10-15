@@ -70,7 +70,8 @@ else {
 	$user = get_user_by('login',$term->slug);
 	$user_info = get_userdata($user->ID);
 	$user_meta = get_user_meta($user->ID);
-	#print_r($user_meta);
+	print_r($user_meta);
+	print_r($term);
 	?>
 	<div id="content">
 		<div class="showcase">
