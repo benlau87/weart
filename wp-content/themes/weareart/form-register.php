@@ -145,10 +145,10 @@ function waa_registration_form_fields($type) {
 					<label for="waa_user_region"><?php _e('Region wählen', 'waa'); ?></label>
 					<p class="form-row" id="waa_user_region_field"></p>
 				</div>
-				<div class="form-group">
+				<div class="form-group register_form_user">
 					<label for="waa_user_login"><?php _e('Benutzername', 'waa'); ?></label>
-					<input name="waa_user_login" id="waa_user_login" class="required form-control" type="text" value="<?= $_POST['waa_user_login']; ?>" />
-					<div class="help-block text-muted"><?php _e('Wichtig: Der Benutzername darf keine Sonderzeichen beinhalten. Ihr Benutzername wir für Ihr Benutzerprofil genutzt, z.B. www.weart.com/kuenstler/ihr-name', 'waa'); ?></div>
+					<input name="waa_user_login" id="waa_user_login" class="required form-control" type="text" value="<?= $_POST['waa_user_login']; ?>"  data-toggle="tooltip" data-placement="top" title="keine Sonderzeichen oder Leerzeichen erlaubt" />
+					<div class="help-block text-muted"><?php _e('Wichtig: Der Benutzername darf keine Sonderzeichen oder Leerzeichen beinhalten. Ihr Benutzername wir für Ihr Benutzerprofil genutzt, z.B. www.weart.com/kuenstler/ihr-name', 'waa'); ?></div>
 				</div>
 				<?php endif; ?>
 				<div class="form-group">
@@ -174,6 +174,17 @@ function waa_registration_form_fields($type) {
 		
 		<script>
 		jQuery(document).ready(function($) {
+			$('input').bind('keypress', function (event) {
+					var regex = new RegExp("^[a-zA-Z0-9_-]+$");
+					var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+					if (!regex.test(key)) {
+						 event.preventDefault();
+						 $('.tooltip .tooltip-inner').css('background-color', 'red');
+						 $('.tooltip.top .tooltip-arrow').css('border-top-color', 'red');
+						 return false;
+					}
+			});
+
 			$('#region-select-container').hide();
 			$('#waa_user_country').change(function() {
 				var selected_country = $(this).val();

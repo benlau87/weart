@@ -659,6 +659,23 @@ article h2 { font-size:18px; margin-top:25px; }
 }
 
 
+
+/* register form */
+.register_form_user { position:relative; }
+#username_tooltip { display:none; position:absolute; top:20px; left:20px; width:100px; height:40px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media all and (max-width:992px) {
 	/* masonry product grid */
 	ul.products li.product.type-product {
