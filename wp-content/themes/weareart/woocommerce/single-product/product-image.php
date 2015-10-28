@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $woocommerce, $product;
 
 ?>
-<div class="images">
+<div class="col-md-8">
 
 	<?php
 		if ( has_post_thumbnail() ) {

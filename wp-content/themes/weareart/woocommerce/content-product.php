@@ -42,6 +42,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	$classes[] = 'last';
 }
 ?>
+
 <li <?php post_class( $classes ); ?>>
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
@@ -50,7 +51,8 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	</a>
 	<div class="art-info">
 		<header>
-			<?php	woocommerce_product_loop_tags();	?>
+			<span class="tagged_as"><?= $product->get_categories(); ?></span>
+			<?php	#woocommerce_product_loop_tags();	?>
 			<div class="title"><h3><a href="<?php the_permalink(); ?>">	
 		<?php
 			/**
@@ -86,11 +88,12 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			
 			// show category title
 			$category = get_the_terms ($post->ID, 'product_cat');
-		#	print_r($category);
-			$category_parent = get_term_by( 'id', $category->parent, 'product_cat');
-		 if($category[1]->term_id)
-				echo '<span class="artist"><a href="'.get_term_link( $category[1]->term_id, 'product_cat' ).'">' . $category[1]->name . '</a></span>';
-			#echo '<span class="city">' . $category_parent->name . '</span>';
+			
+			$author     = get_user_by( 'id', $product->post->post_author );
+			$store_info = waa_get_store_info( $author->ID );
+
+			echo '<span class="artist">';
+			printf( '<a href="%s">%s</a>', waa_get_store_url( $author->ID ), $author->display_name ) .'</span>';
 			
 			add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 			remove_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);

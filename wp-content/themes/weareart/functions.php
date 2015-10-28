@@ -3,7 +3,7 @@
 include('functions/functions-woocommerce.php');
 include('functions/functions-artists.php');
 include('functions/functions-shortcodes.php');
-include('form-register.php');
+include('functions/functions-metabox.php');
 
 /* waa general setup */
 add_action( 'after_setup_theme', 'waa_setup' );
@@ -28,6 +28,14 @@ function waa_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 	
+	add_action('after_setup_theme', 'remove_admin_bar');
+
+	function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+		show_admin_bar(false);
+	}
+	}
+		
 	
 	/* Footer Sidebars */
 	register_sidebar( array (
@@ -130,17 +138,111 @@ echo '
 function remove_footer_admin () {
 echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | &copy; WeArt</p>';
 }
-
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 
+function truncate_string($string,$length=250,$appendStr="..."){
+	$truncated_str = "";
+	$useAppendStr = (strlen($string) > intval($length))? true:false;
+	mb_internal_encoding("UTF-8");
+	$truncated_str = mb_substr($string,0,$length);
+	$truncated_str .= ($useAppendStr)? $appendStr:"";
+	return $truncated_str;
+}
+
 /**
- * Redirect non-admins to the homepage after logging into the site.
+ * Redirect users to custom URL based on their role after login
+ *
+ * @param string $redirect
+ * @param object $user
+ * @return string
+ */
+function wc_custom_user_redirect( $redirect, $user ) {
+	// Get the first of all the roles assigned to the user
+	$role = $user->roles[0];
+	$dashboard = admin_url();
+	$seller = waa_get_navigation_url();
+	$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+	if( $role == 'administrator' ) {
+		//Redirect administrators to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'shop-manager' ) {
+		//Redirect shop managers to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'editor' ) {
+		//Redirect editors to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'author' ) {
+		//Redirect authors to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'customer' ) {
+		//Redirect customers and subscribers to the "My Account" page
+		$redirect = $myaccount;
+	} elseif ( $role == 'seller' ) {
+		//Redirect customers and subscribers to the "My Account" page
+		$redirect = $seller;
+	} else {
+		//Redirect any other role to the previous visited page or, if not available, to the home
+		$redirect = wp_get_referer() ? wp_get_referer() : home_url();
+	}
+	return $redirect;
+}
+add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
+
+
+
+
+/**
+ * Add customer/artist menu items
  *
  * @since 	1.0
  */
-function waa_login_redirect( $redirect_to, $request, $user  ) {
-	global $current_user;
-	return ( is_array( $user->roles ) && in_array( 'artist', $user->roles ) ) ? admin_url('edit.php?s&post_type=product&author='.$current_user->id) : site_url();
+add_filter( 'wp_nav_menu_items', 'add_customer_menu', 10, 2);
+function add_customer_menu($items, $args)
+{
+		if(is_user_logged_in() && $args->theme_location == 'main-menu')
+		{
+				$user=wp_get_current_user();
+				if ( waa_is_user_customer( $user->ID ) && !current_user_can( 'manage_options' ) ) {
+					$items .= "<li class='customer-menu'><a href='".waa_get_page_url( 'myaccount', 'woocommerce' )."'>".__( 'My Account', 'waa' )."</a></li>";
+				} elseif ( waa_is_user_seller ( $user->ID ) && !current_user_can( 'manage_options' ) ) {
+					$items .= "<li class='artist-menu'><a href='".waa_get_navigation_url()."'>".__( 'My Account', 'waa' )."</a></li>";
+					/*$items .= '
+						<ul class="sub-menu">
+							<li><a href="">Sub 1</a></li>
+							<li><a href="">Sub 2</a></li>
+							<li><a href="">Sub 3</a></li>
+							<li><a href="">Sub 4</a></li>
+						</ul>		*/					
+				} elseif ( current_user_can( 'manage_options' ) ) {
+					$items .= "<li class='admin-menu'><a href='".get_admin_url()."'>".__( 'Admin', 'waa' )."</a></li>";
+				}
+		} else {
+		#	$items .= '<li><a href="">Hallo, '.$name.'</a></li>';						
+		}
+		return $items;
 }
-add_filter( 'login_redirect', 'waa_login_redirect', 10, 3 );
+
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+// @param int $post_id - The id of the post that you are setting the attributes for
+// @param array[] $attributes - This needs to be an array containing ALL your attributes so it can insert them in one go
+function wcproduct_set_attributes($post_id, $attributes) {
+		$i = 0;
+		// Loop through the attributes array
+		foreach ($attributes as $name => $value) {
+				$product_attributes[$i] = array (
+						'name' => sanitize_title( $name  ), // set attribute name
+						'value' => $value, // set attribute value
+						'position' => 1,
+						'is_visible' => 1,
+						'is_variation' => 0,
+						'is_taxonomy' => 1
+				);
+
+				$i++;
+		}
+
+		// Now update the post with its new attributes
+		update_post_meta($post_id, '_product_attributes', $product_attributes);
+}

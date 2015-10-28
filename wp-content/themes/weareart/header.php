@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<title><?php bloginfo('name'); ?></title>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
@@ -26,11 +27,10 @@
       </button>
       <a href="<?= home_url(); ?>" class="navbar-brand"><img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="We are Art" /></a>
     </div>
-    <nav id="bs-navbar" class="collapse navbar-collapse">
-      
-			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) ); ?>
+    <nav id="bs-navbar" class="collapse navbar-collapse">      
+			<?php 	wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) ); ?>
     </nav>		
-			<?php if(is_home()) { ?>
+			<?php if( is_home() ) { ?>
 				<div class="hero-banner">
 					<h1>WeArt&nbsp;&nbsp;Blog</h2>
 				</div>
