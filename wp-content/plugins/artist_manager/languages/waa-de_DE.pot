@@ -1,0 +1,4026 @@
+# Copyright (C) 2015 WAA
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: waa - Artist Manager\n"
+"Report-Msgid-Bugs-To: http://www.weare-art.com/support\n"
+"POT-Creation-Date: 2015-06-20 10:35:25+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-28 18:03+0100\n"
+"Language-Team: Benedikt Laufer <info@benlau.de>\n"
+"X-Generator: Poedit 1.7.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: templates/new-product-single.php:397
+msgid "1"
+msgstr ""
+
+#: includes/widgets/best-seller.php:97 includes/widgets/feature-seller.php:98
+msgid "3"
+msgstr ""
+
+#: classes/admin-user-profile.php:50
+msgid "waa Options"
+msgstr "Optionen"
+
+#: classes/admin-user-profile.php:55
+msgid "Banner"
+msgstr ""
+
+#: classes/admin-user-profile.php:67 templates/settings/store.php:112
+msgid "Upload banner"
+msgstr "Banner hochladen"
+
+#: classes/admin-user-profile.php:68 templates/settings/store.php:113
+msgid "(Upload a banner for your store. Banner size is (825x300) pixel. )"
+msgstr "(Lade einen Banner für deine Profilseite hoch. Das Bild sollte 1200x300 Pixel groß sein.)"
+
+#: classes/admin-user-profile.php:75
+msgid "Store name"
+msgstr "Angezeigter Name"
+
+#: classes/admin-user-profile.php:82 includes/functions.php:1798
+#: templates/update-account.php:58
+msgid "Address"
+msgstr "Anschrift"
+
+#: classes/admin-user-profile.php:89 classes/template-shortcodes.php:922
+#: includes/admin/sellers.php:21 includes/admin/sellers.php:96
+#: includes/template-tags.php:545 templates/update-account.php:63
+msgid "Phone"
+msgstr "Telefon"
+
+#: classes/admin-user-profile.php:107
+msgid "Selling"
+msgstr "Verkauf"
+
+#: classes/admin-user-profile.php:112
+msgid "Enable Selling"
+msgstr "Verkauf aktivieren"
+
+#: classes/admin-user-profile.php:115
+msgid "Enable or disable product selling capability"
+msgstr "Aktiviere oder deaktiviere den Produktverkauf"
+
+#: classes/admin-user-profile.php:120
+msgid "Publishing"
+msgstr "Ver&ouml;ffentlichung"
+
+#: classes/admin-user-profile.php:125
+msgid "Publish product directly"
+msgstr "Kunstwerke direkt ver&ouml;ffentlichen"
+
+#: classes/admin-user-profile.php:128
+msgid "Instead going pending, products will be published directly"
+msgstr "Kunstwerke werden direkt online gestellt (ohne Überprüfung)"
+
+#: classes/admin-user-profile.php:133 includes/admin/admin.php:247
+msgid "Seller Percentage"
+msgstr "Kommission für Künstler"
+
+#: classes/admin-user-profile.php:137
+msgid "How much amount (%) will get from each order"
+msgstr "Wie viel Prozent bekommt der Künstler vom Verkaufspreis?"
+
+#: classes/admin-user-profile.php:142 includes/widgets/feature-seller.php:97
+msgid "Feature Seller"
+msgstr "Feature Artist"
+
+#: classes/admin-user-profile.php:147
+msgid "Make feature seller"
+msgstr "Mache Künstler zum Feature Seller"
+
+#: classes/admin-user-profile.php:150
+msgid "This seller will be marked as a feature seller."
+msgstr "Dieser Künstler wird als Feature Artist markeirt."
+
+#: classes/ajax.php:105
+msgid "<br><strong> Seller:</strong> %s"
+msgstr "<br><strong> Künstler:</strong> %s"
+
+#: classes/ajax.php:120 classes/store-seo.php:530
+#: classes/template-coupons.php:31 classes/template-coupons.php:46
+#: classes/template-coupons.php:100 classes/template-coupons.php:381
+#: classes/template-settings.php:27 classes/template-settings.php:35
+#: classes/template-settings.php:41 classes/template-settings.php:47
+#: classes/template-settings.php:83 classes/template-settings.php:145
+#: classes/template-settings.php:184 classes/template-settings.php:228
+#: classes/template-withdraw.php:174 classes/template-withdraw.php:199
+msgid "Are you cheating?"
+msgstr "Schummeln, was?"
+
+#: classes/ajax.php:155 classes/ajax.php:189
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Du hast keine Befugnis, diese Seite zu &ouml;ffnen."
+
+#: classes/ajax.php:159 classes/ajax.php:193
+msgid "You have taken too long. Please go back and retry."
+msgstr "Du hast zu lange gebraucht. Bitte gehe zurück und versuche es erneut."
+
+#: classes/ajax.php:168 classes/ajax.php:202
+msgid "You do not have permission to change this order"
+msgstr "Du hast keine Befugnis, diese Bestellung zu bearbeiten."
+
+#: classes/ajax.php:253
+msgid "File %d"
+msgstr "Datei %d"
+
+#: classes/ajax.php:303 includes/woo-views/variation-admin-html.php:136
+#: includes/woo-views/variation-admin-html.php:149
+#: templates/edit/vatiation-popup.php:126
+#: templates/edit/vatiation-popup.php:141
+msgid "Same as parent"
+msgstr "Genau wie Übergeordneter"
+
+#: classes/ajax.php:304 includes/wc-functions.php:26
+#: templates/edit/inventory.php:6
+#: templates/edit/load_variation_template.php:16
+#: templates/new-product-single.php:80
+msgid "Standard"
+msgstr "Standard"
+
+#: classes/ajax.php:313 includes/woo-views/variation-admin-html.php:70
+#: templates/edit/inventory.php:53 templates/edit/vatiation-popup.php:54
+#: templates/new-product-single.php:413
+msgid "Do not allow"
+msgstr "Nicht erlauben"
+
+#: classes/ajax.php:314
+msgid "Allow, but notify customer"
+msgstr "Erlauben, aber Kunden benachrichtigen"
+
+#: classes/ajax.php:315 includes/woo-views/variation-admin-html.php:72
+#: templates/edit/inventory.php:55 templates/edit/vatiation-popup.php:56
+#: templates/new-product-single.php:415
+msgid "Allow"
+msgstr "Erlauben"
+
+#: classes/ajax.php:319 includes/woo-views/variation-admin-html.php:80
+#: templates/edit/vatiation-popup.php:64 templates/products-listing.php:114
+msgid "In stock"
+msgstr "Auf Lager"
+
+#: classes/ajax.php:320 includes/woo-views/variation-admin-html.php:81
+#: templates/edit/vatiation-popup.php:65 templates/products-listing.php:116
+msgid "Out of stock"
+msgstr "Nicht auf Lager"
+
+#: classes/ajax.php:567 includes/template-tags.php:146
+msgid "Something went wrong!"
+msgstr "Etwas ist schiefgelaufen!"
+
+#: classes/ajax.php:575
+msgid "Email sent successfully!"
+msgstr "E-Mail erfolgreich versandt!"
+
+#: classes/ajax.php:597 includes/woo-views/variation-admin-html.php:6
+#: templates/edit/attributes.php:56 templates/edit/templates-js.php:11
+msgid "Remove"
+msgstr "L&ouml;schen"
+
+#: classes/ajax.php:608 templates/edit/attributes.php:74
+#: templates/edit/templates-js.php:21
+msgid "Visible on the product page"
+msgstr "Auf Produktseite sichtbar"
+
+#: classes/ajax.php:615 templates/edit/attributes.php:87
+#: templates/edit/templates-js.php:27
+msgid "Used for variations"
+msgstr "Als Produktvariante nutzen"
+
+#: classes/ajax.php:626 classes/ajax.php:637 templates/edit/attributes.php:101
+#: templates/edit/attributes.php:115
+msgid "Option..."
+msgstr "Option wählen"
+
+#: classes/ajax.php:837 includes/wc-functions.php:1348
+#: includes/wc-functions.php:1391 includes/wc-functions.php:1658
+msgid "Variation #%s of %s"
+msgstr "Variante #%s von %s"
+
+#: classes/ajax.php:1145 classes/ajax.php:1171 classes/ajax.php:1247
+#: templates/settings/shipping.php:231 templates/settings/shipping.php:261
+msgid "State"
+msgstr "Bundesland / Kanton"
+
+#: classes/ajax.php:1151 classes/ajax.php:1175
+#: templates/settings/shipping.php:209 templates/settings/shipping.php:239
+#: templates/settings/shipping.php:265 templates/settings/shipping.php:313
+#: templates/settings/shipping.php:376
+msgid "Cost"
+msgstr "Kosten"
+
+#: classes/ajax.php:1218
+msgid "No Announcement found"
+msgstr "Keine Benachrichtigungen gefunden"
+
+#: classes/ajax.php:1249
+msgid "--Select State--"
+msgstr "--Bundesland wählen--"
+
+#: classes/ajax.php:1253
+msgid "Other States"
+msgstr "Anderes Bundesland"
+
+#: classes/ajax.php:1306
+msgid "Please select a State from the dropdown"
+msgstr "Bitte wähle ein Bundesland aus"
+
+#: classes/ajax.php:1308 classes/ajax.php:1311
+msgid "Shipping Cost : "
+msgstr "Versandkosten: "
+
+#: classes/ajax.php:1314
+msgid "Please select a country from the dropdown"
+msgstr "Bitte wähle ein Land aus"
+
+#: classes/customizer.php:19
+msgid "Theme Logo"
+msgstr "Logo"
+
+#: classes/customizer.php:21
+msgid "Upload your logo to replace the default Logo (dimension : 180 X 50)"
+msgstr "Lade dein Logo hoch (180x50 Pixel)"
+
+#: classes/customizer.php:27
+msgid "Upload Logo"
+msgstr "Logo hochladen"
+
+#: classes/customizer.php:39
+msgid "Link"
+msgstr "Link"
+
+#: classes/customizer.php:52
+msgid "Link hover"
+msgstr "Link hover"
+
+#: classes/customizer.php:65
+msgid "Header Background"
+msgstr "Header Hintergrund"
+
+#: classes/customizer.php:78
+msgid "Navigation Background"
+msgstr "Navigationshintergrund"
+
+#: classes/customizer.php:91
+msgid "Navigation Link"
+msgstr "Navigationslink"
+
+#: classes/customizer.php:103
+msgid "Navigation Link Hover"
+msgstr "Navigationslink Hover"
+
+#: classes/customizer.php:116
+msgid "Footer Background"
+msgstr "Footer Hintergrund"
+
+#: classes/customizer.php:129
+msgid "Copy Container Background"
+msgstr "Copyright Hintergrund"
+
+#: classes/customizer.php:142
+msgid "Footer text"
+msgstr "Footer Text"
+
+#: classes/customizer.php:155
+msgid "Sidebar widget header"
+msgstr "Sidebar Widget Header"
+
+#: classes/customizer.php:168
+msgid "Footer widget header"
+msgstr "Footer Widget Header"
+
+#: classes/customizer.php:182
+msgid "Footer Widget link"
+msgstr "Footer Widget Link"
+
+#: classes/customizer.php:194
+msgid "Footer Widget link hover"
+msgstr "Footer Widget Link Hover"
+
+#: classes/email.php:107
+msgid "\"%s\" sent you a message from your \"%s\" store"
+msgstr "\"s%\" hat dir eine Nachricht über deine Profil \"s%\" geschickt."
+
+#: classes/email.php:168
+msgid "[%s] New Withdraw Request"
+msgstr "[%s] Neue Auszahlung anfordern"
+
+#: classes/email.php:190
+msgid "[%s] Your Withdraw Request has been approved"
+msgstr "[%s] Deine Auszahlungsanforderung wurde angenommen"
+
+#: classes/email.php:213
+msgid "[%s] Your Withdraw Request has been cancelled"
+msgstr "[%s] Deine Auszahlungsanforderung wurde abgebrochen"
+
+#: classes/email.php:252
+msgid "[%s] New Seller Registered"
+msgstr "[%s] Neue Künstler registriert"
+
+#: classes/email.php:305
+msgid "[%s] New Product Added"
+msgstr "[%s] Neues Produkt hinzugefügt"
+
+#: classes/email.php:347
+msgid "[%s] Your product has been approved!"
+msgstr "[%s] Dein Produkt wurde freigeschaltet!"
+
+#: classes/installer.php:101 includes/admin/reports.php:189
+#: includes/admin-functions.php:52 includes/admin-functions.php:553
+#: includes/admin-functions.php:566 includes/wc-template.php:13
+#: templates/my-orders.php:31
+msgid "Seller"
+msgstr "Künstler"
+
+#: classes/installer.php:130 includes/admin/admin.php:92
+#: includes/admin/admin.php:307 includes/admin/admin.php:370
+#: includes/template-tags.php:303
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: classes/installer.php:136 includes/admin/admin.php:376
+msgid "Store List"
+msgstr "Künstler Liste"
+
+#: classes/installer.php:142 includes/admin/admin.php:313
+#: includes/template-tags.php:630
+msgid "My Orders"
+msgstr "Meine Bestellungen"
+
+#: classes/store-seo.php:374
+msgid "SEO Title :"
+msgstr "SEO Titel:"
+
+#: classes/store-seo.php:375
+msgid "SEO Title is shown as the title of your store page"
+msgstr ""
+
+#: classes/store-seo.php:385
+msgid "Meta Description :"
+msgstr ""
+
+#: classes/store-seo.php:386
+msgid "The meta description is often shown as the black text under the title in a search result. For this to work it has to contain the keyword that was searched for and should be less than 156 chars."
+msgstr ""
+
+#: classes/store-seo.php:396
+msgid "Meta Keywords :"
+msgstr ""
+
+#: classes/store-seo.php:397
+msgid "Insert some comma separated keywords for better ranking of your store page."
+msgstr ""
+
+#: classes/store-seo.php:412
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: classes/store-seo.php:429
+msgid "Facebook Title :"
+msgstr ""
+
+#: classes/store-seo.php:436
+msgid "Facebook Description :"
+msgstr ""
+
+#: classes/store-seo.php:446
+msgid "Facebook Image :"
+msgstr ""
+
+#: classes/store-seo.php:455 classes/store-seo.php:499
+#: templates/settings/store.php:130
+msgid "Upload Photo"
+msgstr ""
+
+#: classes/store-seo.php:473
+msgid "Twitter Title :"
+msgstr ""
+
+#: classes/store-seo.php:480
+msgid "Twitter Description :"
+msgstr ""
+
+#: classes/store-seo.php:490
+msgid "Twitter Image :"
+msgstr ""
+
+#: classes/store-seo.php:557
+msgid "Your changes has been updated!"
+msgstr "Deine Änderungen wurden gespeichert!"
+
+#: classes/template-coupons.php:52
+msgid "Please enter the coupon title"
+msgstr ""
+
+#: classes/template-coupons.php:56
+msgid "Please enter the amount"
+msgstr ""
+
+#: classes/template-coupons.php:60
+msgid "Please specify any products"
+msgstr ""
+
+#: classes/template-coupons.php:88
+msgid "Coupon title already exists"
+msgstr ""
+
+#: classes/template-coupons.php:179
+msgid "Coupon has been deleted successfully!"
+msgstr ""
+
+#: classes/template-coupons.php:188
+msgid "Coupon has been saved successfully!"
+msgstr ""
+
+#: classes/template-coupons.php:197
+msgid "Coupon has been updated successfully!"
+msgstr ""
+
+#: classes/template-coupons.php:246
+msgid "Code"
+msgstr ""
+
+#: classes/template-coupons.php:247
+msgid "Coupon type"
+msgstr ""
+
+#: classes/template-coupons.php:248
+msgid "Coupon amount"
+msgstr ""
+
+#: classes/template-coupons.php:249
+msgid "Product IDs"
+msgstr ""
+
+#: classes/template-coupons.php:250
+msgid "Usage / Limit"
+msgstr ""
+
+#: classes/template-coupons.php:251
+msgid "Expiry date"
+msgstr ""
+
+#: classes/template-coupons.php:270 includes/admin/announcement.php:59
+#: templates/edit/sidebar.php:20 templates/edit/sidebar.php:63
+#: templates/product-edit.php:111 templates/products-listing.php:94
+msgid "Edit"
+msgstr "Ändern"
+
+#: classes/template-coupons.php:271
+msgid "Are you sure want to delete"
+msgstr ""
+
+#: classes/template-coupons.php:271
+msgid "delete"
+msgstr ""
+
+#: classes/template-coupons.php:281
+msgid "Fixed Amount"
+msgstr ""
+
+#: classes/template-coupons.php:283
+msgid "Percent"
+msgstr ""
+
+#: classes/template-coupons.php:313
+msgid "%s / %s"
+msgstr ""
+
+#: classes/template-coupons.php:315
+msgid "%s / &infin;"
+msgstr ""
+
+#: classes/template-coupons.php:338
+msgid "No coupons found!"
+msgstr ""
+
+#: classes/template-coupons.php:353 classes/template-reviews.php:219
+#: classes/template-reviews.php:273 classes/template-withdraw.php:578
+#: includes/admin/reports.php:292
+msgid "&laquo;"
+msgstr ""
+
+#: classes/template-coupons.php:354 classes/template-reviews.php:220
+#: classes/template-reviews.php:274 classes/template-withdraw.php:579
+#: includes/admin/reports.php:293
+msgid "&raquo;"
+msgstr ""
+
+#: classes/template-coupons.php:377
+msgid "Create Coupon"
+msgstr ""
+
+#: classes/template-coupons.php:385
+msgid "Update Coupon"
+msgstr ""
+
+#: classes/template-coupons.php:514
+msgid "Coupon Title"
+msgstr ""
+
+#: classes/template-coupons.php:521 templates/new-product-single.php:366
+msgid "Description"
+msgstr "Beschreibung"
+
+#: classes/template-coupons.php:528
+msgid "Discount Type"
+msgstr ""
+
+#: classes/template-coupons.php:532
+msgid "Product Discount"
+msgstr ""
+
+#: classes/template-coupons.php:533
+msgid "Product % Discount"
+msgstr ""
+
+#: classes/template-coupons.php:539 classes/template-withdraw.php:425
+#: classes/template-withdraw.php:439 classes/template-withdraw.php:807
+#: classes/template-withdraw.php:997
+msgid "Amount"
+msgstr ""
+
+#: classes/template-coupons.php:546
+msgid "Email Restrictions"
+msgstr ""
+
+#: classes/template-coupons.php:548
+msgid "Email restrictions"
+msgstr ""
+
+#: classes/template-coupons.php:553 classes/template-coupons.php:555
+msgid "Usage Limit"
+msgstr ""
+
+#: classes/template-coupons.php:560 classes/template-coupons.php:562
+msgid "Expire Date"
+msgstr ""
+
+#: classes/template-coupons.php:580 includes/reports.php:708
+#: includes/reports.php:811
+msgid "Product"
+msgstr "Produkt"
+
+#: classes/template-coupons.php:600
+msgid "Exclude Sale Items"
+msgstr ""
+
+#: classes/template-coupons.php:605
+msgid "Check this box if the coupon should not apply to items on sale."
+msgstr ""
+
+#: classes/template-coupons.php:609
+msgid " Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart."
+msgstr ""
+
+#: classes/template-coupons.php:616 classes/template-coupons.php:618
+msgid "Minimum Amount"
+msgstr ""
+
+#: classes/template-coupons.php:627
+msgid "Exclude products"
+msgstr ""
+
+#: classes/template-notice.php:98
+msgid " See More"
+msgstr "Mehr anzeigen"
+
+#: classes/template-notice.php:111 templates/dashboard.php:224
+msgid "No announcement found"
+msgstr "Keine Benachrichtigungen gefunden"
+
+#: classes/template-notice.php:174 templates/products-listing.php:223
+msgid "&laquo; Previous"
+msgstr "&laquo; Vorherige"
+
+#: classes/template-notice.php:175 templates/products-listing.php:224
+msgid "Next &raquo;"
+msgstr "Nächste &raquo;"
+
+#: classes/template-reviews.php:122 includes/functions.php:755
+msgid "Author"
+msgstr "Autor"
+
+#: classes/template-reviews.php:123
+msgid "Comment"
+msgstr "Kommentar"
+
+#: classes/template-reviews.php:124
+msgid "Link To"
+msgstr "Link zu"
+
+#: classes/template-reviews.php:125
+msgid "Rating"
+msgstr "Bewertung"
+
+#: classes/template-reviews.php:139
+msgid "Submit"
+msgstr "Abschicken"
+
+#: classes/template-reviews.php:148 includes/admin/sellers.php:16
+#: includes/admin/sellers.php:91
+#: includes/woo-views/variation-admin-html.php:164
+#: templates/edit/vatiation-popup.php:156 templates/new-product-single.php:458
+#: templates/products-listing.php:27
+msgid "Name"
+msgstr "Name"
+
+#: classes/template-reviews.php:152 includes/admin/sellers.php:18
+#: includes/admin/sellers.php:93 includes/withdraw-functions.php:102
+#: includes/withdraw-functions.php:124
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: classes/template-reviews.php:156
+msgid "URL"
+msgstr "URL"
+
+#: classes/template-reviews.php:170
+msgid "Close"
+msgstr "Schließen"
+
+#: classes/template-reviews.php:171
+msgid "Update Comment"
+msgstr "Kommentar aktualisieren"
+
+#: classes/template-reviews.php:301 classes/template-reviews.php:306
+#: classes/template-reviews.php:310 classes/template-reviews.php:314
+msgid "-None-"
+msgstr "-keine-"
+
+#: classes/template-reviews.php:302
+msgid "Mark Approve"
+msgstr "Akzeptieren"
+
+#: classes/template-reviews.php:303 classes/template-reviews.php:316
+msgid "Mark Spam"
+msgstr "Span"
+
+#: classes/template-reviews.php:304 classes/template-reviews.php:317
+msgid "Mark Trash"
+msgstr "Papierkorb"
+
+#: classes/template-reviews.php:307
+msgid "Mark Not Spam"
+msgstr "Kein Spam"
+
+#: classes/template-reviews.php:308 classes/template-reviews.php:312
+msgid "Delete permanently"
+msgstr "L&ouml;schen"
+
+#: classes/template-reviews.php:311
+msgid "Resore"
+msgstr "Wiederherstellen"
+
+#: classes/template-reviews.php:315 classes/template-withdraw.php:553
+#: classes/template-withdraw.php:558
+msgid "Mark Pending"
+msgstr "zu erledigen"
+
+#: classes/template-reviews.php:370 templates/store-reviews.php:78
+msgid "No Result Found"
+msgstr "Nichts gefunden"
+
+#: classes/template-reviews.php:428
+msgid "Submitted on "
+msgstr "Abgeschickt am"
+
+#: classes/template-reviews.php:440
+msgid "View Comment"
+msgstr "Kommentar ansehen"
+
+#: classes/template-reviews.php:456 templates/store-reviews.php:97
+msgid "Rated %d out of 5"
+msgstr "Mit %d von 5 Sternen bewertet"
+
+#: classes/template-reviews.php:457 templates/store-reviews.php:98
+msgid "out of 5"
+msgstr "von 5"
+
+#: classes/template-reviews.php:473 classes/template-reviews.php:492
+#: classes/template-withdraw.php:468 classes/template-withdraw.php:478
+msgid "Approve"
+msgstr "Genehmigen"
+
+#: classes/template-reviews.php:474 classes/template-reviews.php:498
+#: templates/dashboard.php:131
+msgid "Spam"
+msgstr "Spam"
+
+#: classes/template-reviews.php:475 classes/template-reviews.php:499
+#: templates/dashboard.php:136
+msgid "Trash"
+msgstr "Papierkorb"
+
+#: classes/template-reviews.php:479
+msgid "Not Spam"
+msgstr "Kein Spam"
+
+#: classes/template-reviews.php:480 classes/template-reviews.php:485
+#: templates/products-listing.php:95
+msgid "Delete Permanently"
+msgstr "L&ouml;schen"
+
+#: classes/template-reviews.php:484
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: classes/template-reviews.php:490
+msgid "Unapprove"
+msgstr "Nicht genehmigen"
+
+#: classes/template-reviews.php:496
+msgid "Quick Edit"
+msgstr "Quick Edit"
+
+#: classes/template-reviews.php:507
+msgid "You can not edit reviews!"
+msgstr "Du kannst keine Bewertungen ändern!"
+
+#: classes/template-reviews.php:582 templates/dashboard.php:121
+msgid "All"
+msgstr "Alle"
+
+#: classes/template-reviews.php:584
+msgid "Pending ("
+msgstr "zu erledigen ("
+
+#: classes/template-reviews.php:584 classes/template-reviews.php:587
+#: classes/template-reviews.php:590
+msgid ")"
+msgstr ")"
+
+#: classes/template-reviews.php:587
+msgid "Spam ("
+msgstr "Spam ("
+
+#: classes/template-reviews.php:590
+msgid "Trash ("
+msgstr "Papierkorb ("
+
+#: classes/template-settings.php:61
+msgid "Your information has been saved successfully"
+msgstr "Deine Informationen wurden erfolgreich gespeichert."
+
+#: classes/template-settings.php:91 classes/template-settings.php:192
+msgid "waa name required"
+msgstr "waa Name erforderlich"
+
+#: classes/template-settings.php:97 classes/template-settings.php:153
+#: classes/template-settings.php:198
+msgid "waa type required"
+msgstr "waa Typ erforderlich"
+
+#: classes/template-settings.php:104 classes/template-settings.php:161
+#: classes/template-settings.php:205 classes/template-settings.php:237
+msgid "Invalid email"
+msgstr "Ungültige E-Mail-Adresse"
+
+#: classes/template-settings.php:121
+msgid "Address field for %s is required"
+msgstr "Adressfeld für %s ist erforderlich"
+
+#: classes/template-settings.php:381
+msgid "Add Profile Picture to gain %s%% progress"
+msgstr "Füge ein Profilfoto hinzu, um %s%% Fortschritt zu erhalten."
+
+#: classes/template-settings.php:400 includes/functions.php:1708
+msgid "Facebook"
+msgstr ""
+
+#: classes/template-settings.php:400
+msgid "Google+"
+msgstr ""
+
+#: classes/template-settings.php:401
+msgid "Add %s profile link to gain %s%% progress"
+msgstr "Füge ein %s Profillink hinzu, um %s%% Forschritt zu erhalten."
+
+#: classes/template-settings.php:415
+msgid "Add Phone to gain %s%% progress"
+msgstr "Füge eine Telefonnummer hinzu, um %s%% Fortschritt zu erhalten."
+
+#: classes/template-settings.php:428
+msgid "Add Banner to gain %s%% progress"
+msgstr "Füge einen Banner hinzu,um %s%% Fortschritt zu erhalten."
+
+#: classes/template-settings.php:440
+msgid "Add Store Name to gain %s%% progress"
+msgstr "Füge einen Anzeigenamen hinzu, um %s%% Fortschritt zu erhalten."
+
+#: classes/template-settings.php:452
+msgid "Add address to gain %s%% progress"
+msgstr "Füge Anschrift hinzu, um %s%% Forschritt zu erhalten."
+
+#: classes/template-settings.php:498
+msgid "Add a Payment method to gain %s%% progress"
+msgstr "Füge eine Zahlungsart hinzu, um %s%% Forschritt zu erhalten."
+
+#: classes/template-settings.php:506
+msgid "Add Map location to gain %s%% progress"
+msgstr "Füge eine Adresse für die Karte hinzu, um %s%% Forschritt zu erhalten."
+
+#: classes/template-settings.php:518
+msgid "Book"
+msgstr ""
+
+#: classes/template-settings.php:519
+msgid "Dress"
+msgstr ""
+
+#: classes/template-settings.php:520
+msgid "Electronic"
+msgstr ""
+
+#: classes/template-shipping.php:129
+msgid "This product does not ship to your chosen location: %s"
+msgstr ""
+
+#: classes/template-shipping.php:131
+msgid "These products do not ship to your chosen location.: %s"
+msgstr ""
+
+#: classes/template-shipping.php:166 includes/template-tags.php:370
+#: templates/product-edit.php:126
+msgid "Shipping"
+msgstr "Versand"
+
+#: classes/template-shipping.php:206
+msgid "Ready to ship in"
+msgstr ""
+
+#: classes/template-shipping.php:210
+msgid "from"
+msgstr ""
+
+#: classes/template-shipping.php:220
+msgid "Shipping Calculation:"
+msgstr ""
+
+#: classes/template-shipping.php:226
+msgid "Country"
+msgstr "Land"
+
+#: classes/template-shipping.php:228
+msgid "--Select Country--"
+msgstr "--Land wählen--"
+
+#: classes/template-shipping.php:230
+msgid "Other Countries"
+msgstr ""
+
+#: classes/template-shipping.php:241 templates/new-product-single.php:396
+msgid "Quantity"
+msgstr "Bestand"
+
+#: classes/template-shipping.php:245
+msgid "Get Shipping Cost"
+msgstr ""
+
+#: classes/template-shipping.php:260 templates/settings/shipping.php:144
+msgid "Shipping Policy"
+msgstr "Lieferbedingungen"
+
+#: classes/template-shipping.php:267 templates/settings/shipping.php:157
+msgid "Refund Policy"
+msgstr "Rückgabebedingungen"
+
+#: classes/template-shortcodes.php:63
+msgid "Please install <a href=\"%s\"><strong>WooCommerce</strong></a> plugin first"
+msgstr ""
+
+#: classes/template-shortcodes.php:184
+msgid "Details about your product..."
+msgstr "Details zu deinem Kunstwerk"
+
+#: classes/template-shortcodes.php:200 classes/template-shortcodes.php:307
+#: classes/template-shortcodes.php:394
+msgid "Please enter product title"
+msgstr "Bitte gebe einen Titel für das Kunstwerk ein."
+
+#: classes/template-shortcodes.php:206 classes/template-shortcodes.php:313
+#: classes/template-shortcodes.php:400
+msgid "Please select a category"
+msgstr "Bitte wähle eine Kategorie"
+
+#: classes/template-shortcodes.php:210 classes/template-shortcodes.php:317
+#: classes/template-shortcodes.php:404
+msgid "Please select atleast one category"
+msgstr "Bitte wähle min. eine Kategorie"
+
+#: classes/template-shortcodes.php:548 classes/template-shortcodes.php:617
+msgid "Order No"
+msgstr "Bestellnummer"
+
+#: classes/template-shortcodes.php:549 classes/template-shortcodes.php:618
+#: templates/orders/order-details.php:20
+msgid "Order Items"
+msgstr "Bestelldetails"
+
+#: classes/template-shortcodes.php:550 classes/template-shortcodes.php:619
+msgid "Shipping method"
+msgstr "Versandmethode"
+
+#: classes/template-shortcodes.php:551 classes/template-shortcodes.php:620
+msgid "Shipping Cost"
+msgstr "Versandkosten"
+
+#: classes/template-shortcodes.php:552 classes/template-shortcodes.php:621
+msgid "Payment method"
+msgstr "Zahlungsmethode"
+
+#: classes/template-shortcodes.php:553 classes/template-shortcodes.php:622
+#: includes/admin/reports.php:190 templates/orders/listing.php:18
+msgid "Order Total"
+msgstr "Gesamtbetrag"
+
+#: classes/template-shortcodes.php:554 classes/template-shortcodes.php:623
+msgid "Order Status"
+msgstr "Bestellstatus"
+
+#: classes/template-shortcodes.php:555 classes/template-shortcodes.php:624
+msgid "Order Date"
+msgstr "Bestelldatum"
+
+#: classes/template-shortcodes.php:556 classes/template-shortcodes.php:625
+msgid "Customer Name"
+msgstr "Name Kunde"
+
+#: classes/template-shortcodes.php:557 classes/template-shortcodes.php:626
+msgid "Customer Email"
+msgstr "E-Mail Kunde"
+
+#: classes/template-shortcodes.php:558 classes/template-shortcodes.php:627
+msgid "Customer Phone"
+msgstr "Telefon Kunde"
+
+#: classes/template-shortcodes.php:559 classes/template-shortcodes.php:628
+msgid "Customer IP"
+msgstr "IP des Kunden"
+
+#: classes/template-shortcodes.php:893 templates/orders/order-tax-html.php:8
+msgid "N/A"
+msgstr ""
+
+#: classes/template-shortcodes.php:906
+msgid "No Image"
+msgstr ""
+
+#: classes/template-shortcodes.php:922
+msgid "P:"
+msgstr ""
+
+#: classes/template-shortcodes.php:927 templates/settings/payment.php:17
+#: templates/settings/seo.php:13 templates/settings/shipping.php:35
+#: templates/settings/social.php:18 templates/settings/store.php:22
+#: templates/settings.php:21
+msgid "Visit Store"
+msgstr "Profil anzeigen"
+
+#: classes/template-shortcodes.php:947 includes/admin/sellers.php:122
+#: includes/template-tags.php:109
+msgid "&larr; Previous"
+msgstr ""
+
+#: classes/template-shortcodes.php:948 includes/admin/sellers.php:123
+#: includes/template-tags.php:120
+msgid "Next &rarr;"
+msgstr ""
+
+#: classes/template-shortcodes.php:969
+msgid "No seller found!"
+msgstr ""
+
+#: classes/template-withdraw.php:208
+msgid "Withdraw amount required "
+msgstr ""
+
+#: classes/template-withdraw.php:211
+msgid "You don't have enough balance for this request"
+msgstr "Dein Kontostand ist zu niedrig, um eine Auszahlung anzufordern."
+
+#: classes/template-withdraw.php:213
+msgid "Withdraw amount must be greater than %d"
+msgstr ""
+
+#: classes/template-withdraw.php:217
+msgid "withdraw method required"
+msgstr ""
+
+#: classes/template-withdraw.php:395
+msgid "Requests deleted!"
+msgstr "Anfrage gelöscht!"
+
+#: classes/template-withdraw.php:399
+msgid "Requests cancelled!"
+msgstr "Anfrage abgebrochen!"
+
+#: classes/template-withdraw.php:403
+msgid "Requests approved!"
+msgstr "Anfrage bestätigt!"
+
+#: classes/template-withdraw.php:424 classes/template-withdraw.php:438
+msgid "User Name"
+msgstr "Username"
+
+#: classes/template-withdraw.php:426 classes/template-withdraw.php:440
+#: classes/template-withdraw.php:808 classes/template-withdraw.php:998
+msgid "Method"
+msgstr "Zahlungsmethode"
+
+#: classes/template-withdraw.php:427 classes/template-withdraw.php:441
+msgid "Method Details"
+msgstr "Zahlungsempfänger"
+
+#: classes/template-withdraw.php:428 classes/template-withdraw.php:442
+msgid "Note"
+msgstr "Notiz"
+
+#: classes/template-withdraw.php:429 classes/template-withdraw.php:443
+msgid "IP"
+msgstr "IP"
+
+#: classes/template-withdraw.php:430 classes/template-withdraw.php:444
+#: classes/template-withdraw.php:809 classes/template-withdraw.php:999
+#: includes/admin/announcement.php:174 includes/admin-functions.php:49
+#: includes/wc-template.php:127 templates/my-orders.php:28
+#: templates/orders/listing.php:21 templates/products-listing.php:34
+msgid "Date"
+msgstr "Datum"
+
+#: classes/template-withdraw.php:469 classes/template-withdraw.php:473
+#: classes/template-withdraw.php:810 classes/template-withdraw.php:828
+#: templates/edit/sidebar.php:36 templates/edit/sidebar.php:76
+#: templates/my-orders.php:83 templates/orders/order-details.php:175
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: classes/template-withdraw.php:474 classes/template-withdraw.php:479
+#: includes/admin/withdraw.php:13 templates/dashboard.php:85
+#: templates/dashboard.php:126
+msgid "Pending"
+msgstr "zu erledigen"
+
+#: classes/template-withdraw.php:484 classes/template-withdraw.php:563
+#: includes/admin/sellers.php:106
+#: includes/woo-views/html-product-download.php:18
+#: includes/woo-views/html-product-download.php:39
+#: includes/woo-views/html-product-variation-download.php:5
+#: templates/edit/sidebar.php:168 templates/edit/vatiation-popup.php:169
+#: templates/edit/vatiation-popup.php:191
+msgid "Delete"
+msgstr "Löschen"
+
+#: classes/template-withdraw.php:508 templates/orders/order-details.php:268
+msgid "Add note"
+msgstr "Notiz hinzufügen"
+
+#: classes/template-withdraw.php:514 templates/edit/vatiation-popup.php:244
+#: templates/new-product-single.php:922
+msgid "Save"
+msgstr "Speichern"
+
+#: classes/template-withdraw.php:515
+msgid "cancel"
+msgstr "abbrechen"
+
+#: classes/template-withdraw.php:531
+msgid "No result found"
+msgstr "Nichts gefunden"
+
+#: classes/template-withdraw.php:543 includes/admin/sellers.php:105
+msgid "Bulk Actions"
+msgstr "Massenbearbeitung"
+
+#: classes/template-withdraw.php:547 classes/template-withdraw.php:557
+msgid "Approve Requests"
+msgstr "Anfragen genehmigen"
+
+#: classes/template-withdraw.php:548 classes/template-withdraw.php:552
+msgid "Mark as Cancelled"
+msgstr "Anfragen abbrechen"
+
+#: classes/template-withdraw.php:564
+msgid "Download PayPal mass payment file"
+msgstr "Paypal Payment-Datei herunterladen"
+
+#: classes/template-withdraw.php:569 includes/admin/sellers.php:109
+msgid "Apply"
+msgstr "Anwenden"
+
+#: classes/template-withdraw.php:784
+msgid "Pending Reivew"
+msgstr "Ausstehende Überprüfung"
+
+#: classes/template-withdraw.php:788
+msgid "Accepted"
+msgstr "Akzeptiert"
+
+#: classes/template-withdraw.php:811 includes/admin/reports.php:193
+#: includes/admin/sellers.php:22 includes/admin/sellers.php:97
+#: includes/admin-functions.php:42 includes/wc-template.php:128
+#: templates/my-orders.php:29 templates/orders/listing.php:19
+#: templates/products-listing.php:28
+msgid "Status"
+msgstr "Status"
+
+#: classes/template-withdraw.php:848
+msgid "- Select Method -"
+msgstr "- Zahlungsart auswählen -"
+
+#: classes/template-withdraw.php:849
+msgid "Paypal"
+msgstr "Paypal"
+
+#: classes/template-withdraw.php:850 includes/withdraw-functions.php:15
+msgid "Bank Transfer"
+msgstr "Überweisung"
+
+#: classes/template-withdraw.php:869
+msgid "Your request has been cancelled successfully!"
+msgstr "Deine Anfrage wurde erfolgreich abgebrochen."
+
+#: classes/template-withdraw.php:873
+msgid "Your request has been received successfully and is under review!"
+msgstr "Deine Anfrage wurde erfolgreich übermittelt und wird nun überprüft."
+
+#: classes/template-withdraw.php:877
+msgid "Unknown error!"
+msgstr "Unbekannter Fehler"
+
+#: classes/template-withdraw.php:906
+msgid "You already withdrawed %s. This amount will deducted from your next balance."
+msgstr "Du hast dir bereits %s auszahlen lassen. Dieser Wert wird von deinem Kontostand abgebucht."
+
+#: classes/template-withdraw.php:912
+msgid "You've already pending withdraw request(s)."
+msgstr "Du hast noch ausstehende Auszahlungsanforderungen."
+
+#: classes/template-withdraw.php:913
+msgid "Until it's been cancelled or approved, you can't submit any new request."
+msgstr "Bis deine Anfrage angenommen oder abgelehnt wird, kannst du keine neue Anfrage senden."
+
+#: classes/template-withdraw.php:922
+msgid "You don't have sufficient balance for a withdraw request!"
+msgstr "Dein Kontostand ist zu niedrig, um eine Auszahlung anzufordern!"
+
+#: classes/template-withdraw.php:947
+msgid "Withdraw Amount"
+msgstr "Auszuzahlender Betrag"
+
+#: classes/template-withdraw.php:960
+msgid "Payment Method"
+msgstr "Zahlungsmethode"
+
+#: classes/template-withdraw.php:975
+msgid "Submit Request"
+msgstr "Anfrage abschicken"
+
+#: classes/template-withdraw.php:1017
+msgid "Err!"
+msgstr "Error!"
+
+#: classes/template-withdraw.php:1017
+msgid "Sorry, no transactions found!"
+msgstr "Entschuldige, keine Auszahlung gefunden!"
+
+#: classes/update.php:56
+msgid "Updates"
+msgstr ""
+
+#: classes/update.php:79
+msgid "Please <a href=\"%s\">enter</a> your <strong>waa</strong> plugin license key to get regular update and support."
+msgstr ""
+
+#: classes/update.php:94
+msgid "Pleae activate your copy"
+msgstr ""
+
+#: classes/update.php:132
+msgid "waa Error:"
+msgstr ""
+
+#: classes/update.php:320
+msgid "Empty email address"
+msgstr ""
+
+#: classes/update.php:324
+msgid "Empty license key"
+msgstr ""
+
+#: classes/update.php:342
+msgid "Settings Saved"
+msgstr ""
+
+#: classes/update.php:358
+msgid "Plugin Activation"
+msgstr ""
+
+#: classes/update.php:361
+msgid "Enter the E-mail address that was used for purchasing the plugin and the license key."
+msgstr ""
+
+#: classes/update.php:362
+msgid "We recommend you to enter those details to get regular <strong>plugin update and support</strong>."
+msgstr ""
+
+#: classes/update.php:381
+msgid "E-mail Address"
+msgstr ""
+
+#: classes/update.php:384
+msgid "Enter your purchase Email address"
+msgstr ""
+
+#: classes/update.php:388
+msgid "License Key"
+msgstr ""
+
+#: classes/update.php:391
+msgid "Enter your license key"
+msgstr ""
+
+#: classes/update.php:396
+msgid "Save & Activate"
+msgstr ""
+
+#: classes/update.php:405
+msgid "has been expired %s ago"
+msgstr ""
+
+#: classes/update.php:408
+msgid "will expire in %s"
+msgstr ""
+
+#: classes/update.php:414
+msgid "Validity:"
+msgstr ""
+
+#: classes/update.php:419
+msgid "Renew License"
+msgstr ""
+
+#: classes/update.php:427
+msgid "Plugin is activated"
+msgstr ""
+
+#: classes/update.php:431
+msgid "Delete License"
+msgstr ""
+
+#: classes/upgrade.php:43
+msgid "<strong>waa Data Update Required</strong> &#8211; Please click the button below to update to the latest version."
+msgstr ""
+
+#: classes/upgrade.php:46
+msgid "Run the Updater"
+msgstr ""
+
+#: waa.php:254 waa.php:279
+msgid "Available"
+msgstr "Verfügbar"
+
+#: waa.php:255 waa.php:280
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+#: waa.php:257 waa.php:282
+msgid "Are you want to sure ?"
+msgstr "Bist du dir sicher?"
+
+#: waa.php:258 waa.php:283
+msgid "Something wrong, Please try again"
+msgstr "Etwas ist schief gelaufen, bitte versuche es erneut."
+
+#: waa.php:284
+msgid "Sorry this attribute option already exist, Try another one"
+msgstr ""
+
+#: waa.php:285
+msgid "Warning! This product will not have any variation by unchecked this option"
+msgstr ""
+
+#: waa.php:289
+msgid "This field is required from localization."
+msgstr "Dieses Feld ist ein Pflichtfeld."
+
+#: waa.php:290
+msgid "Please fix this field."
+msgstr ""
+
+#: waa.php:291
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: waa.php:292
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: waa.php:293
+msgid "Please enter a valid date."
+msgstr ""
+
+#: waa.php:294
+msgid "Please enter a valid date (ISO)."
+msgstr ""
+
+#: waa.php:295
+msgid "Please enter a valid number."
+msgstr ""
+
+#: waa.php:296
+msgid "Please enter only digits."
+msgstr ""
+
+#: waa.php:297
+msgid "Please enter a valid credit card number."
+msgstr ""
+
+#: waa.php:298
+msgid "Please enter the same value again."
+msgstr ""
+
+#: waa.php:299
+msgid "Please enter no more than {0} characters."
+msgstr ""
+
+#: waa.php:300
+msgid "Please enter at least {0} characters."
+msgstr ""
+
+#: waa.php:301
+msgid "Please enter a value between {0} and {1} characters long."
+msgstr ""
+
+#: waa.php:302
+msgid "Please enter a value between {0} and {1}."
+msgstr ""
+
+#: waa.php:303
+msgid "Please enter a value less than or equal to {0}."
+msgstr ""
+
+#: waa.php:304
+msgid "Please enter a value greater than or equal to {0}."
+msgstr ""
+
+#: waa.php:598
+msgid "Page %s"
+msgstr ""
+
+#: includes/admin/add-on.php:2
+msgid "waa - Add-ons"
+msgstr ""
+
+#: includes/admin/admin.php:85 includes/admin/admin.php:93
+#: includes/admin/dashboard.php:72 includes/functions.php:1467
+#: includes/template-tags.php:333 templates/withdraw.php:12
+msgid "Withdraw"
+msgstr "Auszahlung"
+
+#: includes/admin/admin.php:88
+msgid "Withdraw %s"
+msgstr "%s Auszahlung"
+
+#: includes/admin/admin.php:91 includes/functions.php:1451
+msgid "waa"
+msgstr ""
+
+#: includes/admin/admin.php:92 includes/admin/dashboard.php:96
+#: includes/functions.php:1460
+msgid "waa Dashboard"
+msgstr "Dashboard"
+
+#: includes/admin/admin.php:94
+msgid "Sellers Listing"
+msgstr "Künstler Liste"
+
+#: includes/admin/admin.php:94 includes/functions.php:1474
+msgid "All Sellers"
+msgstr "Alle Künstler"
+
+#: includes/admin/admin.php:95 includes/functions.php:1481
+msgid "Earning Reports"
+msgstr "Einnahmen"
+
+#: includes/admin/admin.php:96 includes/admin/announcement.php:43
+#: includes/admin/announcement.php:54 includes/admin/announcement.php:55
+#: templates/announcement.php:17
+msgid "Announcement"
+msgstr "Benachrichtigungen"
+
+#: includes/admin/admin.php:100
+msgid "Tools"
+msgstr "Tools"
+
+#: includes/admin/admin.php:101 includes/functions.php:1488
+#: templates/settings/store.php:21 templates/settings.php:20
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin/admin.php:102
+msgid "Add Ons"
+msgstr ""
+
+#: includes/admin/admin.php:102
+msgid "Add-ons"
+msgstr ""
+
+#: includes/admin/admin.php:116
+msgid "General"
+msgstr "Allgemeines"
+
+#: includes/admin/admin.php:120
+msgid "Selling Options"
+msgstr "Verkaufseinstellungen"
+
+#: includes/admin/admin.php:124
+msgid "Page Settings"
+msgstr ""
+
+#: includes/admin/admin.php:131
+msgid "- select -"
+msgstr "- auswählen -"
+
+#: includes/admin/admin.php:156
+msgid "Admin area access"
+msgstr "Zugang Adminbereich"
+
+#: includes/admin/admin.php:157
+msgid "Disable sellers and customers from accessing wp-admin area"
+msgstr ""
+
+#: includes/admin/admin.php:163
+msgid "Show Map on Store Page"
+msgstr ""
+
+#: includes/admin/admin.php:164
+msgid "Enable showing Store location map on store left sidebar"
+msgstr ""
+
+#: includes/admin/admin.php:170
+msgid "Show Contact Form on Store Page"
+msgstr ""
+
+#: includes/admin/admin.php:171
+msgid "Enable showing contact seller form on store left sidebar"
+msgstr ""
+
+#: includes/admin/admin.php:177
+msgid "Enable Store Sidebar From Theme"
+msgstr ""
+
+#: includes/admin/admin.php:178
+msgid "Enable showing Store Sidebar From Your Theme."
+msgstr ""
+
+#: includes/admin/admin.php:184
+msgid "Product Mail Notification"
+msgstr ""
+
+#: includes/admin/admin.php:185
+msgid "Email notification on new product submission"
+msgstr ""
+
+#: includes/admin/admin.php:191
+msgid "Enable Store SEO"
+msgstr ""
+
+#: includes/admin/admin.php:192
+msgid "Sellers can manage their Store page SEO"
+msgstr ""
+
+#: includes/admin/admin.php:200 includes/functions.php:953
+#: templates/settings/store.php:199
+msgid "Terms and Conditions"
+msgstr "AGBs"
+
+#: includes/admin/admin.php:201
+msgid "Enable terms and conditions for seller store"
+msgstr "Aktiviere individuelle AGBs für die Künstlerprofile"
+
+#: includes/admin/admin.php:207
+msgid "New Seller Enable Selling"
+msgstr "Neue Künstler direkt zulassen"
+
+#: includes/admin/admin.php:208
+msgid "Make selling status enable for new registred seller"
+msgstr "Neue Künstler können ohne Freischaltung Produkte anlegen (aber nicht online stellen)"
+
+#: includes/admin/admin.php:214
+msgid "Add/Edit Product Style"
+msgstr "Produktstil"
+
+#: includes/admin/admin.php:215
+msgid "The style you prefer for seller to add or edit products. "
+msgstr "Der Stil, der beim Erstellen neuer Produkte verwendet werden soll."
+
+#: includes/admin/admin.php:219
+msgid "Tab View"
+msgstr "Tab Ansicht"
+
+#: includes/admin/admin.php:220
+msgid "Flat View"
+msgstr "Flache Ansicht (erweitert)"
+
+#: includes/admin/admin.php:225
+msgid "Category Selection"
+msgstr "Kategorieauswahl"
+
+#: includes/admin/admin.php:226
+msgid "What option do you prefer for seller to select product category? "
+msgstr "Sollen Künstler nur eine oder mehrere Kategorien auswählen können?"
+
+#: includes/admin/admin.php:230
+msgid "Single"
+msgstr "Nur eine"
+
+#: includes/admin/admin.php:231
+msgid "Multiple"
+msgstr "Mehrere"
+
+#: includes/admin/admin.php:236
+msgid "New Product Status"
+msgstr "Initialer Produktstatus"
+
+#: includes/admin/admin.php:237
+msgid "Product status when a seller creates a product"
+msgstr "Der Produktstatus für neue Kunstwerke, die durch einen Künstler eingestellt wurden."
+
+#: includes/admin/admin.php:241 templates/products-listing.php:182
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: includes/admin/admin.php:242 includes/functions.php:510
+#: templates/dashboard.php:169
+msgid "Pending Review"
+msgstr "Ausstehende Überprüfung"
+
+#: includes/admin/admin.php:248
+msgid "How much amount (%) a seller will get from each order"
+msgstr "Wie viel Prozent (%) erhält der Künstler von einer Bestellung?"
+
+#: includes/admin/admin.php:254
+msgid "Order Status Change"
+msgstr "Bestellstatusänderung"
+
+#: includes/admin/admin.php:255
+msgid "Seller can change order status"
+msgstr "Künstler kann Bestellstatus ändern"
+
+#: includes/admin/admin.php:261
+msgid "Withdraw Methods"
+msgstr "Auszahlungsarten"
+
+#: includes/admin/admin.php:262
+msgid "Withdraw methods for sellers"
+msgstr "Auszahlungsarten für die Künstler"
+
+#: includes/admin/admin.php:269
+msgid "Order Status for Withdraw"
+msgstr "Bestellstatus für Auszahlung"
+
+#: includes/admin/admin.php:270
+msgid "Order status for which seller can make a withdraw request."
+msgstr "Bestellstatus, für welchen ein Künstler eine Auszahlung anfordern kann."
+
+#: includes/admin/admin.php:272 includes/admin/admin.php:273
+#: templates/dashboard.php:80
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: includes/admin/admin.php:272 includes/admin/admin.php:273
+#: templates/dashboard.php:90 templates/orders/listing.php:90
+msgid "Processing"
+msgstr "in Bearbeitung"
+
+#: includes/admin/admin.php:272 includes/admin/admin.php:273
+msgid "On-hold"
+msgstr "Wartend"
+
+#: includes/admin/admin.php:277
+msgid "Minimum Withdraw Limit"
+msgstr "Minimalen Kontostand"
+
+#: includes/admin/admin.php:278
+msgid "Minimum balance required to make a withdraw request"
+msgstr "Minimum für Kontostand eines Künstlers, um eine Auszahlung anfordern zu können."
+
+#: includes/admin/admin.php:284
+msgid "Withdraw Threshold"
+msgstr "Auszahlungsgrenzwert"
+
+#: includes/admin/admin.php:285
+msgid "Days, ( Make order matured to make a withdraw request) <br> Value \"0\" will inactive this option"
+msgstr "Anzahl der Tage, die nach einer Bestellung vergehen müssen, um eine Auszahlung anfordern zu können.<br> Wert \"0\" = Option inaktiv"
+
+#: includes/admin/admin.php:291
+msgid "Seller Store URL"
+msgstr "Künstler-Profil-URL"
+
+#: includes/admin/admin.php:292
+msgid "Define seller store URL (%s<strong>[this-text]</strong>/[seller-name])"
+msgstr "Lege eine URL für die Künstlerprofile fest (%s<strong>[URL]</strong>/[kuenstler-name])"
+
+#: includes/admin/admin.php:298
+msgid "Review Editing"
+msgstr "Rezensionen bearbeiten"
+
+#: includes/admin/admin.php:299
+msgid "Seller can edit product reviews"
+msgstr "Künstler kann Rezensionen bearbeiten"
+
+#: includes/admin/admin.php:447
+msgid "<strong>waa Data Update Required</strong> &#8211; We need to update your install to the latest version"
+msgstr ""
+
+#: includes/admin/admin.php:448
+msgid "Run the updater"
+msgstr ""
+
+#: includes/admin/admin.php:453
+msgid "It is strongly recommended that you backup your database before proceeding. Are you sure you wish to run the updater now?"
+msgstr ""
+
+#: includes/admin/announcement.php:21
+msgid "-- Select --"
+msgstr "-- Auswählen --"
+
+#: includes/admin/announcement.php:22
+msgid "All Seller"
+msgstr "Alle Künstler"
+
+#: includes/admin/announcement.php:23
+msgid "Selected Seller"
+msgstr "Künstler auswählen"
+
+#: includes/admin/announcement.php:56
+msgid "waa Announcement"
+msgstr "Benachrichtigungen"
+
+#: includes/admin/announcement.php:57
+msgid "Add Announcement"
+msgstr "Benachrichtigung hinzufügen"
+
+#: includes/admin/announcement.php:58
+msgid "Add New Announcement"
+msgstr "Neue Benachrichtigung hinzufügen"
+
+#: includes/admin/announcement.php:60
+msgid "Edit Announcement"
+msgstr "Benachrichtigung bearbeiten"
+
+#: includes/admin/announcement.php:61
+msgid "New Announcement"
+msgstr "Neue Benachrichtigung"
+
+#: includes/admin/announcement.php:62 includes/admin/announcement.php:63
+msgid "View Announcement"
+msgstr "Benachrichtigung ansehen"
+
+#: includes/admin/announcement.php:64
+msgid "Search Announcement"
+msgstr "Suche Benachrichtigung"
+
+#: includes/admin/announcement.php:65
+msgid "No Announcement Found"
+msgstr "Keine Benachrichtigung gefunden"
+
+#: includes/admin/announcement.php:66
+msgid "No Announcement found in trash"
+msgstr "Keine Benachrichtigungen im Papierkorb gefunden"
+
+#: includes/admin/announcement.php:67
+msgid "Parent Announcement"
+msgstr ""
+
+#: includes/admin/announcement.php:80
+msgid "Announcement Settings"
+msgstr "Benachrichtigungseinstellungen"
+
+#: includes/admin/announcement.php:103
+msgid "Send Announcement To"
+msgstr "Sende Benachrichtigung an"
+
+#: includes/admin/announcement.php:114
+msgid "Select Sellers"
+msgstr "Künstler auswählen"
+
+#: includes/admin/announcement.php:116
+msgid "Select Sellers..."
+msgstr "Künstler auswählen..."
+
+#: includes/admin/announcement.php:173
+msgid "Sent To"
+msgstr "Sende an"
+
+#: includes/admin/announcement.php:198
+msgid "No seller assigned!"
+msgstr "Kein Künstler ausgewählt"
+
+#: includes/admin/dashboard.php:39
+msgid "Sellers"
+msgstr "Künstler"
+
+#: includes/admin/dashboard.php:53
+msgid "No Active Seller"
+msgstr "Keine aktiven Künstler"
+
+#: includes/admin/dashboard.php:64
+msgid "No Pending Seller"
+msgstr "Keine Künstler ausstehend (in Bearbeitung)"
+
+#: includes/admin/dashboard.php:77
+msgid "%d Pending Withdraw"
+msgstr "%d ausstehende Auszahlung"
+
+#: includes/admin/dashboard.php:81
+msgid "%d Completed Withdraw"
+msgstr "%d Ausszahlung vollzogen"
+
+#: includes/admin/dashboard.php:85
+msgid "%d Cancelled Withdraw"
+msgstr "%d Auszahlung abgebrochen"
+
+#: includes/admin/dashboard.php:101
+msgid "At a Glance"
+msgstr "Auf einen Blick"
+
+#: includes/admin/dashboard.php:102
+msgid "waa News Updates"
+msgstr "Updates"
+
+#: includes/admin/dashboard.php:110 includes/reports.php:14
+msgid "Overview"
+msgstr "Übersicht"
+
+#: includes/admin/reports.php:7 includes/template-tags.php:323
+#: templates/reports.php:8
+msgid "Reports"
+msgstr "Berichte"
+
+#: includes/admin/reports.php:8
+msgid "All Logs"
+msgstr "Alle Logs"
+
+#: includes/admin/reports.php:21
+msgid "By Day"
+msgstr "Nach Tag"
+
+#: includes/admin/reports.php:22
+msgid "By Month"
+msgstr "Nach Monat"
+
+#: includes/admin/reports.php:23
+msgid "By Seller"
+msgstr "Nach Künstler"
+
+#: includes/admin/reports.php:66 includes/admin/reports.php:106
+#: includes/reports.php:326 includes/reports.php:692 includes/reports.php:796
+msgid "From:"
+msgstr "Von:"
+
+#: includes/admin/reports.php:70 includes/admin/reports.php:111
+#: includes/reports.php:330 includes/reports.php:697 includes/reports.php:801
+msgid "To:"
+msgstr "Bis:"
+
+#: includes/admin/reports.php:73 includes/admin/reports.php:114
+#: includes/admin/reports.php:129 includes/reports.php:333
+#: includes/reports.php:701 includes/reports.php:805
+msgid "Show"
+msgstr "Anzeigen"
+
+#: includes/admin/reports.php:83 includes/admin/reports.php:90
+msgid "Select a Store..."
+msgstr "Wähle einen Künstler"
+
+#: includes/admin/reports.php:89
+msgid "Store Name : "
+msgstr "Anzeigename:"
+
+#: includes/admin/reports.php:121
+msgid "Year:"
+msgstr "Jahr:"
+
+#: includes/admin/reports.php:162
+msgid "Total Earning"
+msgstr "Gesamte Einnahmen"
+
+#: includes/admin/reports.php:166
+msgid "Total Earning in this period"
+msgstr "Gesamte Einnahmen diesen Monat"
+
+#: includes/admin/reports.php:170
+msgid "Order total in this period"
+msgstr "Gesamter Umsatz diesen Monat"
+
+#: includes/admin/reports.php:174
+msgid "orders placed in this period"
+msgstr "Bestellungen Gesamt diesen Monat"
+
+#: includes/admin/reports.php:188 includes/admin-functions.php:43
+#: includes/wc-template.php:126 templates/dashboard.php:35
+#: templates/my-orders.php:27 templates/orders/listing.php:17
+#: templates/orders/order-details.php:20
+msgid "Order"
+msgstr "Bestellung"
+
+#: includes/admin/reports.php:191
+msgid "Seller Earning"
+msgstr "Künstler Einnahmen"
+
+#: includes/admin/reports.php:192 includes/admin-functions.php:395
+#: includes/admin-functions.php:697
+msgid "Commision"
+msgstr "Kommission"
+
+#: includes/admin/reports.php:247
+msgid "edit"
+msgstr "bearbeiten"
+
+#: includes/admin/sellers.php:2
+msgid "Seller Listing"
+msgstr "Künstlerliste"
+
+#: includes/admin/sellers.php:15 includes/admin/sellers.php:90
+msgid "Username"
+msgstr "Username"
+
+#: includes/admin/sellers.php:17 includes/admin/sellers.php:92
+#: includes/template-tags.php:533 templates/update-account.php:46
+msgid "Shop Name"
+msgstr "Künstlername"
+
+#: includes/admin/sellers.php:19 includes/admin/sellers.php:55
+#: includes/admin/sellers.php:94 includes/functions.php:939
+#: includes/template-tags.php:308 templates/dashboard.php:144
+#: templates/product-edit.php:58
+msgid "Products"
+msgstr "Kunstwerke"
+
+#: includes/admin/sellers.php:20 includes/admin/sellers.php:95
+msgid "Balance"
+msgstr "Kontostand"
+
+#: includes/admin/sellers.php:50
+msgid "Activate Selling"
+msgstr "Verkauf aktivieren"
+
+#: includes/admin/sellers.php:52
+msgid "Make Inactivate"
+msgstr "Künstler deaktivieren"
+
+#: includes/admin/sellers.php:56 includes/template-tags.php:313
+#: templates/dashboard.php:58
+msgid "Orders"
+msgstr "Bestellungen"
+
+#: includes/admin/sellers.php:71
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/admin/sellers.php:73
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#: includes/admin/sellers.php:81
+msgid "No users found!"
+msgstr "Kein Benutzer gefunden!"
+
+#: includes/admin/tools.php:2
+msgid "waa Tools"
+msgstr "Tools"
+
+#: includes/admin/tools.php:10
+msgid "Pages have been created and installed!"
+msgstr ""
+
+#: includes/admin/tools.php:14
+msgid "Order sync table has been regenerated!"
+msgstr ""
+
+#: includes/admin/tools.php:30
+msgid "Page Installation"
+msgstr ""
+
+#: includes/admin/tools.php:33
+msgid "Clicking this button will create required pages for the plugin."
+msgstr ""
+
+#: includes/admin/tools.php:34
+msgid "Install waa Pages"
+msgstr ""
+
+#: includes/admin/tools.php:39
+msgid "Regenerate Order Sync Table"
+msgstr ""
+
+#: includes/admin/tools.php:42
+msgid "This tool will delete all orders from the waa's sync table and re-build it."
+msgstr ""
+
+#: includes/admin/tools.php:44
+msgid "Re-build"
+msgstr ""
+
+#: includes/admin/withdraw.php:8
+msgid "Withdraw Requests"
+msgstr "Ausszahlunganfragen"
+
+#: includes/admin/withdraw.php:18
+msgid "Approved"
+msgstr "Bestätigt"
+
+#: includes/admin/withdraw.php:23 templates/dashboard.php:95
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+#: includes/admin-functions.php:44
+msgid "Purchased"
+msgstr "Gekauft"
+
+#: includes/admin-functions.php:45 templates/settings/shipping.php:201
+#: templates/settings/shipping.php:305 templates/settings/shipping.php:368
+msgid "Ship to"
+msgstr "Liefern an"
+
+#: includes/admin-functions.php:47
+msgid "Customer Message"
+msgstr "Kundennachricht"
+
+#: includes/admin-functions.php:48 templates/orders/order-details.php:230
+msgid "Order Notes"
+msgstr "Kundennotiz"
+
+#: includes/admin-functions.php:50 includes/wc-template.php:129
+#: templates/dashboard.php:75 templates/dashboard.php:154
+#: templates/my-orders.php:30 templates/orders/order-fee-html.php:17
+msgid "Total"
+msgstr "Gesamt"
+
+#: includes/admin-functions.php:51
+msgid "Actions"
+msgstr "Aktionen"
+
+#: includes/admin-functions.php:53
+msgid "Sub Order"
+msgstr ""
+
+#: includes/admin-functions.php:79
+msgid "Sub Order of"
+msgstr ""
+
+#: includes/admin-functions.php:89
+msgid "Show Sub-Orders"
+msgstr ""
+
+#: includes/admin-functions.php:89
+msgid "Hide Sub-Orders"
+msgstr ""
+
+#: includes/admin-functions.php:246
+msgid "Toggle Sub-orders"
+msgstr ""
+
+#: includes/admin-functions.php:375 includes/admin-functions.php:677
+msgid "Total Sales"
+msgstr "Umsatz Gesamt"
+
+#: includes/admin-functions.php:382 includes/admin-functions.php:684
+msgid "Total: "
+msgstr "Gesamt: "
+
+#: includes/admin-functions.php:385 includes/admin-functions.php:687
+#: includes/reports.php:563
+msgid "Number of orders"
+msgstr "Anzahl Bestellungen"
+
+#: includes/admin-functions.php:392 includes/admin-functions.php:694
+#: includes/reports.php:570
+msgid "sales"
+msgstr "Verkäufe"
+
+#: includes/admin-functions.php:402 includes/admin-functions.php:704
+msgid "Commision: "
+msgstr "Kommission"
+
+#: includes/functions.php:502 templates/edit/sidebar.php:25
+#: templates/new-product-single.php:751
+msgid "Online"
+msgstr "Online"
+
+#: includes/functions.php:506 templates/edit/sidebar.php:26
+#: templates/new-product-single.php:752
+msgid "Draft"
+msgstr "Entwurf"
+
+#: includes/functions.php:514 includes/functions.php:574
+#: templates/products-listing.php:187
+msgid "Scheduled"
+msgstr "Geplant"
+
+#: includes/functions.php:562
+msgid "Simple Product"
+msgstr "Einfaches Produkt"
+
+#: includes/functions.php:566
+msgid "Variable Product"
+msgstr ""
+
+#: includes/functions.php:570
+msgid "Grouped Product"
+msgstr ""
+
+#: includes/functions.php:943 includes/template-tags.php:328
+#: templates/dashboard.php:116 templates/edit/options.php:10
+#: templates/reviews.php:12
+msgid "Reviews"
+msgstr ""
+
+#: includes/functions.php:990
+msgid "Account Name: %s"
+msgstr "Kontoinhaber: %s"
+
+#: includes/functions.php:993
+msgid "Account Number: %s"
+msgstr ""
+
+#: includes/functions.php:996
+msgid "Bank Name: %s"
+msgstr "Name der Bank: %s"
+
+#: includes/functions.php:999
+msgid "Address: %s"
+msgstr "Adresse: %s"
+
+#: includes/functions.php:1002
+msgid "SWIFT: %s"
+msgstr "BIC: %s"
+
+#: includes/functions.php:1342
+msgid "- Select a location -"
+msgstr "- Wähle ein Land -"
+
+#: includes/functions.php:1346 includes/functions.php:1369
+msgid "Everywhere Else"
+msgstr ""
+
+#: includes/functions.php:1365
+msgid "- Select a State -"
+msgstr "- Wähle ein Bundesland - "
+
+#: includes/functions.php:1387
+msgid "Ready to ship in..."
+msgstr "Bereit zum Versand in..."
+
+#: includes/functions.php:1388
+msgid "1 business day"
+msgstr "1 Werktag"
+
+#: includes/functions.php:1389
+msgid "1-2 business day"
+msgstr "1-2 Werktagen"
+
+#: includes/functions.php:1390
+msgid "1-3 business day"
+msgstr "1-3 Werktagen"
+
+#: includes/functions.php:1391
+msgid "3-5 business day"
+msgstr "3-5 Werktagen"
+
+#: includes/functions.php:1392
+msgid "1-2 weeks"
+msgstr "1-2 Wochen"
+
+#: includes/functions.php:1393
+msgid "2-3 weeks"
+msgstr "2-3 Wochen"
+
+#: includes/functions.php:1394
+msgid "3-4 weeks"
+msgstr "3-4 Wochen"
+
+#: includes/functions.php:1395
+msgid "4-6 weeks"
+msgstr "4-6 Wochen"
+
+#: includes/functions.php:1396
+msgid "6-8 weeks"
+msgstr "6-8 Wochen"
+
+#: includes/functions.php:1508
+msgid "Start with adding a Banner to gain profile progress"
+msgstr "Füge einen Banner hinzu, um dein Profil zu vervollständigen."
+
+#: includes/functions.php:1518
+msgid "% Profile complete"
+msgstr "% Profil vervollständigt."
+
+#: includes/functions.php:1569
+msgid "All dates"
+msgstr "Jedes Datum"
+
+#. translators: 1: month name, 2: 4-digit year
+#: includes/functions.php:1582
+msgid "%1$s %2$d"
+msgstr ""
+
+#: includes/functions.php:1610 templates/new-product-single.php:230
+#: templates/new-product.php:65 templates/product-edit.php:265
+msgid "- Select a category -"
+msgstr "-Kategorie auswählen-"
+
+#: includes/functions.php:1630 templates/orders.php:25
+msgid "Filter"
+msgstr "Filtern"
+
+#: includes/functions.php:1636 templates/edit/options.php:23
+#: templates/new-product-single.php:772
+msgid "Search"
+msgstr "Suche"
+
+#: includes/functions.php:1712
+msgid "Google Plus"
+msgstr ""
+
+#: includes/functions.php:1716
+msgid "Twitter"
+msgstr ""
+
+#: includes/functions.php:1720
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/functions.php:1724
+msgid "Youtube"
+msgstr ""
+
+#: includes/functions.php:1728
+msgid "Instagram"
+msgstr ""
+
+#: includes/functions.php:1732
+msgid "Flickr"
+msgstr ""
+
+#: includes/functions.php:1803
+msgid "Street "
+msgstr "Straße und Hausnummer"
+
+#: includes/functions.php:1816
+msgid "Street 2"
+msgstr "Adressezusatz"
+
+#: includes/functions.php:1832
+msgid "City"
+msgstr "Stadt"
+
+#: includes/functions.php:1845
+msgid "Post/ZIP Code"
+msgstr "Postleitzahl (PLZ)"
+
+#: includes/functions.php:1866
+msgid "Country "
+msgstr "Land"
+
+#: includes/functions.php:1895
+msgid "State "
+msgstr "Bundesland"
+
+#: includes/order-functions.php:211
+msgid "Mark parent order completed as all child orders are completed."
+msgstr ""
+
+#: includes/reports.php:11 includes/reports.php:709 includes/reports.php:812
+#: templates/dashboard.php:44 templates/dashboard.php:179
+msgid "Sales"
+msgstr "Verkäufte"
+
+#: includes/reports.php:20
+msgid "Sales by day"
+msgstr "Verkäufe nach Tag"
+
+#: includes/reports.php:25
+msgid "Top sellers"
+msgstr "Top Künstler"
+
+#: includes/reports.php:30
+msgid "Top earners"
+msgstr "Top Verdiener"
+
+#: includes/reports.php:288
+msgid "This month's sales"
+msgstr "Verkäufte diesen Monat"
+
+#: includes/reports.php:338
+msgid "Sales in this period"
+msgstr "Umsatz diesen Monat"
+
+#: includes/reports.php:424
+msgid "%s sales in this period"
+msgstr "%s Verkäufe diesen Monat"
+
+#: includes/reports.php:428
+msgid "%s average daily sales"
+msgstr "%s durchschnittliche Verkäufe pro Tag"
+
+#: includes/reports.php:432
+msgid "%s orders placed"
+msgstr "%s Bestellungen getätigt"
+
+#: includes/reports.php:436
+msgid "%s items purchased"
+msgstr "%s Kunstwerke verkauft"
+
+#: includes/reports.php:440
+msgid "%s charged for shipping"
+msgstr "%s eingenommen durch Versand"
+
+#: includes/reports.php:444
+msgid "%s worth of coupons used"
+msgstr "%s Wert aller Gutscheine"
+
+#: includes/reports.php:553
+msgid "Number of items sold"
+msgstr "Anzahl verkaufter Kunstwerke"
+
+#: includes/reports.php:723
+msgid "Product does not exist"
+msgstr "Produkt existiert nicht"
+
+#: includes/reports.php:827
+msgid "Product no longer exists"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:20
+msgid "waa Shipping"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:21
+msgid "Enable sellers to set shipping cost per product and per country"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:57
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:59
+#: templates/settings/shipping.php:67
+msgid "Enable Shipping"
+msgstr "Versand aktivieren"
+
+#: includes/shipping-gateway/shipping.php:63
+msgid "Method Title"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:65
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:66
+msgid "Regular Shipping"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:70 templates/edit/inventory.php:64
+#: templates/new-product-single.php:713
+msgid "Tax Status"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:74 templates/edit/inventory.php:67
+#: templates/new-product-single.php:716
+msgid "Taxable"
+msgstr ""
+
+#: includes/template-tags.php:138
+msgid "Product has been deleted successfully!"
+msgstr ""
+
+#: includes/template-tags.php:160 includes/template-tags.php:203
+msgid "All (%d)"
+msgstr "Alle (%d)"
+
+#: includes/template-tags.php:163
+msgid "Online (%d)"
+msgstr ""
+
+#: includes/template-tags.php:166
+msgid "Pending Review (%d)"
+msgstr "Ausstehende Überprüfung (%d)"
+
+#: includes/template-tags.php:169
+msgid "Draft (%d)"
+msgstr "Entwurf (%d)"
+
+#: includes/template-tags.php:217
+msgid "Completed (%d)"
+msgstr "Abgeschlossen (%d)"
+
+#: includes/template-tags.php:231
+msgid "Processing (%d)"
+msgstr "in Bearbeitung (%d)"
+
+#: includes/template-tags.php:245
+msgid "On-hold (%d)"
+msgstr "Wartend (%d)"
+
+#: includes/template-tags.php:259
+msgid "Pending (%d)"
+msgstr "zu bearbeiten (%d)"
+
+#: includes/template-tags.php:273
+msgid "Cancelled (%d)"
+msgstr "Abgebrochen (%d)"
+
+#: includes/template-tags.php:287
+msgid "Refunded (%d)"
+msgstr "Zurückerstattet (%d)"
+
+#: includes/template-tags.php:318 templates/orders/order-details.php:85
+msgid "Coupons"
+msgstr ""
+
+#: includes/template-tags.php:342
+msgid "Settings <i class=\"fa fa-angle-right pull-right\"></i>"
+msgstr "Profil <i class=\"fa fa-angle-right pull-right\"></i>"
+
+#: includes/template-tags.php:349
+msgid "Back to Dashboard"
+msgstr "zurück zum Dashboard"
+
+#: includes/template-tags.php:354
+msgid "Store"
+msgstr "Profil"
+
+#: includes/template-tags.php:359
+msgid "Payment"
+msgstr "Zahlung"
+
+#: includes/template-tags.php:376
+msgid "Social Profile"
+msgstr "Soziale Profile"
+
+#: includes/template-tags.php:382 templates/settings/seo.php:12
+msgid "Store SEO"
+msgstr "Profil SEO"
+
+#: includes/template-tags.php:522 templates/update-account.php:35
+msgid "First Name"
+msgstr "Vorname"
+
+#: includes/template-tags.php:527 templates/update-account.php:40
+msgid "Last Name"
+msgstr "Nachname"
+
+#: includes/template-tags.php:538 templates/update-account.php:51
+msgid "Shop URL"
+msgstr "Profil-URL"
+
+#: includes/template-tags.php:558
+msgid "I am a customer"
+msgstr "Ich bin ein Kunde"
+
+#: includes/template-tags.php:563
+msgid "I am a seller"
+msgstr "Ich bin Künstler"
+
+#: includes/template-tags.php:576 templates/new-product-single.php:129
+#: templates/new-product.php:13 templates/product-edit.php:95
+msgid "Error!"
+msgstr "Fehler!"
+
+#: includes/template-tags.php:577
+msgid "Your account is not enabled for selling, please contact the admin"
+msgstr "Dein Account wurde noch nicht freigeschaltet. Wir werden uns so schnell wie möglich darum kümmern."
+
+#: includes/template-tags.php:593
+msgid "Cart %s"
+msgstr "Warenkorb %s"
+
+#: includes/template-tags.php:611
+msgid "Seller Dashboard"
+msgstr "Künstler Dashboard"
+
+#: includes/template-tags.php:614
+msgid "Visit your store"
+msgstr "Besuche dein Profil"
+
+#: includes/template-tags.php:631
+msgid "My Account"
+msgstr "Mein Konto"
+
+#: includes/template-tags.php:632
+msgid "Edit Account"
+msgstr "Konto bearbeiten"
+
+#: includes/template-tags.php:634 templates/orders/order-details.php:112
+msgid "Billing Address"
+msgstr "Rechnungsanschrift"
+
+#: includes/template-tags.php:635 templates/orders/order-details.php:121
+msgid "Shipping Address"
+msgstr "Lieferadresse"
+
+#: includes/template-tags.php:642
+msgid "Log in"
+msgstr "Login"
+
+#: includes/template-tags.php:643
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: includes/template-tags.php:658 templates/update-account.php:70
+msgid "Become a Seller"
+msgstr "Werde ein Künstler"
+
+#: includes/wc-functions.php:42
+msgid "Before adding variations, add and save some attributes on the <strong>Attributes</strong> tab."
+msgstr ""
+
+#: includes/wc-functions.php:44
+msgid "Learn more"
+msgstr ""
+
+#: includes/wc-functions.php:157
+msgid "Add Variation"
+msgstr ""
+
+#: includes/wc-functions.php:159
+msgid "Link all variations"
+msgstr ""
+
+#: includes/wc-functions.php:161
+msgid "Default selections:"
+msgstr ""
+
+#: includes/wc-functions.php:174
+msgid "No default"
+msgstr ""
+
+#: includes/wc-functions.php:259
+msgid "Are you sure you want to link all variations? This will create a new variation for each and every possible combination of variation attributes (max 50 per run)."
+msgstr ""
+
+#: includes/wc-functions.php:276
+msgid "variation added"
+msgstr ""
+
+#: includes/wc-functions.php:278
+msgid "variations added"
+msgstr ""
+
+#: includes/wc-functions.php:280
+msgid "No variations added"
+msgstr ""
+
+#: includes/wc-functions.php:303
+msgid "Are you sure you want to remove this variation?"
+msgstr ""
+
+#: includes/wc-functions.php:424
+msgid "Choose an image"
+msgstr ""
+
+#: includes/wc-functions.php:426
+msgid "Set variation image"
+msgstr ""
+
+#: includes/wc-functions.php:554 includes/wc-functions.php:972
+msgid "Product SKU must be unique."
+msgstr ""
+
+#: includes/wc-functions.php:1895
+msgid "Order &ndash; %s"
+msgstr ""
+
+#: includes/wc-functions.php:2141
+msgid "Cheating, eh?"
+msgstr ""
+
+#: includes/wc-functions.php:2150
+msgid "Please enter your first name."
+msgstr ""
+
+#: includes/wc-functions.php:2155
+msgid "Please enter your last name."
+msgstr ""
+
+#: includes/wc-functions.php:2159
+msgid "Please enter your phone number."
+msgstr ""
+
+#: includes/wc-functions.php:2463 includes/widgets/best-seller.php:52
+#: includes/widgets/feature-seller.php:53
+msgid "No ratings found yet!"
+msgstr ""
+
+#: includes/wc-functions.php:2468
+msgid "Rated %s out of %d"
+msgstr ""
+
+#: includes/wc-functions.php:2549
+msgid "Enter your first name"
+msgstr ""
+
+#: includes/wc-functions.php:2550
+msgid "Enter your last name"
+msgstr ""
+
+#: includes/wc-functions.php:2551
+msgid "Enter your shop name"
+msgstr ""
+
+#: includes/wc-functions.php:2552
+msgid "Enter your shop address"
+msgstr ""
+
+#: includes/wc-functions.php:2553
+msgid "Enter your phone number"
+msgstr ""
+
+#: includes/wc-functions.php:2588
+msgid "Your {site_title} order receipt from {order_date}"
+msgstr ""
+
+#: includes/wc-functions.php:2589
+msgid "Your {site_title} order from {order_date} is complete"
+msgstr ""
+
+#: includes/wc-template.php:32
+msgid "Seller Info"
+msgstr ""
+
+#: includes/wc-template.php:55
+msgid "Seller Information"
+msgstr ""
+
+#: includes/wc-template.php:60
+msgid "Store Name:"
+msgstr ""
+
+#: includes/wc-template.php:69
+msgid "Seller:"
+msgstr ""
+
+#: includes/wc-template.php:78
+msgid "Address:"
+msgstr ""
+
+#: includes/wc-template.php:113
+msgid "Sub Orders"
+msgstr ""
+
+#: includes/wc-template.php:117
+msgid "Note:"
+msgstr ""
+
+#: includes/wc-template.php:118
+msgid ""
+"This order has products from multiple vendors/sellers. So we divided this order into multiple seller orders.\n"
+"        Each order will be handled by their respective seller independently."
+msgstr ""
+
+#: includes/wc-template.php:153 templates/my-orders.php:55
+msgid "%s for %s item"
+msgid_plural "%s for %s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/wc-template.php:161 templates/my-orders.php:88
+#: templates/orders/listing.php:107 templates/products-listing.php:96
+msgid "View"
+msgstr "Anzeigen"
+
+#: includes/widgets/best-seller.php:96
+msgid "Best Seller"
+msgstr ""
+
+#: includes/widgets/best-seller.php:104
+#: includes/widgets/bestselling-product.php:75
+#: includes/widgets/feature-seller.php:105
+#: includes/widgets/menu-category.php:147
+#: includes/widgets/store-contact.php:100
+#: includes/widgets/store-location.php:115 includes/widgets/store-menu.php:70
+#: includes/widgets/top-rated-product.php:74
+msgid "Title:"
+msgstr "Titel:"
+
+#: includes/widgets/best-seller.php:108
+#: includes/widgets/feature-seller.php:109
+msgid "No of Seller:"
+msgstr ""
+
+#: includes/widgets/bestselling-product.php:68
+msgid "Best Selling Product"
+msgstr ""
+
+#: includes/widgets/bestselling-product.php:79
+#: includes/widgets/top-rated-product.php:78
+msgid "No of Product:"
+msgstr ""
+
+#: includes/widgets/bestselling-product.php:84
+#: includes/widgets/top-rated-product.php:83
+msgid "Show Product Rating"
+msgstr ""
+
+#: includes/widgets/menu-category.php:70
+msgid "waa product category menu"
+msgstr ""
+
+#: includes/widgets/menu-category.php:141
+msgid "Product Category"
+msgstr ""
+
+#: includes/widgets/store-contact.php:16
+msgid "waa Seller Contact Form"
+msgstr ""
+
+#: includes/widgets/store-contact.php:17
+msgid "waa: Store Contact Form"
+msgstr ""
+
+#: includes/widgets/store-contact.php:50
+msgid "Your Name"
+msgstr ""
+
+#: includes/widgets/store-contact.php:53
+msgid "you@example.com"
+msgstr ""
+
+#: includes/widgets/store-contact.php:56
+msgid "Type your messsage..."
+msgstr ""
+
+#: includes/widgets/store-contact.php:63
+msgid "Send Message"
+msgstr ""
+
+#: includes/widgets/store-contact.php:94 templates/store-reviews.php:40
+#: templates/store-toc.php:39 templates/store.php:42
+msgid "Contact Seller"
+msgstr ""
+
+#: includes/widgets/store-location.php:16
+msgid "waa Seller Store Location"
+msgstr ""
+
+#: includes/widgets/store-location.php:17
+msgid "waa: Store Location"
+msgstr ""
+
+#: includes/widgets/store-location.php:109 templates/store-reviews.php:37
+#: templates/store-toc.php:36 templates/store.php:39
+msgid "Store Location"
+msgstr ""
+
+#: includes/widgets/store-menu.php:16
+msgid "waa Seller Store Menu"
+msgstr ""
+
+#: includes/widgets/store-menu.php:17
+msgid "waa: Store Category Menu"
+msgstr ""
+
+#: includes/widgets/store-menu.php:64 templates/new-product-single.php:219
+msgid "Category"
+msgstr "Kategorie"
+
+#: includes/widgets/top-rated-product.php:10
+msgid "waa: Top Rated Product Widget"
+msgstr ""
+
+#: includes/widgets/top-rated-product.php:11
+msgid "A Widget for displaying To rated products for waa"
+msgstr ""
+
+#: includes/widgets/top-rated-product.php:67
+msgid "Top Rated Product"
+msgstr ""
+
+#: includes/withdraw-functions.php:11
+msgid "PayPal"
+msgstr ""
+
+#: includes/withdraw-functions.php:19
+msgid "Skrill"
+msgstr ""
+
+#: includes/withdraw-functions.php:147
+msgid "Your bank account name"
+msgstr "Kontoinhaber"
+
+#: includes/withdraw-functions.php:153
+msgid "Your bank account number"
+msgstr "Kontonummer"
+
+#: includes/withdraw-functions.php:159
+msgid "Name of bank"
+msgstr "Bankinstitut"
+
+#: includes/withdraw-functions.php:165
+msgid "Address of your bank"
+msgstr ""
+
+#: includes/withdraw-functions.php:171
+msgid "Swift code"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:7
+msgid "File Name:"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:7
+#: includes/woo-views/variation-admin-html.php:164
+#: templates/edit/vatiation-popup.php:156 templates/new-product-single.php:458
+msgid "This is the name of the download shown to the customer."
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:8
+#: includes/woo-views/html-product-download.php:27
+#: includes/woo-views/html-product-variation-download.php:2
+#: templates/edit/vatiation-popup.php:166
+#: templates/edit/vatiation-popup.php:188
+msgid "File Name"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:12
+msgid "File URL:"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:12
+#: includes/woo-views/variation-admin-html.php:165
+#: templates/edit/vatiation-popup.php:157 templates/new-product-single.php:459
+msgid "This is the URL or absolute path to the file which customers will get access to."
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:13
+#: includes/woo-views/html-product-download.php:32
+#: includes/woo-views/html-product-variation-download.php:3
+#: templates/edit/vatiation-popup.php:167
+#: templates/edit/vatiation-popup.php:189
+msgid "http://"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:17
+#: includes/woo-views/html-product-download.php:33
+#: includes/woo-views/html-product-variation-download.php:4
+#: templates/edit/vatiation-popup.php:168
+#: templates/edit/vatiation-popup.php:190
+msgid "Choose file"
+msgstr ""
+
+#: includes/woo-views/html-product-download.php:17
+#: includes/woo-views/html-product-download.php:33
+#: includes/woo-views/html-product-variation-download.php:4
+#: templates/edit/vatiation-popup.php:168
+#: templates/edit/vatiation-popup.php:190
+msgid "Insert file URL"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:7
+msgid "Click to toggle"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:21
+#: templates/edit/variation-item.php:28
+msgid "Any"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:54
+#: templates/edit/inventory.php:18 templates/edit/inventory.php:20
+#: templates/edit/load_variation_template.php:118
+#: templates/new-product-single.php:385 templates/new-product-single.php:835
+#: templates/products-listing.php:29
+msgid "SKU"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:54
+#: templates/edit/vatiation-popup.php:38
+msgid "Enter a SKU for this variation or leave blank to use the parent product SKU."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:64
+msgid "Stock Qty:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:64
+#: templates/edit/vatiation-popup.php:48
+msgid "Enter a quantity to enable stock management at variation level, or leave blank to use the parent product's options."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:68
+#: templates/edit/vatiation-popup.php:52
+msgid "Allow Backorders?"
+msgstr "Lieferrückstand erlauben?"
+
+#: includes/woo-views/variation-admin-html.php:71
+#: templates/edit/inventory.php:54 templates/edit/vatiation-popup.php:55
+#: templates/new-product-single.php:414
+msgid "Allow but notify customer"
+msgstr "Erlauben, aber Kunden benachrichtigen"
+
+#: includes/woo-views/variation-admin-html.php:78
+#: templates/edit/vatiation-popup.php:62
+msgid "Stock status"
+msgstr "Lagerstatus"
+
+#: includes/woo-views/variation-admin-html.php:78
+msgid "Controls whether or not the product is listed as \"in stock\" or \"out of stock\" on the frontend."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:89
+msgid "Regular Price:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:90
+#: templates/edit/vatiation-popup.php:74
+msgid "Variation price (required)"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:93
+msgid "Sale Price:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:93
+#: templates/edit/vatiation-popup.php:77 templates/product-edit.php:225
+msgid "Schedule"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:93
+#: templates/edit/vatiation-popup.php:78
+msgid "Cancel schedule"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:100
+#: templates/edit/vatiation-popup.php:85
+msgid "Sale start date:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:104
+#: templates/edit/vatiation-popup.php:89
+msgid "Sale end date:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:113
+#: templates/edit/shipping.php:32 templates/edit/vatiation-popup.php:100
+msgid "Weight"
+msgstr "Gewicht"
+
+#: includes/woo-views/variation-admin-html.php:113
+msgid "Enter a weight for this variation or leave blank to use the parent product weight."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:121
+#: templates/edit/vatiation-popup.php:108
+msgid "Dimensions (L&times;W&times;H)"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:132
+#: templates/edit/vatiation-popup.php:122
+msgid "Shipping class:"
+msgstr "Versandgruppe"
+
+#: includes/woo-views/variation-admin-html.php:147
+#: templates/edit/vatiation-popup.php:139
+msgid "Tax class:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:160
+#: templates/edit/vatiation-popup.php:152
+msgid "Downloadable Files"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:165
+#: templates/edit/vatiation-popup.php:157 templates/new-product-single.php:459
+msgid "File URL"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:180
+#: templates/edit/sidebar.php:108 templates/edit/vatiation-popup.php:171
+#: templates/new-product-single.php:452
+msgid "Add File"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:206
+#: templates/edit/vatiation-popup.php:205
+msgid "Download Limit:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:206
+#: templates/edit/vatiation-popup.php:205
+msgid "Leave blank for unlimited re-downloads."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:207
+#: includes/woo-views/variation-admin-html.php:213
+#: templates/edit/vatiation-popup.php:206
+#: templates/edit/vatiation-popup.php:212
+#: templates/orders/order-download-permission-html.php:28
+msgid "Unlimited"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:212
+#: templates/edit/vatiation-popup.php:211
+msgid "Download Expiry:"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:212
+#: templates/edit/vatiation-popup.php:211
+msgid "Enter the number of days before a download link expires, or leave blank."
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:226
+msgid "Enabled"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:228
+#: templates/products-listing.php:144
+msgid "Downloadable"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:228
+msgid "Enable this option if access is given to a downloadable file upon purchase of a product"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:230
+#: templates/products-listing.php:142
+msgid "Virtual"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:230
+msgid "Enable this option if a product is not shipped or there is no shipping cost"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:232
+#: templates/edit/inventory.php:25
+msgid "Manage Stock?"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:232
+msgid "Enable this option to enable stock management at variation level"
+msgstr ""
+
+#: templates/coupons.php:15
+msgid "Coupon"
+msgstr ""
+
+#: templates/coupons.php:17
+msgid "Edit Coupon"
+msgstr ""
+
+#: templates/coupons.php:24
+msgid "Add new Coupon"
+msgstr ""
+
+#: templates/dashboard.php:31
+msgid "Pageview"
+msgstr "Besucher"
+
+#: templates/dashboard.php:48
+msgid "Earning"
+msgstr "Einnahmen"
+
+#: templates/dashboard.php:100
+msgid "Refunded"
+msgstr "Zurückerstattet"
+
+#: templates/dashboard.php:105
+msgid "On hold"
+msgstr "Wartend"
+
+#: templates/dashboard.php:147
+msgid "+ Add new product"
+msgstr "+ neues Kunstwerk hinzufügen"
+
+#: templates/dashboard.php:159
+msgid "Live"
+msgstr ""
+
+#: templates/dashboard.php:164
+msgid "Offline"
+msgstr ""
+
+#: templates/dashboard.php:190
+msgid "Latest Announcement"
+msgstr "letzte Benachrichtigungen"
+
+#: templates/dashboard.php:193
+msgid "See All"
+msgstr "Alle anzeigen"
+
+#: templates/edit/attributes.php:1 templates/product-edit.php:131
+msgid "Attributes"
+msgstr "Attribut"
+
+#: templates/edit/attributes.php:1
+msgid "Different types of this product (e.g. size, color)"
+msgstr ""
+
+#: templates/edit/attributes.php:48 templates/edit/templates-js.php:5
+msgid "Category name"
+msgstr ""
+
+#: templates/edit/attributes.php:140 templates/new-product-single.php:519
+#: templates/new-product-single.php:873
+msgid "Custom Attribute"
+msgstr ""
+
+#: templates/edit/attributes.php:148
+msgid "+ Add a category"
+msgstr ""
+
+#: templates/edit/attributes.php:149
+msgid "Save attributes"
+msgstr ""
+
+#: templates/edit/inventory.php:27
+msgid "Enable stock management at product level"
+msgstr ""
+
+#: templates/edit/inventory.php:32
+msgid "Stock Qty"
+msgstr "Bestandsmenge"
+
+#: templates/edit/inventory.php:39 templates/new-product-single.php:401
+msgid "Stock Status"
+msgstr "Lagerstatus"
+
+#: templates/edit/inventory.php:42 templates/new-product-single.php:404
+msgid "In Stock"
+msgstr "Auf Lager"
+
+#: templates/edit/inventory.php:43 templates/new-product-single.php:405
+msgid "Out of Stock"
+msgstr "Nicht auf Lager"
+
+#: templates/edit/inventory.php:50 templates/new-product-single.php:410
+msgid "Allow Backorders"
+msgstr "Lieferrückstand"
+
+#: templates/edit/inventory.php:68 templates/new-product-single.php:717
+msgid "Shipping only"
+msgstr ""
+
+#: templates/edit/inventory.php:76 templates/new-product-single.php:725
+msgid "Tax Class"
+msgstr ""
+
+#: templates/edit/load_variation_template.php:115
+#: templates/products-listing.php:26
+msgid "Image"
+msgstr "Bild"
+
+#: templates/edit/load_variation_template.php:116
+#: templates/new-product-single.php:833
+msgid "Variant"
+msgstr "Größe"
+
+#: templates/edit/load_variation_template.php:117
+#: templates/new-product-single.php:176 templates/new-product-single.php:834
+#: templates/products-listing.php:31
+msgid "Price"
+msgstr "Preis"
+
+#: templates/edit/load_variation_template.php:119
+#: templates/new-product-single.php:460 templates/orders/listing.php:22
+msgid "Action"
+msgstr "Aktion"
+
+#: templates/edit/load_variation_template.php:210
+msgid "Add Options"
+msgstr ""
+
+#: templates/edit/load_variation_template.php:211
+msgid "Add New Variation"
+msgstr ""
+
+#: templates/edit/options.php:3 templates/new-product-single.php:778
+msgid "Purchase Note"
+msgstr "Nachricht an Kunden"
+
+#: templates/edit/options.php:13
+msgid "Enable Reviews"
+msgstr ""
+
+#: templates/edit/options.php:18 templates/new-product-single.php:768
+msgid "Visibility"
+msgstr ""
+
+#: templates/edit/options.php:21 templates/new-product-single.php:770
+msgid "Catalog or Search"
+msgstr ""
+
+#: templates/edit/options.php:22 templates/new-product-single.php:771
+msgid "Catalog"
+msgstr ""
+
+#: templates/edit/options.php:24 templates/new-product-single.php:115
+#: templates/new-product-single.php:773 templates/product-edit.php:62
+msgid "Hidden"
+msgstr ""
+
+#: templates/edit/options.php:30
+msgid "Sold Individually"
+msgstr ""
+
+#: templates/edit/options.php:32
+msgid "Enable this to only allow one of this item to be bought in a single order"
+msgstr ""
+
+#: templates/edit/shipping.php:24
+msgid "Disable Shipping"
+msgstr ""
+
+#: templates/edit/shipping.php:26
+msgid "Disable shipping for this product"
+msgstr ""
+
+#: templates/edit/shipping.php:39
+msgid "Dimensions"
+msgstr "Dimensionen"
+
+#: templates/edit/shipping.php:41
+msgid "length"
+msgstr "Länger"
+
+#: templates/edit/shipping.php:42
+msgid "width"
+msgstr "Breite"
+
+#: templates/edit/shipping.php:43
+msgid "height"
+msgstr "Höhe"
+
+#: templates/edit/shipping.php:49
+msgid "Override Shipping"
+msgstr "Versand überschreiben"
+
+#: templates/edit/shipping.php:51 templates/new-product-single.php:673
+msgid "Override default shipping cost for this product"
+msgstr "Überschreibe die Standardversandkosten für dieses Kunstwerk"
+
+#: templates/edit/shipping.php:56 templates/new-product-single.php:677
+msgid "Additional cost"
+msgstr "Zusätzliche Kosten"
+
+#: templates/edit/shipping.php:64 templates/new-product-single.php:682
+#: templates/settings/shipping.php:113
+msgid "Per Qty Additional Price"
+msgstr "Gebühr für jedes zusätzliches Produkt"
+
+#: templates/edit/shipping.php:72 templates/new-product-single.php:687
+#: templates/settings/shipping.php:126
+msgid "Processing Time"
+msgstr "Bearbeitungszeit"
+
+#: templates/edit/sidebar.php:8
+msgid "Update Product"
+msgstr ""
+
+#: templates/edit/sidebar.php:14
+msgid "Product Status:"
+msgstr "Produktstatus"
+
+#: templates/edit/sidebar.php:35 templates/edit/sidebar.php:75
+msgid "OK"
+msgstr ""
+
+#: templates/edit/sidebar.php:42
+msgid "Product Type:"
+msgstr ""
+
+#: templates/edit/sidebar.php:46
+msgid "Simple product"
+msgstr ""
+
+#: templates/edit/sidebar.php:47
+msgid "Variable product"
+msgstr ""
+
+#: templates/edit/sidebar.php:88
+msgid "Downloadable Product"
+msgstr ""
+
+#: templates/edit/sidebar.php:128
+msgid "Limit"
+msgstr ""
+
+#: templates/edit/sidebar.php:129
+msgid "Number of times"
+msgstr ""
+
+#: templates/edit/sidebar.php:135 templates/new-product-single.php:484
+msgid "Number of days"
+msgstr ""
+
+#: templates/edit/sidebar.php:146
+msgid "Image Gallery"
+msgstr ""
+
+#: templates/edit/sidebar.php:168 templates/new-product-single.php:343
+msgid "Delete image"
+msgstr ""
+
+#: templates/edit/sidebar.php:180
+msgid "+ Add product images"
+msgstr ""
+
+#: templates/edit/variation-item.php:55 templates/edit/vatiation-popup.php:79
+#: templates/new-product-single.php:180 templates/new-product-single.php:189
+#: templates/new-product-single.php:851
+msgid "0.00"
+msgstr "0,00"
+
+#: templates/edit/vatiation-popup.php:13
+msgid "Add New "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:19
+msgid "Any "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:38
+msgid "SKU: "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:48
+msgid "Stock Qty: "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:73
+msgid "Regular Price: "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:77
+msgid "Sale Price: "
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:86
+msgid "From… YYYY-MM-DD"
+msgstr ""
+
+#: templates/edit/vatiation-popup.php:90
+msgid "To… YYYY-MM-DD"
+msgstr ""
+
+#: templates/my-orders.php:21
+msgid "Recent Orders"
+msgstr ""
+
+#: templates/my-orders.php:65
+msgid "Multiple Seller"
+msgstr ""
+
+#: templates/my-orders.php:77
+msgid "Pay"
+msgstr ""
+
+#: templates/my-orders.php:106
+msgid "No orders found!"
+msgstr "Keine Bestellungen gefunden!"
+
+#: templates/new-product-single.php:101
+msgid "Add New Product"
+msgstr "Neues Kunstwerk hinzufügen"
+
+#: templates/new-product-single.php:103
+msgid "Edit Product"
+msgstr "Kunstwerk bearbeiten"
+
+#: templates/new-product-single.php:110 templates/product-edit.php:67
+msgid "View Product"
+msgstr "Kunstwerk ansehen"
+
+#: templates/new-product-single.php:138 templates/product-edit.php:82
+msgid "Success!"
+msgstr "Gratulation!"
+
+#: templates/new-product-single.php:138
+msgid "The product has been saved successfully."
+msgstr "Das Kunstwerk wurde erfolgreich gespeichert."
+
+#: templates/new-product-single.php:141 templates/product-edit.php:85
+msgid "View Product &rarr;"
+msgstr "Kunstwerk ansehen &rarr;"
+
+#: templates/new-product-single.php:167
+msgid "Title"
+msgstr "Titel"
+
+#: templates/new-product-single.php:168 templates/new-product.php:46
+msgid "Product name.."
+msgstr "Titel des Kunstwerks"
+
+#: templates/new-product-single.php:185
+msgid "Discounted Price"
+msgstr "Heruntergesetzter Preis"
+
+#: templates/new-product-single.php:196
+msgid "Schedule Discounted Price"
+msgstr "Heruntergesetzten Preis planen"
+
+#: templates/new-product-single.php:203 templates/product-edit.php:232
+msgid "From"
+msgstr "Von"
+
+#: templates/new-product-single.php:210 templates/product-edit.php:239
+msgid "To"
+msgstr "Bis"
+
+#: templates/new-product-single.php:245 templates/new-product.php:80
+#: templates/product-edit.php:280
+msgid "Choose a category"
+msgstr "Wähle eine Kategorie"
+
+#: templates/new-product-single.php:267
+msgid "Tags"
+msgstr "Schlagworte"
+
+#: templates/new-product-single.php:287 templates/product-edit.php:324
+msgid "Select product tags"
+msgstr "Wähle passende Schlagworte"
+
+#: templates/new-product-single.php:312 templates/product-edit.php:179
+msgid "Upload a product cover image"
+msgstr "Lade ein Produktbild hoch."
+
+#: templates/new-product-single.php:354
+msgid "+ Add more images"
+msgstr "+ weitere Bilder hochladen"
+
+#: templates/new-product-single.php:361
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+#: templates/new-product-single.php:376
+msgid "Inventory & Variants"
+msgstr "Lager & Bestand"
+
+#: templates/new-product-single.php:379
+msgid "Manage inventory, and configure the options for selling this product."
+msgstr "Verwalte den Lagerbestand."
+
+#: templates/new-product-single.php:385
+msgid "(Stock Keeping Unit)"
+msgstr "(Stock Keeping Unit, für deine interne Verwaltung)"
+
+#: templates/new-product-single.php:390
+msgid "Enable product stock management"
+msgstr "Lagerbestand aktivieren"
+
+#: templates/new-product-single.php:421
+msgid "Allow only one quantity of this product to be bought in a single order"
+msgstr "Erlaube nur den Verkauf eines einzelnen Produktes pro Bestellung."
+
+#: templates/new-product-single.php:431
+msgid "This is a downloadable product"
+msgstr ""
+
+#: templates/new-product-single.php:478
+msgid "Download Limit"
+msgstr ""
+
+#: templates/new-product-single.php:479
+msgid "e.g. 4"
+msgstr ""
+
+#: templates/new-product-single.php:483
+msgid "Download Expiry"
+msgstr ""
+
+#: templates/new-product-single.php:503
+msgid "This product has multiple options"
+msgstr "Ich möchte das Kunstwerk als Print verfügbar machen."
+
+#: templates/new-product-single.php:504
+msgid "e.g. Multiple sizes and/or colors"
+msgstr ""
+
+#: templates/new-product-single.php:512 templates/new-product-single.php:866
+msgid "Option Name"
+msgstr ""
+
+#: templates/new-product-single.php:512
+msgid "Enter you variation attribute option name"
+msgstr ""
+
+#: templates/new-product-single.php:513 templates/new-product-single.php:867
+msgid "Option Values"
+msgstr ""
+
+#: templates/new-product-single.php:513
+msgid "Enter attribute options values corresponding options name"
+msgstr ""
+
+#: templates/new-product-single.php:528 templates/new-product-single.php:882
+msgid "Add Option"
+msgstr ""
+
+#: templates/new-product-single.php:575
+msgid "Create variation using those attribute options"
+msgstr ""
+
+#: templates/new-product-single.php:597
+msgid "Use those above variations"
+msgstr ""
+
+#: templates/new-product-single.php:597
+msgid "If unchecked, then no variation will be created"
+msgstr ""
+
+#: templates/new-product-single.php:599
+msgid "yes"
+msgstr ""
+
+#: templates/new-product-single.php:613
+msgid "Shipping & Tax"
+msgstr "Produktmaße & Versand"
+
+#: templates/new-product-single.php:616
+msgid "Manage shipping and tax for this product"
+msgstr "Gib hier die Maße deines Kunstwerks an und regle den Versand."
+
+#: templates/new-product-single.php:627
+msgid "This product required shipping"
+msgstr ""
+
+#: templates/new-product-single.php:643
+msgid "Shipping Class"
+msgstr ""
+
+#: templates/new-product-single.php:657
+msgid "No shipping class"
+msgstr "Keine Versandklasse"
+
+#: templates/new-product-single.php:666
+msgid "Shipping classes are used by certain shipping methods to group similar products."
+msgstr "Versandgruppen werden genutzt, um ähnliche Produkte zu gruppieren."
+
+#: templates/new-product-single.php:708
+msgid "This product required Tax"
+msgstr ""
+
+#: templates/new-product-single.php:742
+msgid "Other Options"
+msgstr "Weitere Optionen"
+
+#: templates/new-product-single.php:748
+msgid "Product Status"
+msgstr "Produktstatus"
+
+#: templates/new-product-single.php:779
+msgid "Customer will get this info in their order email"
+msgstr "Der Kunde wird diese Nachricht nach Kauf deines Kunstwerkes erhalten."
+
+#: templates/new-product-single.php:784
+msgid "Enable product reviews"
+msgstr ""
+
+#: templates/new-product-single.php:795
+msgid "Save Product"
+msgstr "Speichern"
+
+#: templates/new-product.php:35
+msgid "Upload Product Image"
+msgstr ""
+
+#: templates/new-product.php:57
+msgid "Short description about the product..."
+msgstr ""
+
+#: templates/new-product.php:133
+msgid "Add Product"
+msgstr ""
+
+#: templates/orders/downloadable.php:36
+msgid "Choose a downloadable product&hellip;"
+msgstr ""
+
+#: templates/orders/downloadable.php:69
+msgid "Grant Access"
+msgstr ""
+
+#: templates/orders/listing.php:20
+msgid "Customer"
+msgstr "Kunde"
+
+#: templates/orders/listing.php:32
+msgid "Order %s"
+msgstr "Bestellung %s"
+
+#: templates/orders/listing.php:38
+msgid "<span class=\"waa-label waa-label-%s\">%s</span>"
+msgstr ""
+
+#: templates/orders/listing.php:54
+msgid "Guest"
+msgstr ""
+
+#: templates/orders/listing.php:63 templates/products-listing.php:163
+msgid "Unpublished"
+msgstr ""
+
+#: templates/orders/listing.php:65 templates/products-listing.php:166
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: templates/orders/listing.php:71 templates/products-listing.php:173
+msgid "%s ago"
+msgstr "vor %s"
+
+#: templates/orders/listing.php:73 templates/products-listing.php:175
+msgid "Y/m/d"
+msgstr "d.m.Y"
+
+#: templates/orders/listing.php:98
+msgid "Complete"
+msgstr "Fertiggestellt"
+
+#: templates/orders/listing.php:155
+msgid "No orders found"
+msgstr "Keine Bestellungen gefunden"
+
+#: templates/orders/order-details.php:7
+msgid "This is not yours, I swear!"
+msgstr ""
+
+#: templates/orders/order-details.php:26
+msgid "Item"
+msgstr "Artikel"
+
+#: templates/orders/order-details.php:30
+msgid "Qty"
+msgstr "Anzahl"
+
+#: templates/orders/order-details.php:32
+msgid "Totals"
+msgstr "Gesamt"
+
+#: templates/orders/order-details.php:132
+msgid "Downloadable Product Permission"
+msgstr ""
+
+#: templates/orders/order-details.php:145
+msgid "General Details"
+msgstr "Bestelldetails"
+
+#: templates/orders/order-details.php:149
+msgid "Order Status:"
+msgstr "Bestellstatus: "
+
+#: templates/orders/order-details.php:153
+msgid "&nbsp; Edit"
+msgstr "&nbsp; Bearbeiten"
+
+#: templates/orders/order-details.php:173
+msgid "Update"
+msgstr "Ändern"
+
+#: templates/orders/order-details.php:179
+msgid "Order Date:"
+msgstr "Bestelldatum:"
+
+#: templates/orders/order-details.php:186
+msgid "Customer:"
+msgstr "Kunde:"
+
+#: templates/orders/order-details.php:199
+msgid "Email:"
+msgstr "E-Mail:"
+
+#: templates/orders/order-details.php:203
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: templates/orders/order-details.php:207
+msgid "Customer IP:"
+msgstr "IP des Kunden:"
+
+#: templates/orders/order-details.php:219
+msgid "Customer Note:"
+msgstr "Kundennotiz"
+
+#: templates/orders/order-details.php:254
+msgid "added %s ago"
+msgstr "vor %s hinzugefügt"
+
+#: templates/orders/order-details.php:254
+msgid "Delete note"
+msgstr "Notiz löschen"
+
+#: templates/orders/order-details.php:260
+msgid "There are no notes for this order yet."
+msgstr "Keine Notizen vorhanden."
+
+#: templates/orders/order-details.php:276
+msgid "Customer note"
+msgstr "Kundennotiz"
+
+#: templates/orders/order-details.php:277
+msgid "Private note"
+msgstr "Private Notiz"
+
+#: templates/orders/order-details.php:285
+msgid "Add Note"
+msgstr "Notiz hinzufügen"
+
+#: templates/orders/order-download-permission-html.php:7
+msgid "File %d: %s"
+msgstr "Datei %d: %s"
+
+#: templates/orders/order-download-permission-html.php:10
+msgid "Revoke Access"
+msgstr ""
+
+#: templates/orders/order-download-permission-html.php:20
+msgid "Downloaded"
+msgstr ""
+
+#: templates/orders/order-download-permission-html.php:22
+msgid "%s time"
+msgid_plural "%s times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/orders/order-download-permission-html.php:25
+msgid "Downloads Remaining"
+msgstr ""
+
+#: templates/orders/order-download-permission-html.php:31
+msgid "Access Expires"
+msgstr ""
+
+#: templates/orders/order-download-permission-html.php:32
+msgid "Never"
+msgstr ""
+
+#: templates/orders/order-fee-html.php:10
+msgid "Fee Name"
+msgstr ""
+
+#: templates/orders/order-tax-html.php:6
+msgid "Tax Rate:"
+msgstr ""
+
+#: templates/orders/order-tax-html.php:16
+msgid "Sales Tax:"
+msgstr ""
+
+#: templates/orders/order-tax-html.php:20
+msgid "Shipping Tax:"
+msgstr ""
+
+#: templates/orders.php:9
+msgid "&larr; Orders"
+msgstr "&larr; Bestellungen"
+
+#: templates/orders.php:32
+msgid "Export All"
+msgstr "Alle exportieren"
+
+#: templates/orders.php:33
+msgid "Export Filtered"
+msgstr "Ausgewählte exportieren"
+
+#: templates/product-edit.php:19
+msgid "Access Denied"
+msgstr ""
+
+#: templates/product-edit.php:82
+msgid "The product has been updated successfully."
+msgstr ""
+
+#: templates/product-edit.php:116
+msgid "Options"
+msgstr ""
+
+#: templates/product-edit.php:121
+msgid "Inventory"
+msgstr ""
+
+#: templates/product-edit.php:136
+msgid "Variations"
+msgstr ""
+
+#: templates/product-edit.php:211
+msgid "Enable Discounted Price"
+msgstr ""
+
+#: templates/product-edit.php:221
+msgid "Special Price"
+msgstr ""
+
+#: templates/products-listing.php:13
+msgid "Add new product"
+msgstr "Neues Kunstwerk hinzufügen"
+
+#: templates/products-listing.php:30
+msgid "Stock"
+msgstr "Lager"
+
+#: templates/products-listing.php:32
+msgid "Type"
+msgstr "Typ"
+
+#: templates/products-listing.php:33
+msgid "Views"
+msgstr "Besucher"
+
+#: templates/products-listing.php:136
+msgid "Grouped"
+msgstr ""
+
+#: templates/products-listing.php:138
+msgid "External/Affiliate"
+msgstr ""
+
+#: templates/products-listing.php:146
+msgid "Simple"
+msgstr ""
+
+#: templates/products-listing.php:150
+msgid "Variable"
+msgstr ""
+
+#: templates/products-listing.php:185
+msgid "Missed schedule"
+msgstr ""
+
+#: templates/products-listing.php:190
+msgid "Last Modified"
+msgstr "Zuletzt geändert"
+
+#: templates/products-listing.php:200
+msgid "No product found"
+msgstr "Keine Produkte gefunden"
+
+#: templates/settings/payment.php:16
+msgid "Payment Settings"
+msgstr "Zahlungseinstellungen"
+
+#: templates/settings/payment.php:22
+msgid "These are the withdraw methods available for you. Please update your payment informations below to submit withdraw requests and get your store payments seamlessly."
+msgstr "Hier siehst du die möglichen Zahlungsarten, die zur Auszahlung bereit stehen. Bitte gebe deine Zahlungsdaten unten an, damit wir eine Auszahlung an dich vornehmen können."
+
+#: templates/settings/payment.php:48 templates/settings/social.php:50
+#: templates/settings/store.php:48
+msgid "Your profile has been updated successfully!"
+msgstr ""
+
+#: templates/settings/payment.php:99 templates/settings/social.php:94
+#: templates/settings/store.php:231
+msgid "Update Settings"
+msgstr "Änderungen speichern"
+
+#: templates/settings/shipping.php:34
+msgid "Shipping Settings"
+msgstr "Lieferung & Versand"
+
+#: templates/settings/shipping.php:40
+msgid "This page contains your store-wide shipping settings, costs, shipping and refund policy."
+msgstr "Auf dieser Seite kannst du deine Liefer- und Versandbedingungen- und Kosten, sowie dein Rückgaberecht einstellen."
+
+#: templates/settings/shipping.php:41
+msgid "You can enable/disable shipping for your products. Also you can override these shipping costs from an individual product."
+msgstr "Du kannst Lieferung für deine Produkte aktvieren oder deaktivieren. Außerdem kannst du die hier angezeigten Einstellungen für individuelle Produkte überschreiben."
+
+#: templates/settings/shipping.php:49
+msgid "Shipping options saved successfully"
+msgstr "Einstellungen erfolgreich gespeichert."
+
+#: templates/settings/shipping.php:68
+msgid "Check this if you want to enable shipping for your store"
+msgstr "Wähle diese Option aus, um Versand für deine Kunstwerke zu aktivieren."
+
+#: templates/settings/shipping.php:77
+msgid "Enable shipping functionality"
+msgstr "Lieferung & Versand aktivieren"
+
+#: templates/settings/shipping.php:87
+msgid "Default Shipping Price"
+msgstr "Versandkosten"
+
+#: templates/settings/shipping.php:88
+msgid "This is the base price and will be the starting shipping price for each product"
+msgstr "Dies sind die Basis-Versandkosten, die für jedes Produkt gelten."
+
+#: templates/settings/shipping.php:100
+msgid "Per Product Additional Price"
+msgstr "Zusätzliche Gebühr pro Produkt"
+
+#: templates/settings/shipping.php:101
+msgid "If a customer buys more than one type product from your store, first product of the every second type will be charged with this price"
+msgstr "Wenn ein Kunde mehr als einen Typ Produkt von dir kauft, wird für jedes erste Produkt jedes zweiten Produkttyps eine zusätzliche Gebühr berechnet."
+
+#: templates/settings/shipping.php:114
+msgid "Every second product of same type will be charged with this price"
+msgstr "Für jedes zweite Produkt des gleichen Produkttyps fällt diese Gebühr an."
+
+#: templates/settings/shipping.php:127
+msgid "The time required before sending the product for delivery"
+msgstr "Die Zeit, die vergeht, bevor das Produkt zum Versand bereit ist."
+
+#: templates/settings/shipping.php:145
+msgid "Write your terms, conditions and instructions about shipping"
+msgstr "Beschreibe deine Lieferbedingungen und/oder Instruktionen für den Kunden."
+
+#: templates/settings/shipping.php:158
+msgid "Write your terms, conditions and instructions about refund"
+msgstr "Gib deine Rückgabebedinungen und eine Anleitung dazu an."
+
+#: templates/settings/shipping.php:170
+msgid "Ships from:"
+msgstr "Versandt aus:"
+
+#: templates/settings/shipping.php:171
+msgid "The place you send the products for delivery. Most of the time it as store location"
+msgstr "Land, aus dem das Kunstwerk versandt wird."
+
+#: templates/settings/shipping.php:188
+msgid "Add the countries you deliver your products to. You can specify states as well. If the shipping price is same except some countries/states, there is an option <strong>Everywhere Else</strong>, you can use that."
+msgstr "Gebe hier die Länder an, in die du liefern möchtest. Nachdem du ein Land gewählt hast, kannst du ggf. noch ein Bundesland/Kanton angeben."
+
+#: templates/settings/shipping.php:202 templates/settings/shipping.php:306
+#: templates/settings/shipping.php:369
+msgid "The country you ship to"
+msgstr "Das Land in das du lieferst."
+
+#: templates/settings/shipping.php:210 templates/settings/shipping.php:314
+#: templates/settings/shipping.php:377
+msgid "If the shipping price is same for all the states, use this field. Else add the states below"
+msgstr "Wenn die Versandkosten für alle Bundesländer dieses Landes gleich sind, benutze dieses Feld."
+
+#: templates/settings/shipping.php:232
+msgid "The state you ship to"
+msgstr "Das Bundesland/Kanton, an das du lieferst."
+
+#: templates/settings/shipping.php:240
+msgid "Shipping price for this state"
+msgstr "Versandkosten für dieses Bundesland."
+
+#: templates/settings/shipping.php:336
+msgid "Add Location"
+msgstr "Bundesland/Kanton hinzufügen"
+
+#: templates/settings/shipping.php:351
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: templates/settings/social.php:17
+msgid "Social Profiles"
+msgstr "Soziale Profile"
+
+#: templates/settings/social.php:23
+msgid "Social profiles help you to gain more trust. Consider adding your social profile links for better user interaction."
+msgstr "Soziale Profile helfen dir dabei, mehr Vertrauen zu schaffen und deine sozialen Profile bekannter zu machen."
+
+#: templates/settings/store.php:120
+msgid "Profile Picture"
+msgstr "Profilbild"
+
+#: templates/settings/store.php:136
+msgid "Store Name"
+msgstr "Anzeigename"
+
+#: templates/settings/store.php:139
+msgid "store name"
+msgstr "Anzeigename"
+
+#: templates/settings/store.php:158
+msgid "Phone No"
+msgstr "Telefon"
+
+#: templates/settings/store.php:160
+msgid "+123456.."
+msgstr "+4930123456"
+
+#: templates/settings/store.php:165
+msgid "Email"
+msgstr "E-Mail"
+
+#: templates/settings/store.php:170
+msgid "Show email address in store"
+msgstr ""
+
+#: templates/settings/store.php:177
+msgid "Map"
+msgstr "Karte"
+
+#: templates/settings/store.php:184
+msgid "Type an address to find"
+msgstr "Gebe Adresse ein, um zu suchen"
+
+#: templates/settings/store.php:185
+msgid "Find Address"
+msgstr "Finde Adresse"
+
+#: templates/settings/store.php:203
+msgid "Show terms and conditions in store page"
+msgstr ""
+
+#: templates/settings/store.php:209
+msgid "TOC Details"
+msgstr ""
+
+#: templates/single-announcement.php:38 templates/single-announcement.php:52
+msgid "Back to all Notice"
+msgstr "zurück zu allen Benachrichtigungen"
+
+#: templates/single-announcement.php:48
+msgid "Notice"
+msgstr ""
+
+#: templates/single-announcement.php:52
+msgid "No Notice found; "
+msgstr ""
+
+#: templates/store-reviews.php:35 templates/store-toc.php:34
+#: templates/store.php:37
+msgid "Store Category"
+msgstr ""
+
+#: templates/store-reviews.php:73
+msgid "Seller Review"
+msgstr ""
+
+#: templates/store-toc.php:65
+msgid "Terms And Conditions"
+msgstr ""
+
+#: templates/store.php:85
+msgid "No products were found of this seller!"
+msgstr ""
+
+#: templates/update-account.php:28
+msgid "Update account to Seller"
+msgstr "Werde Künstler und verkaufe deine Kunstwerke"
+
+#: templates/withdraw.php:35
+msgid "Withdraw Request"
+msgstr "Auszahlung anfordern"
+
+#: templates/withdraw.php:38
+msgid "Approved Requests"
+msgstr "Akzeptierte Auszahlungen"
+
+#: templates/withdraw.php:43
+msgid "Current Balance: %s"
+msgstr "Aktueller Kontostand: %s"
+
+#. Plugin Name of the plugin/theme
+msgid "waa - Artist Manager"
+msgstr "waa - Artist Manager"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.weare-art.com/support"
+msgstr "http://www.weare-art.com"
+
+#. Description of the plugin/theme
+msgid "Manage Artists, their products, sales, commissions, etc."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WAA"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.weare-art.com/"
+msgstr ""
+
+#: includes/shipping-gateway/shipping.php:75 templates/edit/inventory.php:69
+#: templates/new-product-single.php:718
+msgctxt "Tax status"
+msgid "None"
+msgstr ""
+
+#: includes/template-tags.php:45
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: includes/template-tags.php:48
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: includes/wc-functions.php:1895
+msgctxt "Order date parsed by strftime"
+msgid "%b %d, %Y @ %I:%M %p"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:101
+msgctxt "placeholder"
+msgid "From&hellip;"
+msgstr ""
+
+#: includes/woo-views/variation-admin-html.php:105
+msgctxt "placeholder"
+msgid "To&hellip;"
+msgstr ""

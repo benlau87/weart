@@ -806,7 +806,7 @@ class Obenland_Wp_Approve_User extends Obenland_Wp_Plugins_v301 {
 			}
 
 			update_user_meta( $id, 'wp-approve-user', true );
-			$first_name = get_user_meta($id, 'first_name', true);
+	/*		$first_name = get_user_meta($id, 'first_name', true);
 			$last_name = get_user_meta($id, 'last_name', true);
 			$user_region = get_user_meta($id, 'artist_region', true);
 			$user_region_parent = get_term_by('name', $user_region, 'product_cat');
@@ -822,7 +822,8 @@ class Obenland_Wp_Approve_User extends Obenland_Wp_Plugins_v301 {
 							'parent' => $user_region_id
 						)
 					);
-			}				
+			}
+*/			
 			
 			// grab all your posts from current user
 			$author_posts = get_posts(array('author' => $id, 'numberposts' => -1));

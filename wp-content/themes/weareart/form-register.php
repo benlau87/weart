@@ -174,7 +174,7 @@ function waa_registration_form_fields($type) {
 		
 		<script>
 		jQuery(document).ready(function($) {
-			$('input').bind('keypress', function (event) {
+			$('#waa_user_login').bind('keypress', function (event) {
 					var regex = new RegExp("^[a-zA-Z0-9_-]+$");
 					var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
 					if (!regex.test(key)) {
@@ -429,7 +429,7 @@ function waa_add_new_member() {
 					'first_name'		=> $user_first,
 					'last_name'			=> $user_last,
 					'user_registered'	=> date('Y-m-d H:i:s'),
-					'role'				=> ($registration_type == 'artist' ? 'artist' : 'customer')
+					'role'				=> ($registration_type == 'artist' ? 'seller' : 'customer')
 				)
 			);
 			if($new_user_id) {
@@ -442,7 +442,7 @@ function waa_add_new_member() {
 					
 					// create region category, if it doesnt exist yet					
 					if (!get_term_by('name', $user_region, 'product_cat')) {
-						wp_insert_term(__($user_region, 'waa'), 'product_cat', array('description' => $user_country));
+					#	wp_insert_term(__($user_region, 'waa'), 'product_cat', array('description' => $user_country));
 					}
 					
 					// send an email to the admin alerting them of the registration of an artist

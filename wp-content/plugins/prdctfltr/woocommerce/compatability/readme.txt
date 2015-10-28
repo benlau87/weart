@@ -1,0 +1,1 @@
+These templates are only used when Product Filter is used with Avada and WooCommerce 2.0.0 - 2.2.0

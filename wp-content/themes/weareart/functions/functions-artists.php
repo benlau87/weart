@@ -1,6 +1,6 @@
 <?php
 
-
+include('functions-artist-add-product.php');
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -89,11 +89,12 @@ add_action( 'edit_user_profile_update', 'waa_save_country_field_user_profile' );
 add_action( 'admin_menu', 'register_artist_order_page' );
 
 function register_artist_order_page(){
-	if(get_current_user_role() == 'artist') {
-		add_menu_page( 'My Sales', 'Sales', 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
-		add_menu_page( 'My Products', 'Products', 'edit_products', 'artists_products', '', '', 40 ); 
+#	if(get_current_user_role() == 'artist') {
+	#	add_menu_page( __( 'Dashboard', 'waa' ), __( 'Dashboard', 'waa' ), 'edit_products', 'artist_dashboard', 'artist_dashboard_page', '', 10 ); 
+		#add_menu_page( __( 'Meine Bestellungen', 'waa' ), __( 'Bestellungen', 'waa' ), 'edit_products', 'artists_orders', 'artists_order_page', '', 45 ); 
+		#add_menu_page( __( 'Meine Produkte', 'waa' ), __( 'Produkte', 'waa' ), 'edit_products', 'artists_products', '', '', 40 ); 
 		#add_submenu_page( 'artists_products', 'Add Product', 'Add product', 'edit_products', 'artists_add_product', '', 41); 
-	}
+	#}
 }
 
 
@@ -121,15 +122,14 @@ function artist_get_products() {
 /*-----------------------------------------------------------------------------------*/
 /*  Get all orders of an artist
 /*-----------------------------------------------------------------------------------*/
-function artist_get_orders() {
+function artist_get_orders($limit = -1) {
 	global $woocommerce;
 	
 	// get products sold by artist
 	$products = artist_get_products();
-	
 	// woocommerce db query orders
-	$args = array('post_type'	=> 'shop_order', 'post_status'	=> 'any', 'posts_per_page' => -1);
-	$loop = new WP_Query( $args );
+
+	$loop = new WP_Query( array('post_type'	=> 'shop_order', 'post_status'	=>  array_keys( wc_get_order_statuses() ), 'posts_per_page' => $limit) );
 	$i=0;
 	while ( $loop->have_posts() ) : $loop->the_post();		// loop all orders
 		$order_id = $loop->post->ID;
@@ -140,6 +140,7 @@ function artist_get_orders() {
 		$orders[$i]['order_customer'] = $order->get_billing_address();
 		$orders[$i]['order_status'] = wc_get_order_status_name( $order->get_status() );
 		$orders[$i]['order_notes'] = $order->customer_message;
+
 		foreach ( $items as $item ) {
 			if(in_array($item['product_id'], $products)) { 			
 				$orders[$i]['order_items'][] = $item;			
@@ -149,25 +150,26 @@ function artist_get_orders() {
 	endwhile; 	
 	return $orders;	
 }
-	
+
+
 
 /*-----------------------------------------------------------------------------------*/
-/*  Show Order for Artist
+/*  Dashboard for Artists
 /*-----------------------------------------------------------------------------------*/
-function artists_order_page($userid){
+function artist_dashboard_page($userid){
 	?>	
 	<div class="wrap">
-		<h1 style="margin-bottom:10px"><?= _e('My Sales', 'waa'); ?></h1>
+		<h1 style="margin-bottom:10px"><?= _e('Die letzten 5 Bestellungen', 'waa'); ?></h1>
 		<?php 
 		if( current_user_can( 'edit_products' ) ) {
-			$orders = artist_get_orders();
+			$orders = artist_get_orders(7);
 		?>
 			<div class="clear"></div>
 			<div class="table">
 		<table class="wp-list-table widefat fixed striped posts">
 	<thead>
 		<tr>
-			<th scope="col" id="order_number" class="manage-column column-order_status" style="width:100px"><span class="status_head"><?= _e( 'Order No.', 'waa' ); ?></span>			</th>
+			<th scope="col" id="order_number" class="manage-column column-order_status" style="width:100px"><span class="status_head"><?= _e( 'Bestellnummer', 'waa' ); ?></span>			</th>
 			<th scope="col" id="order_items" class="manage-column column-order_title column-primary"><span class="status_head"><?= _e( 'Purchased', 'waa' ); ?></span></th>
 			<th scope="col" id="shipping_address" class="manage-column column-order_items"><?= _e( 'Ship to', 'waa' ); ?></th>
 			<th scope="col" id="order_status" class="manage-column column-shipping_address"><?= _e( 'Order Status', 'waa' ); ?></th>
@@ -208,6 +210,67 @@ function artists_order_page($userid){
 			</div>
 	</div>
 	<?php } else { echo 'You do not have permission for this page'; } 
+} 
+	
+	
+
+/*-----------------------------------------------------------------------------------*/
+/*  Show Order for Artist
+/*-----------------------------------------------------------------------------------*/
+function artists_order_page($userid){
+	?>	
+	<div class="wrap">
+		<h1 style="margin-bottom:10px"><?= _e('Meine Bestellungen', 'waa'); ?></h1>
+		<?php 
+		if( current_user_can( 'edit_products' ) ) {
+			$orders = artist_get_orders();
+		?>
+			<div class="clear"></div>
+			<div class="table">
+		<table class="wp-list-table widefat fixed striped posts">
+	<thead>
+		<tr>
+			<th scope="col" id="order_number" class="manage-column column-order_status" style="width:100px"><span class="status_head"><?= _e( 'Bestellnr.', 'waa' ); ?></span>			</th>
+			<th scope="col" id="order_items" class="manage-column column-order_title column-primary"><span class="status_head"><?= _e( 'Bestellung', 'waa' ); ?></span></th>
+			<th scope="col" id="shipping_address" class="manage-column column-order_items"><?= _e( 'Versand nach', 'waa' ); ?></th>
+			<th scope="col" id="order_status" class="manage-column column-shipping_address"><?= _e( 'Status', 'waa' ); ?></th>
+			<th scope="col" id="order_date" class="manage-column column-order_date"><span><?= _e( 'Datum', 'waa' ); ?></span></th>
+			<th scope="col" id="order_notes" class="manage-column column-order_notes"><span class="order-notes_head"><?= _e( 'Kundennotiz', 'waa' ); ?></span></th>
+			<th scope="col" id="order_total" style="text-align:right" class="manage-column column-order_total"><span><strong><?= _e( 'Gesamtsumme', 'waa' ); ?></strong></span></th>
+		</tr>
+	</thead>
+	<tbody>
+					<?php
+						$total_revenue = 0;
+						for($i=0;$i<=count($orders);$i++) {							
+							if(is_array($orders[$i]['order_items'])) {		
+								echo '<tr>';
+								echo '<td>#'.$orders[$i]['order_id'].'<br></td>';
+								echo '<td>';
+								$order_total = 0;		
+									foreach ($orders[$i]['order_items'] as $order_item) {
+										echo $order_item['qty'] . 'x <a href="' . home_url('/') . 'wp-admin/post.php?post=' . $order_item['product_id'] . '&action=edit">'.$order_item['name'].'</a><br>'; 
+										$order_total += $order_item['line_total'];
+									}
+								echo '</td>';
+								echo '<td>'.$orders[$i]['order_customer'].'</td>';
+								echo '<td>'.$orders[$i]['order_status'].'</td>';
+								echo '<td>'.$orders[$i]['order_date'].'</td>';			
+								echo '<td>'.($orders[$i]['order_notes'] ? $orders[$i]['order_notes'] : '-').'</td>';			
+								echo '<td style="font-weight:bold; text-align:right">'.format_currency_price($order_total).'</td>';
+								$order_count += count($orders[$i]['order_id']);
+								$total_revenue += $order_total;
+							} 
+						}
+				  ?>
+					</tbody>
+				</table>	
+				<br>
+				<?= _e('Bestellungen Gesamt: ', 'waa') . '<strong>' . ($order_count ? $order_count : '0') . '</strong><br>';
+				echo _e('Umsatz Gesamt: ', 'waa') . '<strong>' . format_currency_price($total_revenue) . '</strong><br>'; ?>
+			</div>
+	</div>
+	<?php } else { echo 'You do not have permission for this page'; } 
 	} 
 	
 	
@@ -240,7 +303,7 @@ add_action( 'save_post', 'save_artist_category', 10, 3 );
 /*-----------------------------------------------------------------------------------*/
 function load_my_script() {
   global $pagenow;
-  if (($pagenow=='post.php' || $pagenow=='post-new.php') && get_current_user_role() == 'artist') {
+  if (($pagenow=='post.php' || $pagenow=='post-new.php' || $pagenow=='edit.php') && get_current_user_role() == 'artist') {
 		wp_register_style( 'hide-cats', get_template_directory_uri() . '/css/hide-cats.css' );
 		wp_enqueue_style( 'hide-cats' );
 		wp_register_script( 'artist-backend', get_template_directory_uri() . '/js/artist-backend.js' );
@@ -275,7 +338,12 @@ function query_set_only_author( $wp_query ) {
     }
 }
 
-// Fix post counts
+/*
+*
+* Fix posts counts
+* (artists only see their own media)
+*
+*/
 function fix_post_counts($views) {
     global $current_user, $wp_query;
     unset($views['mine']);
@@ -323,7 +391,12 @@ function fix_post_counts($views) {
     return $views;
 }
 
-// Fix media counts
+/*
+*
+* Fix media counts
+* (artists only see their own media)
+*
+*/
 function fix_media_counts($views) {
     $_total_posts = array();
     $_num_posts = array();
