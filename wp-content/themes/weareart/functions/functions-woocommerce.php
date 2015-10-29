@@ -59,6 +59,13 @@ function woocommerce_product_loop_tags() {
     echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( '', '', $tag_count, 'woocommerce' ) . ' ', '</span>' );
 }
 
+add_filter('woocommerce_attribute_show_in_nav_menus', 'wc_reg_for_menus', 1, 2);
+
+function wc_reg_for_menus( $register, $name = '' ) {
+     if ( $name == 'pa_stadt' ) $register = true;
+     return $register;
+}
+
 
 
 ?>

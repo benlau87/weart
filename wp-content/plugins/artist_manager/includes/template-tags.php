@@ -527,22 +527,15 @@ function waa_seller_reg_form_fields() {
 					$('#region-select-container').show();
 					
 					if(selected_country == "CH") {
-						$('#region-select-container > label').html('<?= __('Kanton wählen', 'waa');?>');
-						$('#regions_ch').show();
-						$('#regions_de').remove(); // todo
-						$('#regions_at').remove();
+						$('#region-select-container label.region_label').html('<?= __('Kanton wählen', 'waa');?>');
+						$('#waa_user_region_field').html('<select id="regions_ch" name="region" class="region-select" required><?php $terms = get_terms("pa_stadt", array("hide_empty" => 0, "parent" => 50)); foreach ( $terms as $term ) {	echo "<option value=".$term->term_id.">".$term->name."</option>";	}	?></select>');						
 					}
 					else if(selected_country == "DE") {
-						$('#region-select-container > label').html('<?= __('Region wählen', 'waa');?>');
-						$('#regions_de').show();
-						$('#regions_ch').remove();
-						$('#regions_at').remove();
-
+						$('#region-select-container label.region_label').html('<?= __('Region wählen', 'waa');?>');
+						$('#waa_user_region_field').html('<select id="regions_de" name="region" class="region-select" required><?php $terms = get_terms("pa_stadt", array("hide_empty" => 0, "parent" => 58)); foreach ( $terms as $term ) {	echo "<option value=".$term->term_id.">".$term->name."</option>";	}	?></select>');					
 					} else if(selected_country == "AT") {
-						$('#region-select-container > label').html('<?= __('Region wählen', 'waa');?>');
-						$('#regions_at').show();
-						$('#regions_de').remove();
-						$('#regions_ch').remove();
+						$('#region-select-container label.region_label').html('<?= __('Region wählen', 'waa');?>');
+						$('#waa_user_region_field').html('<select id="regions_at" name="region" class="region-select" required><?php $terms = get_terms("pa_stadt", array("hide_empty" => 0, "parent" => 60)); foreach ( $terms as $term ) {	echo "<option value=".$term->term_id.">".$term->name."</option>";	}	?></select>');					
 				}
 				}					
 			});
@@ -590,35 +583,8 @@ function waa_seller_reg_form_fields() {
 					?>
 				</div>
 				<div class="form-group" id="region-select-container">
-					<label for="waa_user_region"><?php _e('Region wählen', 'waa'); ?></label>
-					<div class="form-row" id="waa_user_region_field">					
-						<select id="regions_de" name="region" class="region-select" required>
-						<?php
-								$terms = get_terms("pa_stadt", array('hide_empty' => 0, 'parent' => 58));
-										foreach ( $terms as $term ) {
-										echo "<option value='".$term->term_id."'>" . $term->name . "</option>";
-									}					
-							?>
-						</select>
-						
-						<select id="regions_ch" name="region" class="region-select">
-						<?php
-								$terms = get_terms("pa_stadt", array('hide_empty' => 0, 'parent' => 60));
-										foreach ( $terms as $term ) {
-										echo "<option value='".$term->term_id."'>" . $term->name . "</option>";
-									}					
-							?>
-						</select>
-						
-						<select id="regions_at" name="region" class="region-select">
-						<?php
-								$terms = get_terms("pa_stadt", array('hide_empty' => 0, 'parent' => 50));
-										foreach ( $terms as $term ) {
-										echo "<option value='".$term->term_id."'>" . $term->name . "</option>";
-									}					
-							?>
-						</select>					
-					</div>
+					<label for="waa_user_region" class="region_label"><?php _e('Region wählen', 'waa'); ?></label>
+					<div class="form-row" id="waa_user_region_field"></div>
 				</div>
 
         <div class="form-row form-group form-row-wide">

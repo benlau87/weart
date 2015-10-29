@@ -82,12 +82,11 @@ global $product;
 		<div class="artist-shortdesc">		
 			<a href="<?= waa_get_store_url( $author->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $author_info['store_name']); ?>"> 
 				<?= $author_info['store_name']; 
-					$city_term = get_term_by('slug', $author_info['region'], 'pa_stadt');
+					$city_term = get_term_by('id', $author_info['region'], 'pa_stadt');
 					$city_id = $city_term->term_id;
 					$city_link = get_term_link( $city_id, 'pa_stadt' );
-			#		print_r($author_info);
 				?></a>
-				(<?php printf( __('<em>Künstler aus</em> <a href="%1$s" title="weitere Künstler aus %2$s anzeigen">%2$s</a>', 'waa'), $city_link, $author_info['region'] );?>)
+				(<?php printf( __('<em>Künstler aus</em> <a href="%1$s" title="weitere Künstler aus %2$s anzeigen">%2$s</a>', 'waa'), $city_link, $city_term->name );?>)
 				<?= ( isset($author_info['description'] )) ? '<p>'.truncate_string($author_info['description'], '300').'</p>' : '' ?>
 		</div>
 	</div>

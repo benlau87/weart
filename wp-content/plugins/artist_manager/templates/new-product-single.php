@@ -271,7 +271,7 @@ if ( ! $from_shortcode ) {
 																								<?php 
 																									$current_user = get_current_user_id();
 																									$profile_info = waa_get_store_info( $current_user );
-																									$city_term = get_term_by('slug', sanitize_title($profile_info['region']), 'pa_stadt');
+																									$city_term = get_term_by('id', sanitize_title($profile_info['region']), 'pa_stadt');
 																									#print_r($city_term );
 																								?>	
 																								<input type="hidden" name="_has_attribute" value="yes">
