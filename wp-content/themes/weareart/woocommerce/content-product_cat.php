@@ -53,7 +53,14 @@ $woocommerce_loop['loop'] ++;
 			?>
 			
 		<div class="the_post_image">	
-		<?php echo get_the_post_thumbnail($rand_post_id, 'post-thumbnail');	?>
+		<?php 
+			$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
+			$image       	= get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+				'title'	=> $image_title,
+				'alt'	=> $image_title
+				) );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+		?>		
 		</div>
 		<h3>
 			<?php
