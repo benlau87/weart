@@ -1008,7 +1008,6 @@ p.price .amount { font-size:30px; font-family:'Graphik'; color:#000 }
 /* register form */
 .register_form_user { position:relative; }
 #username_tooltip { display:none; position:absolute; top:20px; left:20px; width:100px; height:40px; }
-.region-select { display:none }
 #country-select-countainer { margin-bottom:0 }
 .error { color:#b81c23; display:block }
 

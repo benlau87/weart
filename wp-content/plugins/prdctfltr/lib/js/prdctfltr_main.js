@@ -1,6 +1,19 @@
 (function($){
 "use strict";
 
+ function initialiseMasonry(){
+							var $container = $('ul.products');        
+							$container.imagesLoaded(function() {               
+									$container.masonry('reload');
+									$container.masonry({
+											isInitLayout : true,
+											itemSelector : 'li.product',
+											columnWidth: '.grid-sizer',
+											gutter: '.gutter-sizer'
+									});
+							});
+					 }
+
 	var curr_data = {};
 
 	$.expr[':'].Contains = function(a,i,m){
@@ -1228,18 +1241,6 @@
 
 					}
 					
-						 function initialiseMasonry(){
-							var $container = $('ul.products');        
-							$container.imagesLoaded(function() {               
-									$container.masonry('reload');
-									$container.masonry({
-											isInitLayout : true,
-											itemSelector : 'li.product',
-											columnWidth: '.grid-sizer',
-											gutter: '.gutter-sizer'
-									});
-							});
-					 }
 					 initialiseMasonry();
 
 						if ( curr_products !== undefined ) {

@@ -2481,7 +2481,8 @@ function waa_get_seller_balance( $seller_id, $formatted = true ) {
         return wc_price( $earning );
     }
 
-    return number_format_i18n( $earning, 2 );
+    #return number_format_i18n( $earning, 2 );
+    return $earning;
 }
 
 /**
