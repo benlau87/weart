@@ -44,7 +44,7 @@ function waa_product_categories_art($atts) {
 						<?= ( isset( $post_counts[$artist->ID] )) ? '<span class="artist-style">'.__('Kunstwerke', 'waa').': '.$post_counts[$artist->ID].'</span>' : ''; ?>
 				</div>
 				<div class="artist-hover">
-					<div class="entry_author_image"><?php echo get_avatar( $store_user->ID, 150 ); ?></div>
+					<div class="entry_author_image"><?php echo get_avatar( $artist->ID, 150 ); ?></div>
 					<div class="bottom"><a href="<?= waa_get_store_url( $artist->ID ) ?>"><?= $artist_info['store_name']; ?></a></div>
 				</div>
 		</a>
