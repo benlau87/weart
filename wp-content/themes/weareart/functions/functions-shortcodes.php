@@ -33,7 +33,9 @@ function waa_product_categories_art($atts) {
  	<li class="product type-product">    
 		<a href="<?= waa_get_store_url( $artist->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $artist_info['store_name']); ?>">
 			<div class="the_post_image">	
-				<?php echo get_the_post_thumbnail($art->ID, 'post-thumbnail');	?>
+				<?php 
+				$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id($art->ID) ) );
+				echo get_the_post_thumbnail($art->ID, array(600,600), array('title' => $image_title, 'alt' => $image_title));	?>
 			</div>
 				<div class="artist"><?= $artist_info['store_name']; ?><br/>
 						<?php 

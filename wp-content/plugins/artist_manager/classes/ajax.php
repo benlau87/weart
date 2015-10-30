@@ -1169,7 +1169,7 @@ class waa_Ajax {
             <tr>
                 <td>
                     <label for=""><?php _e( 'State', 'waa' ); ?></label>
-                    <input type="text" name="dps_state_to[<?php echo $country_id ?>][]" class="waa-form-control dps_state_selection" placeholder="State name">
+                    <input type="text" name="dps_state_to[<?php echo $country_id ?>][]" class="waa-form-control dps_state_selection" placeholder="<?php _e('State', 'waa'); ?>">
                 </td>
                 <td>
                     <label for=""><?php _e( 'Cost', 'waa' ); ?></label>

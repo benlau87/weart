@@ -259,7 +259,7 @@ $dps_refund_policy       = get_user_meta( $user_id, '_dps_refund_policy', true )
                                                                             <tr>
                                                                                 <td>
                                                                                     <label for=""><?php _e( 'State', 'waa' ); ?></label>
-                                                                                    <input type="text" name="dps_state_to[<?php echo $country ?>][]" class="waa-form-control dps_state_selection" placeholder="<?= __('State name', 'waa'); ?>" value="<?php echo $state; ?>">
+                                                                                    <input type="text" name="dps_state_to[<?php echo $country ?>][]" class="waa-form-control dps_state_selection" placeholder="<?= __('State', 'waa'); ?>" value="<?php echo $state; ?>">
                                                                                 </td>
                                                                                 <td>
                                                                                     <label for=""><?php _e( 'Cost', 'waa' ); ?></label>

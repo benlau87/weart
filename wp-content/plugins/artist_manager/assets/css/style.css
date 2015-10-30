@@ -480,6 +480,7 @@ body {
     transform: rotate(0);
   }
 }
+.gravatar-button-area { text-align:left; padding-top:10px }
 .waa-product-listing .waa-product-listing-area {
   padding: 0px 15px;
 }
@@ -611,8 +612,8 @@ body {
 }
 .product-edit-new-container label.form-label {
   font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 14px;
+  margin-bottom: 0px;
+  font-size: 16px;
   display: block;
 }
 .product-edit-new-container label.form-label span {
@@ -658,8 +659,8 @@ body {
 }
 .product-edit-new-container .waa-feat-image-upload {
   border: 4px dashed #DDDDDD;
-  height: 65%;
-  width: 70%;
+  height: 100%;
+  width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
   position: relative;
@@ -670,16 +671,14 @@ body {
   color: #DFDFDF;
 }
 .product-edit-new-container .waa-feat-image-upload a.waa-feat-image-btn {
-  color: #8F8F8F;
-  text-shadow: 0 1px 1px #FFF;
-  background: #F0F0F0;
-  padding: 3px 10px;
-  font-size: 12px;
+	width:auto;
+	max-width:90%;
+	margin:15px;
+
 }
 .product-edit-new-container .waa-feat-image-upload a.waa-feat-image-btn:hover {
-  color: #ECECEC;
-  text-shadow: 0 1px 1px #6F6F6F;
-  background: #B4B4B4;
+  color: #fff;
+  background: #000;
 }
 .product-edit-new-container .waa-feat-image-upload a.close {
   background: #000000;
@@ -1554,9 +1553,6 @@ table.waa-single-attribute-options-table tbody tr td button.remove_attribute {
 .waa-orders-content .waa-orders-area .order_download_permissions .toolbar {
   margin-top: 15px;
 }
-.waa-orders-content .waa-orders-area .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-  min-height: 27px;
-}
 .waa-reports-content .waa-reports-area h1 {
   margin: 0px 0px 20px;
 }
@@ -2289,9 +2285,6 @@ ul.waa_tabs li.active {
   position: absolute;
   width: 1px;
 }
-.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-  height: 28px;
-}
 /** Tag It styles */
 ul.tagit {
   padding: 2px 5px;
@@ -2449,14 +2442,18 @@ input.tagit-hidden-field {
   float: right;
   font-weight: bold;
   line-height: 1;
+	width:auto;
+	font-size:26px;
   color: #000000;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+	color:#000;
 }
 .waa-close:hover,
 .waa-close:focus {
   color: #000000;
+	background:transparent;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.5;
@@ -3180,6 +3177,7 @@ table.dps-shipping-states tr {
 table.dps-shipping-states tr td {
   padding: 10px;
   width: 30%;
+	text-align:left;
 }
 #dps-shipping-hidden-lcoation-content {
   display: none;

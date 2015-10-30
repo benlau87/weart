@@ -111,10 +111,9 @@ function waa_withdraw_method_paypal( $store_settings ) {
  */
 function waa_withdraw_method_bank( $store_settings ) {
     $account_name   = isset( $store_settings['payment']['bank']['ac_name'] ) ? esc_attr( $store_settings['payment']['bank']['ac_name'] ) : '';
-    $account_number = isset( $store_settings['payment']['bank']['ac_number'] ) ? esc_attr( $store_settings['payment']['bank']['ac_number'] ) : '';
+    $account_iban = isset( $store_settings['payment']['bank']['ac_iban'] ) ? esc_attr( $store_settings['payment']['bank']['ac_iban'] ) : '';
+    $account_bic     = isset( $store_settings['payment']['bank']['ac_bic'] ) ? esc_attr( $store_settings['payment']['bank']['ac_bic'] ) : '';
     $bank_name      = isset( $store_settings['payment']['bank']['bank_name'] ) ? esc_attr( $store_settings['payment']['bank']['bank_name'] ) : '';
-    $bank_addr      = isset( $store_settings['payment']['bank']['bank_addr'] ) ? esc_textarea( $store_settings['payment']['bank']['bank_addr'] ) : '';
-    $swift_code     = isset( $store_settings['payment']['bank']['swift'] ) ? esc_attr( $store_settings['payment']['bank']['swift'] ) : '';
     ?>
     <div class="waa-form-group">
         <div class="doakn-w8">
@@ -124,21 +123,21 @@ function waa_withdraw_method_bank( $store_settings ) {
 
     <div class="waa-form-group">
         <div class="doakn-w8">
-            <input name="settings[bank][ac_number]" value="<?php echo $account_number; ?>" class="waa-form-control" placeholder="<?php esc_attr_e( 'Your bank account number', 'waa' ); ?>" type="text">
+            <input name="settings[bank][ac_iban]" value="<?php echo $account_iban; ?>" class="waa-form-control" placeholder="<?php esc_attr_e( 'Your bank account number', 'waa' ); ?>" type="text">
         </div>
     </div>
+		
+		    <div class="waa-form-group">
+        <div class="doakn-w8">
+            <input value="<?php echo $account_bic; ?>" name="settings[bank][ac_bic]" class="waa-form-control" placeholder="<?php esc_attr_e( 'Swift code', 'waa' ); ?>" type="text">
+        </div>
+    </div> <!-- .waa-form-group -->
 
     <div class="waa-form-group">
         <div class="doakn-w8">
             <input name="settings[bank][bank_name]" value="<?php echo $bank_name; ?>" class="waa-form-control" placeholder="<?php _e( 'Name of bank', 'waa' ) ?>" type="text">
         </div>
     </div>
-
-    <div class="waa-form-group">
-        <div class="col-md-10">
-            <input value="<?php echo $swift_code; ?>" name="settings[bank][swift]" class="waa-form-control" placeholder="<?php esc_attr_e( 'Swift code', 'waa' ); ?>" type="text">
-        </div>
-    </div> <!-- .waa-form-group -->
     <?php
 }
 

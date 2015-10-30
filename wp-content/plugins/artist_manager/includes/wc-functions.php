@@ -720,12 +720,12 @@ function waa_process_product_meta( $post_id ) {
             update_post_meta( $post_id, '_sale_price_dates_to', '' );
         }
 
-        // reset price is discounted checkbox was not checked
-        if ( ! isset( $_POST['_discounted_price'] ) ) {
+      #  // reset price is discounted checkbox was not checked
+    #    if ( ! isset( $_POST['_discounted_price'] ) || $_POST['_discounted_price'] == "no") {
             update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_regular_price'] ) );
             update_post_meta( $post_id, '_regular_price', wc_format_decimal( $_POST['_regular_price'] ) );
             update_post_meta( $post_id, '_sale_price', '' );
-        }
+     #   }
     }
 
     //enable reviews
@@ -1171,11 +1171,11 @@ function waa_new_process_product_meta( $post_id ) {
         }
 
         // reset price is discounted checkbox was not checked
-        if ( isset( $_POST['_sale_price'] ) && empty( $_POST['_sale_price'] ) ) {
+    #    if ( isset( $_POST['_sale_price'] ) && empty( $_POST['_sale_price'] ) ) {
             update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_regular_price'] ) );
             update_post_meta( $post_id, '_regular_price', wc_format_decimal( $_POST['_regular_price'] ) );
             update_post_meta( $post_id, '_sale_price', '' );
-        }
+      #  }
     }
 
     // Product Stock manage Data
@@ -2265,6 +2265,7 @@ function waa_on_create_seller( $user_id, $data ) {
         'payment'        => array(),
         'phone'          => $_POST['phone'],
 				'description'	=> $_POST['description'],
+				'enable_services'	=> $_POST['enable_services'],
 				'country'	=> $_POST['country'],
 				'region'	=> $_POST['region'],
         'show_email'     => 'no',        
@@ -2574,6 +2575,7 @@ function waa_user_update_to_seller( $user, $data ) {
         'payment'        => array(),
         'phone'          => $data['phone'],
 				'description'	=> $data['description'],
+				'enable_services'	=> $data['enable_services'],
 				'country'	=> $data['country'],
 				'region'	=> $data['region'],
         'show_email'     => 'no',

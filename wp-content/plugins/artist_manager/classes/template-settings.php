@@ -282,7 +282,7 @@ class waa_Template_Settings {
                 'banner'       => absint( $_POST['waa_banner'] ),
                 'phone'        => sanitize_text_field( $_POST['setting_phone'] ),
                 'description'        => sanitize_text_field( $_POST['setting_description'] ),
-                'website'        => sanitize_text_field( $_POST['setting_website'] ),
+                'enable_services'        => sanitize_text_field( $_POST['setting_enable_services'] ),
                 'show_email'   => sanitize_text_field( $_POST['setting_show_email'] ),
                 'gravatar'     => absint( $_POST['waa_gravatar'] ),
                 'enable_tnc'   => isset( $_POST['waa_store_tnc_enable'] ) ? $_POST['waa_store_tnc_enable'] : '',
@@ -301,10 +301,9 @@ class waa_Template_Settings {
 
                 $waa_settings['payment']['bank'] = array(
                     'ac_name'   => sanitize_text_field( $bank['ac_name'] ),
-                    'ac_number' => sanitize_text_field( $bank['ac_number'] ),
-                    'bank_name' => sanitize_text_field( $bank['bank_name'] ),
-                    'bank_addr' => sanitize_text_field( $bank['bank_addr'] ),
-                    'swift'     => sanitize_text_field( $bank['swift'] ),
+                    'ac_iban' => sanitize_text_field( $bank['ac_iban'] ),
+										'ac_bic'     => sanitize_text_field( $bank['ac_bic'] ),
+                    'bank_name' => sanitize_text_field( $bank['bank_name'] )
                 );
             }
 

@@ -10,7 +10,7 @@
                     <?php waa_product_listing_status_filter(); ?>
 
                     <span class="waa-add-product-link">
-                        <a href="<?php echo waa_get_navigation_url( 'new-product' ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="fa fa-briefcase">&nbsp;</i> <?php _e( 'Add new product', 'waa' ); ?></a>
+                        <a href="<?php echo waa_get_navigation_url( 'new-product' ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="fa fa-paint-brush">&nbsp;</i> <?php _e( 'Add new product', 'waa' ); ?></a>
                     </span>
                 </div>
 
