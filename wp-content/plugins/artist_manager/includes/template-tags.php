@@ -306,7 +306,7 @@ function waa_get_dashboard_nav() {
         ),
         'product' => array(
             'title' => __( 'Products', 'waa'),
-            'icon'  => '<i class="fa fa-briefcase"></i>',
+            'icon'  => '<i class="fa fa-paint-brush"></i>',
             'url'   => waa_get_navigation_url( 'products' )
         ),
         'order' => array(
@@ -490,6 +490,45 @@ function waa_store_category_menu( $seller_id, $title = '' ) { ?>
 <?php
 }
 
+/**
+ * Store categories by artist
+ *
+ * @param  int $seller_id
+ * @return void
+ */
+function waa_store_categories( $seller_id ) { ?>
+            <?php
+            global $wpdb;
+
+            $categories = get_transient( 'waa-store-category-'.$seller_id );
+
+            if ( false === $categories ) {
+                $sql = "SELECT t.term_id,t.name, tt.parent FROM $wpdb->terms as t
+                        LEFT JOIN $wpdb->term_taxonomy as tt on t.term_id = tt.term_id
+                        LEFT JOIN $wpdb->term_relationships AS tr on tt.term_taxonomy_id = tr.term_taxonomy_id
+                        LEFT JOIN $wpdb->posts AS p on tr.object_id = p.ID
+                        WHERE tt.taxonomy = 'product_cat'
+                        AND p.post_type = 'product'
+                        AND p.post_status = 'publish'
+                        AND p.post_author = $seller_id GROUP BY t.term_id";
+
+                $categories = $wpdb->get_results( $sql );
+               # set_transient( 'waa-store-category-'.$seller_id , $categories );
+            }
+						$numItems = count($categories);
+						$i = 0;
+            foreach ($categories as $category) {
+							#$url = get_term_link( $category, 'product_cat' );
+							if(++$i === $numItems) {
+								echo $category->name;
+							} else {
+								echo $category->name.', ';
+							}
+						}
+            ?>
+        </div>
+<?php
+}
 endif;
 
 /**

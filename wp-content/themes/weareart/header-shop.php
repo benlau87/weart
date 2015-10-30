@@ -21,11 +21,8 @@
       </button>
       <a href="<?= home_url(); ?>" class="navbar-brand"><img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="We are Art" /></a>
     </div>
-    <nav id="bs-navbar" class="collapse navbar-collapse">
-      
-			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) );
-waa_header_user_menu()
-			?>
+    <nav id="bs-navbar" class="collapse navbar-collapse">      
+			<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) );			?>
     </nav>		
   </div>
 </header>

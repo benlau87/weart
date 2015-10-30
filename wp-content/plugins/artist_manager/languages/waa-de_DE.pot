@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-28 18:03+0100\n"
+"PO-Revision-Date: 2015-10-30 05:06+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -175,7 +175,7 @@ msgstr "Etwas ist schiefgelaufen!"
 
 #: classes/ajax.php:575
 msgid "Email sent successfully!"
-msgstr "E-Mail erfolgreich versandt!"
+msgstr "Anfrage erfolgreich versandt! Vielen Dank."
 
 #: classes/ajax.php:597 includes/woo-views/variation-admin-html.php:6
 #: templates/edit/attributes.php:56 templates/edit/templates-js.php:11
@@ -395,7 +395,7 @@ msgstr ""
 #: classes/store-seo.php:455 classes/store-seo.php:499
 #: templates/settings/store.php:130
 msgid "Upload Photo"
-msgstr ""
+msgstr "Profilfoto hochladen"
 
 #: classes/store-seo.php:473
 msgid "Twitter Title :"
@@ -1311,19 +1311,19 @@ msgstr "Dieses Feld ist ein Pflichtfeld."
 
 #: waa.php:290
 msgid "Please fix this field."
-msgstr ""
+msgstr "Bitte überprüfe deine Eingabe."
 
 #: waa.php:291
 msgid "Please enter a valid email address."
-msgstr ""
+msgstr "Bitte gib eine gültige E-Mail-Adresse ein."
 
 #: waa.php:292
 msgid "Please enter a valid URL."
-msgstr ""
+msgstr "Bitte gib eine gültige URL ein."
 
 #: waa.php:293
 msgid "Please enter a valid date."
-msgstr ""
+msgstr "Bitte gib ein gültiges Datum ein."
 
 #: waa.php:294
 msgid "Please enter a valid date (ISO)."
@@ -1351,7 +1351,7 @@ msgstr ""
 
 #: waa.php:300
 msgid "Please enter at least {0} characters."
-msgstr ""
+msgstr "Bitte gib deinen vollständigen Namen ein."
 
 #: waa.php:301
 msgid "Please enter a value between {0} and {1} characters long."
@@ -2049,7 +2049,7 @@ msgstr "Kontoinhaber: %s"
 
 #: includes/functions.php:993
 msgid "Account Number: %s"
-msgstr ""
+msgstr "IBAN: %s"
 
 #: includes/functions.php:996
 msgid "Bank Name: %s"
@@ -2209,11 +2209,11 @@ msgstr "Verkäufe nach Tag"
 
 #: includes/reports.php:25
 msgid "Top sellers"
-msgstr "Top Künstler"
+msgstr "Am meisten verkauft"
 
 #: includes/reports.php:30
 msgid "Top earners"
-msgstr "Top Verdiener"
+msgstr "Am meisten Verdient mit.."
 
 #: includes/reports.php:288
 msgid "This month's sales"
@@ -2348,7 +2348,7 @@ msgstr ""
 
 #: includes/template-tags.php:342
 msgid "Settings <i class=\"fa fa-angle-right pull-right\"></i>"
-msgstr "Profil <i class=\"fa fa-angle-right pull-right\"></i>"
+msgstr "Einstellungen <i class=\"fa fa-angle-right pull-right\"></i>"
 
 #: includes/template-tags.php:349
 msgid "Back to Dashboard"
@@ -2648,24 +2648,24 @@ msgstr ""
 
 #: includes/widgets/store-contact.php:50
 msgid "Your Name"
-msgstr ""
+msgstr "Dein Name"
 
 #: includes/widgets/store-contact.php:53
 msgid "you@example.com"
-msgstr ""
+msgstr "E-Mail-Adresse"
 
 #: includes/widgets/store-contact.php:56
 msgid "Type your messsage..."
-msgstr ""
+msgstr "Deine Anfrage"
 
 #: includes/widgets/store-contact.php:63
 msgid "Send Message"
-msgstr ""
+msgstr "Anfrage senden"
 
 #: includes/widgets/store-contact.php:94 templates/store-reviews.php:40
 #: templates/store-toc.php:39 templates/store.php:42
 msgid "Contact Seller"
-msgstr ""
+msgstr "Künstler kontaktieren"
 
 #: includes/widgets/store-location.php:16
 msgid "waa Seller Store Location"
@@ -2718,7 +2718,7 @@ msgstr "Kontoinhaber"
 
 #: includes/withdraw-functions.php:153
 msgid "Your bank account number"
-msgstr "Kontonummer"
+msgstr "IBAN"
 
 #: includes/withdraw-functions.php:159
 msgid "Name of bank"
@@ -2730,7 +2730,7 @@ msgstr ""
 
 #: includes/withdraw-functions.php:171
 msgid "Swift code"
-msgstr ""
+msgstr "BIC"
 
 #: includes/woo-views/html-product-download.php:7
 msgid "File Name:"
@@ -3349,7 +3349,7 @@ msgstr "Wähle passende Schlagworte"
 
 #: templates/new-product-single.php:312 templates/product-edit.php:179
 msgid "Upload a product cover image"
-msgstr "Lade ein Produktbild hoch."
+msgstr "Produktbild hochladen"
 
 #: templates/new-product-single.php:354
 msgid "+ Add more images"
@@ -3867,7 +3867,7 @@ msgstr "Versandkosten für dieses Bundesland."
 
 #: templates/settings/shipping.php:336
 msgid "Add Location"
-msgstr "Bundesland/Kanton hinzufügen"
+msgstr "+ Land hinzufügen"
 
 #: templates/settings/shipping.php:351
 msgid "Save Settings"

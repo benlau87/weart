@@ -173,6 +173,7 @@ if ( ! $from_shortcode ) {
 
 																				<div class="waa-form-group">
 																						<input type="hidden" name="waa_product_id" value="<?php echo $post_id; ?>">
+																						<input type="hidden" name="_discounted_price" value="no">
 
 																						<label for="post_title" class="form-label"><?php _e( 'Title', 'waa' ); ?></label>
 																						<?php waa_post_input_box( $post_id, 'post_title', array( 'placeholder' => __( 'Product name..', 'waa' ), 'value' => $post_title, 'required' => true ) ); ?>
@@ -355,10 +356,10 @@ if ( ! $from_shortcode ) {
 
 																<div class="waa-product-description">
 																		<label for="post_content" class="form-label"><?php _e( 'Description', 'waa' ); ?></label>
-																		<?php wp_editor( wpautop( $post_content ), 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+																		<textarea name="post_content" style="width:100%; height:150px"><?= $post_content ?></textarea>
 																</div>																
 																				
-																<div class="waa-form-group">
+																<div class="waa-form-group" style="margin-top:20px">
 																		<label for="product_tag" class="form-label"><?php _e( 'Tags', 'waa' ); ?></label>
 																		<?php
 																		require_once waa_LIB_DIR.'/class.tag-walker.php';
@@ -399,7 +400,7 @@ if ( ! $from_shortcode ) {
 																		</div>
 
 																		<div class="waa-side-right">
-																				<div class="waa-form-group hide_if_variation" style="width: 50%;">
+																				<div class="waa-form-group hide_if_variation">
 																						<label for="_sku" class="form-label"><?php _e( 'SKU', 'waa' ); ?> <span><?php _e( '(Stock Keeping Unit)', 'waa' ); ?></span></label>
 																						<?php waa_post_input_box( $post_id, '_sku' ); ?>
 																				</div>
@@ -435,10 +436,9 @@ if ( ! $from_shortcode ) {
 																						</div>
 																				</div><!-- .show_if_stock -->
 
-																			<!--	<div class="waa-form-group"> -->
-																						<?php #waa_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'waa' ) ), 'checkbox' ); ?>
-																			<!-- 	</div> -->
-																				<input type="hidden" name="_sold_individually" value="yes" />
+																				<div class="waa-form-group"> 
+																						<?php waa_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'waa' ) ), 'checkbox' ); ?>
+																			 	</div> 
 
 																				<?php if ( $post_id ): ?>
 																						<?php do_action( 'waa_product_edit_after_inventory' ); ?>

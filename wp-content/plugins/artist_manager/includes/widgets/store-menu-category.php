@@ -24,3 +24,4 @@ class waa_Store_Category_Walker extends waa_Category_Walker {
         }
     }
 }
+?>

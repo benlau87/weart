@@ -47,13 +47,13 @@ class waa_Store_Contact_Form extends WP_Widget {
             <div class="ajax-response"></div>
             <ul>
                 <li class="form-group">
-                    <input type="text" name="name" value="" placeholder="<?php esc_attr_e( 'Your Name', 'waa' ); ?>" class="form-control" minlength="5" required="required">
+                    <input type="text" name="name" value="" placeholder="<?php esc_attr_e( 'Your Name', 'waa' ); ?>" minlength="5" required="required">
                 </li>
                 <li class="form-group">
-                    <input type="email" name="email" value="" placeholder="<?php esc_attr_e( 'you@example.com', 'waa' ); ?>" class="form-control" required="required">
+                    <input type="email" name="email" value="" placeholder="<?php esc_attr_e( 'you@example.com', 'waa' ); ?>" required="required">
                 </li>
                 <li class="form-group">
-                    <textarea  name="message" maxlength="1000" cols="25" rows="6" value="" placeholder="<?php esc_attr_e( 'Type your messsage...', 'waa' ); ?>" class="form-control" required="required"></textarea>
+                    <textarea  name="message" maxlength="1000" cols="25" rows="6" value="" placeholder="<?php esc_attr_e( 'Type your messsage...', 'waa' ); ?>" required="required"></textarea>
                 </li>
             </ul>
 

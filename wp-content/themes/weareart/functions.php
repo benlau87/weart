@@ -206,19 +206,31 @@ function add_customer_menu($items, $args)
 				if ( waa_is_user_customer( $user->ID ) && !current_user_can( 'manage_options' ) ) {
 					$items .= "<li class='customer-menu'><a href='".waa_get_page_url( 'myaccount', 'woocommerce' )."'>".__( 'My Account', 'waa' )."</a></li>";
 				} elseif ( waa_is_user_seller ( $user->ID ) && !current_user_can( 'manage_options' ) ) {
-					$items .= "<li class='artist-menu'><a href='".waa_get_navigation_url()."'>".__( 'My Account', 'waa' )."</a></li>";
-					/*$items .= '
-						<ul class="sub-menu">
-							<li><a href="">Sub 1</a></li>
-							<li><a href="">Sub 2</a></li>
-							<li><a href="">Sub 3</a></li>
-							<li><a href="">Sub 4</a></li>
-						</ul>		*/					
+					$items .= '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.__( 'My Account', 'waa' ).'  <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+								<li><a href="'.waa_get_store_url( $user_id ).'" target="_blank">'.__( 'Visit your store', 'waa' ).' <i class="fa fa-external-link"></i></a></li>
+								<li class="divider"></li>';
+								 $nav_urls = waa_get_dashboard_nav();
+								foreach ($nav_urls as $key => $item) {
+										$items .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'. $item['title'].'</a></li>';
+								}
+							$items .= '<li><a href="'.get_permalink( get_option("woocommerce_myaccount_page_id") ).'" title="'.__("My Account","waa").'"><i class="fa fa-cog"></i> '.__('My Account', 'waa').'</a></li>';
+								$items .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="fa fa-power-off"></i> '.__('Logout', 'waa').'</a></li>';
+							$items .= '
+                    </ul>
+                </li>';
 				} elseif ( current_user_can( 'manage_options' ) ) {
 					$items .= "<li class='admin-menu'><a href='".get_admin_url()."'>".__( 'Admin', 'waa' )."</a></li>";
 				}
-		} else {
-		#	$items .= '<li><a href="">Hallo, '.$name.'</a></li>';						
+		} elseif ($args->theme_location == 'main-menu') {
+			$items .= sprintf(__( '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Warenkorb %s <b class="caret"></b></a>', 'waa' ),  '<span class="waa-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>'); 
+			$items .= '<ul class="dropdown-menu mini-shopping-cart">
+                <li>
+                    <div class="widget_shopping_cart_content"></div>
+                </li>
+            </ul>
+        </li>';
+			
 		}
 		return $items;
 }

@@ -173,6 +173,40 @@ function waa_count_posts( $post_type, $user_id ) {
     return $counts;
 }
 
+
+/**
+ * Count post type from a user
+ *
+ * @global WPDB $wpdb
+ * @param string $post_type
+ * @param int $user_id
+ * @return array
+ */
+function waa_count_published_posts( $post_type, $user_id ) {
+    global $wpdb;
+
+    $cache_key = 'waa-count-' . $post_type . '-' . $user_id;
+    $counts = wp_cache_get( $cache_key, 'waa' );
+
+    if ( false === $counts ) {
+        $query = "SELECT post_status, COUNT( * ) AS num_posts FROM {$wpdb->posts} WHERE post_type = %s AND post_author = %d AND post_status = 'publish' GROUP BY post_status";
+        $results = $wpdb->get_results( $wpdb->prepare( $query, $post_type, $user_id ), ARRAY_A );
+        $counts = array_fill_keys( get_post_stati(), 0 );
+
+        $total = 0;
+        foreach ( $results as $row ) {
+            $counts[ $row['post_status'] ] = (int) $row['num_posts'];
+            $total += (int) $row['num_posts'];
+        }
+
+        $counts['total'] = $total;
+        $counts = (object) $counts;
+        wp_cache_set( $cache_key, $counts, 'waa' );
+    }
+
+    return $counts;
+}
+
 /**
  * Get comment count based on post type and user id
  *
@@ -992,17 +1026,14 @@ function waa_get_seller_bank_details( $seller_id ) {
     if ( isset( $payment['ac_name'] ) ) {
         $details[] = sprintf( __( 'Account Name: %s', 'waa' ), $payment['ac_name'] );
     }
-    if ( isset( $payment['ac_number'] ) ) {
-        $details[] = sprintf( __( 'Account Number: %s', 'waa' ), $payment['ac_number'] );
+    if ( isset( $payment['ac_iban'] ) ) {
+        $details[] = sprintf( __( 'Account Number: %s', 'waa' ), $payment['ac_iban'] );
+    }
+    if ( isset( $payment['ac_bic'] ) ) {
+        $details[] = sprintf( __( 'SWIFT: %s', 'waa' ), $payment['ac_bic'] );
     }
     if ( isset( $payment['bank_name'] ) ) {
         $details[] = sprintf( __( 'Bank Name: %s', 'waa' ), $payment['bank_name'] );
-    }
-    if ( isset( $payment['bank_addr'] ) ) {
-        $details[] = sprintf( __( 'Address: %s', 'waa' ), $payment['bank_addr'] );
-    }
-    if ( isset( $payment['swift'] ) ) {
-        $details[] = sprintf( __( 'SWIFT: %s', 'waa' ), $payment['swift'] );
     }
 
     return nl2br( implode( "\n", $details ) );
@@ -1775,9 +1806,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
             'country'  => array(
                 'required' => $required ? 1 : 0,
             ),
-            'state'    => array(
-                'required' => 0,
-            ),
+            'state'    => false
         )
     );
 
@@ -1809,7 +1838,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                             <span class="required"> *</span>
                         <?php } ?>
                     </label>
-                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_1]" value="<?php echo esc_attr( $address_street1 ); ?>" name="waa_address[street_1]" placeholder="Street address" class="waa-form-control input-md" type="text">
+                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_1]" value="<?php echo esc_attr( $address_street1 ); ?>" name="waa_address[street_1]" placeholder="<?= __('Street ', 'waa') ?>" class="waa-form-control input-md" type="text">
                 </div>
             <?php }
             if ( $seller_address_fields['street_2'] ) { ?>
@@ -1822,7 +1851,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                             <span class="required"> *</span>
                         <?php } ?>
                     </label>
-                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_2]" value="<?php echo esc_attr( $address_street2 ); ?>" name="waa_address[street_2]" placeholder="Apartment, suite, unit etc. (optional)" class="waa-form-control input-md" type="text">
+                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_2]" value="<?php echo esc_attr( $address_street2 ); ?>" name="waa_address[street_2]" placeholder="<?= __('Adress-Zusatz', 'waa') ?>" class="waa-form-control input-md" type="text">
                 </div>
             <?php }
             if ( $seller_address_fields['city'] || $seller_address_fields['zip'] ) {
@@ -1838,7 +1867,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                                     <span class="required"> *</span>
                                 <?php } ?>
                             </label>
-                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[city]" value="<?php echo esc_attr( $address_city ); ?>" name="waa_address[city]" placeholder="Town / City" class="waa-form-control input-md" type="text">
+                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[city]" value="<?php echo esc_attr( $address_city ); ?>" name="waa_address[city]" placeholder="<?= __('City', 'waa') ?>" class="waa-form-control input-md" type="text">
                         </div>
                     <?php }
                     if ( $seller_address_fields['zip'] ) { ?>
@@ -1851,7 +1880,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                                     <span class="required"> *</span>
                                 <?php } ?>
                             </label>
-                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[zip]" value="<?php echo esc_attr( $address_zip ); ?>" name="waa_address[zip]" placeholder="Postcode / Zip" class="waa-form-control input-md" type="text">
+                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[zip]" value="<?php echo esc_attr( $address_zip ); ?>" name="waa_address[zip]" placeholder="<?php _e( 'Post/ZIP Code', 'waa' ); ?>" class="waa-form-control input-md" type="text">
                         </div>
                     <?php } ?>
                     <div class="waa-clearfix"></div>
