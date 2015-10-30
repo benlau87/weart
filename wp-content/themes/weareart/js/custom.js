@@ -29,11 +29,12 @@
 		});
   
 		$('#artists-page .product.type-product').each(function() {
-			if($(this).height() < 175) {
-				$(this).find('.bottom').hide();
-				$(this).find('.entry_author_image').css('width', '75px');
-				$(this).find('.entry_author_image').css('height', '75px');
-			}
+			var height = $(this).height();
+			if(height < 175) {
+					$(this).find('.bottom').hide();
+					$('.entry_author_image', this).css('width', '75px');
+					$('.entry_author_image', this).css('height', '75px');
+				}
 		});		
 	
 });
