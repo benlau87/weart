@@ -1,16 +1,16 @@
 Hi,
 
-A new withdraw request has been made by %username%.
+es gibt eine neue Auszahlungsanfrage von %username%.
 
-Request Amount: %amount%
-Payment Method: %method%
+Betrag: %amount%
+Zahlungsmethode: %method%
 
-Username: %username%
-Profile: %profile_url%
+Benutzername: %username%
+Profil: %profile_url%
 
-You can approve or deny it by going here:
+Du kannst die Anfrage genehmen, indem du den folgenden Link klickst:
 %withdraw_page%
 
 ---
-Sent from %site_name%
+Gesendet von %site_name%
 %site_url%

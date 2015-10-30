@@ -432,6 +432,7 @@ hr { border:none; height:1px; background:#eeeeee; }
 }
 .showcase .artist-description {
 	margin-top:35px;
+	margin-bottom:20px;
 }
 
 .showcase .artist-tags {
@@ -506,6 +507,8 @@ hr { border:none; height:1px; background:#eeeeee; }
 	text-decoration:none;
 	border:none;
 }
+
+.showcase2-content { margin-bottom:20px }
 
 /* product grid */
 ul.products { margin:0; padding:0; }

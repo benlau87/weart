@@ -1,6 +1,5 @@
-From: %from_name% (%from_email%)
+Von: %from_name% (%from_email%)
 IP: %user_ip%
-User Agent: %user_agent%
 
 ------------------------------
 
@@ -10,5 +9,5 @@ User Agent: %user_agent%
 
 
 ---
-Sent from %site_name%
+Gesendet von %site_name%
 %site_url%

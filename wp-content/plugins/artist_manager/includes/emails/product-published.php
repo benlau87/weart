@@ -1,10 +1,10 @@
-Hello %seller_name%,
+Hallo %seller_name%,
 
-Your product "%title%" has been approved by one of our admin, congrats!
+Dein Kunstwerk "%title%" wurde durch einen Administrator freigeschaltet. Herzlichen Glückwunsch!
 
-View product: %product_link%
-Update: %product_edit_link%
+Kunstwerk ansehen: %product_link%
+Kunstwerk bearbeiten: %product_edit_link%
 
 ---
-Sent from %site_name%
+Gesendet von %site_name%
 %site_url%
