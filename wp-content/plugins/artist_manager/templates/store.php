@@ -47,7 +47,7 @@ get_header( 'shop' );
 										
 
 										<?php
-											 if( waa_get_option( 'contact_seller', 'waa_general', 'on' ) == 'on' ) {
+											 if( $store_info['enable_services'] == "yes" ) {
 											?>
 													<a href="#" data-toggle="modal" data-target="#request-service" class="btn btn-inverted"> <span><?= __('Künstler beauftragen', 'waa'); ?></span></a>
 															
