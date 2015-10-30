@@ -1,6 +1,7 @@
 // jQuery
  jQuery(document).ready(function($){
  
+		// masonry-grid
     var $container = $('ul.products');   
     $container.imagesLoaded( function(){
       $container.masonry({
@@ -28,9 +29,9 @@
 			//show tooltip
 		});
 
+		// resize avatar picture, if art image to small
 		$('#artists-page li.product.type-product').each(function() {
-			var height = $(this).height();
-			if(height < 175) {
+			if($(this).outerHeight() < 175) {
 					$(this).find('.bottom').hide();
 					$('.entry_author_image', this).css('width', '75px');
 					$('.entry_author_image', this).css('height', '75px');

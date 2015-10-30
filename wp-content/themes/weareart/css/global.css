@@ -1146,7 +1146,7 @@ p.price .amount { font-size:30px; font-family:'Graphik'; color:#000 }
 	}
 }
 @media all and (max-width: 768px) {
-	 .hero-img { margin-left:-15px; margin-right:-15px; }
+	.hero-img { margin-left:-15px; margin-right:-15px; }
 	.grid-sizer, ul.products li.product-category.product {
 		width: 48%;
 	}
@@ -1167,7 +1167,7 @@ p.price .amount { font-size:30px; font-family:'Graphik'; color:#000 }
 	}
 	
 	/* masonry product grid */
-	ul.products li.product.type-product {
+	ul.products li.product.type-product, .showcase ul.products li.product.type-product {
 		width: 100%;
 		margin:0 0 35px 0;
 	}
