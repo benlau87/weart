@@ -28,4 +28,11 @@
 			//show tooltip
 		});
   
+		$('#artists-page .product.type-product').each(function() {
+			if($(this).height() < 175) {
+				$(this).find('.bottom').hide();
+				$(this).find('.page .entry_author_image').css('width', '75px');
+				$(this).find('.page .entry_author_image').css('height', '75px');
+		});		
+	
 });
