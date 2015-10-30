@@ -1,5 +1,5 @@
 // jQuery
- jQuery(function($){
+ jQuery(document).ready(function($){
  
     var $container = $('ul.products');   
     $container.imagesLoaded( function(){
@@ -27,8 +27,8 @@
 			e.stopPropagation();
 			//show tooltip
 		});
-  
-		$('#artists-page .product.type-product').each(function() {
+
+		$('#artists-page li.product.type-product').each(function() {
 			var height = $(this).height();
 			if(height < 175) {
 					$(this).find('.bottom').hide();
