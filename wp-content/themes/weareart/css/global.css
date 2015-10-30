@@ -742,7 +742,7 @@ article h2 { font-size:18px; margin-top:25px; }
 	overflow: hidden;
 	height: 150px;
 	border-radius: 50%;
-	margin:0 auto;
+	margin:15px auto;
 }
 #artists-page .entry_author_image_container .artist { }
 
@@ -764,6 +764,10 @@ article h2 { font-size:18px; margin-top:25px; }
 	line-height:20px;
 }
 
+#artists-page li.type-product:hover .artist {
+	display:none;
+}
+
 #artists-page .artist-style {
 	font-size:11px;
 	color: rgba(255, 255, 255, .5);
@@ -782,6 +786,7 @@ article h2 { font-size:18px; margin-top:25px; }
 	opacity: 0;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
+	overflow:hidden;
 }
 
 #artists-page li .artist-hover:hover .desc {
