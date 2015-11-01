@@ -886,6 +886,9 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 }
 .product-sidebar .variations td.label { width:75px; }
 
+.product-sidebar .order-prints-line { height: 1px; background-color: #000; text-align: center; margin:15px 0 40px; }
+.product-sidebar .order-prints-line span { background-color: #f7f7f7; position: relative; top: -13px; padding:0 5px; font-style:italic; font-size:18px; color:#000; }
+
 .single-product a.artist { border-bottom:1px solid #000; }
 .single-product a.artist:hover { border-color: #009dce; color:#009dce }
 .product-sidebar { background-color:#f7f7f7; padding:25px 25px 15px; }
