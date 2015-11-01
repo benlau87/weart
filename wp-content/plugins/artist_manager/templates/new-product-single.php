@@ -59,11 +59,10 @@ $_required_tax      = get_post_meta( $post_id, '_required_tax', true );
 $_has_attribute     = get_post_meta( $post_id, '_has_attribute', true );
 $_create_variations = get_post_meta( $post_id, '_create_variation', true );
 
-
 /* Art specific fields */
 $waa_date_created = get_post_meta( $post_id, 'waa_date_created', true );
-
-
+$waa_only_print = get_post_meta( $post_id, 'waa_only_print', true );
+$waa_original_price = get_post_meta( $post_id, 'waa_original_price', true );
 
 
 $processing_time         = waa_get_shipping_processing_times();
@@ -179,7 +178,7 @@ if ( ! $from_shortcode ) {
 																						<?php waa_post_input_box( $post_id, 'post_title', array( 'placeholder' => __( 'Product name..', 'waa' ), 'value' => $post_title, 'required' => true ) ); ?>
 																				</div>
 
-																				<div class="hide_if_variation waa-clearfix">
+																				<div class="hide_if_only_print waa-clearfix">
 
 																						<div class="waa-form-group waa-clearfix waa-price-container">
 
@@ -243,48 +242,11 @@ if ( ! $from_shortcode ) {
 																						</div>
 																				<?php endif; ?>
 																				
-																				<div class="waa-form-group">
-																								<label for="pa_stil" class="form-label"><?php _e( 'Style', 'waa' ); ?></label>
-																								<input type="hidden" name="waa_stil_attr" value="pa_stil">
-																								<?php
-																								$pa_stil = -1;
-																								$term = array();
-																								$term = wp_get_post_terms( $post_id, 'pa_stil', array( 'fields' => 'names') );
-
-																								if ( $term ) {
-																										$pa_stil = reset( $term );
-																								}
-
-																								wp_dropdown_categories( array(
-																										'show_option_none' => __( '- Select a style -', 'waa' ),
-																										'hierarchical'     => 1,
-																										'hide_empty'       => 0,
-																										'name'             => 'waa_stil_val',
-																										'id'               => 'pa_stil',
-																										'taxonomy'         => 'pa_stil',
-																										'title_li'         => '',
-																										'class'            => 'pa_stil waa-form-control chosen',
-																										'exclude'          => '',
-																										'selected'         => $pa_stil,
-																										'value_field'	     => 'name'
-																								) );
-																								?>
-																								<?php 
-																									$current_user = get_current_user_id();
-																									$profile_info = waa_get_store_info( $current_user );
-																									$city_term = get_term_by('id', sanitize_title($profile_info['region']), 'pa_stadt');
-																									#print_r($city_term );
-																								?>	
-																								<input type="hidden" name="_has_attribute" value="yes">
-																								<input type="hidden" name="waa_region_attr" value="pa_stadt">
-																								<input type="hidden" name="waa_region_val" value="<?= $city_term->name; ?>">		
-																						</div>
-
-																				
 																				<div class="waa-clearfix waa-form-group">
-																									<label for="waa_date_created" class="form-label"><?php _e( 'Date created', 'waa' ); ?></label>
-																										<div class="waa-form-group">
-																												<input type="text" name="waa_date_created" class="waa-form-control datepicker" value="<?php echo esc_attr( $waa_date_created ); ?>" maxlength="10" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" placeholder="TT.MM.JJJJ" required>
+																									<label for="waa_date_created" class="form-label"><?php _e( 'Erstellungsdatum', 'waa' ); ?></label>
+																										<div class="waa-input-group">
+																											<span class="waa-input-group-addon"><i class="fa fa-calendar"></i></span>
+																												<input type="text" name="waa_date_created" class="waa-form-control datepicker" value="<?php echo esc_attr( $waa_date_created ); ?>" maxlength="10" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" placeholder="TT.MM.JJJJ">
 																										</div>
 																						</div>
 																		</div><!-- .content-half-part -->
@@ -355,11 +317,13 @@ if ( ! $from_shortcode ) {
 																</div><!-- .waa-form-top-area -->
 
 																<div class="waa-product-description">
-																		<label for="post_content" class="form-label"><?php _e( 'Description', 'waa' ); ?></label>
+																		<label for="post_content" class="form-label"><?php _e( 'Description', 'waa' ); ?> <span class="waa-tooltips-help tips" title="" data-original-title="<?= __('Beschreibe dein Kunstwerk möglichst genau. Was hat dich bei deiner Arbeit inspiriert? Welche Emotionen möchtest du beim Betrachter erwecken?', 'waa') ?>">
+																			<i class="fa fa-question-circle"></i>
+																		</span></label>
 																		<textarea name="post_content" style="width:100%; height:150px"><?= $post_content ?></textarea>
 																</div>																
 																				
-																<div class="waa-form-group" style="margin-top:20px">
+																<div class="waa-form-group tag-group">
 																		<label for="product_tag" class="form-label"><?php _e( 'Tags', 'waa' ); ?></label>
 																		<?php
 																		require_once waa_LIB_DIR.'/class.tag-walker.php';
@@ -384,6 +348,95 @@ if ( ! $from_shortcode ) {
 
 																		?>
 																</div>
+																
+																
+																<div class="waa-edit-row waa-clearfix waa-variation-container">
+																
+																		<?php 
+																			$current_user = get_current_user_id();
+																			$profile_info = waa_get_store_info( $current_user );
+																			$city_term = get_term_by('id', sanitize_title($profile_info['region']), 'pa_stadt');
+																		?>	
+																		<input type="hidden" name="waa_region_val" value="<?= $city_term->name; ?>">		
+																
+                                    <label class="form-label" for="_has_attribute">
+                                        <input name="_has_attribute" value="no" type="hidden">
+                                        <input name="_has_attribute" id="_has_attribute" value="yes" type="checkbox" <?php checked( $_create_variations, 'yes' ); ?>>
+                                        <?php _e( 'This product has multiple options', 'waa' ); ?>
+																				<span class="waa-tooltips-help tips" title="" data-original-title="<?= __('Biete Prints in verschienen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>">
+																					<i class="fa fa-question-circle"></i>
+																				</span>
+																		</label>
+
+                                    <?php if ( $_create_variations != 'yes' ): ?>
+                                        <div class="waa-side-body waa-attribute-content-wrapper waa-hide">
+																					<input type="hidden" value="print_groesse" class="waa-form-control waa-attribute-option-name-label" data-attribute_name="print_groesse">
+																					<input type="hidden" name="attribute_names[]" value="pa_print_groesse" class="waa-attribute-option-name">
+																					<input type="hidden" name="attribute_is_taxonomy[]" value="1">
+																					<input type="hidden" name="attribute_values[]" value="">
+																					<input type="hidden" value="print_material" class="waa-form-control waa-attribute-option-name-label" data-attribute_name="print_material">
+																					<input type="hidden" name="attribute_names[]" value="pa_print_material" class="waa-attribute-option-name">
+																					<input type="hidden" name="attribute_is_taxonomy[]" value="1">
+																					<input type="hidden" name="attribute_values[]" value="">
+																					<input type="hidden" name="_create_variation" id="_create_variation" value="no">
+																					<input type="hidden" name="waa_create_new_variations" id="waa_create_new_variations" value="no">				
+																						<table class="waa-table">
+																							<thead>
+																									<tr>
+																											<th width="25%"><?= __('Variant', 'waa') ?></th>
+																											<th width="45%"><?= __('Material / Ausführung', 'waa') ?></th>
+																											<th width="25%"><?= __('Price', 'waa') ?></th>
+																											<th width="5%"></th>
+																									</tr>
+																							</thead>
+																							<tbody>														
+																								<tr class="print-variation">																	
+																									<td>		
+																										<input type="text" name="attribute_pa_print_groesse[]" id="print-size" maxlength="7" value="" placeholder="<?= __('z.B. 60x40', 'waa'); ?>">
+																										<span id="print-size-alert"><?= __('Verwende folgendes Format: 60x40', 'waa')?></span>
+																										<input type="hidden" name="variation_menu_order[]" value="0">
+																										<input type="hidden" name="variable_enabled[]" value="yes">
+																									</td>
+																									<td>
+																										<input type="text" name="attribute_pa_print_material[]" value="" placeholder="<?= __('z.B. Hochglanzpapier', 'waa'); ?>">
+																									</td>		
+																									<td class="waa-input-group">
+																										<span class="waa-input-group-addon">€</span>
+																										<input type="number" name="variable_regular_price[]" placeholder="0,00" class="waa-form-control" min="0" step="any">
+																										<input type="hidden" name="variable_sku[]" placeholder="SKU" class="waa-form-control">
+																									</td>
+																									<td>
+																										<a href="#" class="btn-remove-new-print"><i class="fa fa-trash-o"></i></a>
+																									</td>
+																								</tr>	
+																								<tr class="add-print-btn">
+																									<td colspan="3"><a href="#" class="btn-add-print" id="add-row"><i class="fa fa-plus"></i> &nbsp;<?= __('Add Variation', 'waa'); ?></a><br><br>
+																									 <label class="form-label" for="waa_only_print">
+																											<input name="waa_only_print" id="waa_only_print" value="yes" type="checkbox" <?php checked( $waa_only_print, 'yes' ); ?>>
+																											<?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																					</table>																				
+																				</div>
+																	<div class="waa-variation-content-wrapper"></div>
+
+                                    <?php elseif ( $_create_variations == 'yes' ): ?>
+																				<input type="hidden" id="_create_variation" name="_create_variation" value="yes" />
+                                        <?php include_once 'edit/load_variation_template.php'; ?>
+
+                                        <?php if ( $post_id ): ?>
+                                            <?php do_action( 'waa_product_edit_after_variations' ); ?>
+                                        <?php endif; ?>
+																				<label class="form-label hide_if_no_variation" for="waa_only_print">
+																					<input name="waa_only_print" id="waa_only_print" value="yes" type="checkbox" <?php checked( $waa_only_print, 'yes' ); ?>>
+																						<?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
+																				</label>
+                                        <div class="waa-divider-top"></div>
+                                        <input type="hidden" name="_variation_product_update" value="<?php esc_attr_e( 'yes', 'waa' ); ?>">
+                                    <?php endif ?>
+                                </div><!-- .waa-divider-top -->
 
 																
 																<?php do_action( 'waa_new_product_form' ); ?>
@@ -400,11 +453,6 @@ if ( ! $from_shortcode ) {
 																		</div>
 
 																		<div class="waa-side-right">
-																				<div class="waa-form-group hide_if_variation">
-																						<label for="_sku" class="form-label"><?php _e( 'SKU', 'waa' ); ?> <span><?php _e( '(Stock Keeping Unit)', 'waa' ); ?></span></label>
-																						<?php waa_post_input_box( $post_id, '_sku' ); ?>
-																				</div>
-
 																				<div class="waa-form-group hide_if_variation">
 																						<?php waa_post_input_box( $post_id, '_manage_stock', array( 'label' => __( 'Enable product stock management', 'waa' ) ), 'checkbox' ); ?>
 																				</div>
@@ -474,9 +522,8 @@ if ( ! $from_shortcode ) {
 																				<?php if( 'yes' == get_option('woocommerce_calc_shipping') ): ?>
 																						<div class="waa-clearfix hide_if_downloadable waa-shipping-container">
 																								<input type="hidden" name="product_shipping_class" value="0">
-																								<div class="waa-form-group">
-																												<input type="checkbox" id="_disable_shipping" name="_disable_shipping" <?php checked( $_disable_shipping, 'no' ); ?>>
-																								</div>
+																								<input type="checkbox" id="_disable_shipping" name="_disable_shipping" <?php checked( $_disable_shipping, 'no' ); ?>>
+																								
 																								<div class="show_if_needs_shipping waa-shipping-dimention-options">
 																										<?php waa_post_input_box( $post_id, '_weight', array( 'class' => '', 'placeholder' => __( 'Gewicht (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
 																										<?php waa_post_input_box( $post_id, '_length', array( 'class' => '', 'placeholder' => __( 'L&auml;nge (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
@@ -488,38 +535,11 @@ if ( ! $from_shortcode ) {
 																								<?php if ( $post_id ): ?>
 																										<?php do_action( 'waa_product_options_shipping' ); ?>
 																								<?php endif; ?>
-																								<div class="show_if_needs_shipping waa-form-group">
-																										<label class="control-label" for="product_shipping_class"><?php _e( 'Shipping Class', 'waa' ); ?></label>
-																										<div class="waa-text-left">
-																												<?php
-																												// Shipping Class
-																												$classes = get_the_terms( $post->ID, 'product_shipping_class' );
-																												if ( $classes && ! is_wp_error( $classes ) ) {
-																														$current_shipping_class = current($classes)->term_id;
-																												} else {
-																														$current_shipping_class = '';
-																												}
-
-																												$args = array(
-																														'taxonomy'          => 'product_shipping_class',
-																														'hide_empty'        => 0,
-																														'show_option_none'  => __( 'No shipping class', 'waa' ),
-																														'name'              => 'product_shipping_class',
-																														'id'                => 'product_shipping_class',
-																														'selected'          => $current_shipping_class,
-																														'class'             => 'waa-form-control'
-																												);
-																												?>
-
-																												<?php wp_dropdown_categories( $args ); ?>
-																												<p class="help-block"><?php _e( 'Shipping classes are used by certain shipping methods to group similar products.', 'waa' ); ?></p>
-																										</div>
-																								</div>
-
 																								<div class="show_if_needs_shipping waa-shipping-product-options">
 
 																										<div class="waa-form-group">
 																												<?php waa_post_input_box( $post_id, '_overwrite_shipping', array( 'label' => __( 'Override default shipping cost for this product', 'waa' ) ), 'checkbox' ); ?>
+																												<span class="waa-form-note"><?php printf( __('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier <i class="fa fa-external-link"></i></a> verwalten.', 'waa'), waa_get_navigation_url( 'settings/shipping' ) ); ?></span>
 																										</div>
 
 																										<div class="waa-form-group show_if_override">
@@ -545,7 +565,7 @@ if ( ! $from_shortcode ) {
 																				<?php endif; ?>
 
 																				<?php if ( 'yes' == get_option('woocommerce_calc_shipping') && 'yes' == get_option( 'woocommerce_calc_taxes' ) ): ?>
-																						<div class="waa-divider-top hide_if_downloadable"></div>
+
 																				<?php endif ?>
 
 																		</div><!-- .waa-side-right -->
@@ -561,7 +581,7 @@ if ( ! $from_shortcode ) {
 																		</div>
 
 																		<div class="waa-side-right">
-																				<?php if ( $post_id ): ?>
+																				<?php if ( $post_id ): /* ?>
 																						<div class="waa-form-group">
 																								<label for="post_status" class="form-label"><?php _e( 'Product Status', 'waa' ); ?></label>
 																								<?php if ( $post_status != 'pending' ) { ?>
@@ -580,7 +600,7 @@ if ( ! $from_shortcode ) {
 																										<span class="waa-toggle-selected-display<?php echo $pending_class; ?>"><?php echo waa_get_post_status( $post_status ); ?></span>
 																								<?php } ?>
 																						</div>
-																				<?php endif ?>
+																				<?php */ endif ?>
 
 																				<input type="hidden" name="_visibility" value="visible" />
 																			
@@ -629,6 +649,61 @@ if ( ! $from_shortcode ) {
 			</div>
 		</div>
 	</div>
+	
+	
+	 <script type="text/html" id="tmpl-waa-single-attribute">
+    <div id="doakn-single-attribute-wrapper" class="white-popup">
+        <form action="" method="post" id="doakn-single-attribute-form">
+            <table class="waa-table waa-single-attribute-options-table">
+                <thead>
+                    <tr>
+                        <th width="10%"><?php _e( 'Option Name', 'waa' ) ?></th>
+                        <th width="90%"><?php _e( 'Option Values', 'waa' ) ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <# if ( !_.isNull( data.attribute_data ) ){ #>
+                        <# _.each( data.attribute_data, function( attr_val, attr_key ) { #>
+												<# if ( attr_val.is_variation ) { #>
+                        <tr class="waa-single-attribute-options">
+                            <td class="{{attr_val.data_attr_name}}  {{attr_val.is_variation}}">
+                                <# if ( attr_val.is_taxonomy ) { #>
+                                    {{ attr_val.label }}<input type="hidden" value="{{ attr_val.label }}" class="waa-form-control waa-single-attribute-option-name-label" data-attribute_name="{{attr_val.data_attr_name}}">
+                                    <input type="hidden" name="attribute_names[]" value="{{attr_val.name}}" class="waa-single-attribute-option-name">
+                                    <input type="hidden" name="attribute_is_taxonomy[]" value="1">
+                                <# } else { #>
+                                    <input type="text" name="attribute_names[]" value="{{attr_val.name}}" class="waa-form-control waa-single-attribute-option-name">
+                                    <input type="hidden" name="attribute_is_taxonomy[]" value="0">
+                                <# } #>
+                            </td>
+                            <td>
+                                <# if ( attr_val.is_taxonomy ) { #>
+                                    <input type="text" name="attribute_values[]" value="{{ attr_val.term_value.replace(/\|/g, ',' ) }}" class="waa-form-control waa-single-attribute-option-values">
+                                <# } else { #>
+                                    <input type="text" name="attribute_values[]" value="{{ attr_val.value.replace(/\|/g, ',' ) }}" class="waa-form-control waa-single-attribute-option-values">
+                                <# } #>
+                            </td>
+                        </tr>
+                        <# } #>
+                        <# }) #>
+                    <# } else { #>
+                        <tr colspan="3" class="waa-single-attribute-options">
+                            <td width="20%">
+                                <input type="text" name="attribute_names[]" value="" class="waa-form-control waa-single-attribute-option-name">
+                                <input type="hidden" name="attribute_is_taxonomy[]" value="0">
+                            </td>
+                            <td><input type="text" name="attribute_values[]" value="" class="waa-form-control waa-single-attribute-option-values"></td>
+                        </tr>
+                    <# } #>
+                </tbody>
+            </table>
+            <input type="hidden" name="product_id" value="<?php echo $post_id ?>">
+            <input type="submit" class="waa-btn waa-btn-theme waa-right" name="waa_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'waa' ); ?>">
+            <span class="waa-loading waa-save-single-attr-loader waa-hide"></span>
+            <div class="waa-clearfix"></div>
+        </form>
+    </div>
+</script>
 <?php
 
 wp_reset_postdata();

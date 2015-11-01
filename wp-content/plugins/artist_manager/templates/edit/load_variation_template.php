@@ -107,17 +107,15 @@ $variations = get_posts( $args );
 if ( $variations )  {
 
 ?>
-
-<table class="waa-table waa-variations-table">
+<div class="hide_if_no_variation">
+	<table class="waa-table waa-variations-table">
     <thead>
         <tr>
-            <th></th>
-            <th><?php _e( 'Image', 'waa' ) ?></th>
-            <th><?php _e( 'Variant', 'waa' ) ?></th>
-            <th><?php _e( 'Price', 'waa' ) ?></th>
-            <th><?php _e( 'SKU', 'waa' ) ?></th>
-            <th><?php _e( 'Action', 'waa' ) ?></th>
-        </tr>
+						<th width="25%"><?= __('Variant', 'waa') ?></th>
+						<th width="45%"><?= __('Material / Ausführung', 'waa') ?></th>
+						<th width="25%"><?= __('Price', 'waa') ?></th>
+						<th width="5%"></th>
+				</tr>
     </thead>
     <tbody>
     <?php
@@ -137,7 +135,7 @@ if ( $variations )  {
                 '_manage_stock',
                 '_stock_status',
                 '_regular_price',
-                '_sale_price',
+            #    '_sale_price',
                 '_weight',
                 '_length',
                 '_width',
@@ -148,8 +146,8 @@ if ( $variations )  {
                 '_downloadable',
                 '_virtual',
                 '_thumbnail_id',
-                '_sale_price_dates_from',
-                '_sale_price_dates_to'
+             #   '_sale_price_dates_from',
+              #  '_sale_price_dates_to'
             );
 
             foreach ( $variation_fields as $field ) {
@@ -165,8 +163,8 @@ if ( $variations )  {
             unset( $variation_data['_sale_price_dates_to'] );
             unset( $variation_data['_downloadable_files'] );
 
-            $variation_data['_sale_price_dates_from'][0]  = ( !empty( $_sale_price_dates_from ) ) ? date_i18n( 'Y-m-d', $_sale_price_dates_from ) : '';
-            $variation_data['_sale_price_dates_to'][0]    = ( !empty( $_sale_price_dates_from ) ) ? date_i18n( 'Y-m-d', $_sale_price_dates_to ) : '';
+          # $variation_data['_sale_price_dates_from'][0]  = ( !empty( $_sale_price_dates_from ) ) ? date_i18n( 'Y-m-d', $_sale_price_dates_from ) : '';
+          #  $variation_data['_sale_price_dates_to'][0]    = ( !empty( $_sale_price_dates_from ) ) ? date_i18n( 'Y-m-d', $_sale_price_dates_to ) : '';
             $variation_data['thumbnail_url'][0]           = $image;
             $variation_data['variation_id'][0]            = $variation_id;
             $variation_data['variation_backorders'][0]    = $_backorders;
@@ -203,15 +201,20 @@ if ( $variations )  {
 
     }
 ?>
-    </tbody>
-</table>
+		<tr>
+			<td colspan="4">    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="waa-btn waa_add_new_variation waa-btn-theme"><i class="fa fa-plus"></i> &nbsp; <?php _e( 'Add New Variation', 'waa' ); ?></a></td>
+		</tr>
+		</tbody>
+	</table>
 
-<div class="waa-variation-action-wrapper">
-    <a href="#doakn-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="waa-btn waa_add_new_attribute waa-btn-theme waa-left"><?php _e( 'Add Options', 'waa' ); ?></a>
-    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="waa-btn waa_add_new_variation waa-btn-theme waa-right"><?php _e( 'Add New Variation', 'waa' ); ?></a>
-    <span class="waa-loading waa-hide"></span>
-    <div class="waa-clearfix"></div>
+	<div class="waa-variation-action-wrapper">
+			<a href="#doakn-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="waa-btn waa_add_new_attribute waa-btn-theme waa-right"><i class="fa fa-gear"></i> &nbsp;<?php _e( 'Add Options', 'waa' ); ?></a>
+			<span class="waa-loading waa-hide"></span>
+			<div class="waa-clearfix"></div>
+	</div>
+
 </div>
+
 
 
 

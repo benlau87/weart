@@ -266,10 +266,10 @@ jQuery(function($) {
 
             $('.waa-variation-container').on('click', 'a.add_attribute_option', this.newProductDesign.addAttributeOption );
             $('.waa-variation-container').on('click', 'button.remove_attribute', this.newProductDesign.removeAttributeOption );
-            $('.product-edit-new-container').on('change', 'input[type=checkbox]#_create_variation', this.newProductDesign.createVariationSection);
+            $('.product-edit-new-container').on('change', 'input[type=checkbox]#_has_attribute', this.newProductDesign.createVariationSection);
             // $('.product-edit-new-container').on('change', 'input[type=checkbox].waa_create_variation', this.newProductDesign.createVariationWarning);
             $('.product-edit-new-container').on('click', 'a.edit_variation', this.newProductDesign.editSingleVariation );
-            $('.product-edit-new-container').on('click', 'a.remove_variation', this.newProductDesign.removeSingleVariation );
+            $('.product-edit-new-container').on('click', 'a.btn-remove-print', this.newProductDesign.removeSingleVariation );
             $('body').on( 'click', '.upload_image_button', this.newProductDesign.loadVariationImage );
             $('body, .product-edit-container').on('click', 'a.upload_file_button', this.fileDownloadable);
             $('body').on('click', 'a.add_single_attribute_option', this.newProductDesign.addSingleAttributeOption );
@@ -407,7 +407,7 @@ jQuery(function($) {
                         data_val.push( attr_name );
                         data.push( attr );
                     } else {
-                        $(this).find( '.waa-attribute-option-name' ).val('');
+                        //$(this).find( '.waa-attribute-option-name' ).val('');
                     }
                 });
 
@@ -551,7 +551,7 @@ jQuery(function($) {
                         return;
                     }
                     self.closest('.waa-attribute-content-wrapper').find('span.waa-loading').removeClass('waa-hide');
-                    $.post( ajaxurl, data, function( resp ) {
+                    $.post( waa.ajaxurl, data, function( resp ) {
                         if ( resp.success ) {
                             var wrap_data = (resp.data).trim();
                             attr_wrap.val('');
@@ -652,7 +652,7 @@ jQuery(function($) {
                     $('.waa-variation-container').addClass('waa-blur-effect');
                     $('.waa-variation-container').append('<div class="waa-variation-loader"></div>');
 
-                    $.post( ajaxurl, data, function( resp ) {
+                    $.post( waa.ajaxurl, data, function( resp ) {
                         if( resp.success ) {
                             $('.waa-variation-container').load(loadUrl+' .waa-variation-container', function() {
                                 $('#_create_variation').trigger('change');
@@ -827,7 +827,7 @@ jQuery(function($) {
                         return;
                     }
                     self.closest('table.waa-single-attribute-options-table').find('span.waa-loading').removeClass('waa-hide');
-                    $.post( ajaxurl, data, function( resp ) {
+                    $.post( waa.ajaxurl, data, function( resp ) {
                         if ( resp.success ) {
                             var wrap_data = (resp.data).trim();
                             attr_wrap.val('');
@@ -864,7 +864,7 @@ jQuery(function($) {
                     loadUrl = window.location.href;
 
                 self.find('.waa-save-single-attr-loader').removeClass('waa-hide');
-                $.post( ajaxurl, data, function( resp ) {
+                $.post( waa.ajaxurl, data, function( resp ) {
                     if( resp.success ) {
                         $('.waa-variation-container').addClass('waa-blur-effect');
                         $('.waa-variation-container').append('<div class="waa-variation-loader"></div>');
@@ -894,7 +894,7 @@ jQuery(function($) {
                 self.closest('.waa-variation-action-wrapper').find('.waa-loading').removeClass('waa-hide');
                 $('.waa-variation-container').addClass('waa-blur-effect');
                 $('.waa-variation-container').append('<div class="waa-variation-loader"></div>');
-                $.post( ajaxurl, data, function( resp ) {
+                $.post( waa.ajaxurl, data, function( resp ) {
                     $('.waa-variation-container').load( loadUrl+' .waa-variation-container', function() {
                         $('#_create_variation').trigger('change');
                         self.closest('.waa-variation-action-wrapper').find('.waa-loading').addClass('waa-hide');
@@ -917,7 +917,7 @@ jQuery(function($) {
 
                 self.find('.waa-loading').removeClass('waa-hide');
 
-                $.post( ajaxurl, data, function( resp ) {
+                $.post( waa.ajaxurl, data, function( resp ) {
                     if( resp.success ) {
                         $('.waa-variation-container').addClass('waa-blur-effect');
                         $('.waa-variation-container').append('<div class="waa-variation-loader"></div>');
@@ -978,7 +978,7 @@ jQuery(function($) {
 
                     $('#product-attributes .toolbar').block({ message: null, overlayCSS: { background: '#fff', opacity: 0.6 } });
 
-                    $.post( ajaxurl, data, function(resp) {
+                    $.post( waa.ajaxurl, data, function(resp) {
                         if ( resp.success ) {
                             variantsHolder.append(resp.data).children(':last').hide().fadeIn();
                         }
@@ -1043,7 +1043,7 @@ jQuery(function($) {
 
                 // $('#variants-holder').block({ message: 'saving...' });
                 $('#variants-holder').block({ message: null, overlayCSS: { background: '#fff', opacity: 0.6 } });
-                $.post(ajaxurl, data, function(resp) {
+                $.post(waa.ajaxurl, data, function(resp) {
 
                     $('#variable_product_options').block({ message: null, overlayCSS: { background: '#fff', opacity: 0.6 } });
                     $('#variable_product_options').load( this_page + ' #variable_product_options_inner', function() {
@@ -2178,5 +2178,67 @@ jQuery(function($) {
     });
 		
 		jQuery("#pa_stil").attr("required", true);
+	
+
+		// add variation row for prints
+    var $button = $('#add-row'),
+        $row = $('.print-variation').clone();
+    
+    $button.click(function(e){
+				e.preventDefault();
+        $row.clone().insertBefore( $('.add-print-btn') );
+    });
+		
+		$('.btn-remove-new-print').live('click', function(e) {
+			e.preventDefault();
+			$(this).parent().parent().remove();
+		});
+		
+    $('#print-size').keydown(function(e) {
+        var text = $(this).val();
+
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 91, 88]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                return;
+        }
+
+        if ((e.keyCode < 48 || e.keyCode > 57 || e.keyCode == 88) && (e.keyCode < 96 || e.keyCode > 105) ) {
+            e.preventDefault();
+						$('#print-size-alert').css('display', 'block');					
+        } else {
+					
+				}
+    });
+		
+		$('#_has_attribute').on('change', function() {
+			if($(this).is(':checked')) {
+				$('#_create_variation').val('yes');
+				$('#waa_create_new_variations').val('yes');
+				$('.hide_if_no_variation').show();
+			}
+			else {
+				$('#_create_variation').val('no');
+				$('#waa_create_new_variations').val('no');
+				$('#waa_only_print').attr('checked', false);
+				$('.hide_if_no_variation').hide();
+			}
+		});
+		
+		$('#waa_only_print').on('change', function() {
+			if($(this).is(':checked')) {
+				$('.hide_if_only_print').hide();
+			}
+			else {
+				$('.hide_if_only_print').show();
+			}
+		});
+		
+		$('.waa-input-group-addon').click(function() { $(this).next('input').focus(); });
+		
 
 })(jQuery);

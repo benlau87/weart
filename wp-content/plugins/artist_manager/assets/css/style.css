@@ -724,7 +724,6 @@ body {
 .product-edit-new-container .waa-edit-row {
   padding: 25px 0;
   border-top: 1px solid #ededed;
-  margin-top: 25px;
 }
 .product-edit-new-container .waa-edit-row .waa-side-left {
   float: left;
@@ -732,6 +731,7 @@ body {
 }
 .product-edit-new-container .waa-edit-row .waa-side-left h2 {
   margin-bottom: 10px;
+	margin-top:5px;
   font-size: 16px;
 }
 .product-edit-new-container .waa-edit-row .waa-side-left p {
@@ -953,7 +953,7 @@ body {
   position: relative;
 }
 .product-edit-new-container .waa-variation-action-wrapper {
-  padding: 10px;
+  margin:-50px 15px 15px;
 }
 .product-edit-new-container .waa-list-category-box {
   border: 1px solid #ccc;
@@ -2226,10 +2226,14 @@ ul.waa_tabs li.active {
   color: #ccc;
 }
 
+.waa-form-note { font-size:15px; font-style:italic; display:block; margin-top:-5px; }
+.waa-form-note .fa { font-size:12px; }
+
 .waa-table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+	margin-top:10px;
 }
 .waa-table > thead > tr > th,
 .waa-table > tbody > tr > th,
@@ -2590,6 +2594,10 @@ a.waa-label:focus {
   position: relative;
   top: -1px;
 }
+#doakn-single-attribute-wrapper .waa-btn { margin-bottom:0 !important }
+#doakn-single-attribute-wrapper.mfp-close { top:8px; right:15px; height:auto; width:auto; }
+#doakn-single-attribute-wrapper .mfp-close:hover { background:none }
+#doakn-single-attribute-wrapper span.waa-loading{ position:absolute; bottom:15px; left:57% }
 .waa-label-default {
   background-color: #777777;
 }
@@ -2909,6 +2917,7 @@ textarea.waa-form-control {
   background-color: #eee;
   border: 1px solid #ededed;
   border-radius: 4px;
+	cursor:pointer;
 }
 .waa-input-group-addon input[type="radio"],
 .waa-input-group-addon input[type="checkbox"] {
@@ -3425,5 +3434,14 @@ article.waa-notice-single-notice-area span.waa-single-announcement-date {
   background-color: #009dce;
 }
 .waa-product-edit-form { width:98% }
+
+.btn-remove-print, .btn-remove-new-print { padding:13px 0 0 0; display:block; font-size:16px; cursor:pointer; }
+.btn-remove-print:hover, .btn-remove-new-print:hover, .btn-remove-new-print:focus, .btn-remove-new-print:active, .btn-remove-print:active, .btn-remove-print:focus { border:none }
+#print-size-alert { display:none; font-weight:bold; font-size:13px; color:red}
+
+.print-variation:first-child .btn-remove-new-print  { display:none }
+.print-variation td  { border:none !important }
+
+.tag-group { margin:0 0 30px }
 
 /*# sourceMappingURL=style.css.map */

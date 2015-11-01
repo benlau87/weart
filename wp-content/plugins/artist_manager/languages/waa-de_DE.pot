@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-30 15:39+0100\n"
+"PO-Revision-Date: 2015-11-01 03:41+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -473,7 +473,7 @@ msgstr "Ändern"
 
 #: classes/template-coupons.php:271
 msgid "Are you sure want to delete"
-msgstr ""
+msgstr "Bist du dir sicher?"
 
 #: classes/template-coupons.php:271
 msgid "delete"
@@ -2449,7 +2449,7 @@ msgstr ""
 
 #: includes/wc-functions.php:157
 msgid "Add Variation"
-msgstr ""
+msgstr "weiteren Print hinzufügen"
 
 #: includes/wc-functions.php:159
 msgid "Link all variations"
@@ -2791,7 +2791,7 @@ msgstr ""
 #: includes/woo-views/variation-admin-html.php:21
 #: templates/edit/variation-item.php:28
 msgid "Any"
-msgstr ""
+msgstr "Jede"
 
 #: includes/woo-views/variation-admin-html.php:54
 #: templates/edit/inventory.php:18 templates/edit/inventory.php:20
@@ -3080,7 +3080,7 @@ msgstr "Bild"
 #: templates/edit/load_variation_template.php:116
 #: templates/new-product-single.php:833
 msgid "Variant"
-msgstr "Größe"
+msgstr "Größe (in cm)"
 
 #: templates/edit/load_variation_template.php:117
 #: templates/new-product-single.php:176 templates/new-product-single.php:834
@@ -3095,11 +3095,11 @@ msgstr "Aktion"
 
 #: templates/edit/load_variation_template.php:210
 msgid "Add Options"
-msgstr ""
+msgstr "Größen und Ausführungen verwalten"
 
 #: templates/edit/load_variation_template.php:211
 msgid "Add New Variation"
-msgstr ""
+msgstr "weiteren Print hinzufügen"
 
 #: templates/edit/options.php:3 templates/new-product-single.php:778
 msgid "Purchase Note"
@@ -3164,7 +3164,7 @@ msgstr "Versand überschreiben"
 
 #: templates/edit/shipping.php:51 templates/new-product-single.php:673
 msgid "Override default shipping cost for this product"
-msgstr "Überschreibe die Standardversandkosten für dieses Kunstwerk"
+msgstr "Überschreibe die Standardversandkosten für dieses Kunstwerk."
 
 #: templates/edit/shipping.php:56 templates/new-product-single.php:677
 msgid "Additional cost"
@@ -3405,19 +3405,19 @@ msgstr ""
 
 #: templates/new-product-single.php:512 templates/new-product-single.php:866
 msgid "Option Name"
-msgstr ""
+msgstr "Option"
 
 #: templates/new-product-single.php:512
 msgid "Enter you variation attribute option name"
-msgstr ""
+msgstr "Bitte gib an, welches Material und welche Größen du anbieten möchtest."
 
 #: templates/new-product-single.php:513 templates/new-product-single.php:867
 msgid "Option Values"
-msgstr ""
+msgstr "Wert"
 
 #: templates/new-product-single.php:513
 msgid "Enter attribute options values corresponding options name"
-msgstr ""
+msgstr "Bitte gib an, welches Material und welche Größen du anbieten möchtest."
 
 #: templates/new-product-single.php:528 templates/new-product-single.php:882
 msgid "Add Option"
@@ -3425,7 +3425,7 @@ msgstr ""
 
 #: templates/new-product-single.php:575
 msgid "Create variation using those attribute options"
-msgstr ""
+msgstr "Produktvarianten automatisch"
 
 #: templates/new-product-single.php:597
 msgid "Use those above variations"

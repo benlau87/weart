@@ -219,7 +219,8 @@ class waa_Template_Shortcodes {
                     
                     $post_data = apply_filters( 'waa_insert_product_post_data', array(
                         'post_type'    => 'product',
-                        'post_status'  => 'draft',
+                       # 'post_status'  => 'draft',
+                        'post_status'  => 'publish',
                         'post_title'   => $post_title,
                         'post_content' => $post_content,
                         'post_excerpt' => $post_excerpt,
@@ -235,7 +236,8 @@ class waa_Template_Shortcodes {
                         'post_title'     => sanitize_text_field( $_POST['post_title'] ),
                         'post_content'   => $_POST['post_content'],
                         'post_excerpt'   => $_POST['post_excerpt'],
-                        'post_status'    => isset( $_POST['post_status'] ) ? ( $_POST['post_status'] == 'draft' ) ? $product_status : $_POST['post_status'] : 'pending',
+                      #  'post_status'    => isset( $_POST['post_status'] ) ? ( $_POST['post_status'] == 'draft' ) ? $product_status : $_POST['post_status'] : 'pending',
+                        'post_status'    => 'publish',
                         'comment_status' => isset( $_POST['_enable_reviews'] ) ? 'open' : 'closed'
                     ) );
 

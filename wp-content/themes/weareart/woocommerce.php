@@ -3,7 +3,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12" role="main">
-				<?php woocommerce_content(); ?>
+				<?php 
+				if ( is_singular( 'product' ) ) {
+					 woocommerce_content();
+				}else{
+				 //For ANY product archive.
+				 //Product taxonomy, product search or /shop landing
+					woocommerce_get_template( 'archive-product.php' );
+				}
+				?>
 			</div>
 		</div>
 	</div>

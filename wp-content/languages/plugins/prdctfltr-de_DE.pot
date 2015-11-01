@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Product Filter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-03 16:16+0100\n"
-"PO-Revision-Date: 2015-10-28 17:44+0100\n"
+"PO-Revision-Date: 2015-10-31 23:42+0100\n"
 "Last-Translator: Nenad Mihajlovic <dzeriho@gmail.com>\n"
 "Language-Team: Mihajlovicnenad.com <dzeriho@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -1729,7 +1729,7 @@ msgstr "Zeige das einzige Ergebnis."
 
 #: ../woocommerce/loop/product-filter.php:346
 msgid "Showing all"
-msgstr "Zeige alle"
+msgstr "Zeige"
 
 #: ../woocommerce/loop/product-filter.php:346
 #: ../woocommerce/loop/product-filter.php:348

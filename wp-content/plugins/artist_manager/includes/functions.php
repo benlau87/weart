@@ -457,7 +457,12 @@ function waa_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'text
     $placeholder = isset( $attr['placeholder'] ) ? esc_attr( $attr['placeholder'] ) : '';
     $class       = isset( $attr['class'] ) ? esc_attr( $attr['class'] ) : 'waa-form-control';
     $name        = isset( $attr['name'] ) ? esc_attr( $attr['name'] ) : $meta_key;
-    $value       = isset( $attr['value'] ) ? $attr['value'] : get_post_meta( $post_id, $meta_key, true );
+		
+		$waa_original_price = get_post_meta( $post_id, 'waa_original_price', true );
+		if($waa_original_price && $meta_key == '_regular_price')
+			$value = $waa_original_price;
+		else
+			$value       = isset( $attr['value'] ) ? $attr['value'] : get_post_meta( $post_id, $meta_key, true );
     $size        = isset( $attr['size'] ) ? $attr['size'] : 30;
     $required        = isset( $attr['required'] ) ? 'required' : '';
 
