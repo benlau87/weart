@@ -917,7 +917,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 	display:table;
 }
 .single-product .artist-info .artist-shortdesc {
-	padding:25px 50px;
+	padding:25px 50px 25px 25px;
 	float:left;
 	margin:0;
 	height:100%;
