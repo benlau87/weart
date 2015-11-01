@@ -14,7 +14,7 @@ global $product;
 
 $attribute_keys = array_keys( $attributes );
 
-PRINT_R($available_variations);
+#PRINT_R($attributes);
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+#get_header( 'shop' ); ?>
 
 	<?php
 		/**
@@ -22,7 +22,7 @@ get_header( 'shop' ); ?>
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
-		do_action( 'woocommerce_before_main_content' );
+		#do_action( 'woocommerce_before_main_content' );
 	?>
 
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -50,9 +50,19 @@ get_header( 'shop' ); ?>
 				 * @hooked woocommerce_result_count - 20
 				 * @hooked woocommerce_catalog_ordering - 30
 				 */
-				do_action( 'woocommerce_before_shop_loop' );
+				#do_action( 'woocommerce_before_shop_loop' );
 			?>
-
+			<div class="row">
+				<div class="col-md-9">
+					<?php do_action('prdctfltr_output'); ?>
+				</div>
+				<div class="col-md-3">
+					 <?php  echo do_shortcode('[yith_woocommerce_ajax_search]'); ?> 
+			</div>
+			</div>
+			
+			
+			
 			<?php woocommerce_product_loop_start(); ?>
 
 				<?php woocommerce_product_subcategories(); ?>

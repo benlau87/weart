@@ -223,7 +223,7 @@ function add_customer_menu($items, $args)
 					$items .= "<li class='admin-menu'><a href='".get_admin_url()."'>".__( 'Admin', 'waa' )."</a></li>";
 				}
 		} elseif ($args->theme_location == 'main-menu') {
-			$items .= sprintf(__( '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Warenkorb %s <b class="caret"></b></a>', 'waa' ),  '<span class="waa-cart-amount-top">(' . WC()->cart->get_cart_total() . ')</span>'); 
+			$items .= '<li class="shopping-cart"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i></a>'; 
 			$items .= '<ul class="dropdown-menu mini-shopping-cart">
                 <li>
                     <div class="widget_shopping_cart_content"></div>

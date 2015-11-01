@@ -49,7 +49,7 @@ get_header( 'shop' );
 										<?php
 											 if( $store_info['enable_services'] == "yes" ) {
 											?>
-													<a href="#" data-toggle="modal" data-target="#request-service" class="btn btn-inverted"> <span><?= __('Künstler beauftragen', 'waa'); ?></span></a>
+													<a href="#" data-toggle="modal" data-target="#request-service" class="btn btn-inverted"> <span><?= __('Mich kann man buchen', 'waa'); ?></span></a>
 															
 															<div class="modal fade in" id="request-service" tabindex="-1" role="dialog" aria-labelledby="request-service" aria-hidden="true">
 																<div class="modal-dialog">

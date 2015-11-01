@@ -472,6 +472,15 @@ function waa_process_product_meta( $post_id ) {
     $product_type       = empty( $_POST['_product_type'] ) ? 'simple' : sanitize_title( stripslashes( $_POST['_product_type'] ) );
     $is_downloadable    = isset( $_POST['_downloadable'] ) ? 'yes' : 'no';
     $is_virtual         = ( $is_downloadable == 'yes' ) ? 'yes' : 'no';
+		
+		// do not sell original?
+		$waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'yes' : 'no';
+    update_post_meta( $post_id, 'waa_only_print', $waa_only_print );		
+		
+		// save original price, if original can be bought
+		if($waa_only_print == 'no') {				
+			update_post_meta( $post_id, 'waa_original_price', $_POST['_regular_price'] );
+		}
 
     // Product type + Downloadable/Virtual
     wp_set_object_terms( $post_id, $product_type, 'product_type' );
@@ -654,22 +663,16 @@ function waa_process_product_meta( $post_id ) {
         }
     }
     uasort( $attributes, 'attributes_cmp' );
+		
+		$waa_region_val = $_POST['waa_region_val'];
+		array_push($attributes, array('name' => 'pa_stadt' , 'value' => $waa_region_val, 'position' => 1, 'is_visible' => 0, 'is_variation' => 0, 'is_taxonomy' =>1));	
+		
 
     update_post_meta( $post_id, '_product_attributes', $attributes );
 		
 		// Save waa_region
-	 $waa_region_attr = $_POST['waa_region_attr'];
 	 $waa_region_val = $_POST['waa_region_val'];
 		update_post_meta( $post_id, '_has_attribute', 'yes' );    
-
-
-		// Example on using this function
-		// The attribute parameter that you pass along must contain all attributes for your product in one go
-		// so that the wcproduct_set_attributes function can insert them into the correct meta field.
-		$waa_region_attribute = array($waa_region_attr => $waa_region_val);
-
-		// After inserting post
-		wcproduct_set_attributes($post_id, $waa_region_attribute);	
 
     // Sales and prices
     if ( in_array( $product_type, array( 'variable' ) ) ) {
@@ -882,11 +885,18 @@ function waa_new_process_product_meta( $post_id ) {
     $_required_tax      = ( isset( $_POST['_required_tax'] ) && $_POST['_required_tax'] == 'yes' ) ? 'yes' : 'no';
     $_has_attribute     = ( isset( $_POST['_has_attribute'] ) && $_POST['_has_attribute'] == 'yes' ) ? 'yes' : 'no';
     $_create_variation  = ( isset( $_POST['_create_variation'] ) && $_POST['_create_variation'] == 'yes' ) ? 'yes' : 'no';
-
+    $waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'yes' : 'no';
+		
     // Save has variation and create variations flag
     update_post_meta( $post_id, '_required_tax', $_required_tax );
-    update_post_meta( $post_id, '_has_attribute', $_has_attribute );
+    update_post_meta( $post_id, '_has_attribute', 'yes' );
     update_post_meta( $post_id, '_create_variation', $_create_variation );
+    update_post_meta( $post_id, 'waa_only_print', $waa_only_print );
+						
+		// save original price, if original can be bought
+		if($waa_only_print == 'no') {				
+			update_post_meta( $post_id, 'waa_original_price', $_POST['_regular_price'] );
+		}
 
     // Product type + Downloadable/Virtual
     wp_set_object_terms( $post_id, $product_type, 'product_type' );
@@ -909,6 +919,28 @@ function waa_new_process_product_meta( $post_id ) {
     if ( isset( $_POST['_sale_price'] ) ) {
         update_post_meta( $post_id, '_sale_price', ( $_POST['_sale_price'] === '' ? '' : wc_format_decimal( $_POST['_sale_price'] ) ) );
     }
+		
+		// Save waa_region & wwa_stil
+	 $waa_region_attr = 'pa_stadt';
+	 $waa_region_val = $_POST['waa_region_val'];
+	 
+	  if( $_has_attribute == 'no') {
+			// Update post terms
+			if ( taxonomy_exists( $waa_region_attr ) ) {
+					wp_set_object_terms( $post_id, $waa_region_val, $waa_region_attr );
+			}
+		
+			 $attributes[ sanitize_title( $waa_region_attr ) ] = array(
+						'name'          => woocommerce_clean( $waa_region_attr ),
+						'value'         => $waa_region_val,
+						'position'      => 1,
+						'is_visible'    => 0,
+						'is_variation'  => 0,
+						'is_taxonomy'   => 1
+				);			
+													
+			 update_post_meta( $post_id, '_product_attributes', $attributes );
+		}
 
     // Save extra product options like purchase note, visibility
     update_post_meta( $post_id, '_purchase_note', stripslashes( $_POST['_purchase_note'] ) );
@@ -1002,7 +1034,7 @@ function waa_new_process_product_meta( $post_id ) {
     }
 
     // Save Product Attributes options
-    if( $_has_attribute == 'yes') {
+    if( $_has_attribute == 'yes') {	
         $attributes = get_post_meta( $post_id, '_product_attributes', true ) ? get_post_meta( $post_id, '_product_attributes', true ) : array();
         $use_as_variation = ( isset( $_POST['_create_variation'] ) ) ? 1 : 0;
         $attr_tax = $attr_pos = $attr_visible = $attr_variation = array();
@@ -1010,12 +1042,20 @@ function waa_new_process_product_meta( $post_id ) {
         if ( isset( $_POST['attribute_names'] ) ) {
             $attribute_names = $_POST['attribute_names'];
             $attr_values = $_POST['attribute_values'];
+						
+						
+						$groesse_values = $_POST['attribute_pa_print_groesse'];
+						$groesse_string = implode(",", $groesse_values);
+						$material_values = $_POST['attribute_pa_print_material'];			
+						$material_string = implode(",", $material_values);						
+						$all_values = array($groesse_string, $material_string);				
+										
 
             foreach ( $attribute_names as $key => $value ) {
                 $attr_pos[$key]       = $key;
                 $attr_visible[$key]   = 1;
                 $attr_variation[$key] = $use_as_variation;
-                $attribute_values[$key] = explode(',', $attr_values[$key] );
+                $attribute_values[$key] = explode(',', $all_values[$key] );
             }
 
             $attribute_visibility = $attr_visible;
@@ -1039,7 +1079,7 @@ function waa_new_process_product_meta( $post_id ) {
 
                         // Select based attributes - Format values (posted values are slugs)
                         if ( is_array( $attribute_values[ $i ] ) ) {
-                            $values = array_map( 'sanitize_title', $attribute_values[ $i ] );
+                            $values = $attribute_values[ $i ];
 
                         // Text based attributes - Posted values are term names - don't change to slugs
                         } else {
@@ -1095,30 +1135,18 @@ function waa_new_process_product_meta( $post_id ) {
         }
 
         uasort( $attributes, 'attributes_cmp' );
+				
+				
+				// add city to attribute array
+				$waa_region_attr = 'pa_stadt';
+				$waa_region_val = $_POST['waa_region_val'];
+				array_push($attributes, array('name' => 'pa_stadt' , 'value' => $waa_region_val, 'position' => 1, 'is_visible' => 0, 'is_variation' => 0, 'is_taxonomy' =>1));
+			
         update_post_meta( $post_id, '_product_attributes', $attributes );
 				
-				
-				// Save waa_region & wwa_stil
-			 $waa_region_attr = $_POST['waa_region_attr'];
-			 $waa_region_val = $_POST['waa_region_val'];
-			 $waa_stil_attr = $_POST['waa_stil_attr'];
-			 $waa_stil_val = $_POST['waa_stil_val'] == '-1' ? '' : $_POST['waa_stil_val'];
-				update_post_meta( $post_id, '_has_attribute', 'yes' );    
-
-
-				// Example on using this function
-				// The attribute parameter that you pass along must contain all attributes for your product in one go
-				// so that the wcproduct_set_attributes function can insert them into the correct meta field.
-				$waa_attributes = array($waa_region_attr => $waa_region_val, $waa_stil_attr => $waa_stil_val);
-
-				// After inserting post
-				wcproduct_set_attributes($post_id, $waa_attributes);	
-				
-				// Update post terms
-				if ( taxonomy_exists( $waa_region_attr ) )
-						wp_set_object_terms( $post_id, $waa_region_val, $waa_region_attr );
-				if ( taxonomy_exists( $waa_stil_attr ) )
-						wp_set_object_terms( $post_id, $waa_stil_val, $waa_stil_attr );
+				if ( taxonomy_exists( $waa_region_attr ) ) {
+					wp_set_object_terms( $post_id, $waa_region_val, $waa_region_attr );
+				}
     }
 
     // Sales and prices
@@ -1386,6 +1414,7 @@ function waa_new_save_variations( $post_id ) {
 
                 $regular_price  = wc_format_decimal( $variable_regular_price[ $i ] );
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
+                update_post_meta( $variation_id, '_price', $regular_price );
                 update_post_meta( $variation_id, '_sku', wc_clean( $variable_sku[ $i ] ) );
                 update_post_meta( $variation_id, '_thumbnail_id', absint( $upload_image_id[ $i ] ) );
 
@@ -1400,6 +1429,7 @@ function waa_new_save_variations( $post_id ) {
 
                     if ( $attribute['is_variation'] ) {
                         $attribute_key = 'attribute_' . sanitize_title( $attribute['name'] );
+                       # $value         = isset( $_POST[ $attribute_key ][ $i ] ) ? sanitize_title( stripslashes( $_POST[ $attribute_key ][ $i ] ) ) : '';
                         $value         = isset( $_POST[ $attribute_key ][ $i ] ) ? sanitize_title( stripslashes( $_POST[ $attribute_key ][ $i ] ) ) : '';
                         $updated_attribute_keys[] = $attribute_key;
                         update_post_meta( $variation_id, $attribute_key, $value );
@@ -1577,6 +1607,7 @@ function waa_new_save_variations( $post_id ) {
 
                     if ( $attribute['is_variation'] ) {
                         $attribute_key = 'attribute_' . sanitize_title( $attribute['name'] );
+                        #$value         = isset( $_POST[ $attribute_key ][ $i ] ) ? sanitize_title( stripslashes( $_POST[ $attribute_key ][ $i ] ) ) : '';
                         $value         = isset( $_POST[ $attribute_key ][ $i ] ) ? sanitize_title( stripslashes( $_POST[ $attribute_key ][ $i ] ) ) : '';
                         $updated_attribute_keys[] = $attribute_key;
                         update_post_meta( $variation_id, $attribute_key, $value );
@@ -1771,9 +1802,10 @@ function waa_save_variations( $post_id ) {
             $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
             update_post_meta( $variation_id, '_regular_price', $regular_price );
-            update_post_meta( $variation_id, '_sale_price', $sale_price );
+            update_post_meta( $variation_id, '_price', $regular_price );
+            #update_post_meta( $variation_id, '_sale_price', $sale_price );
 
-            // Save Dates
+         /*   // Save Dates
             if ( $date_from )
                 update_post_meta( $variation_id, '_sale_price_dates_from', strtotime( $date_from ) );
             else
@@ -1801,6 +1833,7 @@ function waa_save_variations( $post_id ) {
                 update_post_meta( $variation_id, '_sale_price_dates_from', '' );
                 update_post_meta( $variation_id, '_sale_price_dates_to', '' );
             }
+						*/
 
             if ( isset( $variable_tax_class[ $i ] ) && $variable_tax_class[ $i ] !== 'parent' )
                 update_post_meta( $variation_id, '_tax_class', wc_clean( $variable_tax_class[ $i ] ) );

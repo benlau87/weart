@@ -65,7 +65,6 @@ global $product;
 				$author_info     = waa_get_store_info( $author->ID );
 				printf( 'von <a href="%s" class="artist">%s</a>', waa_get_store_url( $author->ID ), $author_info['store_name'] ); 
 				woocommerce_template_single_price();
-				the_content();
 				woocommerce_template_single_add_to_cart();
 				woocommerce_template_single_meta();
 			?>
@@ -79,14 +78,17 @@ global $product;
 		<div class="artist-info">	
 			<div class="artist-profilepic"><?php echo get_avatar( $author->ID, 150 ); ?></div>
 			<div class="artist-shortdesc">		
-				<a href="<?= waa_get_store_url( $author->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $author_info['store_name']); ?>"> 
+				<span style="font-weight:bold; font-style:italic">&raquo; <?= the_title().' &laquo;</span> '.__('von', 'waa'); ?><a href="<?= waa_get_store_url( $author->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $author_info['store_name']); ?>"> 
 					<?= $author_info['store_name']; 
 						$city_term = get_term_by('id', $author_info['region'], 'pa_stadt');
 						$city_id = $city_term->term_id;
 						$city_link = get_term_link( $city_id, 'pa_stadt' );
 					?></a>
 					(<?php printf( __('<em>Künstler aus</em> <a href="%1$s" title="weitere Künstler aus %2$s anzeigen">%2$s</a>', 'waa'), $city_link, $city_term->name );?>)
-					<?= ( isset($author_info['description'] )) ? '<p>'.truncate_string($author_info['description'], '300').'</p>' : '' ?>
+					<?php
+									the_content();
+					#echo ( isset($author_info['description'] )) ? '<p>'.truncate_string($author_info['description'], '300').'</p>' : '' 
+					?>
 			</div>
 		</div>
 	</div><!-- END artist-block -->
