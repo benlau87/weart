@@ -884,6 +884,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
   color: #009dce;
   margin-right: 10px;
 }
+.product-sidebar .variations td.label { width:75px; }
 
 .single-product a.artist { border-bottom:1px solid #000; }
 .single-product a.artist:hover { border-color: #009dce; color:#009dce }
