@@ -929,16 +929,14 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 }
 .single-product .artist-info .artist-profilepic {
 	display:table-cell;
-	width:175px;
-	padding-top:25px;
-	padding-left:25px;
+	width:200px;
+	padding:25px;
 	height:100%;
 	vertical-align:top;
 }
 .single-product .artist-info .artist-profilepic img {
 	border-radius:50%;
 }
-
 
 
 /* CHECKOUT */
