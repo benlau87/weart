@@ -142,9 +142,6 @@ a:hover {
 	border-color: #009dce;
 	text-decoration:none;
 }
-
-a:focus, a:active { outline:0; border:none }
-	
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Graphik';
 	color:#000;
@@ -176,9 +173,6 @@ hr { border:none; height:1px; background:#eeeeee; }
 	padding:7px 20px;	
 }
 .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus { 
-	background: transparent;
-	color: #000;
-	border-color: #000;
 	outline: 0;
 }
 
