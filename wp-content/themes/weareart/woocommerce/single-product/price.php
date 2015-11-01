@@ -23,7 +23,7 @@ $waa_original_price = get_post_meta($product->id, 'waa_original_price', true);
 			if($waa_only_print == 'no') {
 				echo '<span class="amount">'.number_format($waa_original_price, 2,',','.').'&nbsp;'.get_woocommerce_currency_symbol().'</span> <small class="woocommerce-price-suffix">'.$product->get_price_suffix().'</small></p>';
 				echo '<button type="submit" class="single_add_to_cart_button button alt">'.__('Original in den Warenkorb', 'waa').'</button>';
-				echo '<div class="order-prints-line"><span>'__('oder Abzüge bestellen', 'waa').'</span></div>';
+				echo '<div class="order-prints-line"><span>'.__('oder Abzüge bestellen', 'waa').'</span></div>';
 			}
 			else {
 				echo $product->get_price_html();
