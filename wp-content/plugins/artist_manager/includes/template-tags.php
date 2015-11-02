@@ -436,7 +436,7 @@ function waa_dashboard_nav( $active_menu = '' ) {
         $class = ( $active_menu == $key ) ? 'active ' . $key : $key;
         $menu .= sprintf( '<li class="%s"><a href="%s">%s %s</a></li>', $class, $item['url'], $item['icon'], $item['title'] );
     }
-		$menu .= '<li><a href="'.get_permalink( get_option("woocommerce_myaccount_page_id") ).'" title="'.__("My Account","waa").'"><i class="fa fa-cog"></i> '.__('My Account', 'waa').'</a></li>';
+		$menu .= '<li><a href="'. wc_customer_edit_account_url() .'" title="'.__("My Account","waa").'"><i class="fa fa-cog"></i> '.__('My Account', 'waa').'</a></li>';
 		$menu .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="fa fa-power-off"></i> '.__('Logout', 'waa').'</a></li>';
     $menu .= '</ul>';
 

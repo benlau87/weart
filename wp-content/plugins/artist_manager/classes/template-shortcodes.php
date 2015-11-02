@@ -199,6 +199,11 @@ class waa_Template_Shortcodes {
 
                 $errors[] = __( 'Please enter product title', 'waa' );
             }
+						
+						if ( empty( $featured_image ) ) {
+
+                $errors[] = __( 'Choose an image', 'waa' );
+            }
 
             if( waa_get_option( 'product_category_style', 'waa_selling', 'single' ) == 'single' ) {
                 $product_cat    = intval( $_POST['product_cat'] );
@@ -307,6 +312,11 @@ class waa_Template_Shortcodes {
             if ( empty( $post_title ) ) {
 
                 $errors[] = __( 'Please enter product title', 'waa' );
+            }
+						
+						if ( empty( $featured_image ) ) {
+
+                $errors[] = __( 'Choose an image', 'waa' );
             }
 
             if( waa_get_option( 'product_category_style', 'waa_selling', 'single' ) == 'single' ) {

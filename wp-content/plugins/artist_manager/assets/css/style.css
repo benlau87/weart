@@ -733,6 +733,7 @@ body {
   margin-bottom: 10px;
 	margin-top:5px;
   font-size: 16px;
+	text-transform:inherit;
 }
 .product-edit-new-container .waa-edit-row .waa-side-left p {
   margin-bottom: 15px;
@@ -2669,6 +2670,7 @@ a.waa-label:focus {
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
+	width:98%;
 }
 .waa-alert h4 {
   margin-top: 0;

@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-01 03:41+0100\n"
+"PO-Revision-Date: 2015-11-02 04:12+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -2485,7 +2485,7 @@ msgstr ""
 
 #: includes/wc-functions.php:424
 msgid "Choose an image"
-msgstr ""
+msgstr "Bitte lade ein Foto deines Kunstwerks hoch. Es sollte min. 800x800 Pixel groß sein"
 
 #: includes/wc-functions.php:426
 msgid "Set variation image"

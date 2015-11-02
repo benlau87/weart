@@ -18,7 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				if ( $attribute['is_taxonomy'] ) {
 						$post_terms = wp_get_post_terms( $parent_data['id'], $attribute['name'] );
 						foreach ( $post_terms as $term ) {
+							if($term->slug != 'original') {
 								echo '<option ' . selected( $variation_selected_value, $term->slug, false ) . ' value="' . esc_attr( $term->slug ) . '">' . apply_filters( 'woocommerce_variation_option_name', esc_html( $term->name ) ) . '</option>';
+							}
 						}
 
 				} else {

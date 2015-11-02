@@ -120,7 +120,8 @@ if ( $variations )  {
     <tbody>
     <?php
 
-        foreach ( $variations as $variation ) {
+ foreach(array_slice($variations, 1) as $variation) {
+			#    foreach ( $variations as $variation ) {
 
             $variation_id           = absint( $variation->ID );
             $variation_post_status  = esc_attr( $variation->post_status );
@@ -128,7 +129,6 @@ if ( $variations )  {
 
             $shipping_classes = get_the_terms( $variation_id, 'product_shipping_class' );
             $shipping_class = ( $shipping_classes && ! is_wp_error( $shipping_classes ) ) ? current( $shipping_classes )->term_id : '';
-
             $variation_fields = array(
                 '_sku',
                 '_stock',
