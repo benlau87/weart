@@ -12,12 +12,28 @@ if( isset( $post->ID ) && $post->ID && $post->post_type == 'product' ) {
     $post_status = $post->post_status;
 } else {
     $post_id = NULL;
-    $post_title = '';
-    $post_content = '';
+    $post_title = $_POST['post_title'];
+    $post_content = $_POST['post_content'];
+		$_regular_price = $_POST['_regular_price'];
     $post_excerpt = '';
     $post_status = 'publish';
     $from_shortcode = true;
-
+		$waa_date_created = $_POST['waa_date_created'];
+		$_has_attribute = $_POST['_has_attribute'];
+		#$_create_variations = $_POST['_create_variation'];
+		$_manage_stock = $_POST['_manage_stock'];
+		$_sold_individually = $_POST['_sold_individually'];
+		$_stock = $_POST['_stock'];
+		$_stock_status = $_POST['_stock_status'];
+		$_backorders = $_POST['_backorders'];		
+		$_weight = $_POST['_weight'];
+		$_length = $_POST['_length'];
+		$_width = $_POST['_width'];
+		$_height = $_POST['_height'];
+		$_overwrite_shipping = $_POST['_overwrite_shipping'];
+		$_additional_product_price = $_POST['_additional_product_price'];
+		$_additional_qty = $_POST['_additional_qty'];
+		$_purchase_note = $_POST['_purchase_note'];
 }
 
 if ( isset( $_GET['product_id'] ) ) {
@@ -31,6 +47,7 @@ if ( isset( $_GET['product_id'] ) ) {
     $from_shortcode = true;
 }
 
+if ( $product ) {
 $_regular_price         = get_post_meta( $post_id, '_regular_price', true );
 $_sale_price            = get_post_meta( $post_id, '_sale_price', true );
 $is_discount            = !empty( $_sale_price ) ? true : false;
@@ -79,6 +96,8 @@ $porduct_shipping_pt = ( $_processing_time ) ? $_processing_time : $dps_pt;
 $attribute_taxonomies = wc_get_attribute_taxonomies();
 
 $product_attributes = get_post_meta( $post_id, '_product_attributes', true );
+
+}
 
 $processing_time = waa_get_shipping_processing_times();
 $tax_classes = array_filter( array_map( 'trim', explode( "\n", get_option( 'woocommerce_tax_classes' ) ) ) );
@@ -187,7 +206,7 @@ if ( ! $from_shortcode ) {
 
 																										<div class="waa-input-group">
 																												<span class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-																												<?php waa_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'waa' ) ), 'number' ); ?>
+																												<?php waa_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'waa' ), 'value' => $_regular_price ), 'number' ); ?>
 																										</div>
 																								</div>
 																						</div>
@@ -197,7 +216,7 @@ if ( ! $from_shortcode ) {
 																						<div class="waa-form-group">
 																								<label for="product_cat" class="form-label"><?php _e( 'Category', 'waa' ); ?></label>
 																								<?php
-																								$product_cat = -1;
+																								$product_cat = ($_POST['product_cat'] ? $_POST['product_cat'] : -1);
 																								$term = array();
 																								$term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
 
@@ -327,7 +346,7 @@ if ( ! $from_shortcode ) {
 																		<label for="product_tag" class="form-label"><?php _e( 'Tags', 'waa' ); ?></label>
 																		<?php
 																		require_once waa_LIB_DIR.'/class.tag-walker.php';
-																		$term = wp_get_post_terms( $post_id, 'product_tag', array( 'fields' => 'ids') );
+																		$term = ($product ? wp_get_post_terms( $post_id, 'product_tag', array( 'fields' => 'ids') ): $_POST['product_tag']);
 																		$selected = ( $term ) ? $term : array();
 																		$drop_down_tags = wp_dropdown_categories( array(
 																				'show_option_none' => __( '', 'waa' ),
@@ -379,7 +398,16 @@ if ( ! $from_shortcode ) {
 																					<input type="hidden" name="attribute_is_taxonomy[]" value="1">
 																					<input type="hidden" name="attribute_values[]" value="">
 																					<input type="hidden" name="_create_variation" id="_create_variation" value="no">
-																					<input type="hidden" name="waa_create_new_variations" id="waa_create_new_variations" value="no">				
+																					<input type="hidden" name="waa_create_new_variations" id="waa_create_new_variations" value="no">		
+
+																						<!-- create "original" variation -->
+																						<input type="hidden" name="attribute_pa_print_groesse[]" value="original">																						
+																						<input type="hidden" name="attribute_pa_print_material[]" value="original">
+																						<input type="hidden" name="variation_menu_order[]" value="0">
+																						<input type="hidden" name="variable_enabled[]" value="yes">																						
+																						<input type="hidden" name="variable_sku[]">
+																						<input type="hidden" name="variable_regular_price[]" id="original-price" value="">																			
+																						
 																						<table class="waa-table">
 																							<thead>
 																									<tr>
@@ -454,7 +482,7 @@ if ( ! $from_shortcode ) {
 
 																		<div class="waa-side-right">
 																				<div class="waa-form-group hide_if_variation">
-																						<?php waa_post_input_box( $post_id, '_manage_stock', array( 'label' => __( 'Enable product stock management', 'waa' ) ), 'checkbox' ); ?>
+																						<?php waa_post_input_box( $post_id, '_manage_stock', array( 'label' => __( 'Enable product stock management', 'waa' ), 'value' => $_manage_stock  ), 'checkbox' ); ?>
 																				</div>
 
 																				<div class="show_if_stock waa-stock-management-wrapper waa-form-group waa-clearfix">
@@ -470,7 +498,7 @@ if ( ! $from_shortcode ) {
 																								<?php waa_post_input_box( $post_id, '_stock_status', array( 'options' => array(
 																										'instock'     => __( 'In Stock', 'waa' ),
 																										'outofstock' => __( 'Out of Stock', 'waa' ),
-																								) ), 'select' ); ?>
+																								), 'value' => $_stock_status ), 'select' ); ?>
 																						</div>
 
 																						<div class="waa-w3 hide_if_variation">
@@ -480,12 +508,12 @@ if ( ! $from_shortcode ) {
 																										'no'     => __( 'Do not allow', 'waa' ),
 																										'notify' => __( 'Allow but notify customer', 'waa' ),
 																										'yes'    => __( 'Allow', 'waa' )
-																								) ), 'select' ); ?>
+																								), 'value' => $_backorders ), 'select' ); ?>
 																						</div>
 																				</div><!-- .show_if_stock -->
 
 																				<div class="waa-form-group"> 
-																						<?php waa_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'waa' ) ), 'checkbox' ); ?>
+																						<?php waa_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'waa' ), 'value' => $_sold_individually ), 'checkbox' ); ?>
 																			 	</div> 
 
 																				<?php if ( $post_id ): ?>
@@ -607,7 +635,7 @@ if ( ! $from_shortcode ) {
 
 																				<div class="waa-form-group">
 																						<label for="_purchase_note" class="form-label"><?php _e( 'Purchase Note', 'waa' ); ?></label>
-																						<?php waa_post_input_box( $post_id, '_purchase_note', array( 'placeholder' => __( 'Customer will get this info in their order email', 'waa' ) ), 'textarea' ); ?>
+																						<?php waa_post_input_box( $post_id, '_purchase_note', array( 'placeholder' => __( 'Customer will get this info in their order email', 'waa' ), 'value' => $_purchase_note ), 'textarea' ); ?>
 																				</div>
 																		</div>
 																</div><!-- .waa-other-options -->
@@ -678,7 +706,7 @@ if ( ! $from_shortcode ) {
                             </td>
                             <td>
                                 <# if ( attr_val.is_taxonomy ) { #>
-                                    <input type="text" name="attribute_values[]" value="{{ attr_val.term_value.replace(/\|/g, ',' ) }}" class="waa-form-control waa-single-attribute-option-values">
+                                    <input type="text" name="attribute_values[]" value="{{ attr_val.term_value.replace(/\|/g, ',' ).replace('Original', '') }}" class="waa-form-control waa-single-attribute-option-values">
                                 <# } else { #>
                                     <input type="text" name="attribute_values[]" value="{{ attr_val.value.replace(/\|/g, ',' ) }}" class="waa-form-control waa-single-attribute-option-values">
                                 <# } #>

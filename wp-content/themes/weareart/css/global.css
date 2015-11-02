@@ -142,6 +142,11 @@ a:hover {
 	border-color: #009dce;
 	text-decoration:none;
 }
+a:focus, a:active {
+	outline:0;
+	text-decoration:none
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Graphik';
 	color:#000;
@@ -157,6 +162,7 @@ h3 { font-size:18px; }
 h4 { font-size: 16px; }
 p { margin:0 0 25px 0; }
 hr { border:none; height:1px; background:#eeeeee; }
+blockquote em { font-size:16px }
 
 .hr { background:#000; height:1px; }
 
@@ -885,6 +891,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
   margin-right: 10px;
 }
 .product-sidebar .variations td.label { width:75px; }
+.product-sidebar .variations { width:100%; }
 
 .product-sidebar .order-prints-line { height: 1px; background-color: #000; text-align: center; margin:15px 0 40px; }
 .product-sidebar .order-prints-line span { background-color: #f7f7f7; position: relative; top: -13px; padding:0 5px; font-style:italic; font-size:18px; color:#000; }
@@ -958,6 +965,28 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 		font-size:14px;
     padding: 15px 10px;
 }
+.woocommerce .product-name a { font-size:22px; font-style:italic; }
+.woocommerce .product-name .variation dl {
+  width:100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0
+}
+.woocommerce .product-name .variation dt {
+  float: left;
+  width:22%;
+  padding: 0;
+  margin: 0
+}
+.woocommerce .product-name .variation dd p { margin:0 }
+.woocommerce .product-name .variation dd.variation-Gre p:after { content: ' cm' }
+.woocommerce .product-name .variation dd {
+  float: left;
+  width: 78%;
+  padding: 0;
+  margin: 0
+}
+
 .woocommerce-cart table.cart td, .woocommerce-cart table.cart th {
     vertical-align: middle;
 }

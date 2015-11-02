@@ -2240,5 +2240,7 @@ jQuery(function($) {
 		
 		$('.waa-input-group-addon').click(function() { $(this).next('input').focus(); });
 		
+		$('#_regular_price').focusout(function() { $('#original-price').val($(this).val()); });
+		
 
 })(jQuery);

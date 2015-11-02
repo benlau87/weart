@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php wc_print_notices(); ?>
+<p><a href="<?= wp_get_referer()?>">&larr; <?= __('zurück','waa') ?></a></p>
 
 <form action="" method="post">
 
