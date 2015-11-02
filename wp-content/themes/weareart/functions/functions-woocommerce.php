@@ -67,12 +67,10 @@ function wc_reg_for_menus( $register, $name = '' ) {
 }
 
 // Removes Product Successfully Added to Cart 
-add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' );
-  
-function custom_add_to_cart_message() {
-  
-echo '<style>.woocommerce-message {display: none !important;}</style>';
- 
+add_filter( 'woocommerce_add_to_cart_message', 'custom_add_to_cart_message' );
+add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
+function custom_add_to_cart_message( $message  ){
+return '';
 }
 
 
