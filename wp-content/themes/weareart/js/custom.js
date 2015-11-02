@@ -37,5 +37,14 @@
 					$('.entry_author_image', this).css('height', '75px');
 				}
 		});		
+		
+		$('.woocommerce .shop_table dd.variation-Gre p, .woocommerce .shop_table dd.variation-Material p').each(function() {
+			if($(this).text() == 'Original') {
+				$(this).parent().hide();	
+				$(this).parent().prev('dt').hide();
+			}
+		});
+
+		
 	
 });
