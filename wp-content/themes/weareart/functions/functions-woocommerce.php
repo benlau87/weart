@@ -88,7 +88,7 @@ function waa_get_variation_prices($product, $count = false) {
 		$i++;
 	}
 	if ($count)
-		return count($output);
+		return count($variation_ids);
 	else 
 		return $output;
 }
@@ -120,10 +120,13 @@ function waa_get_max_variation_price($product_id) {
 }
 
 function waa_get_variable_price($product_id) {
-		$_min_variation_price = (get_post_meta($product_id, '_min_variation_price', true) ? get_post_meta($product_id, '_min_variation_price', true) : get_post_meta($product_id, '_regular_price', true));
+		$_create_variation = get_post_meta($product_id, '_create_variation', true);		
+		$_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
 		$_max_variation_price = waa_get_max_variation_price($product_id);
+	#	$_max_variation_price = get_post_meta($product_id, '_max_variation_price', true);
 		
-		if($_min_variation_price == $_max_variation_price) {
+		if($_create_variation == 'no' || $_min_variation_price == $_max_variation_price) {
+			$_min_variation_price = ($_min_variation_price 	? get_post_meta($product_id, '_min_variation_price', true) : get_post_meta($product_id, '_regular_price', true));
 			$output = number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();
 		} else {
 			$output = __('ab', 'waa').' '.number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();

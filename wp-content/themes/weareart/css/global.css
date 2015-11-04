@@ -233,7 +233,7 @@ blockquote em { font-size:16px }
 }
 #top .navbar-brand { border:none }
 #top.header-image .navbar-brand img { display:none }
-#top.header-image .nav li a { color:#fff; }
+#top.header-image .nav > li > a { color:#fff; }
 #top.header-image .navbar-nav>li.current_page_item>a, #top.header-image .nav>li>a:hover, #top.header-image .nav>li>a:focus {  border-bottom:1px solid #fff; }
 
 .hero-banner {
