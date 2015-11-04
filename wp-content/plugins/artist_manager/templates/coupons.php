@@ -21,7 +21,7 @@ $is_edit_page           = isset( $_GET['view'] ) && $_GET['view'] == 'add_coupon
 
                 <?php if ( !$is_edit_page ) { ?>
                     <span class="left-header-content waa-right">
-                        <a href="<?php echo add_query_arg( array( 'view' => 'add_coupons'), waa_get_navigation_url( 'coupons' ) ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="fa fa-gift">&nbsp;</i> <?php _e( 'Add new Coupon', 'waa' ); ?></a>
+                        <a href="<?php echo add_query_arg( array( 'view' => 'add_coupons'), waa_get_navigation_url( 'coupons' ) ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="ui ui-gift">&nbsp;</i> <?php _e( 'Add new Coupon', 'waa' ); ?></a>
                     </span>
                 <?php } ?>
             </header><!-- .entry-header -->

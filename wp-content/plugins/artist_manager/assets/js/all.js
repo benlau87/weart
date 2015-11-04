@@ -1260,7 +1260,17 @@ jQuery(function($) {
                         var wrap = instruction.siblings('.image-wrap');
 
                         // wrap.find('img').attr('src', attachment.sizes.thumbnail.url);
-                        wrap.find('img').attr('src', attachment.url);
+												wrap.find('img').attr('data-height', attachment.height);
+                        wrap.find('img').attr('data-width', attachment.width);
+												
+												if ( $('.image-wrap img').attr('data-height') < 800 || $('.image-wrap img').attr('data-width') < 800 ) {
+													$('#image_size_warning').show();
+													$('.image-wrap').removeClass('no_warning');
+												} else {
+													wrap.find('img').attr('src', attachment.url);
+													$('#image_size_warning').hide();
+													$('.image-wrap').addClass('no_warning');
+												}
 
                         instruction.addClass('waa-hide');
                         wrap.removeClass('waa-hide');
@@ -2241,6 +2251,16 @@ jQuery(function($) {
 		$('.waa-input-group-addon').click(function() { $(this).next('input').focus(); });
 		
 		$('#_regular_price').focusout(function() { $('#original-price').val($(this).val()); });
+		
+		$('.waa-product-edit-form').submit(function(e) {
+			 var image_val = $('.waa-feat-image-id').val();
+			 if (image_val == 0) {
+				 alert('Bitte lade ein Foto von deinem Kunstwerk hoch.');
+				 return false;
+			 }
+			 var image_height = $('.image-wrap img').height();
+			 var image_width = $('.image-wrap img').height();
+		});
 		
 
 })(jQuery);

@@ -80,7 +80,7 @@ class waa_Template_Notice {
                     ?>
                     <div class="waa-announcement-wrapper-item <?php echo ( $notice->status == 'unread' ) ? 'waa-announcement-uread' : '' ?>">
                         <div class="announcement-action">
-                            <a href="#" class="remove_announcement" data-notice_row = <?php echo $notice->id; ?>><i class="fa fa-times"></i></a>
+                            <a href="#" class="remove_announcement" data-notice_row = <?php echo $notice->id; ?>><i class="ui ui-times"></i></a>
                         </div>
                         <div class="waa-annnouncement-date waa-left">
                             <div class="announcement-day"><?php echo date('d.m', strtotime( $notice->post_date ) ) ?></div>
@@ -107,7 +107,7 @@ class waa_Template_Notice {
                 ?>
                 <div class="waa-no-announcement">
                     <div class="annoument-no-wrapper">
-                        <i class="fa fa-bell waa-announcement-icon"></i>
+                        <i class="ui ui-bell waa-announcement-icon"></i>
                         <p><?php _e( 'No announcement found', 'waa' ) ?></p>
                     </div>
                 </div>

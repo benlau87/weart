@@ -659,7 +659,7 @@ body {
   overflow: hidden;
   position: relative;
 }
-.product-edit-new-container .dokan-feat-image-upload i.fa-cloud-upload {
+.product-edit-new-container .dokan-feat-image-upload i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;
@@ -982,7 +982,7 @@ body {
   overflow: hidden;
   position: relative;
 }
-.product-edit-container .dokan-feat-image-upload i.fa-cloud-upload {
+.product-edit-container .dokan-feat-image-upload i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;
@@ -1954,7 +1954,7 @@ table.dokan-single-attribute-options-table tbody tr td button.remove_attribute {
 .dokan-settings-content .dokan-settings-area .button-area {
   margin-top: 35px;
 }
-.dokan-settings-content .dokan-settings-area .button-area i.fa-cloud-upload {
+.dokan-settings-content .dokan-settings-area .button-area i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;

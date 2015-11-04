@@ -10,7 +10,7 @@
                     <?php waa_product_listing_status_filter(); ?>
 
                     <span class="waa-add-product-link">
-                        <a href="<?php echo waa_get_navigation_url( 'new-product' ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="fa fa-paint-brush">&nbsp;</i> <?php _e( 'Add new product', 'waa' ); ?></a>
+                        <a href="<?php echo waa_get_navigation_url( 'new-product' ); ?>" class="waa-btn waa-btn-theme waa-right"><i class="ui ui-paint-brush">&nbsp;</i> <?php _e( 'Add new product', 'waa' ); ?></a>
                     </span>
                 </div>
 
@@ -137,7 +137,7 @@
                                                 }
 
                                             elseif ( $product->product_type == 'variable' ):
-                                                echo '<span class="fa fa-print" title="' . __( 'Kunstwerk mit Prints', 'waa' ) . '"></span>';
+                                                echo '<span class="ui ui-print" title="' . __( 'Kunstwerk mit Prints', 'waa' ) . '"></span>';
                                             else:
                                                 // Assuming that we have other types in future
                                                 echo '<span class="product-type tips ' . $product->product_type . '" title="' . ucfirst( $product->product_type ) . '"></span>';

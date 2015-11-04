@@ -373,7 +373,7 @@ class waa_Store_Seo {
             <div class="waa-form-group">
                 <label class="waa-w3 waa-control-label" for="waa-seo-meta-title"><?php _e( 'SEO Title :', 'waa' ); ?>
                     <span class="waa-tooltips-help tips" title="" data-original-title="<?php _e( 'SEO Title is shown as the title of your store page', 'waa' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="waa-w5 waa-text-left">
@@ -384,7 +384,7 @@ class waa_Store_Seo {
             <div class="waa-form-group">
                 <label class="waa-w3 waa-control-label" for="waa-seo-meta-desc"><?php _e( 'Meta Description :', 'waa' ); ?>
                     <span class="waa-tooltips-help tips" title="" data-original-title="<?php _e( 'The meta description is often shown as the black text under the title in a search result. For this to work it has to contain the keyword that was searched for and should be less than 156 chars.', 'waa' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="waa-w5 waa-text-left">
@@ -395,7 +395,7 @@ class waa_Store_Seo {
             <div class="waa-form-group">
                 <label class="waa-w3 waa-control-label" for="waa-seo-meta-keywords"><?php _e( 'Meta Keywords :', 'waa' ); ?>
                     <span class="waa-tooltips-help tips" title="" data-original-title="<?php _e( 'Insert some comma separated keywords for better ranking of your store page.', 'waa' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="waa-w7 waa-text-left">
@@ -452,7 +452,7 @@ class waa_Store_Seo {
                 </div>
 
                 <div class="gravatar-button-area <?php echo $og_image ? ' waa-hide' : ''; ?>">
-                    <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default waa-left"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
+                    <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default waa-left"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
                 </div>
             </div>
         </div>
@@ -496,7 +496,7 @@ class waa_Store_Seo {
                 </div>
 
                 <div class="gravatar-button-area <?php echo $twitter_image ? ' waa-hide' : ''; ?>">
-                    <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default waa-left"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
+                    <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default waa-left"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
                 </div>
             </div>
         </div>

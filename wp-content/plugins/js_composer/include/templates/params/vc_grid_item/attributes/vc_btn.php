@@ -65,7 +65,7 @@ if ( 'true' === $add_icon ) {
 		}
 		$iconClass = ${"i_icon_" . $i_type};
 	} else {
-		$iconClass = 'fa fa-info';
+		$iconClass = 'ui ui-info';
 	}
 
 	if ( $icon_wrapper ) {

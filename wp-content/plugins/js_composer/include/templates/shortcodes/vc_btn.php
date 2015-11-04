@@ -85,7 +85,7 @@ if ( 'true' === $add_icon ) {
 		}
 		$icon_class = ${"i_icon_" . $i_type};
 	} else {
-		$icon_class = 'fa fa-adjust';
+		$icon_class = 'ui ui-adjust';
 	}
 
 	if ( $icon_wrapper ) {

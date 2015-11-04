@@ -26,27 +26,27 @@ $social_fields = dokan_get_social_profile_fields();
                     <li class="store-name"><?php echo esc_html( $store_info['store_name'] ); ?></li>
                 <?php } ?>
                 <?php if ( isset( $store_info['address'] ) && !empty( $store_info['address'] ) ) { ?>
-                    <li class="dokan-store-address"><i class="fa fa-map-marker"></i>
+                    <li class="dokan-store-address"><i class="ui ui-map-marker"></i>
                         <?php echo dokan_get_seller_address( $store_user->ID ); ?>
                     </li>
                 <?php } ?>
 
                 <?php if ( isset( $store_info['phone'] ) && !empty( $store_info['phone'] ) ) { ?>
                     <li class="dokan-store-phone">
-                        <i class="fa fa-mobile"></i>
+                        <i class="ui ui-mobile"></i>
                         <a href="tel:<?php echo esc_html( $store_info['phone'] ); ?>"><?php echo esc_html( $store_info['phone'] ); ?></a>
                     </li>
                 <?php } ?>
 
                 <?php if ( isset( $store_info['show_email'] ) && $store_info['show_email'] == 'yes' ) { ?>
                     <li class="dokan-store-email">
-                        <i class="fa fa-envelope-o"></i>
+                        <i class="ui ui-envelope-o"></i>
                         <a href="mailto:<?php echo antispambot( $store_user->user_email ); ?>"><?php echo antispambot( $store_user->user_email ); ?></a>
                     </li>
                 <?php } ?>
 
                 <li>
-                    <i class="fa fa-star"></i>
+                    <i class="ui ui-star"></i>
                     <?php dokan_get_readable_seller_rating( $store_user->ID ); ?>
                 </li>
             </ul>
@@ -56,7 +56,7 @@ $social_fields = dokan_get_social_profile_fields();
                     <?php foreach( $social_fields as $key => $field ) { ?>
                         <?php if ( isset( $store_info['social'][ $key ] ) && !empty( $store_info['social'][ $key ] ) ) { ?>
                             <li>
-                                <a href="<?php echo esc_url( $store_info['social'][ $key ] ); ?>" target="_blank"><i class="fa fa-<?php echo $field['icon']; ?>"></i></a>
+                                <a href="<?php echo esc_url( $store_info['social'][ $key ] ); ?>" target="_blank"><i class="ui ui-<?php echo $field['icon']; ?>"></i></a>
                             </li>
                         <?php } ?>
                     <?php } ?>

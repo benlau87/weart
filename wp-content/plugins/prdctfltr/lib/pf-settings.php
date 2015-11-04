@@ -1325,7 +1325,7 @@
 					'prdctfltr_icon' => array(
 						'name' => __( 'Override Filter Icon', 'prdctfltr' ),
 						'type' => 'text',
-						'desc' => __( 'Input the icon class to override the default Product Filter icon. Use icon class e.g. prdctfltr-filter or FontAwesome fa fa-shopping-cart or any other.', 'prdctfltr' ),
+						'desc' => __( 'Input the icon class to override the default Product Filter icon. Use icon class e.g. prdctfltr-filter or FontAwesome ui ui-shopping-cart or any other.', 'prdctfltr' ),
 						'id'   => 'wc_settings_prdctfltr_icon',
 						'default' => '',
 						'css' => 'width:300px;margin-right:12px;'

@@ -208,14 +208,14 @@ function add_customer_menu($items, $args)
 				} elseif ( waa_is_user_seller ( $user->ID ) && !current_user_can( 'manage_options' ) ) {
 					$items .= '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.__( 'My Account', 'waa' ).'  <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-								<li><a href="'.waa_get_store_url( $user_id ).'" target="_blank">'.__( 'Visit your store', 'waa' ).' <i class="fa fa-external-link"></i></a></li>
+								<li><a href="'.waa_get_store_url( $user_id ).'" target="_blank">'.__( 'Visit your store', 'waa' ).' <i class="ui ui-external-link"></i></a></li>
 								<li class="divider"></li>';
 								 $nav_urls = waa_get_dashboard_nav();
 								foreach ($nav_urls as $key => $item) {
 										$items .= '<li><a href="'.$item['url'].'">'.$item['icon'].' &nbsp;'. $item['title'].'</a></li>';
 								}
-							$items .= '<li><a href="'.get_permalink( get_option("woocommerce_myaccount_page_id") ).'" title="'.__("My Account","waa").'"><i class="fa fa-cog"></i> '.__('My Account', 'waa').'</a></li>';
-								$items .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="fa fa-power-off"></i> '.__('Logout', 'waa').'</a></li>';
+							$items .= '<li><a href="'.get_permalink( get_option("woocommerce_myaccount_page_id") ).'" title="'.__("My Account","waa").'"><i class="ui ui-cog"></i> '.__('My Account', 'waa').'</a></li>';
+								$items .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="ui ui-power-off"></i> '.__('Logout', 'waa').'</a></li>';
 							$items .= '
                     </ul>
                 </li>';
@@ -223,7 +223,7 @@ function add_customer_menu($items, $args)
 					$items .= "<li class='admin-menu'><a href='".get_admin_url()."'>".__( 'Admin', 'waa' )."</a></li>";
 				}
 		} elseif ($args->theme_location == 'main-menu') {
-			$items .= '<li class="shopping-cart"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i></a>'; 
+			$items .= '<li class="shopping-cart"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="ui ui-shopping-cart"></i></a>'; 
 			$items .= '<ul class="dropdown-menu mini-shopping-cart">
                 <li>
                     <div class="widget_shopping_cart_content"></div>

@@ -1071,7 +1071,7 @@ class Dokan_Ajax {
                 <input type="hidden" name="attribute_is_taxonomy[]" value="1">
             </td>
             <td colspan="3"><input type="text" name="attribute_values[]" value="<?php echo implode( ',', $att_val ); ?>" class="dokan-form-control dokan-<?php echo $single; ?>attribute-option-values"></td>
-            <td><button class="dokan-btn dokan-btn-theme remove_<?php echo $remove_btn; ?>attribute"><i class="fa fa-trash-o"></i></button></td>
+            <td><button class="dokan-btn dokan-btn-theme remove_<?php echo $remove_btn; ?>attribute"><i class="ui ui-trash-o"></i></button></td>
         </tr>
         <?php
         $content = ob_get_clean();
@@ -1157,8 +1157,8 @@ class Dokan_Ajax {
                 <td width="15%">
                     <label for=""></label>
                     <div>
-                        <a class="dps-add" href="#"><i class="fa fa-plus"></i></a>
-                        <a class="dps-remove" href="#"><i class="fa fa-minus"></i></a>
+                        <a class="dps-add" href="#"><i class="ui ui-plus"></i></a>
+                        <a class="dps-remove" href="#"><i class="ui ui-minus"></i></a>
                     </div>
                 </td>
             </tr>
@@ -1181,8 +1181,8 @@ class Dokan_Ajax {
                 <td width="15%">
                     <label for=""></label>
                     <div>
-                        <a class="dps-add" href="#"><i class="fa fa-plus"></i></a>
-                        <a class="dps-remove" href="#"><i class="fa fa-minus"></i></a>
+                        <a class="dps-add" href="#"><i class="ui ui-plus"></i></a>
+                        <a class="dps-remove" href="#"><i class="ui ui-minus"></i></a>
                     </div>
                 </td>
             </tr>
@@ -1214,7 +1214,7 @@ class Dokan_Ajax {
         ?>
         <div class="dokan-no-announcement">
             <div class="annoument-no-wrapper">
-                <i class="fa fa-bell dokan-announcement-icon"></i>
+                <i class="ui ui-bell dokan-announcement-icon"></i>
                 <p><?php _e( 'No Announcement found', 'dokan' ) ?></p>
             </div>
         </div>

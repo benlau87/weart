@@ -128,7 +128,7 @@ class WPBakeryShortCode_VC_Tta_Tabs extends WPBakeryShortCode_VC_Tta_Accordion {
 		if ( isset( $atts[ 'i_icon_' . $atts['i_type'] ] ) ) {
 			$class .= ' ' . $atts[ 'i_icon_' . $atts['i_type'] ];
 		} else {
-			$class .= ' fa fa-adjust';
+			$class .= ' ui ui-adjust';
 		}
 
 		return '<i class="' . $class . '"></i>';

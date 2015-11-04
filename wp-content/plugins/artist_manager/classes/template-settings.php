@@ -281,7 +281,7 @@ class waa_Template_Settings {
                 'find_address' => sanitize_text_field( $_POST['find_address'] ),
                 'banner'       => absint( $_POST['waa_banner'] ),
                 'phone'        => sanitize_text_field( $_POST['setting_phone'] ),
-                'description'        => sanitize_text_field( $_POST['setting_description'] ),
+                'description'        => isset( $_POST['setting_description'] ) ? $_POST['setting_description'] : '',
                 'enable_services'        => sanitize_text_field( $_POST['setting_enable_services'] ),
                 'show_email'   => sanitize_text_field( $_POST['setting_show_email'] ),
                 'gravatar'     => absint( $_POST['waa_gravatar'] ),
@@ -322,7 +322,6 @@ class waa_Template_Settings {
         }
 
         $waa_settings = array_merge($prev_waa_settings,$waa_settings);
-
         $profile_completeness = $this->calculate_profile_completeness_value( $waa_settings );
         $waa_settings['profile_completion'] = $profile_completeness;
 
@@ -351,21 +350,12 @@ class waa_Template_Settings {
         $track_val   = array();
 
         $progress_values = array(
-           'banner_val'          => 15,
-           'profile_picture_val' => 15,
-           'store_name_val'      => 10,
-           'social_val'          => array(
-               'fb'       => 2,
-               'gplus'    => 2,
-               'twitter'  => 2,
-               'youtube'  => 2,
-               'linkedin' => 2,
-           ),
+           'banner_val'          => 20,
+           'profile_picture_val' => 20,
+           'store_name_val'      => 20,
            'payment_method_val'  => 10,
-           'phone_val'           => 10,
 					 'description_val'		=> 10,
-           'address_val'         => 10,
-           'map_val'             => 10,
+           'product_val'         => 20
         );
 
         // setting values for completion
@@ -383,8 +373,21 @@ class waa_Template_Settings {
                     $next_add = sprintf(__( 'Add Profile Picture to gain %s%% progress', 'waa' ), $profile_picture_val);
                 }
             }
-        endif;
-
+        endif;				
+				
+				$user_id        = get_current_user_id();
+				$post_counts    = waa_count_posts( 'product', $user_id );
+				$total_posts = $post_counts->total;
+				
+				if ( $total_posts == 0 ) {
+						$profile_val           = $profile_val + $product_val;
+						$track_val['product'] = $product_val;
+				} else {
+						if ( strlen( $next_add ) == 0 ) {
+								$next_add = sprintf(__( 'Stelle dein erstes Kunstwerk ein und erhalte %s%% Fortschritt.', 'waa' ), $product_val);
+						}
+				}
+			/*
         // Calculate Social profiles
         if( isset( $waa_settings['social'] ) ):
 
@@ -405,6 +408,7 @@ class waa_Template_Settings {
                 }
             }
         endif;
+				
 
         //calculate completeness for phone
         if( isset( $waa_settings['phone'] ) ):
@@ -419,13 +423,14 @@ class waa_Template_Settings {
             }
 
         endif;
+				*/
 				
-				//calculate completeness for phone
+				//calculate completeness for description
         if( isset( $waa_settings['description'] ) ):
 
             if ( strlen( trim( $waa_settings['description'] ) ) != 0 ) {
                 $profile_val        = $profile_val + $description_val;
-                $track_val['phone'] = $description_val;
+                $track_val['description'] = $description_val;
             } else {
                 if ( strlen( $next_add ) == 0 ) {
                     $next_add = sprintf( __( 'Add Description to gain %s%% progress', 'waa' ), $description_val );

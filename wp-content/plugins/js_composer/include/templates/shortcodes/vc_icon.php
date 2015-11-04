@@ -48,7 +48,7 @@ if ( strlen( $background_style ) > 0 ) {
 	}
 }
 
-$iconClass = isset( ${"icon_" . $type} ) ? esc_attr( ${"icon_" . $type} ) : 'fa fa-adjust';
+$iconClass = isset( ${"icon_" . $type} ) ? esc_attr( ${"icon_" . $type} ) : 'ui ui-adjust';
 
 $style = '';
 if ( 'custom' === $background_color ) {

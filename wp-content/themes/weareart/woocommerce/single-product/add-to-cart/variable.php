@@ -14,8 +14,6 @@ global $product;
 
 $attribute_keys = array_keys( $attributes );
 
-#PRINT_R($attributes);
-
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->id ); ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
@@ -33,7 +31,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						<td class="value">
 							<?php
 								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ? wc_clean( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) : $product->get_variation_default_attribute( $attribute_name );
-								wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
+								$waa_only_print = get_post_meta($product->id, 'waa_only_print', true);
+								if(waa_get_variation_prices($product, true) <= 2 && $waa_only_print == 'yes')
+									wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $options[0] ) );
+								else
+									wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
 							?>
 						</td>
 					</tr>
@@ -41,8 +43,8 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		        <?php endforeach;?>
 			</tbody>
 		</table>
-
-		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+		<?= waa_get_variation_prices($product) ?>
+		<?php do_action( 'woocommerce_before_add_to_cart_button' );?>
 
 		<div class="single_variation_wrap" style="display:none;">
 			<?php
@@ -57,6 +59,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 * @hooked woocommerce_single_variation - 10 Empty div for variation data.
 				 * @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
 				 */
+				#remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
 				do_action( 'woocommerce_single_variation' );
 
 				/**

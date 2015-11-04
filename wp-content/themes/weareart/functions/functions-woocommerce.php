@@ -70,7 +70,65 @@ function wc_reg_for_menus( $register, $name = '' ) {
 add_filter( 'woocommerce_add_to_cart_message', 'custom_add_to_cart_message' );
 add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
 function custom_add_to_cart_message( $message  ){
-return '';
+	return '';
+}
+
+// get all (visible) variation prices for a product
+function waa_get_variation_prices($product, $count = false) {
+	global $woocommerce;
+	$variation_ids = $product->children['visible'];
+	$i = 0;
+	foreach ($variation_ids as $variation) {		
+		$product_variation = new WC_Product_Variation($variation);
+		$variation_id[$i] = $variation;
+		$regular_price[$i] = $product_variation->regular_price;
+		$variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
+		if ( $variation_name[$i] != 'original') 
+			$output .= '<input type="hidden" id="variation_price_'.$variation_id[$i].'" value="'.$regular_price[$i].'" name="'.$variation_id[$i].'" />';
+		$i++;
+	}
+	if ($count)
+		return count($output);
+	else 
+		return $output;
+}
+
+function waa_get_max_variation_price($product_id) {
+	global $wpdb;
+	$sql = "SELECT
+								ID
+							FROM 
+								{$wpdb->prefix}posts
+							WHERE
+								post_parent = {$product_id}";
+
+	$data = $wpdb->get_results( $sql );
+
+
+	foreach($data as $variation) {
+		$variation_price = get_post_meta($variation->ID, '_regular_price', true);
+		$variation_name = get_post_meta($variation->ID, 'attribute_pa_print_groesse', true);
+		
+		if($variation_name != 'original') {
+			$output[] = $variation_price;
+		}
+	}
+
+	$output = (is_array($output) ? max($output) : $output);
+	
+	return $output;
+}
+
+function waa_get_variable_price($product_id) {
+		$_min_variation_price = (get_post_meta($product_id, '_min_variation_price', true) ? get_post_meta($product_id, '_min_variation_price', true) : get_post_meta($product_id, '_regular_price', true));
+		$_max_variation_price = waa_get_max_variation_price($product_id);
+		
+		if($_min_variation_price == $_max_variation_price) {
+			$output = number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();
+		} else {
+			$output = __('ab', 'waa').' '.number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();
+		}
+		return $output;
 }
 
 

@@ -32,7 +32,7 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
                             <div class="count"><?php echo waa_number_format( $pageviews ); ?></div>
                         </li>
                         <li>
-                            <div class="title"><?php _e( 'Order', 'waa' ); ?></div>
+                            <div class="title"><?php _e( 'Orders', 'waa' ); ?></div>
                             <div class="count">
                                 <?php
                                 $total = $orders_counts->{'wc-completed'} + $orders_counts->{'wc-processing'} + $orders_counts->{'wc-on-hold'};
@@ -55,7 +55,7 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
                 </div> <!-- .big-counter -->
 
                 <div class="dashboard-widget orders">
-                    <div class="widget-title"><i class="fa fa-shopping-cart"></i> <?php _e( 'Orders', 'waa' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-shopping-cart"></i> <?php _e( 'Orders', 'waa' ); ?></div>
 
                     <?php
                     $order_data = array(
@@ -113,7 +113,7 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
                 </div> <!-- .orders -->
 <?php /*
                 <div class="dashboard-widget reviews">
-                    <div class="widget-title"><i class="fa fa-comments"></i> <?php _e( 'Reviews', 'waa' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-comments"></i> <?php _e( 'Reviews', 'waa' ); ?></div>
 
                     <ul class="list-unstyled list-count">
                         <li>
@@ -177,7 +177,7 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
 
             <div class="waa-w6 waa-dash-right">
                 <div class="dashboard-widget sells-graph">
-                    <div class="widget-title"><i class="fa fa-credit-card"></i> <?php _e( 'Sales', 'waa' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-credit-card"></i> <?php _e( 'Sales', 'waa' ); ?></div>
 
                     <?php
                     require_once waa_DIR . '/includes/reports.php';
@@ -221,7 +221,7 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
                     <?php else: ?>
                         <div class="waa-no-announcement">
                             <div class="annoument-no-wrapper">
-                                <i class="fa fa-bell waa-announcement-icon"></i>
+                                <i class="ui ui-bell waa-announcement-icon"></i>
                                 <p><?php _e( 'No announcement found', 'waa' ) ?></p>
                             </div>
                         </div>

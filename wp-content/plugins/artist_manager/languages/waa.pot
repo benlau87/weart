@@ -2344,7 +2344,7 @@ msgid "Coupons"
 msgstr ""
 
 #: includes/template-tags.php:342
-msgid "Settings <i class=\"fa fa-angle-right pull-right\"></i>"
+msgid "Settings <i class=\"ui ui-angle-right pull-right\"></i>"
 msgstr ""
 
 #: includes/template-tags.php:349

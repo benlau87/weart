@@ -35,7 +35,9 @@ if($product->product_type == 'variable')
 				echo '<div class="order-prints-line"><span>'.__('oder Abzüge bestellen', 'waa').'</span></div>';
 				echo '</form>';
 			}
-			else {
+			elseif ($product->product_type == 'variable') {
+				echo '<p class="price"><span class="amount">'.waa_get_variable_price($product->id).'</span> <small class="woocommerce-price-suffix">'.$product->get_price_suffix().'</small></p>';
+			} else {
 				echo '<p class="price">'.$product->get_price_html().'</p>';
 			}
 		?>	    			

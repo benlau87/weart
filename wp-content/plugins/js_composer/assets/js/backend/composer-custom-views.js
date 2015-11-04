@@ -637,29 +637,29 @@
 
 			$wrapper.attr( 'class', 'wpb_element_wrapper' );
 			$wrapper.find( '.vc_message_box-icon' ).remove();
-			iconClass = ! _.isUndefined( params[ 'icon_' + params.icon_type ] ) ? params[ 'icon_' + params.icon_type ] : 'fa fa-info-circle';
+			iconClass = ! _.isUndefined( params[ 'icon_' + params.icon_type ] ) ? params[ 'icon_' + params.icon_type ] : 'ui ui-info-circle';
 			color = params.color;
 			switch ( params.color ) {
 				case 'info':
-					iconClass = 'fa fa-info-circle';
+					iconClass = 'ui ui-info-circle';
 					break;
 				case 'alert-info':
 					iconClass = 'vc_pixel_icon vc_pixel_icon-info';
 					break;
 				case 'success':
-					iconClass = 'fa fa-check';
+					iconClass = 'ui ui-check';
 					break;
 				case 'alert-success':
 					iconClass = 'vc_pixel_icon vc_pixel_icon-tick';
 					break;
 				case 'warning':
-					iconClass = 'fa fa-exclamation-triangle';
+					iconClass = 'ui ui-exclamation-triangle';
 					break;
 				case 'alert-warning':
 					iconClass = 'vc_pixel_icon vc_pixel_icon-alert';
 					break;
 				case 'danger':
-					iconClass = 'fa fa-times';
+					iconClass = 'ui ui-times';
 					break;
 				case 'alert-danger':
 					iconClass = 'vc_pixel_icon vc_pixel_icon-explanation';

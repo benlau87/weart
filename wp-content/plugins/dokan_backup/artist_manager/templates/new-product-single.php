@@ -112,7 +112,7 @@ if ( ! $from_shortcode ) {
                     <?php } ?>
 
                     <?php if ( $_visibility == 'hidden' ) { ?>
-                        <span class="dokan-right dokan-label dokan-label-default dokan-product-hidden-label"><i class="fa fa-eye-slash"></i> <?php _e( 'Hidden', 'dokan' ); ?></span>
+                        <span class="dokan-right dokan-label dokan-label-default dokan-product-hidden-label"><i class="ui ui-eye-slash"></i> <?php _e( 'Hidden', 'dokan' ); ?></span>
                     <?php } ?>
 
                 <?php endif ?>
@@ -308,7 +308,7 @@ if ( ! $from_shortcode ) {
                                     <div class="instruction-inside<?php echo $instruction_class; ?>">
                                         <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="<?php echo $feat_image_id; ?>">
 
-                                        <i class="fa fa-cloud-upload"></i>
+                                        <i class="ui ui-cloud-upload"></i>
                                         <a href="#" class="dokan-feat-image-btn btn btn-sm"><?php _e( 'Upload a product cover image', 'dokan' ); ?></a>
                                     </div>
 
@@ -553,7 +553,7 @@ if ( ! $from_shortcode ) {
                                                         }
                                                         ?>
                                                         <td colspan="4"><input type="text" name="attribute_values[]" value="<?php echo implode( ',', $options ); ?>" class="dokan-form-control dokan-attribute-option-values"></td>
-                                                        <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
+                                                        <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="ui ui-trash-o"></i></button></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                                 <?php else: ?>
@@ -563,7 +563,7 @@ if ( ! $from_shortcode ) {
                                                             <input type="hidden" name="attribute_is_taxonomy[]" value="0">
                                                         </td>
                                                         <td colspan="4"><input type="text" name="attribute_values[]" value="" class="dokan-form-control dokan-attribute-option-values"></td>
-                                                        <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
+                                                        <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="ui ui-trash-o"></i></button></td>
                                                     </tr>
                                                 <?php endif ?>
 
@@ -903,7 +903,7 @@ if( $post_id ) {
                                     <input type="text" name="attribute_values[]" value="{{ attr_val.value.replace(/\|/g, ',' ) }}" class="dokan-form-control dokan-single-attribute-option-values">
                                 <# } #>
                             </td>
-                            <td><button class="dokan-btn dokan-btn-theme remove_single_attribute"><i class="fa fa-trash-o"></i></button></td>
+                            <td><button class="dokan-btn dokan-btn-theme remove_single_attribute"><i class="ui ui-trash-o"></i></button></td>
                         </tr>
                         <# }) #>
                     <# } else { #>
@@ -913,7 +913,7 @@ if( $post_id ) {
                                 <input type="hidden" name="attribute_is_taxonomy[]" value="0">
                             </td>
                             <td><input type="text" name="attribute_values[]" value="" class="dokan-form-control dokan-single-attribute-option-values"></td>
-                            <td><button class="dokan-btn dokan-btn-theme remove_single_attribute"><i class="fa fa-trash-o"></i></button></td>
+                            <td><button class="dokan-btn dokan-btn-theme remove_single_attribute"><i class="ui ui-trash-o"></i></button></td>
                         </tr>
                     <# } #>
                 </tbody>

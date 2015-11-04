@@ -57,7 +57,7 @@ class Dokan_Feature_Seller_Widget extends WP_Widget {
                         <a href="<?php echo dokan_get_store_url( $seller->ID ); ?>">
                             <?php echo esc_html( $store_info['store_name'] ); ?>
                         </a><br />
-                        <i class='fa fa-star'></i>
+                        <i class='ui ui-star'></i>
                         <?php echo $display_rating; ?>
                     </li>
 

@@ -89,7 +89,7 @@ if ( $user_orders ) {
                                     'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=dokan-mark-order-processing&order_id=' . $the_order->id ), 'dokan-mark-order-processing' ),
                                     'name' => __( 'Processing', 'dokan' ),
                                     'action' => "processing",
-                                    'icon' => '<i class="fa fa-clock-o">&nbsp;</i>'
+                                    'icon' => '<i class="ui ui-clock-o">&nbsp;</i>'
                                 );
 
                             if ( in_array( $the_order->post_status, array('wc-pending', 'wc-on-hold', 'wc-processing') ) )
@@ -97,7 +97,7 @@ if ( $user_orders ) {
                                     'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=dokan-mark-order-complete&order_id=' . $the_order->id ), 'dokan-mark-order-complete' ),
                                     'name' => __( 'Complete', 'dokan' ),
                                     'action' => "complete",
-                                    'icon' => '<i class="fa fa-check">&nbsp;</i>'
+                                    'icon' => '<i class="ui ui-check">&nbsp;</i>'
                                 );
 
                         }
@@ -106,7 +106,7 @@ if ( $user_orders ) {
                             'url' => wp_nonce_url( add_query_arg( array( 'order_id' => $the_order->id ), dokan_get_navigation_url( 'orders' ) ), 'dokan_view_order' ),
                             'name' => __( 'View', 'dokan' ),
                             'action' => "view",
-                            'icon' => '<i class="fa fa-eye">&nbsp;</i>'
+                            'icon' => '<i class="ui ui-eye">&nbsp;</i>'
                         );
 
                         $actions = apply_filters( 'woocommerce_admin_order_actions', $actions, $the_order );

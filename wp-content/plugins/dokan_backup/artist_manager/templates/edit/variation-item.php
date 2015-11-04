@@ -62,8 +62,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <?php endif; ?>
 </td>
 <td style="width:25% !important;">
-    <a href="#variation-edit-popup" class="dokan-btn dokan-btn-theme edit_variation"><i class="fa fa-pencil"></i></a>
-    <a class="dokan-btn dokan-btn-theme remove_variation" data-variation_id=<?php echo $variation_id; ?>><i class="fa fa-trash-o"></i></a>
+    <a href="#variation-edit-popup" class="dokan-btn dokan-btn-theme edit_variation"><i class="ui ui-pencil"></i></a>
+    <a class="dokan-btn dokan-btn-theme remove_variation" data-variation_id=<?php echo $variation_id; ?>><i class="ui ui-trash-o"></i></a>
 </td>
 
 

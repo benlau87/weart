@@ -160,6 +160,8 @@ h1 { font-size:24px;}
 h2 { font-size: 20px; }
 h3 { font-size:18px; }
 h4 { font-size: 16px; }
+.home h1, .home h2, .home h3, .home h4, .home h5 { font-size: 18px; margin-bottom: 10px; margin-top: 30px; } 
+
 p { margin:0 0 25px 0; }
 hr { border:none; height:1px; background:#eeeeee; }
 blockquote em { font-size:16px }
@@ -439,6 +441,7 @@ blockquote em { font-size:16px }
 .showcase .artist-description {
 	margin-top:35px;
 	margin-bottom:20px;
+	text-align: justify;
 }
 
 .showcase .artist-tags {
@@ -483,28 +486,28 @@ blockquote em { font-size:16px }
 	margin-left:20px;
 }
 
-.showcase-content li a:hover .fa-facebook {
+.showcase-content li a:hover .ui-facebook {
   color: #41608b;
 }
-.showcase-content  li a:hover .fa-twitter {
+.showcase-content  li a:hover .ui-twitter {
   color: #00adef;
 }
-.showcase-content  li a:hover .fa-tumblr {
+.showcase-content  li a:hover .ui-tumblr {
   color: #41608b;
 }
-.showcase-content  li a:hover .fa-instagram{
+.showcase-content  li a:hover .ui-instagram{
 	color: #3f729b;
 }
-.showcase-content  li a:hover .fa-linkedin{
+.showcase-content  li a:hover .ui-linkedin{
 	color: #006fa6;
 }
-.showcase-content  li a:hover .fa-flickr {
+.showcase-content  li a:hover .ui-flickr {
 	color: #0063DC;
 }
-.showcase-content  li a:hover .fa-google-plus, .showcase-content  li a:hover .fa-youtube{
+.showcase-content  li a:hover .ui-google-plus, .showcase-content  li a:hover .ui-youtube{
   color: #d01820;
 }
-.showcase-content li a:hover .fa-pinterest {
+.showcase-content li a:hover .ui-pinterest {
   color: #ec4823;
 }
 
@@ -540,9 +543,11 @@ ul.products li.product .dimensions {
 	font-size:14px;
 }
 ul.products li.product footer {
-	position:absolute;
-	bottom:32px;
-	left:36px;
+	position: absolute;
+	bottom: 32px;
+	left: 0;
+	width: 100%;
+	padding-left: 30px;
 }
 ul.products li.product footer .artist {
 	font-weight:700;
@@ -550,24 +555,21 @@ ul.products li.product footer .artist {
 	color:#000;
 	font-size:13px;
 }
-ul.products li.product footer .artist a:hover {
-	color:#7d7d7d;
-}
 ul.products li.product .city {
-	display:block;
 	color:#7d7d7d;
 	line-height:14px;
 	font-size:14px;
 }
 
+ul.products li.product .price .woocommerce-price-suffix { font-size:12px; font-weight:normal }
 ul.products li.product .price {
 	color:#000;
-	position:absolute;
-	bottom:20px;
-	right:20px;
-	font-size:16px;
-	line-height:16px;
-	margin:0;
+	position: absolute;
+	bottom: 4px;
+	right: 20px;
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0;
 }
 
 ul.products li.product .art-info {
@@ -576,7 +578,7 @@ ul.products li.product .art-info {
 	left:0;
 	width:100%;
 	height:100%;
-	padding:24px 36px 70px;
+	padding:24px 30px 24px;
 }
 
 ul.products li.product .art-info header {
@@ -584,7 +586,10 @@ ul.products li.product .art-info header {
   display: inline-block;
 }
 ul.products li.product .art-info header .title a {
-	padding-bottom:2px;
+	font-size:26px;
+	font-family:'Crimson Text', serif;
+	font-style:italic;
+	font-weight:bold;
 }
 ul.products li.product .art-info header .title a:hover, ul.products li.product .art-info header .title a:focus {
 	color:#000;
@@ -601,8 +606,8 @@ ul.products li.product .art-info header .tagged_as a {
 	font-family:'Graphik';
 	font-size:12px;
 }
-ul.products li.product .art-info header .tagged_as a:hover {
-	color:#7d7d7d;
+ul.products li.product .art-info header .tagged_as a:hover, ul.products li.product footer .artist a:hover {
+	color:#323237;
 }
 ul.products li.product:hover > a:before {
 	visibility: visible;
@@ -856,7 +861,8 @@ article h2 { font-size:18px; margin-top:25px; }
     margin: 0 0 2em!important;
     position: relative;
     color: #515151;
-    border-top: 3px solid #009dce;
+   /* border-top: 3px solid #009dce;*/
+	  border:none;
     list-style: none!important;
     width: auto;
     word-wrap: break-word;
@@ -890,8 +896,10 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
   color: #009dce;
   margin-right: 10px;
 }
-.product-sidebar .variations td.label { width:75px; }
+.product-sidebar .variations td.label { width:95px; }
 .product-sidebar .variations { width:100%; }
+.product-sidebar .single_variation_wrap { margin-top:20px; }
+.product-sidebar .reset_variations { float:right; }
 
 .product-sidebar .order-prints-line { height: 1px; background-color: #000; text-align: center; margin:15px 0 40px; }
 .product-sidebar .order-prints-line span { background-color: #f7f7f7; position: relative; top: -13px; padding:0 5px; font-style:italic; font-size:18px; color:#000; }
@@ -905,6 +913,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 .product-sidebar .quantity { display:none !important; }
 
 .single-product .related.products { margin-top:50px }
+.single-product a.woocommerce-main-image:hover { border:none }
 
 .single-product .more-products-by-artist { margin-top: 50px }
 
@@ -978,6 +987,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
   padding: 0;
   margin: 0
 }
+.woocommerce .product-name .variation dd, .woocommerce .product-name .variation dt { height:27px }
 .woocommerce .product-name .variation dd p { margin:0; padding:0; line-height:22px; }
 .woocommerce .product-name .variation dd.variation-Gre p:after { content: ' cm' }
 .woocommerce .product-name .variation dd {
