@@ -301,37 +301,37 @@ function dokan_get_dashboard_nav() {
     $urls = array(
         'dashboard' => array(
             'title' => __( 'Dashboard', 'dokan'),
-            'icon'  => '<i class="fa fa-tachometer"></i>',
+            'icon'  => '<i class="ui ui-tachometer"></i>',
             'url'   => dokan_get_navigation_url()
         ),
         'product' => array(
             'title' => __( 'Products', 'dokan'),
-            'icon'  => '<i class="fa fa-briefcase"></i>',
+            'icon'  => '<i class="ui ui-briefcase"></i>',
             'url'   => dokan_get_navigation_url( 'products' )
         ),
         'order' => array(
             'title' => __( 'Orders', 'dokan'),
-            'icon'  => '<i class="fa fa-shopping-cart"></i>',
+            'icon'  => '<i class="ui ui-shopping-cart"></i>',
             'url'   => dokan_get_navigation_url( 'orders' )
         ),
         'coupon' => array(
             'title' => __( 'Coupons', 'dokan'),
-            'icon'  => '<i class="fa fa-gift"></i>',
+            'icon'  => '<i class="ui ui-gift"></i>',
             'url'   => dokan_get_navigation_url( 'coupons' )
         ),
         'report' => array(
             'title' => __( 'Reports', 'dokan'),
-            'icon'  => '<i class="fa fa-line-chart"></i>',
+            'icon'  => '<i class="ui ui-line-chart"></i>',
             'url'   => dokan_get_navigation_url( 'reports' )
         ),
         'reviews' => array(
             'title' => __( 'Reviews', 'dokan'),
-            'icon'  => '<i class="fa fa-comments-o"></i>',
+            'icon'  => '<i class="ui ui-comments-o"></i>',
             'url'   => dokan_get_navigation_url( 'reviews' )
         ),
         'withdraw' => array(
             'title' => __( 'Withdraw', 'dokan'),
-            'icon'  => '<i class="fa fa-upload"></i>',
+            'icon'  => '<i class="ui ui-upload"></i>',
             'url'   => dokan_get_navigation_url( 'withdraw' )
         ),
     );
@@ -339,25 +339,25 @@ function dokan_get_dashboard_nav() {
     $urls = apply_filters( 'dokan_get_dashboard_nav', $urls );
 
     $settings = array(
-        'title' => __( 'Settings <i class="fa fa-angle-right pull-right"></i>', 'dokan'),
-        'icon'  => '<i class="fa fa-cog"></i>',
+        'title' => __( 'Settings <i class="ui ui-angle-right pull-right"></i>', 'dokan'),
+        'icon'  => '<i class="ui ui-cog"></i>',
         'url'   => dokan_get_navigation_url( 'settings/store' )
     );
 
     $settings_sub = array(
         'back' => array(
             'title' => __( 'Back to Dashboard', 'dokan'),
-            'icon'  => '<i class="fa fa-long-arrow-left"></i>',
+            'icon'  => '<i class="ui ui-long-arrow-left"></i>',
             'url'   => dokan_get_navigation_url()
         ),
         'store' => array(
             'title' => __( 'Store', 'dokan'),
-            'icon'  => '<i class="fa fa-university"></i>',
+            'icon'  => '<i class="ui ui-university"></i>',
             'url'   => dokan_get_navigation_url( 'settings/store' )
         ),
         'payment' => array(
             'title' => __( 'Payment', 'dokan'),
-            'icon'  => '<i class="fa fa-credit-card"></i>',
+            'icon'  => '<i class="ui ui-credit-card"></i>',
             'url'   => dokan_get_navigation_url( 'settings/payment' )
         )
     );
@@ -368,19 +368,19 @@ function dokan_get_dashboard_nav() {
     if ( $enable_shipping == 'yes' ) {
         $settings_sub['shipping'] = array(
             'title' => __( 'Shipping', 'dokan'),
-            'icon'  => '<i class="fa fa-truck"></i>',
+            'icon'  => '<i class="ui ui-truck"></i>',
             'url'   => dokan_get_navigation_url( 'settings/shipping' )
         );
     }
     $settings_sub['social'] = array(
         'title' => __( 'Social Profile', 'dokan'),
-        'icon'  => '<i class="fa fa-share-alt-square"></i>',
+        'icon'  => '<i class="ui ui-share-alt-square"></i>',
         'url'   => dokan_get_navigation_url( 'settings/social' )
     );
     if ( dokan_get_option( 'store_seo', 'dokan_general', 'on' ) === 'on' ) {
         $settings_sub['seo'] = array(
             'title' => __( 'Store SEO', 'dokan' ),
-            'icon'  => '<i class="fa fa-globe"></i>',
+            'icon'  => '<i class="ui ui-globe"></i>',
             'url'   => dokan_get_navigation_url( 'settings/seo' )
         );
     }
@@ -613,7 +613,7 @@ function dokan_header_user_menu() {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php _e( 'Seller Dashboard', 'dokan' ); ?> <b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'dokan' ); ?> <i class="fa fa-external-link"></i></a></li>
+                        <li><a href="<?php echo dokan_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'dokan' ); ?> <i class="ui ui-external-link"></i></a></li>
                         <li class="divider"></li>
                         <?php
                         $nav_urls = dokan_get_dashboard_nav();

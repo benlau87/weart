@@ -55,7 +55,7 @@ $reviews_url    = dokan_get_navigation_url( 'reviews' );
                 </div> <!-- .big-counter -->
 
                 <div class="dashboard-widget orders">
-                    <div class="widget-title"><i class="fa fa-shopping-cart"></i> <?php _e( 'Orders', 'dokan' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-shopping-cart"></i> <?php _e( 'Orders', 'dokan' ); ?></div>
 
                     <?php
                     $order_data = array(
@@ -113,7 +113,7 @@ $reviews_url    = dokan_get_navigation_url( 'reviews' );
                 </div> <!-- .orders -->
 
                 <div class="dashboard-widget reviews">
-                    <div class="widget-title"><i class="fa fa-comments"></i> <?php _e( 'Reviews', 'dokan' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-comments"></i> <?php _e( 'Reviews', 'dokan' ); ?></div>
 
                     <ul class="list-unstyled list-count">
                         <li>
@@ -176,7 +176,7 @@ $reviews_url    = dokan_get_navigation_url( 'reviews' );
 
             <div class="dokan-w6 dokan-dash-right">
                 <div class="dashboard-widget sells-graph">
-                    <div class="widget-title"><i class="fa fa-credit-card"></i> <?php _e( 'Sales', 'dokan' ); ?></div>
+                    <div class="widget-title"><i class="ui ui-credit-card"></i> <?php _e( 'Sales', 'dokan' ); ?></div>
 
                     <?php
                     require_once DOKAN_DIR . '/includes/reports.php';
@@ -220,7 +220,7 @@ $reviews_url    = dokan_get_navigation_url( 'reviews' );
                     <?php else: ?>
                         <div class="dokan-no-announcement">
                             <div class="annoument-no-wrapper">
-                                <i class="fa fa-bell dokan-announcement-icon"></i>
+                                <i class="ui ui-bell dokan-announcement-icon"></i>
                                 <p><?php _e( 'No announcement found', 'dokan' ) ?></p>
                             </div>
                         </div>

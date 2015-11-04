@@ -438,11 +438,7 @@ function waa_report_sales_overview( $start_date, $end_date, $heading = '' ) {
 
         'charged_for_shipping' => array(
             'title' => sprintf( __( '%s charged for shipping', 'waa' ), '<strong>' . wc_price( $total_shipping ) . '</strong>' ),
-        ),
-
-        'worth_of_coupons_used' => array(
-            'title' => sprintf( __( '%s worth of coupons used', 'waa' ), '<strong>' . wc_price( $total_coupons ) . '</strong>' ),
-        ),
+        )
     ) ); 
     ?>
     <div id="poststuff" class="waa-reports-wrap">

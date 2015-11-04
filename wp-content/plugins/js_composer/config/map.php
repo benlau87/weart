@@ -612,7 +612,7 @@ vc_map( array(
 					'params' => array(
 						'message_box_color' => 'info',
 						'icon_type' => 'fontawesome',
-						'icon_fontawesome' => 'fa fa-info-circle',
+						'icon_fontawesome' => 'ui ui-info-circle',
 					),
 				),
 				array(
@@ -621,7 +621,7 @@ vc_map( array(
 					'params' => array(
 						'message_box_color' => 'warning',
 						'icon_type' => 'fontawesome',
-						'icon_fontawesome' => 'fa fa-exclamation-triangle',
+						'icon_fontawesome' => 'ui ui-exclamation-triangle',
 					),
 				),
 				array(
@@ -630,7 +630,7 @@ vc_map( array(
 					'params' => array(
 						'message_box_color' => 'success',
 						'icon_type' => 'fontawesome',
-						'icon_fontawesome' => 'fa fa-check',
+						'icon_fontawesome' => 'ui ui-check',
 					),
 				),
 				array(
@@ -639,7 +639,7 @@ vc_map( array(
 					'params' => array(
 						'message_box_color' => 'danger',
 						'icon_type' => 'fontawesome',
-						'icon_fontawesome' => 'fa fa-times',
+						'icon_fontawesome' => 'ui ui-times',
 					),
 				),
 				array(
@@ -727,7 +727,7 @@ vc_map( array(
 			'type' => 'iconpicker',
 			'heading' => __( 'Icon', 'js_composer' ),
 			'param_name' => 'icon_fontawesome',
-			'value' => 'fa fa-info-circle',
+			'value' => 'ui ui-info-circle',
 			'settings' => array(
 				'emptyIcon' => false, // default true, display an "EMPTY" icon?
 				'iconsPerPage' => 4000, // default 100, how many icons per/page to display

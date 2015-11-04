@@ -15,6 +15,7 @@ if( isset( $post->ID ) && $post->ID && $post->post_type == 'product' ) {
     $post_title = $_POST['post_title'];
     $post_content = $_POST['post_content'];
 		$_regular_price = $_POST['_regular_price'];
+		$featured_image = $_POST['feat_image_id'];
     $post_excerpt = '';
     $post_status = 'publish';
     $from_shortcode = true;
@@ -32,8 +33,10 @@ if( isset( $post->ID ) && $post->ID && $post->post_type == 'product' ) {
 		$_height = $_POST['_height'];
 		$_overwrite_shipping = $_POST['_overwrite_shipping'];
 		$_additional_product_price = $_POST['_additional_product_price'];
+		$_additional_price = $_POST['_additional_price'];
 		$_additional_qty = $_POST['_additional_qty'];
 		$_purchase_note = $_POST['_purchase_note'];
+		$porduct_shipping_pt = $_POST['_dps_processing_time'];
 }
 
 if ( isset( $_GET['product_id'] ) ) {
@@ -140,7 +143,7 @@ if ( ! $from_shortcode ) {
 														<?php } ?>
 
 														<?php if ( $_visibility == 'hidden' ) { ?>
-																<span class="waa-right waa-label waa-label-default waa-product-hidden-label"><i class="fa fa-eye-slash"></i> <?php _e( 'Hidden', 'waa' ); ?></span>
+																<span class="waa-right waa-label waa-label-default waa-product-hidden-label"><i class="ui ui-eye-slash"></i> <?php _e( 'Hidden', 'waa' ); ?></span>
 														<?php } ?>
 
 												<?php endif ?>
@@ -264,7 +267,7 @@ if ( ! $from_shortcode ) {
 																				<div class="waa-clearfix waa-form-group">
 																									<label for="waa_date_created" class="form-label"><?php _e( 'Erstellungsdatum', 'waa' ); ?></label>
 																										<div class="waa-input-group">
-																											<span class="waa-input-group-addon"><i class="fa fa-calendar"></i></span>
+																											<span class="waa-input-group-addon"><i class="ui ui-calendar"></i></span>
 																												<input type="text" name="waa_date_created" class="waa-form-control datepicker" value="<?php echo esc_attr( $waa_date_created ); ?>" maxlength="10" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" placeholder="TT.MM.JJJJ">
 																										</div>
 																						</div>
@@ -274,9 +277,15 @@ if ( ! $from_shortcode ) {
 
 																				<div class="waa-feat-image-upload">
 																						<?php
-																						$wrap_class        = ' waa-hide';
-																						$instruction_class = '';
-																						$feat_image_id     = 0;
+																						if(isset($featured_image) && $featured_image != 0) {
+																							$wrap_class        = '';
+																							$instruction_class = ' waa-hide';
+																							$feat_image_id     = 0;
+																						} else {
+																							$wrap_class        = ' waa-hide';
+																							$instruction_class = '';
+																							$feat_image_id     = 0;
+																						}
 
 																						if ( has_post_thumbnail( $post_id ) ) {
 																								$wrap_class        = '';
@@ -286,10 +295,11 @@ if ( ! $from_shortcode ) {
 																						?>
 
 																						<div class="instruction-inside<?php echo $instruction_class; ?>">
-																								<input type="hidden" name="feat_image_id" class="waa-feat-image-id" value="<?php echo $feat_image_id; ?>">
+																								<input type="hidden" name="feat_image_id" class="waa-feat-image-id" value="<?= ($featured_image ? $featured_image : $feat_image_id); ?>">
 
-																								<i class="fa fa-cloud-upload"></i>
+																								<i class="ui ui-cloud-upload"></i>
 																								<a href="#" class="waa-feat-image-btn btn btn-sm"><?php _e( 'Upload a product cover image', 'waa' ); ?></a>
+																								<p><?= __('Das Bild sollte mindestens 800x800 Pixel groß sein.', 'waa') ?></p>
 																						</div>
 
 																						<div class="image-wrap<?php echo $wrap_class; ?>">
@@ -297,7 +307,13 @@ if ( ! $from_shortcode ) {
 																								<?php if ( $feat_image_id ) { ?>
 																										<?php echo get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '', 'width' => '' ) ); ?>
 																								<?php } else { ?>
-																										<img height="" width="" src="" alt="">
+																						
+																									<div class="instruction-inside<?php echo $instruction_class; ?>" id="image_size_warning" style="display:none">
+																											<i class="ui ui-cloud-upload"></i>
+																											<a href="#" class="waa-feat-image-btn btn btn-sm"><?php _e( 'Upload a product cover image', 'waa' ); ?></a>
+																											<p><span style="font-weight:bold; color:red;"><?= __('Das Bild ist zu klein!', 'waa') ?></span><br><?= __('Das Bild sollte mindestens 800x800 Pixel groß sein.', 'waa') ?></p>
+																									</div>
+																										<img height="" width="" src="<?= ($featured_image ? wp_get_attachment_url($featured_image) : ''); ?>" alt="">
 																								<?php } ?>
 																						</div>
 																				</div><!-- .waa-feat-image-upload -->
@@ -337,7 +353,7 @@ if ( ! $from_shortcode ) {
 
 																<div class="waa-product-description">
 																		<label for="post_content" class="form-label"><?php _e( 'Description', 'waa' ); ?> <span class="waa-tooltips-help tips" title="" data-original-title="<?= __('Beschreibe dein Kunstwerk möglichst genau. Was hat dich bei deiner Arbeit inspiriert? Welche Emotionen möchtest du beim Betrachter erwecken?', 'waa') ?>">
-																			<i class="fa fa-question-circle"></i>
+																			<i class="ui ui-question-circle"></i>
 																		</span></label>
 																		<textarea name="post_content" style="width:100%; height:150px"><?= $post_content ?></textarea>
 																</div>																
@@ -383,7 +399,7 @@ if ( ! $from_shortcode ) {
                                         <input name="_has_attribute" id="_has_attribute" value="yes" type="checkbox" <?php checked( $_create_variations, 'yes' ); ?>>
                                         <?php _e( 'This product has multiple options', 'waa' ); ?>
 																				<span class="waa-tooltips-help tips" title="" data-original-title="<?= __('Biete Prints in verschienen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>">
-																					<i class="fa fa-question-circle"></i>
+																					<i class="ui ui-question-circle"></i>
 																				</span>
 																		</label>
 
@@ -406,7 +422,7 @@ if ( ! $from_shortcode ) {
 																						<input type="hidden" name="variation_menu_order[]" value="0">
 																						<input type="hidden" name="variable_enabled[]" value="yes">																						
 																						<input type="hidden" name="variable_sku[]">
-																						<input type="hidden" name="variable_regular_price[]" id="original-price" value="">																			
+																						<input type="hidden" name="variable_regular_price[]" id="original-price" value="<?= ($_regular_price ? $_regular_price : '') ?>">																			
 																						
 																						<table class="waa-table">
 																							<thead>
@@ -434,14 +450,17 @@ if ( ! $from_shortcode ) {
 																										<input type="hidden" name="variable_sku[]" placeholder="SKU" class="waa-form-control">
 																									</td>
 																									<td>
-																										<a href="#" class="btn-remove-new-print"><i class="fa fa-trash-o"></i></a>
+																										<a href="#" class="btn-remove-new-print"><i class="ui ui-trash-o"></i></a>
 																									</td>
 																								</tr>	
 																								<tr class="add-print-btn">
-																									<td colspan="3"><a href="#" class="btn-add-print" id="add-row"><i class="fa fa-plus"></i> &nbsp;<?= __('Add Variation', 'waa'); ?></a><br><br>
+																									<td colspan="3"><a href="#" class="btn-add-print" id="add-row"><i class="ui ui-plus"></i> &nbsp;<?= __('Add Variation', 'waa'); ?></a><br><br>
 																									 <label class="form-label" for="waa_only_print">
 																											<input name="waa_only_print" id="waa_only_print" value="yes" type="checkbox" <?php checked( $waa_only_print, 'yes' ); ?>>
 																											<?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
+																											<span class="waa-tooltips-help tips" title="" data-original-title="<?= __('', 'waa') ?>">
+																												<i class="ui ui-question-circle"></i>
+																											</span>
 																										</label>
 																									</td>
 																								</tr>
@@ -552,22 +571,22 @@ if ( ! $from_shortcode ) {
 																								<input type="hidden" name="product_shipping_class" value="0">
 																								<input type="checkbox" id="_disable_shipping" name="_disable_shipping" <?php checked( $_disable_shipping, 'no' ); ?>>
 																								
-																								<div class="show_if_needs_shipping waa-shipping-dimention-options">
-																										<?php waa_post_input_box( $post_id, '_weight', array( 'class' => '', 'placeholder' => __( 'Gewicht (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
-																										<?php waa_post_input_box( $post_id, '_length', array( 'class' => '', 'placeholder' => __( 'L&auml;nge (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
-																										<?php waa_post_input_box( $post_id, '_width', array( 'class' => '', 'placeholder' => __( 'Breite (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
-																										<?php waa_post_input_box( $post_id, '_height', array( 'class' => '', 'placeholder' => __( 'H&ouml;he (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ) ), 'number' ); ?>
+																								<div class="waa-shipping-dimention-options">
+																										<?php waa_post_input_box( $post_id, '_weight', array( 'class' => '', 'placeholder' => __( 'Gewicht (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'waa' ), 'value' => $_weight ), 'number' ); ?>
+																										<?php waa_post_input_box( $post_id, '_length', array( 'class' => '', 'placeholder' => __( 'L&auml;nge (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ), 'value' => $_length ), 'number' ); ?>
+																										<?php waa_post_input_box( $post_id, '_width', array( 'class' => '', 'placeholder' => __( 'Breite (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ), 'value' => $_width ), 'number' ); ?>
+																										<?php waa_post_input_box( $post_id, '_height', array( 'class' => '', 'placeholder' => __( 'H&ouml;he (' . esc_html( get_option( 'woocommerce_dimension_unit' ) ) . ')', 'waa' ), 'value' => $_height ), 'number' ); ?>
 																										<div class="waa-clearfix"></div>
 																								</div>
 
 																								<?php if ( $post_id ): ?>
 																										<?php do_action( 'waa_product_options_shipping' ); ?>
 																								<?php endif; ?>
-																								<div class="show_if_needs_shipping waa-shipping-product-options">
+																								<div class="waa-shipping-product-options">
 
 																										<div class="waa-form-group">
-																												<?php waa_post_input_box( $post_id, '_overwrite_shipping', array( 'label' => __( 'Override default shipping cost for this product', 'waa' ) ), 'checkbox' ); ?>
-																												<span class="waa-form-note"><?php printf( __('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier <i class="fa fa-external-link"></i></a> verwalten.', 'waa'), waa_get_navigation_url( 'settings/shipping' ) ); ?></span>
+																												<?php waa_post_input_box( $post_id, '_overwrite_shipping', array( 'label' => __( 'Override default shipping cost for this product', 'waa' ), 'value' => $_overwrite_shipping ), 'checkbox' ); ?>
+																												<span class="waa-form-note"><?php printf( __('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier <i class="ui ui-external-link"></i></a> verwalten.', 'waa'), waa_get_navigation_url( 'settings/shipping' ) ); ?></span>
 																										</div>
 
 																										<div class="waa-form-group show_if_override">

@@ -76,7 +76,7 @@ if ( $validate !== false && !is_wp_error( $validate ) ) {
 
                         <div class="dokan-w5">
                             <div class="dokan-input-group dokan-form-group">
-                                <span class="dokan-input-group-addon"><i class="fa fa-<?php echo isset( $field['icon'] ) ? $field['icon'] : ''; ?>"></i></span>
+                                <span class="dokan-input-group-addon"><i class="ui ui-<?php echo isset( $field['icon'] ) ? $field['icon'] : ''; ?>"></i></span>
                                 <input id="settings[social][<?php echo $key; ?>]" value="<?php echo isset( $profile_info['social'][$key] ) ? esc_url( $profile_info['social'][$key] ) : ''; ?>" name="settings[social][<?php echo $key; ?>]" class="dokan-form-control" placeholder="http://" type="url">
                             </div>
                         </div>

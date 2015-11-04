@@ -31,7 +31,7 @@
                             <div class="waa-feat-image-upload">
                                 <div class="instruction-inside">
                                     <input type="hidden" name="feat_image_id" class="waa-feat-image-id" value="0">
-                                    <i class="fa fa-cloud-upload"></i>
+                                    <i class="ui ui-cloud-upload"></i>
                                     <a href="#" class="waa-feat-image-btn waa-btn"><?php _e( 'Upload Product Image', 'waa' ); ?></a>
                                 </div>
 

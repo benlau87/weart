@@ -41,6 +41,12 @@ if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	$classes[] = 'last';
 }
+$author     = get_user_by( 'id', $product->post->post_author );
+$store_info = waa_get_store_info( $author->ID );
+$city_term = get_term_by('id', $store_info['region'], 'pa_stadt');
+$city_id = $city_term->term_id;
+$city_link = get_term_link( $city_id, 'pa_stadt' );
+$city_name = $city_term->name;
 ?>
 
 <li <?php post_class( $classes ); ?>>
@@ -51,7 +57,10 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	</a>
 	<div class="art-info">
 		<header>
-			<span class="tagged_as"><?= $product->get_categories(); ?></span>
+			<span class="tagged_as">				
+				<?php ($city_name ? printf( __('<span class="city"><a href="%1$s" title="Künstler aus %2$s anzeigen">%2$s</a> / </span>', 'waa'), $city_link, $city_name ) : ''); ?>
+				<?= $product->get_categories(); ?>
+			</span>
 			<?php	#woocommerce_product_loop_tags();	?>
 			<div class="title"><h3><a href="<?php the_permalink(); ?>">	
 		<?php
@@ -86,18 +95,14 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 			remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 			#do_action( 'woocommerce_after_shop_loop_item_title' );			
 			
-			// show category title
-			$category = get_the_terms ($post->ID, 'product_cat');
-			
-			$author     = get_user_by( 'id', $product->post->post_author );
-			$store_info = waa_get_store_info( $author->ID );
-
 			echo '<span class="artist">';
-			printf( '<a href="%s">%s</a>', waa_get_store_url( $author->ID ), $author->display_name ) .'</span>';
+			printf( 'von <a href="%s">%s</a>', waa_get_store_url( $author->ID ), $store_info['store_name'] ) .'</span>';
 			
 			add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 			remove_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);
-			#do_action( 'woocommerce_after_shop_loop_item_title' );
+			do_action( 'woocommerce_after_shop_loop_item_title' );
+			
+			
 			?>
 		</footer>
 	</div>

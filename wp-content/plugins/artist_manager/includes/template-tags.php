@@ -301,37 +301,37 @@ function waa_get_dashboard_nav() {
     $urls = array(
         'dashboard' => array(
             'title' => __( 'Dashboard', 'waa'),
-            'icon'  => '<i class="fa fa-tachometer"></i>',
+            'icon'  => '<i class="ui ui-tachometer"></i>',
             'url'   => waa_get_navigation_url()
         ),
         'product' => array(
             'title' => __( 'Products', 'waa'),
-            'icon'  => '<i class="fa fa-paint-brush"></i>',
+            'icon'  => '<i class="ui ui-paint-brush"></i>',
             'url'   => waa_get_navigation_url( 'products' )
         ),
         'order' => array(
             'title' => __( 'Orders', 'waa'),
-            'icon'  => '<i class="fa fa-shopping-cart"></i>',
+            'icon'  => '<i class="ui ui-shopping-cart"></i>',
             'url'   => waa_get_navigation_url( 'orders' )
         ),
   /*      'coupon' => array(
             'title' => __( 'Coupons', 'waa'),
-            'icon'  => '<i class="fa fa-gift"></i>',
+            'icon'  => '<i class="ui ui-gift"></i>',
             'url'   => waa_get_navigation_url( 'coupons' )
         ),
         'reviews' => array(
             'title' => __( 'Reviews', 'waa'),
-            'icon'  => '<i class="fa fa-comments-o"></i>',
+            'icon'  => '<i class="ui ui-comments-o"></i>',
             'url'   => waa_get_navigation_url( 'reviews' )
         ), */
 				'report' => array(
             'title' => __( 'Reports', 'waa'),
-            'icon'  => '<i class="fa fa-line-chart"></i>',
+            'icon'  => '<i class="ui ui-line-chart"></i>',
             'url'   => waa_get_navigation_url( 'reports' )
         ), 
         'withdraw' => array(
             'title' => __( 'Withdraw', 'waa'),
-            'icon'  => '<i class="fa fa-upload"></i>',
+            'icon'  => '<i class="ui ui-upload"></i>',
             'url'   => waa_get_navigation_url( 'withdraw' )
         ),
     );
@@ -339,25 +339,25 @@ function waa_get_dashboard_nav() {
     $urls = apply_filters( 'waa_get_dashboard_nav', $urls );
 
     $settings = array(
-        'title' => __( 'Settings <i class="fa fa-angle-right pull-right"></i>', 'waa'),
-        'icon'  => '<i class="fa fa-user"></i>',
+        'title' => __( 'Settings <i class="ui ui-angle-right pull-right"></i>', 'waa'),
+        'icon'  => '<i class="ui ui-user"></i>',
         'url'   => waa_get_navigation_url( 'settings/store' )
     );
 
     $settings_sub = array(
         'back' => array(
             'title' => __( 'Back to Dashboard', 'waa'),
-            'icon'  => '<i class="fa fa-long-arrow-left"></i>',
+            'icon'  => '<i class="ui ui-long-arrow-left"></i>',
             'url'   => waa_get_navigation_url()
         ),
         'store' => array(
             'title' => __( 'Store', 'waa'),
-            'icon'  => '<i class="fa fa-university"></i>',
+            'icon'  => '<i class="ui ui-university"></i>',
             'url'   => waa_get_navigation_url( 'settings/store' )
         ),
         'payment' => array(
             'title' => __( 'Payment', 'waa'),
-            'icon'  => '<i class="fa fa-credit-card"></i>',
+            'icon'  => '<i class="ui ui-credit-card"></i>',
             'url'   => waa_get_navigation_url( 'settings/payment' )
         )
     );
@@ -368,19 +368,19 @@ function waa_get_dashboard_nav() {
     if ( $enable_shipping == 'yes' ) {
         $settings_sub['shipping'] = array(
             'title' => __( 'Shipping', 'waa'),
-            'icon'  => '<i class="fa fa-truck"></i>',
+            'icon'  => '<i class="ui ui-truck"></i>',
             'url'   => waa_get_navigation_url( 'settings/shipping' )
         );
     }
     $settings_sub['social'] = array(
         'title' => __( 'Social Profile', 'waa'),
-        'icon'  => '<i class="fa fa-share-alt-square"></i>',
+        'icon'  => '<i class="ui ui-share-alt-square"></i>',
         'url'   => waa_get_navigation_url( 'settings/social' )
     );
     if ( waa_get_option( 'store_seo', 'waa_general', 'on' ) === 'on' ) {
         $settings_sub['seo'] = array(
             'title' => __( 'Store SEO', 'waa' ),
-            'icon'  => '<i class="fa fa-globe"></i>',
+            'icon'  => '<i class="ui ui-globe"></i>',
             'url'   => waa_get_navigation_url( 'settings/seo' )
         );
     }
@@ -436,8 +436,8 @@ function waa_dashboard_nav( $active_menu = '' ) {
         $class = ( $active_menu == $key ) ? 'active ' . $key : $key;
         $menu .= sprintf( '<li class="%s"><a href="%s">%s %s</a></li>', $class, $item['url'], $item['icon'], $item['title'] );
     }
-		$menu .= '<li><a href="'. wc_customer_edit_account_url() .'" title="'.__("My Account","waa").'"><i class="fa fa-cog"></i> '.__('My Account', 'waa').'</a></li>';
-		$menu .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="fa fa-power-off"></i> '.__('Logout', 'waa').'</a></li>';
+		$menu .= '<li><a href="'. wc_customer_edit_account_url() .'" title="'.__("My Account","waa").'"><i class="ui ui-cog"></i> '.__('My Account', 'waa').'</a></li>';
+		$menu .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="ui ui-power-off"></i> '.__('Logout', 'waa').'</a></li>';
     $menu .= '</ul>';
 
     return $menu;
@@ -698,7 +698,7 @@ function waa_header_user_menu() {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php _e( 'Seller Dashboard', 'waa' ); ?> <b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo waa_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'waa' ); ?> <i class="fa fa-external-link"></i></a></li>
+                        <li><a href="<?php echo waa_get_store_url( $user_id ); ?>" target="_blank"><?php _e( 'Visit your store', 'waa' ); ?> <i class="ui ui-external-link"></i></a></li>
                         <li class="divider"></li>
                         <?php
                         $nav_urls = waa_get_dashboard_nav();

@@ -43,7 +43,7 @@ $iconClass = isset( ${"icon_" . $icon_type} ) ? ${"icon_" . $icon_type} : $defau
 switch ( $color ) {
 	case 'info':
 		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-info-circle';
+		$iconClass = 'ui ui-info-circle';
 		break;
 	case 'alert-info':
 		$icon_type = 'pixelicons';
@@ -51,7 +51,7 @@ switch ( $color ) {
 		break;
 	case 'success':
 		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-check';
+		$iconClass = 'ui ui-check';
 		break;
 	case 'alert-success':
 		$icon_type = 'pixelicons';
@@ -59,7 +59,7 @@ switch ( $color ) {
 		break;
 	case 'warning':
 		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-exclamation-triangle';
+		$iconClass = 'ui ui-exclamation-triangle';
 		break;
 	case 'alert-warning':
 		$icon_type = 'pixelicons';
@@ -67,7 +67,7 @@ switch ( $color ) {
 		break;
 	case 'danger':
 		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-times';
+		$iconClass = 'ui ui-times';
 		break;
 	case 'alert-danger':
 		$icon_type = 'pixelicons';

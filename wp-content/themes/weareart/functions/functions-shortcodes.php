@@ -99,7 +99,6 @@ function waa_show_hirable_artists($atts) {
 		 ?>
 		 
 			<li class="product type-product">    
-				<a href="<?= waa_get_store_url( $artist->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $artist_info['store_name']); ?>">
 					<div class="the_post_image">	
 						<?php 
 						$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id($art->ID) ) );
@@ -113,7 +112,7 @@ function waa_show_hirable_artists($atts) {
 						</div>
 						<div class="artist-hover">
 							<div class="entry_author_image"><?php echo get_avatar( $artist->ID, 150 ); ?></div>
-							<div class="bottom"><a href="<?= waa_get_store_url( $artist->ID ) ?>"><?= $artist_info['store_name']; ?></a></div>
+							<div class="bottom"><a href="<?= waa_get_store_url( $artist->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $artist_info['store_name']); ?>"><?= $artist_info['store_name']; ?></a></div>
 						</div>
 				</a>
 			</li>

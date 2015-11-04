@@ -178,7 +178,7 @@ if ( $variations )  {
             $variation_data['post_id'][0]                 = $post_id;
 
             // Locale formatting
-            $_regular_price = wc_format_localized_price( $_regular_price );
+            $_regular_price =  $_regular_price;
             $_sale_price    = wc_format_localized_price( $_sale_price );
             $_weight        = wc_format_localized_decimal( $_weight );
             $_length        = wc_format_localized_decimal( $_length );
@@ -202,13 +202,13 @@ if ( $variations )  {
     }
 ?>
 		<tr>
-			<td colspan="4">    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="waa-btn waa_add_new_variation waa-btn-theme"><i class="fa fa-plus"></i> &nbsp; <?php _e( 'Add New Variation', 'waa' ); ?></a></td>
+			<td colspan="4">    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="waa-btn waa_add_new_variation waa-btn-theme"><i class="ui ui-plus"></i> &nbsp; <?php _e( 'Add New Variation', 'waa' ); ?></a></td>
 		</tr>
 		</tbody>
 	</table>
 
 	<div class="waa-variation-action-wrapper">
-			<a href="#doakn-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="waa-btn waa_add_new_attribute waa-btn-theme waa-right"><i class="fa fa-gear"></i> &nbsp;<?php _e( 'Add Options', 'waa' ); ?></a>
+			<a href="#doakn-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="waa-btn waa_add_new_attribute waa-btn-theme waa-right"><i class="ui ui-gear"></i> &nbsp;<?php _e( 'Add Options', 'waa' ); ?></a>
 			<span class="waa-loading waa-hide"></span>
 			<div class="waa-clearfix"></div>
 	</div>

@@ -373,7 +373,7 @@ class Dokan_Store_Seo {
             <div class="dokan-form-group">
                 <label class="dokan-w3 dokan-control-label" for="dokan-seo-meta-title"><?php _e( 'SEO Title :', 'dokan' ); ?>
                     <span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'SEO Title is shown as the title of your store page', 'dokan' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="dokan-w5 dokan-text-left">
@@ -384,7 +384,7 @@ class Dokan_Store_Seo {
             <div class="dokan-form-group">
                 <label class="dokan-w3 dokan-control-label" for="dokan-seo-meta-desc"><?php _e( 'Meta Description :', 'dokan' ); ?>
                     <span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'The meta description is often shown as the black text under the title in a search result. For this to work it has to contain the keyword that was searched for and should be less than 156 chars.', 'dokan' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="dokan-w5 dokan-text-left">
@@ -395,7 +395,7 @@ class Dokan_Store_Seo {
             <div class="dokan-form-group">
                 <label class="dokan-w3 dokan-control-label" for="dokan-seo-meta-keywords"><?php _e( 'Meta Keywords :', 'dokan' ); ?>
                     <span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'Insert some comma separated keywords for better ranking of your store page.', 'dokan' ); ?>">
-                        <i class="fa fa-question-circle"></i>
+                        <i class="ui ui-question-circle"></i>
                     </span>
                 </label>
                 <div class="dokan-w7 dokan-text-left">
@@ -452,7 +452,7 @@ class Dokan_Store_Seo {
                 </div>
 
                 <div class="gravatar-button-area <?php echo $og_image ? ' dokan-hide' : ''; ?>">
-                    <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default dokan-left"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+                    <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default dokan-left"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
                 </div>
             </div>
         </div>
@@ -496,7 +496,7 @@ class Dokan_Store_Seo {
                 </div>
 
                 <div class="gravatar-button-area <?php echo $twitter_image ? ' dokan-hide' : ''; ?>">
-                    <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default dokan-left"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+                    <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default dokan-left"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
                 </div>
             </div>
         </div>

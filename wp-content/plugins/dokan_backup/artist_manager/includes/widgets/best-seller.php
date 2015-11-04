@@ -56,7 +56,7 @@ class Dokan_Best_Seller_Widget extends WP_Widget {
                         <a href="<?php echo dokan_get_store_url( $value->seller_id ); ?>">
                             <?php echo $value->display_name; ?>
                         </a><br />
-                        <i class='fa fa-star'></i>
+                        <i class='ui ui-star'></i>
                         <?php echo $display_rating; ?>
                     </li>
 

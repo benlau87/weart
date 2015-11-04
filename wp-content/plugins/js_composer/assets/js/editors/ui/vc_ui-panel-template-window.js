@@ -27,7 +27,7 @@
 				this.message_box_timeout && this.$el.find( '[data-vc-panel-message]' ).remove() && window.clearTimeout( this.message_box_timeout );
 				this.message_box_timeout = false;
 				var messageBoxTemplate = _.template( '<div class="vc_message_box vc_message_box-standard vc_message_box-rounded vc_color-<%- color %>">' +
-				'<div class="vc_message_box-icon"><i class="fa fa fa-<%- icon %>"></i></div><p><%- text %></p></div>' );
+				'<div class="vc_message_box-icon"><i class="fa ui ui-<%- icon %>"></i></div><p><%- text %></p></div>' );
 				var $messageBox;
 				switch ( type ) {
 					case 'error':
@@ -98,7 +98,7 @@
 				this.message_box_timeout && this.$el.find( '[data-vc-panel-message]' ).remove() && window.clearTimeout( this.message_box_timeout );
 				this.message_box_timeout = false;
 				var messageBoxTemplate = _.template( '<div class="vc_message_box vc_message_box-standard vc_message_box-rounded vc_color-<%- color %>">' +
-				'<div class="vc_message_box-icon"><i class="fa fa fa-<%- icon %>"></i></div><p><%- text %></p></div>' );
+				'<div class="vc_message_box-icon"><i class="fa ui ui-<%- icon %>"></i></div><p><%- text %></p></div>' );
 				var $messageBox;
 				var wrapperCssClasses;
 				wrapperCssClasses = 'vc_col-xs-12 wpb_element_wrapper';

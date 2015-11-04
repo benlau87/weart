@@ -29,7 +29,7 @@ vc_map( array(
 			'type' => 'iconpicker',
 			'heading' => __( 'Icon', 'js_composer' ),
 			'param_name' => 'icon_fontawesome',
-			'value' => 'fa fa-adjust', // default value to backend editor admin_label
+			'value' => 'ui ui-adjust', // default value to backend editor admin_label
 			'settings' => array(
 				'emptyIcon' => false,
 				// default true, display an "EMPTY" icon?

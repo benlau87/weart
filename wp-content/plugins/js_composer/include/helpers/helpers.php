@@ -1126,7 +1126,7 @@ function vc_get_shortcode_regex( $tagregexp = '' ) {
  */
 function vc_message_warning( $message ) {
 	return '<div class="vc_message_box vc_message_box-standard vc_message_box-rounded vc_color-warning">
-	<div class="vc_message_box-icon"><i class="fa fa-exclamation-triangle"></i>
+	<div class="vc_message_box-icon"><i class="ui ui-exclamation-triangle"></i>
 	</div><p>' . $message . '</p>
 </div>';
 }

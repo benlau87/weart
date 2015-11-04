@@ -8,7 +8,7 @@ Zahlungsmethode: %method%
 Benutzername: %username%
 Profil: %profile_url%
 
-Du kannst die Anfrage genehmen, indem du den folgenden Link klickst:
+Du kannst die Anfrage annehmen, indem du den folgenden Link klickst:
 %withdraw_page%
 
 ---

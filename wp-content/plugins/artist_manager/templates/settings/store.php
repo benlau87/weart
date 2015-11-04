@@ -55,7 +55,7 @@ $scheme = is_ssl() ? 'https' : 'http';
             $banner     = isset( $profile_info['banner'] ) ? absint( $profile_info['banner'] ) : 0;
             $storename  = isset( $profile_info['store_name'] ) ? esc_attr( $profile_info['store_name'] ) : '';
             $phone      = isset( $profile_info['phone'] ) ? esc_attr( $profile_info['phone'] ) : '';
-            $description      = isset( $profile_info['description'] ) ? esc_attr( $profile_info['description'] ) : '';
+            $description      = isset( $profile_info['description'] ) ? $profile_info['description'] : '';
             $setting_enable_services = isset( $profile_info['enable_services'] ) ? esc_attr( $profile_info['enable_services'] ) : 'no';
 
             $address         = isset( $profile_info['address'] ) ? $profile_info['address'] : '';
@@ -103,7 +103,7 @@ $scheme = is_ssl() ? 'https' : 'http';
                     </div>
 
                     <div class="button-area<?php echo $banner ? ' waa-hide' : ''; ?>">
-                        <i class="fa fa-cloud-upload"></i>
+                        <i class="ui ui-cloud-upload"></i>
 
                         <a href="#" class="waa-banner-drag waa-btn waa-btn-info waa-theme"><?php _e( 'Upload banner', 'waa' ); ?></a>
                         <p class="help-block"><?php _e( '(Upload a banner for your store. Banner size is (825x300) pixel. )', 'waa' ); ?></p>
@@ -123,7 +123,7 @@ $scheme = is_ssl() ? 'https' : 'http';
                             <a class="waa-close waa-remove-gravatar-image">&times;</a>
                         </div>
                         <div class="gravatar-button-area<?php echo $gravatar ? ' waa-hide' : ''; ?>">
-                            <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
+                            <a href="#" class="waa-gravatar-drag waa-btn waa-btn-default"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'waa' ); ?></a>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,8 @@ $scheme = is_ssl() ? 'https' : 'http';
                 </div>
 								
 								<div class="waa-form-group">
-                    <label class="waa-w3 waa-control-label" for="setting_description"><?php _e( 'Description', 'waa' ); ?></label>
+                    <label class="waa-w3 waa-control-label" for="setting_description"><?php _e( 'Description', 'waa' ); ?>
+										</label>
                     <div class="waa-w5 waa-text-left">
                         <textarea id="setting_description" name="setting_description" placeholder="<?php _e( 'Description', 'waa' ); ?>" class="waa-form-control input-md"><?= $description; ?></textarea>
 												<input type="hidden" name="setting_show_email" value="no">
@@ -168,8 +169,8 @@ $scheme = is_ssl() ? 'https' : 'http';
 								<div class="waa-form-group">
                     <label class="waa-w3 waa-control-label" for="dps_enable_shipping" style="margin-top:6px">
                         <?php _e( 'Dienstleistungen', 'waa' ); ?>
-                        <span class="waa-tooltips-help tips" title="<?php _e( 'Wenn du diese Option wählst, können dich Kunden über dein Profil anschreiben. ', 'waa' ); ?>">
-                            <i class="fa fa-question-circle"></i>
+                        <span class="waa-tooltips-help tips" title="<?php _e( 'Man kann dich für Aufträge buchen.Man kann dich für Aufträge buchen. ', 'waa' ); ?>">
+                            <i class="ui ui-question-circle"></i>
                         </span>
                     </label>
 

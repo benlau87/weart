@@ -1044,7 +1044,7 @@ msgid "Override Filter Icon"
 msgstr ""
 
 #: ../lib/pf-settings.php:1328
-msgid "Input the icon class to override the default Product Filter icon. Use icon class e.g. prdctfltr-filter or FontAwesome fa fa-shopping-cart or any other."
+msgid "Input the icon class to override the default Product Filter icon. Use icon class e.g. prdctfltr-filter or FontAwesome ui ui-shopping-cart or any other."
 msgstr ""
 
 #: ../lib/pf-settings.php:1334

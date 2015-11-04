@@ -2131,12 +2131,12 @@ window.vc.addTemplateFilter = function ( callback ) {
 
 			var settings = $.extend( {
 				iconsPerPage: 100, // default icons per page for iconpicker
-				iconDownClass: 'fip-fa fa fa-arrow-down',
-				iconUpClass: 'fip-fa fa fa-arrow-up',
-				iconLeftClass: 'fip-fa fa fa-arrow-left',
-				iconRightClass: 'fip-fa fa fa-arrow-right',
-				iconSearchClass: 'fip-fa fa fa-search',
-				iconCancelClass: 'fip-fa fa fa-remove',
+				iconDownClass: 'fip-fa ui ui-arrow-down',
+				iconUpClass: 'fip-fa ui ui-arrow-up',
+				iconLeftClass: 'fip-fa ui ui-arrow-left',
+				iconRightClass: 'fip-fa ui ui-arrow-right',
+				iconSearchClass: 'fip-fa ui ui-search',
+				iconCancelClass: 'fip-fa ui ui-remove',
 				iconBlockClass: 'fip-fa'
 			}, $el.data( 'settings' ) );
 

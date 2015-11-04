@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-02 04:12+0100\n"
+"PO-Revision-Date: 2015-11-04 01:46+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -1183,7 +1183,7 @@ msgstr "Anfrage abschicken"
 
 #: classes/template-withdraw.php:1017
 msgid "Err!"
-msgstr "Error!"
+msgstr "Fehler!"
 
 #: classes/template-withdraw.php:1017
 msgid "Sorry, no transactions found!"
@@ -2201,7 +2201,7 @@ msgstr ""
 #: includes/reports.php:11 includes/reports.php:709 includes/reports.php:812
 #: templates/dashboard.php:44 templates/dashboard.php:179
 msgid "Sales"
-msgstr "Verkäufte"
+msgstr "Verkäufe"
 
 #: includes/reports.php:20
 msgid "Sales by day"
@@ -2217,7 +2217,7 @@ msgstr "Am meisten Verdient mit.."
 
 #: includes/reports.php:288
 msgid "This month's sales"
-msgstr "Verkäufte diesen Monat"
+msgstr "Einnahmen diesen Monat"
 
 #: includes/reports.php:338
 msgid "Sales in this period"
@@ -2225,7 +2225,7 @@ msgstr "Umsatz diesen Monat"
 
 #: includes/reports.php:424
 msgid "%s sales in this period"
-msgstr "%s Verkäufe diesen Monat"
+msgstr "%s Einnahmen diesen Monat"
 
 #: includes/reports.php:428
 msgid "%s average daily sales"
@@ -2347,8 +2347,8 @@ msgid "Coupons"
 msgstr ""
 
 #: includes/template-tags.php:342
-msgid "Settings <i class=\"fa fa-angle-right pull-right\"></i>"
-msgstr "Einstellungen <i class=\"fa fa-angle-right pull-right\"></i>"
+msgid "Settings <i class=\"ui ui-angle-right pull-right\"></i>"
+msgstr "Einstellungen <i class=\"ui ui-angle-right pull-right\"></i>"
 
 #: includes/template-tags.php:349
 msgid "Back to Dashboard"
@@ -2985,7 +2985,7 @@ msgstr "Besucher"
 
 #: templates/dashboard.php:48
 msgid "Earning"
-msgstr "Einnahmen"
+msgstr "Kontostand"
 
 #: templates/dashboard.php:100
 msgid "Refunded"
@@ -3284,7 +3284,7 @@ msgstr ""
 
 #: templates/my-orders.php:106
 msgid "No orders found!"
-msgstr "Keine Bestellungen gefunden!"
+msgstr "Noch keine Bestellungen gefunden. Nicht aufgeben!"
 
 #: templates/new-product-single.php:101
 msgid "Add New Product"
@@ -3545,7 +3545,7 @@ msgstr "Fertiggestellt"
 
 #: templates/orders/listing.php:155
 msgid "No orders found"
-msgstr "Keine Bestellungen gefunden"
+msgstr "Noch keine Bestellungen gefunden. Nicht aufgeben!"
 
 #: templates/orders/order-details.php:7
 msgid "This is not yours, I swear!"

@@ -107,7 +107,7 @@ wp_enqueue_script( 'google-maps', $scheme . '://maps.google.com/maps/api/js?sens
                     </div>
 
                     <div class="button-area<?php echo $banner ? ' dokan-hide' : ''; ?>">
-                        <i class="fa fa-cloud-upload"></i>
+                        <i class="ui ui-cloud-upload"></i>
 
                         <a href="#" class="dokan-banner-drag dokan-btn dokan-btn-info dokan-theme"><?php _e( 'Upload banner', 'dokan' ); ?></a>
                         <p class="help-block"><?php _e( '(Upload a banner for your store. Banner size is (825x300) pixel. )', 'dokan' ); ?></p>
@@ -127,7 +127,7 @@ wp_enqueue_script( 'google-maps', $scheme . '://maps.google.com/maps/api/js?sens
                             <a class="dokan-close dokan-remove-gravatar-image">&times;</a>
                         </div>
                         <div class="gravatar-button-area<?php echo $gravatar ? ' dokan-hide' : ''; ?>">
-                            <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+                            <a href="#" class="dokan-gravatar-drag dokan-btn dokan-btn-default"><i class="ui ui-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
                         </div>
                     </div>
                 </div>

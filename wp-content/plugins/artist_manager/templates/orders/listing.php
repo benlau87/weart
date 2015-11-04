@@ -89,7 +89,7 @@ if ( $user_orders ) {
                                     'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=waa-mark-order-processing&order_id=' . $the_order->id ), 'waa-mark-order-processing' ),
                                     'name' => __( 'Processing', 'waa' ),
                                     'action' => "processing",
-                                    'icon' => '<i class="fa fa-clock-o">&nbsp;</i>'
+                                    'icon' => '<i class="ui ui-clock-o">&nbsp;</i>'
                                 );
 
                             if ( in_array( $the_order->post_status, array('wc-pending', 'wc-on-hold', 'wc-processing') ) )
@@ -97,7 +97,7 @@ if ( $user_orders ) {
                                     'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=waa-mark-order-complete&order_id=' . $the_order->id ), 'waa-mark-order-complete' ),
                                     'name' => __( 'Complete', 'waa' ),
                                     'action' => "complete",
-                                    'icon' => '<i class="fa fa-check">&nbsp;</i>'
+                                    'icon' => '<i class="ui ui-check">&nbsp;</i>'
                                 );
 
                         }
@@ -106,7 +106,7 @@ if ( $user_orders ) {
                             'url' => wp_nonce_url( add_query_arg( array( 'order_id' => $the_order->id ), waa_get_navigation_url( 'orders' ) ), 'waa_view_order' ),
                             'name' => __( 'View', 'waa' ),
                             'action' => "view",
-                            'icon' => '<i class="fa fa-eye">&nbsp;</i>'
+                            'icon' => '<i class="ui ui-eye">&nbsp;</i>'
                         );
 
                         $actions = apply_filters( 'woocommerce_admin_order_actions', $actions, $the_order );
@@ -152,7 +152,7 @@ if ( $user_orders ) {
 <?php } else { ?>
 
     <div class="waa-error">
-        <?php _e( 'No orders found', 'waa' ); ?>
+        <?php _e( 'No orders found', 'waa' ); ?> &nbsp;<i class="ui ui-thumbs-o-up"></i>
     </div>
 
 <?php } ?>

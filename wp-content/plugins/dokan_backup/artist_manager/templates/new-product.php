@@ -31,7 +31,7 @@
                             <div class="dokan-feat-image-upload">
                                 <div class="instruction-inside">
                                     <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="0">
-                                    <i class="fa fa-cloud-upload"></i>
+                                    <i class="ui ui-cloud-upload"></i>
                                     <a href="#" class="dokan-feat-image-btn dokan-btn"><?php _e( 'Upload Product Image', 'dokan' ); ?></a>
                                 </div>
 

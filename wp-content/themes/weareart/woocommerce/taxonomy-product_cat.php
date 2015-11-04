@@ -111,19 +111,19 @@ else {
 							<span> Share </span>
 							<ul>
 								<?php if(!empty($user_meta['facebook'][0])) { ?>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>" target="_blank"><i class="ui ui-facebook"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['twitter'][0])) { ?>
-								<li><a href="https://twitter.com/home?status=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://twitter.com/home?status=<?= the_permalink(); ?>" target="_blank"><i class="ui ui-twitter"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['googleplus'][0])) { ?>
-								<li><a href="https://plus.google.com/share?url=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="https://plus.google.com/share?url=<?= the_permalink(); ?>" target="_blank"><i class="ui ui-google-plus"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['pinterest'][0])) { ?>
-								<li><a href="https://pinterest.com/pin/create/button/?url=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="https://pinterest.com/pin/create/button/?url=<?= the_permalink(); ?>" target="_blank"><i class="ui ui-pinterest"></i></a></li>
 								<?php } ?>
 								<?php if(!empty($user_meta['linkedin'][0])) { ?>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=<?= the_permalink(); ?>" target="_blank"><i class="ui ui-linkedin"></i></a></li>
 								<?php } ?>
 							</ul>
 						</div>

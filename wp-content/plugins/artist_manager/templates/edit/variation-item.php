@@ -44,15 +44,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 </td>
 <td class="waa-input-group" >
 		<span class="waa-input-group-addon">€</span>
-    <input type="number" min="0" step="any" size="5" name="variable_regular_price[<?php echo $loop; ?>]" value="<?php if ( isset( $_regular_price ) ) echo esc_attr( $_regular_price ); ?>" class="waa-form-control" placeholder="<?php _e( '0.00', 'waa' ); ?>" size="10"/>
+    <input type="number" min="0" step="any" size="5" name="variable_regular_price[<?php echo $loop; ?>]" value="<?php if ( isset( $_regular_price ) ) echo $_regular_price; ?>" class="waa-form-control" placeholder="<?php _e( '0.00', 'waa' ); ?>" size="10"/>
 </td>
 
         
 
 </td>
 <td style="width:25% !important;">
-    <!-- <a href="#variation-edit-popup" class="waa-btn waa-btn-theme edit_variation"><i class="fa fa-pencil"></i></a> -->
-    <a class="waa-btn waa-btn-theme btn-remove-print" data-variation_id=<?php echo $variation_id; ?>><i class="fa fa-trash-o"></i></a>
+    <!-- <a href="#variation-edit-popup" class="waa-btn waa-btn-theme edit_variation"><i class="ui ui-pencil"></i></a> -->
+    <a class="waa-btn waa-btn-theme btn-remove-print" data-variation_id=<?php echo $variation_id; ?>><i class="ui ui-trash-o"></i></a>
 </td>
 
 

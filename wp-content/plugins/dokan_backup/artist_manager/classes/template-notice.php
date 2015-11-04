@@ -80,7 +80,7 @@ class Dokan_Template_Notice {
                     ?>
                     <div class="dokan-announcement-wrapper-item <?php echo ( $notice->status == 'unread' ) ? 'dokan-announcement-uread' : '' ?>">
                         <div class="announcement-action">
-                            <a href="#" class="remove_announcement" data-notice_row = <?php echo $notice->id; ?>><i class="fa fa-times"></i></a>
+                            <a href="#" class="remove_announcement" data-notice_row = <?php echo $notice->id; ?>><i class="ui ui-times"></i></a>
                         </div>
                         <div class="dokan-annnouncement-date dokan-left">
                             <div class="announcement-day"><?php echo date('d', strtotime( $notice->post_date ) ) ?></div>
@@ -107,7 +107,7 @@ class Dokan_Template_Notice {
                 ?>
                 <div class="dokan-no-announcement">
                     <div class="annoument-no-wrapper">
-                        <i class="fa fa-bell dokan-announcement-icon"></i>
+                        <i class="ui ui-bell dokan-announcement-icon"></i>
                         <p><?php _e( 'No announcement found', 'dokan' ) ?></p>
                     </div>
                 </div>

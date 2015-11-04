@@ -665,7 +665,7 @@ body {
   overflow: hidden;
   position: relative;
 }
-.product-edit-new-container .waa-feat-image-upload i.fa-cloud-upload {
+.product-edit-new-container .waa-feat-image-upload i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;
@@ -697,7 +697,7 @@ body {
   cursor: pointer;
 }
 .product-edit-new-container .waa-feat-image-upload .image-wrap { text-align:center }
-.product-edit-new-container .waa-feat-image-upload .image-wrap a{ border:none }
+
 .product-edit-new-container .waa-feat-image-upload img {
   max-width: 100%;
   width: 300px;
@@ -706,7 +706,7 @@ body {
 .product-edit-new-container .waa-feat-image-upload img:hover a.close {
   display: block;
 }
-.product-edit-new-container .waa-feat-image-upload .image-wrap:hover a.close {
+.product-edit-new-container .waa-feat-image-upload .image-wrap.no_warning:hover a.close {
   display: block;
 }
 .product-edit-new-container .instruction-inside {
@@ -989,7 +989,7 @@ body {
   overflow: hidden;
   position: relative;
 }
-.product-edit-container .waa-feat-image-upload i.fa-cloud-upload {
+.product-edit-container .waa-feat-image-upload i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;
@@ -1958,7 +1958,7 @@ table.waa-single-attribute-options-table tbody tr td button.remove_attribute {
 .waa-settings-content .waa-settings-area .button-area {
   margin-top: 35px;
 }
-.waa-settings-content .waa-settings-area .button-area i.fa-cloud-upload {
+.waa-settings-content .waa-settings-area .button-area i.ui-cloud-upload {
   display: block;
   font-size: 80px;
   color: #DFDFDF;
@@ -2167,6 +2167,7 @@ ul.waa-seller-wrap li.waa-single-seller:nth-child(2n+1) {
 }
 .waa-error {
   border-top: 3px solid #b81c23;
+	border-color: #b81c23 !important;
 }
 .waa-error:before {
   background-color: #b81c23;

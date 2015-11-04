@@ -42,7 +42,7 @@ get_header( 'shop' );
 												<span class="artist-art-count"><?= __('Kunstwerke', 'waa'); ?>: <strong><?= waa_count_published_posts('product', $store_user->ID)->total ?></strong></span>	
 												<span class="artist-art-count"><?= __('Kategorien', 'waa'); ?>: <strong><?= waa_store_categories($store_user->ID) ?></strong></span>
 												<?php if ( isset( $store_info['description'] ) && !empty( $store_info['description'] ) ) { ?>
-														<p class="artist-description"><?= $store_info['description']; ?></p>
+														<p class="artist-description"><?= nl2br($store_info['description']); ?></p>
 												<?php } ?>
 										
 
@@ -73,13 +73,13 @@ get_header( 'shop' );
 											<div class="content-social-share">
 												<span> Share </span>
 												<ul>
-													<?php 	if ( isset ( $store_info['social']['fb'] ) && !empty ( $store_info['social']['fb'] ) ) { ?><li><a href="<?= $store_info['social']['fb'] ?>" target="_blank"><i class="fa fa-facebook"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['twitter'] ) && !empty ( $store_info['social']['twitter'] ) ) { ?><li><a href="<?= $store_info['social']['twitter'] ?>" target="_blank"><i class="fa fa-twitter"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['gplus'] ) && !empty ( $store_info['social']['gplus'] ) ) { ?><li><a href="<?= $store_info['social']['gplus'] ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['instagram'] ) && !empty ( $store_info['social']['instagram'] ) ) { ?><li><a href=<?= $store_info['social']['instagram'] ?>"" target="_blank"><i class="fa fa-instagram"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['youtube'] ) && !empty ( $store_info['social']['youtube'] ) ) { ?><li><a href="<?= $store_info['social']['youtube'] ?>" target="_blank"><i class="fa fa-youtube"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['flickr'] ) && !empty ( $store_info['social']['flickr'] ) ) { ?><li><a href="<?= $store_info['social']['flickr'] ?>" target="_blank"><i class="fa fa-flickr"></i></a></li><?php } ?>
-													<?php 	if ( isset ( $store_info['social']['linkedin'] ) && !empty ( $store_info['social']['linkedin'] ) ) { ?><li><a href="<?= $store_info['social']['linkedin'] ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['fb'] ) && !empty ( $store_info['social']['fb'] ) ) { ?><li><a href="<?= $store_info['social']['fb'] ?>" target="_blank"><i class="ui ui-facebook"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['twitter'] ) && !empty ( $store_info['social']['twitter'] ) ) { ?><li><a href="<?= $store_info['social']['twitter'] ?>" target="_blank"><i class="ui ui-twitter"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['gplus'] ) && !empty ( $store_info['social']['gplus'] ) ) { ?><li><a href="<?= $store_info['social']['gplus'] ?>" target="_blank"><i class="ui ui-google-plus"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['instagram'] ) && !empty ( $store_info['social']['instagram'] ) ) { ?><li><a href=<?= $store_info['social']['instagram'] ?>"" target="_blank"><i class="ui ui-instagram"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['youtube'] ) && !empty ( $store_info['social']['youtube'] ) ) { ?><li><a href="<?= $store_info['social']['youtube'] ?>" target="_blank"><i class="ui ui-youtube"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['flickr'] ) && !empty ( $store_info['social']['flickr'] ) ) { ?><li><a href="<?= $store_info['social']['flickr'] ?>" target="_blank"><i class="ui ui-flickr"></i></a></li><?php } ?>
+													<?php 	if ( isset ( $store_info['social']['linkedin'] ) && !empty ( $store_info['social']['linkedin'] ) ) { ?><li><a href="<?= $store_info['social']['linkedin'] ?>" target="_blank"><i class="ui ui-linkedin"></i></a></li><?php } ?>
 												</ul>
 											</div>
 											<?php endif; ?>	

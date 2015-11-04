@@ -21,7 +21,7 @@ $waa_withdraw = waa_Template_Withdraw::init();
                         ?>
                         <div class="waa-alert waa-alert-danger" style="width: 55%; margin-left: 10%;">
                             <button type="button" class="waa-close" data-dismiss="alert">&times;</button>
-                            <strong><?php echo $message; ?></strong>
+                            <strong><?php echo $type.$message; ?></strong>
                         </div>
 
                         <?php
@@ -40,7 +40,7 @@ $waa_withdraw = waa_Template_Withdraw::init();
             </ul>
 
             <div class="waa-alert waa-alert-warning">
-                <strong><?php printf( __( 'Current Balance: %s', 'waa' ), waa_get_seller_balance( $user_id ) ); ?></strong>
+                <strong><?php printf( __( 'Current Balance: %s', 'waa' ), waa_get_seller_balance( $user_id ) ); ?> €</strong>
             </div>
 
             <?php if ( $current == 'pending' ) {
