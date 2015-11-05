@@ -123,4 +123,57 @@ function waa_show_hirable_artists($atts) {
 echo '</ul>';
 }
 add_shortcode('hirable_artists', 'waa_show_hirable_artists');
+
+
+/*
+* Home Slider (art show)
+*  params: none
+*/
+function waa_home_art_slider($atts) {	
+	$a = shortcode_atts( array(
+			'number' => -1,
+			'order' => 'rand',
+		), $atts);
+	
+	$user_search = new WP_User_Query( array( 'role' => 'seller', 'number' => 99999 ) );
+  $artists = (array) $user_search->get_results();
+	$post_counts = count_many_users_posts( wp_list_pluck( $artists, 'ID' ), 'product' );
+	
+	echo '<div class="art-slider">';
+	echo '<ul>';
+	foreach($artists as $artist) {
+	 $artist_info = waa_get_store_info( $artist->ID );
+	 #print_r($artist_info);
+   $args = array(
+				'post_type'      => 'product',
+				'post_status'    => 'publish',
+				'posts_per_page' => 3,
+				'author'         => $artist->ID,
+				'orderby'        => 'rand'
+		);
+		
+ $posts_array = get_posts($args);
+ 
+ foreach ($posts_array as $art) {
+	$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id($art->ID) ) );
+	$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $art->ID ), 'large' );
+	#echo $large_image_url[1].'x'.$large_image_url[2];
+	
+	if($large_image_url[1] > $large_image_url[2]*1.7) {
+ ?>
+	<li>
+		<img src="<?= $large_image_url[0]; ?>">
+		<header>
+		</header>
+		<footer>
+			<a href="<?= get_permalink($art->ID) ?>" class="title"><?= $art->post_title; ?></a>
+		</footer>
+	</li>
+	<?php }
+ }
+}
+echo '</ul>';
+echo '</div>';
+}
+add_shortcode('slider', 'waa_home_art_slider');
 ?>

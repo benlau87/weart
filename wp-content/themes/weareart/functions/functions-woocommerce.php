@@ -134,5 +134,17 @@ function waa_get_variable_price($product_id) {
 		return $output;
 }
 
+// Hook in
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Our hooked in function - $fields is passed via the filter!
+function custom_override_checkout_fields( $fields ) {
+    # unset($fields['order']['order_comments']);
+     unset($fields['billing']['billing_address_2']);
+     unset($fields['billing']['billing_phone']);
+     unset($fields['shipping']['shipping_address_2']);
+
+     return $fields;
+}
 
 ?>

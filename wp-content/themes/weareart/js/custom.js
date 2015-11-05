@@ -45,7 +45,15 @@
 			}
 		});
 	
-
-		
+			
+		if(window.chrome) {
+				$('.art-slider li').css('background-size', '100% 100%');
+			}
+			var unslider = $('.art-slider').unslider({
+				fluid: true,
+				dots: true
+			});
+    
+	
 	
 });
