@@ -1438,6 +1438,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 	left:45px;
 	text-align:left;
 	font-size:15px;
+	text-shadow: 1px 1px 2px #000;
 }
 .art-slider ul li footer a.title {
 	color:#fff ;
