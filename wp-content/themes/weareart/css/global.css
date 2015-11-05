@@ -1329,7 +1329,7 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 	display: block;
 	float: left;
 	width: 33%;
-	min-height: 300px;
+	min-height: 250px;
 	max-height: 600px;
 	position:relative;
 	-o-background-size: 100% 100%;
