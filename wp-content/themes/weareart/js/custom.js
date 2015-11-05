@@ -51,7 +51,9 @@
 			}
 			var unslider = $('.art-slider').unslider({
 				fluid: true,
-				dots: true
+				dots: true,
+				keys: true,
+				delay: 7000
 			});
     
 	
