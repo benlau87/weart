@@ -85,6 +85,9 @@ function waa_load_scripts() {
 	
 	wp_register_script( 'masonry', get_template_directory_uri() . '/js/masonry.min.js' );
 	wp_enqueue_script( 'masonry' );
+	
+	wp_register_script( 'slider', get_template_directory_uri() . '/js/slider.min.js' );
+	wp_enqueue_script( 'slider' );
 }
 
 /* add stylesheets */
