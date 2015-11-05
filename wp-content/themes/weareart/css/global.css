@@ -1434,15 +1434,26 @@ h1.product_title  { font-size:26px; font-weight:600; letter-spacing:1px; font-st
 
 .art-slider ul li footer {
 	position: absolute;
-	bottom:50px;
-	left:50px;
+	bottom:40px;
+	left:45px;
+	text-align:left;
+	font-size:15px;
 }
 .art-slider ul li footer a.title {
 	color:#fff ;
-	text-shadow: 1px 3px 1px solid #000;
+	text-shadow: 1px 1px 2px #000;
 	font-weight:normal;
 }
 .art-slider ul li footer a.title:hover {
+	border-color:#fff;
+}
+.art-slider ul li footer a.artist-name {
+	color:#fff ;
+	text-shadow: 1px 1px 2px #000;
+	font-weight:normal;
+	border-color:transparent;
+}
+.art-slider ul li footer a.artist-name:hover {
 	border-color:#fff;
 }
 	

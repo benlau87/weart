@@ -162,11 +162,11 @@ function waa_home_art_slider($atts) {
 	if($large_image_url[1] > $large_image_url[2]*1.65) {
  ?>
 	<li>
-		<img src="<?= $large_image_url[0]; ?>">
+		<img src="<?= $large_image_url[0]; ?>" alt="<?= $image_title ?>">
 		<header>
 		</header>
 		<footer>
-			<a href="<?= get_permalink($art->ID) ?>" class="title"><?= $art->post_title; ?></a>
+			<a href="<?= get_permalink($art->ID) ?>" class="title"><?= $art->post_title; ?></a><br><?= __('von', 'waa') ?> <a href="<?= waa_get_store_url( $artist->ID ) ?>" class="artist-name" title="<?php printf( __('Kunstwerk von %s	', 'waa'), $artist_info['store_name']); ?>"><?= $artist_info['store_name']; ?></a>
 		</footer>
 	</li>
 	<?php }
