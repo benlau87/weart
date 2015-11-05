@@ -159,7 +159,7 @@ function waa_home_art_slider($atts) {
 	$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $art->ID ), 'large' );
 	#echo $large_image_url[1].'x'.$large_image_url[2];
 	
-	if($large_image_url[1] > $large_image_url[2]*1.65) {
+	if($large_image_url[1] > $large_image_url[2]*1.5) {
  ?>
 	<li>
 		<img src="<?= $large_image_url[0]; ?>" alt="<?= $image_title ?>">
