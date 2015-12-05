@@ -71,7 +71,7 @@ class waa_Template_Settings {
     /**
      * Validate settings submission
      *
-     * @return void
+     * @return void|bool
      */
     function validate() {
 
@@ -350,7 +350,8 @@ class waa_Template_Settings {
         $track_val   = array();
 
         $progress_values = array(
-           'banner_val'          => 20,
+           'banner_val'          => 10,
+           'address_val'          => 10,
            'profile_picture_val' => 20,
            'store_name_val'      => 20,
            'payment_method_val'  => 10,
@@ -375,11 +376,10 @@ class waa_Template_Settings {
             }
         endif;				
 				
-				$user_id        = get_current_user_id();
-				$post_counts    = waa_count_posts( 'product', $user_id );
-				$total_posts = $post_counts->total;
+				$post_counts    = waa_count_posts( 'product', get_current_user_id() );
+				$total_posts = $post_counts->publish;
 				
-				if ( $total_posts == 0 ) {
+				if ( $total_posts != 0 ) {
 						$profile_val           = $profile_val + $product_val;
 						$track_val['product'] = $product_val;
 				} else {
@@ -433,7 +433,7 @@ class waa_Template_Settings {
                 $track_val['description'] = $description_val;
             } else {
                 if ( strlen( $next_add ) == 0 ) {
-                    $next_add = sprintf( __( 'Add Description to gain %s%% progress', 'waa' ), $description_val );
+                    $next_add = sprintf( __( 'F�ge eine Beschreibung hinzu, um %s%% Forschritt zu erhalten.', 'waa' ), $description_val );
                 }
             }
 
@@ -503,7 +503,7 @@ class waa_Template_Settings {
                 $payment_method_val  = 0;
             }
         }
-
+				/*
         // Calculate Payment method val for skrill
         if ( isset( $waa_settings['payment']['skrill'] ) ) {
             if ( $waa_settings['payment']['skrill']['email'] != false ) {
@@ -513,12 +513,14 @@ class waa_Template_Settings {
                 $payment_method_val  = 0;
             }
         }
+				*/
 
         // set message if no payment method found
         if ( strlen( $next_add ) == 0 && $payment_method_val !=0 ) {
             $next_add = sprintf( __( 'Add a Payment method to gain %s%% progress', 'waa' ), $payment_method_val );
         }
 
+				/*
         if ( isset( $waa_settings['location'] ) && strlen(trim($waa_settings['location'])) != 0 ) {
             $profile_val           = $profile_val + $map_val;
             $track_val['location'] = $map_val;
@@ -527,6 +529,7 @@ class waa_Template_Settings {
                 $next_add = sprintf( __( 'Add Map location to gain %s%% progress', 'waa' ), $map_val );
             }
         }
+				*/
 
         $track_val['next_todo'] = $next_add;
         $track_val['progress'] = $profile_val;

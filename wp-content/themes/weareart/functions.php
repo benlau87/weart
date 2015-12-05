@@ -211,7 +211,7 @@ function add_customer_menu($items, $args)
 				} elseif ( waa_is_user_seller ( $user->ID ) && !current_user_can( 'manage_options' ) ) {
 					$items .= '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.__( 'My Account', 'waa' ).'  <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-								<li><a href="'.waa_get_store_url( $user_id ).'" target="_blank">'.__( 'Visit your store', 'waa' ).' <i class="ui ui-external-link"></i></a></li>
+								<li><a href="'.waa_get_store_url( $user->ID ).'" target="_blank">'.__( 'Visit your store', 'waa' ).' <i class="ui ui-external-link"></i></a></li>
 								<li class="divider"></li>';
 								 $nav_urls = waa_get_dashboard_nav();
 								foreach ($nav_urls as $key => $item) {

@@ -66,6 +66,12 @@ $reviews_url    = waa_get_navigation_url( 'reviews' );
                         array( 'value' => $orders_counts->{'wc-refunded'}, 'color' => '#e6db55'),
                         array( 'value' => $orders_counts->{'wc-on-hold'}, 'color' => '#f0ad4e'),
                     );
+										$store_settings = waa_get_store_info( $user_id );
+										$user_meta = get_user_meta($user_id);
+										print "<pre>";
+										print_r($store_settings);
+										print_r($user_meta);
+										print "</pre>";
                     ?>
 
                     <div class="content-half-part">
