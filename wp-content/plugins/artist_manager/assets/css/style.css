@@ -115,7 +115,7 @@ body {
 .waa-dashboard header.waa-dashboard-header h1 {
   margin: 0 0 10px 0;
   border-bottom: 1px solid #ededed;
-  padding: 0 0 10px 0;
+  padding: 5px 0 15px 0;
 }
 .waa-dashboard .waa-dashboard-content {
   padding: 0 0 0 25px;
@@ -1398,6 +1398,11 @@ body {
 .waa-product-edit header.waa-dashboard-header h1.entry-title a.view-product {
   background-color: #fafafa;
   border-color: #ebebeb;
+	margin-top:-4px;
+}
+.waa-product-edit header.waa-dashboard-header h1.entry-title a.view-product:hover {
+  background-color: #000;
+	color:#fafafa;
 }
 .waa-product-edit-area .waa-product-edit-left {
   width: 67%;

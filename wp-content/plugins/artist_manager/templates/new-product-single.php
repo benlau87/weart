@@ -138,7 +138,7 @@ if ( ! $from_shortcode ) {
 
 														<?php if ( $post->post_status == 'publish' ) { ?>
 																<span class="waa-right">
-																		<a class="view-product waa-btn waa-btn-sm" href="<?php echo get_permalink( $post->ID ); ?>" target="_blank"><?php _e( 'View Product', 'waa' ); ?></a>
+																		<a class="view-product btn" href="<?php echo get_permalink( $post->ID ); ?>" target="_blank"><?php _e( 'View Product', 'waa' ); ?> <i class="ui ui-external-link"></i></a>
 																</span>
 														<?php } ?>
 
@@ -586,7 +586,7 @@ if ( ! $from_shortcode ) {
 
 																										<div class="waa-form-group">
 																												<?php waa_post_input_box( $post_id, '_overwrite_shipping', array( 'label' => __( 'Override default shipping cost for this product', 'waa' ), 'value' => $_overwrite_shipping ), 'checkbox' ); ?>
-																												<span class="waa-form-note"><?php printf( __('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier <i class="ui ui-external-link"></i></a> verwalten.', 'waa'), waa_get_navigation_url( 'settings/shipping' ) ); ?></span>
+																												<span class="waa-form-note"><?php printf( __('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier verwalten <i class="ui ui-external-link"></i></a>', 'waa'), waa_get_navigation_url( 'settings/shipping' ) ); ?></span>
 																										</div>
 
 																										<div class="waa-form-group show_if_override">

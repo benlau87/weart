@@ -61,9 +61,6 @@ if ( $validate !== false && !is_wp_error( $validate ) ) {
             </div>
 
             <?php 
-            /**
-             * @since 2.2.2 Insert action before social settings form
-             */
             do_action( 'waa_profile_settings_before_form', $current_user, $profile_info ); ?>
 
             <form method="post" id="profile-form"  action="" class="waa-form-horizontal"><?php ///settings-form ?>
@@ -84,9 +81,6 @@ if ( $validate !== false && !is_wp_error( $validate ) ) {
                 <?php } ?>
 
                 <?php 
-                /**
-                 * @since 2.2.2 Insert action on bottom social settings form
-                 */
                 do_action( 'waa_profile_settings_form_bottom', $current_user, $profile_info ); ?>
 
                 <div class="waa-form-group">
@@ -98,9 +92,6 @@ if ( $validate !== false && !is_wp_error( $validate ) ) {
             </form>
 
             <?php 
-            /**
-             * @since 2.2.2 Insert action after social settings form
-             */
             do_action( 'waa_profile_settings_after_form', $current_user, $profile_info ); ?>
             <!--settings updated content end-->
 

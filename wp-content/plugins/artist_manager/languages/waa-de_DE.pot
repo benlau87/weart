@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-04 01:46+0100\n"
+"PO-Revision-Date: 2015-12-04 17:26+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -815,7 +815,7 @@ msgstr "Füge einen Anzeigenamen hinzu, um %s%% Fortschritt zu erhalten."
 
 #: classes/template-settings.php:452
 msgid "Add address to gain %s%% progress"
-msgstr "Füge Anschrift hinzu, um %s%% Forschritt zu erhalten."
+msgstr "Füge eine Anschrift hinzu, um %s%% Forschritt zu erhalten."
 
 #: classes/template-settings.php:498
 msgid "Add a Payment method to gain %s%% progress"
@@ -2069,7 +2069,7 @@ msgstr "- Wähle ein Land -"
 
 #: includes/functions.php:1346 includes/functions.php:1369
 msgid "Everywhere Else"
-msgstr ""
+msgstr "Alle anderen"
 
 #: includes/functions.php:1365
 msgid "- Select a State -"
@@ -3173,7 +3173,7 @@ msgstr "Zusätzliche Kosten"
 #: templates/edit/shipping.php:64 templates/new-product-single.php:682
 #: templates/settings/shipping.php:113
 msgid "Per Qty Additional Price"
-msgstr "Gebühr für jedes zusätzliches Produkt"
+msgstr "Gebühr für jedes zusätzliche Produkt"
 
 #: templates/edit/shipping.php:72 templates/new-product-single.php:687
 #: templates/settings/shipping.php:126
@@ -3789,7 +3789,7 @@ msgstr "Auf dieser Seite kannst du deine Liefer- und Versandbedingungen- und Kos
 
 #: templates/settings/shipping.php:41
 msgid "You can enable/disable shipping for your products. Also you can override these shipping costs from an individual product."
-msgstr "Du kannst Lieferung für deine Produkte aktvieren oder deaktivieren. Außerdem kannst du die hier angezeigten Einstellungen für individuelle Produkte überschreiben."
+msgstr "<strong>Diese Einstellungen gelten für all deine Kunstwerke und dienen daher als Berechnungsgrundlage.</strong><br>Du kannst diese Einstellungen jedoch individuell pro Kunstwerk überschreiben, sollten die Versandkasten einmal von der Norm abweichen."
 
 #: templates/settings/shipping.php:49
 msgid "Shipping options saved successfully"
@@ -3813,7 +3813,7 @@ msgstr "Dies sind die Basis-Versandkosten, die für jedes Produkt gelten."
 
 #: templates/settings/shipping.php:100
 msgid "Per Product Additional Price"
-msgstr "Zusätzliche Gebühr pro Produkt"
+msgstr "Zusätzliche Gebühr pro Produkttyp"
 
 #: templates/settings/shipping.php:101
 msgid "If a customer buys more than one type product from your store, first product of the every second type will be charged with this price"
@@ -3837,7 +3837,7 @@ msgstr "Gib deine Rückgabebedinungen und eine Anleitung dazu an."
 
 #: templates/settings/shipping.php:170
 msgid "Ships from:"
-msgstr "Versandt aus:"
+msgstr "Versand aus:"
 
 #: templates/settings/shipping.php:171
 msgid "The place you send the products for delivery. Most of the time it as store location"
@@ -3845,7 +3845,7 @@ msgstr "Land, aus dem das Kunstwerk versandt wird."
 
 #: templates/settings/shipping.php:188
 msgid "Add the countries you deliver your products to. You can specify states as well. If the shipping price is same except some countries/states, there is an option <strong>Everywhere Else</strong>, you can use that."
-msgstr "Gebe hier die Länder an, in die du liefern möchtest. Nachdem du ein Land gewählt hast, kannst du ggf. noch ein Bundesland/Kanton angeben."
+msgstr "Gebe hier die Länder an, in die du liefern möchtest. Nachdem du ein Land gewählt hast, kannst du optional noch ein Bundesland/Kanton angeben.<br>Falls die Lieferkosten bis auf einige Länder überall gleich sein sollten, wähle \"Alle anderen\" sein."
 
 #: templates/settings/shipping.php:202 templates/settings/shipping.php:306
 #: templates/settings/shipping.php:369
