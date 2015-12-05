@@ -4,7 +4,7 @@ Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JWZVF
 Tags: roles, capabilities, manager, editor, rights, role, capability, types, taxonomies, network, multisite, default
 Requires at least: 3.1
 Tested up to: 4.3.1
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 
 A simple way to manage WordPress roles and capabilities.
 
@@ -88,9 +88,13 @@ The custom post type must be defined to impose type-specific capability requirem
 
 Probably because your custom post type definition not having map_meta_cap set true. If you are calling register_post_type manually, just add this property to the options array. Unfortunately, none of the free CPT plugins deal with this important detail. 
 
+= Even after I added capabilities, WordPress is not working the way I want =
+
+Keep in mind that this plugin's purpose is to conveniently view and modify the capabilities array stored for each WordPress role.  It is not responsible for the implementation of those capabilities by the WordPress core or other plugins.
+
 = Where can I find more information about this plugin, usage and support ? =
 
-* If you need help, <a href="http://wordpress.org/tags/capsman-enhanced">ask in the Support forum</a>.
+* If you need help, <a href="http://wordpress.org/tags/capsman-enhanced">ask in the Support forum</a>.  If your issue pertains to the enforcement of assigned capabilities, I am not the primary support avenue.  In many cases, I will offer a suggestion, but please don't give me negative feedback for not providing free consulting.
 
 == License ==
 
@@ -104,6 +108,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 == Changelog ==
+
+= 1.5.7 =
+  * Change : Revert menu captions to previous behavior ("Permissions > Role Capabilities" if Press Permit Core is active, otherwise "Users > Capabilities")
 
 = 1.5.6 =
   * Fixed : Correct some irregularities in CME admin menu item display

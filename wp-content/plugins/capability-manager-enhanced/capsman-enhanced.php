@@ -3,7 +3,7 @@
 Plugin Name: Capability Manager Enhanced
 Plugin URI: http://presspermit.com/capability-manager
 Description: Manage WordPress role definitions, per-site or network-wide. Organizes post capabilities by post type and operation.
-Version: 1.5.6
+Version: 1.5.7
 Author: Jordi Canals, Kevin Behrens
 Author URI: http://agapetry.net
 Text Domain: capsman-enhanced
@@ -34,8 +34,8 @@ Domain Path: /lang/
  */
 
 if ( ! defined( 'CAPSMAN_VERSION' ) ) {
-	define( 'CAPSMAN_VERSION', '1.5.6' );
-	define( 'CAPSMAN_ENH_VERSION', '1.5.6' );
+	define( 'CAPSMAN_VERSION', '1.5.7' );
+	define( 'CAPSMAN_ENH_VERSION', '1.5.7' );
 }
 
 if ( cme_is_plugin_active( 'capsman.php' ) ) {
@@ -114,13 +114,12 @@ function cme_submenus() {
 	$cap_name = ( is_super_admin() ) ? 'manage_capabilities' : 'restore_roles';
 	add_management_page(__('Capability Manager', 'capsman-enhanced'),  __('Capability Manager', 'capsman-enhanced'), $cap_name, 'capsman' . '-tool', 'cme_fakefunc');
 	
-	$menu_caption = ( defined('WPLANG') && WPLANG && ( 'en_EN' != WPLANG ) ) ? __('Capabilities', 'capsman-enhanced') : 'Role Capabilities';
-	
 	if ( did_action( 'pp_admin_menu' ) ) {	// Put Capabilities link on Permissions menu if Press Permit is active and user has access to it
 		global $pp_admin;
+		$menu_caption = ( defined('WPLANG') && WPLANG && ( 'en_EN' != WPLANG ) ) ? __('Capabilities', 'capsman-enhanced') : 'Role Capabilities';
 		add_submenu_page( $pp_admin->get_menu('options'), __('Capability Manager', 'capsman-enhanced'),  $menu_caption, 'manage_capabilities', 'capsman', 'cme_fakefunc' );
 	} else {
-		add_users_page( __('Capability Manager', 'capsman-enhanced'),  $menu_caption, 'manage_capabilities', 'capsman', 'cme_fakefunc');	
+		add_users_page( __('Capability Manager', 'capsman-enhanced'),  __('Capabilities', 'capsman-enhanced'), 'manage_capabilities', 'capsman', 'cme_fakefunc');	
 	}
 }
 
