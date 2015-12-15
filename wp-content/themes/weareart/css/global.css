@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 h2 {
@@ -1703,6 +1703,17 @@ h1.product_title {
 #shipping_method, .payment_methods, .order_details {
     list-style: none
 }
+
+li.payment_method_paypal label {
+    line-height: 45px;
+}
+
+li.payment_method_paypal img {
+    margin: 5px 10px;
+    float: right;
+}
+
+.about_paypal { display:none }
 
 .checkout_coupon input[type="submit"] {
     margin-bottom: 20px

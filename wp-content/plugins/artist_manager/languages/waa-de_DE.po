@@ -1,0 +1,1816 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: waa - Artist Manager\n"
+"Report-Msgid-Bugs-To: http://www.weare-art.com/support\n"
+"POT-Creation-Date: 2015-06-20 10:35:25+00:00\n"
+"PO-Revision-Date: Tue Dec 08 2015 12:24:44 GMT+0100 (Mitteleuropäische Zeit)\n"
+"Last-Translator: benlau <weart@benlau.de>\n"
+"Language-Team: Benedikt Laufer <info@benlau.de>\n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: de_DE"
+
+msgid " See More"
+msgstr "Mehr anzeigen"
+
+msgid "\"%s\" sent you a message from your \"%s\" store"
+msgstr "\"%s\" hat dir eine Nachricht über deine Profil \"%s\" geschickt."
+
+msgid "% Profile complete"
+msgstr "% Profil vervollständigt."
+
+msgid "%d Cancelled Withdraw"
+msgstr "%d Auszahlung abgebrochen"
+
+msgid "%d Completed Withdraw"
+msgstr "%d Ausszahlung vollzogen"
+
+msgid "%d Pending Withdraw"
+msgstr "%d ausstehende Auszahlung"
+
+msgid "%s ago"
+msgstr "vor %s"
+
+msgid "%s average daily sales"
+msgstr "%s durchschnittliche Verkäufe pro Tag"
+
+msgid "%s charged for shipping"
+msgstr "%s eingenommen durch Versand"
+
+msgid "%s items purchased"
+msgstr "%s Kunstwerke verkauft"
+
+msgid "%s orders placed"
+msgstr "%s Bestellungen getätigt"
+
+msgid "%s sales in this period"
+msgstr "%s Einnahmen diesen Monat"
+
+msgid "%s worth of coupons used"
+msgstr "%s Wert aller Gutscheine"
+
+msgid "&laquo; Previous"
+msgstr "&laquo; Vorherige"
+
+msgid "&larr; Orders"
+msgstr "&larr; Bestellungen"
+
+msgid "&nbsp; Edit"
+msgstr "&nbsp; Bearbeiten"
+
+msgid "(Stock Keeping Unit)"
+msgstr "(Stock Keeping Unit, für deine interne Verwaltung)"
+
+msgid "(Upload a banner for your store. Banner size is (825x300) pixel. )"
+msgstr ""
+"(Lade einen Banner für deine Profilseite hoch. Das Bild sollte 1200x300 "
+"Pixel groß sein.)"
+
+msgid ")"
+msgstr ")"
+
+msgid "+ Add more images"
+msgstr "+ weitere Bilder hochladen"
+
+msgid "+ Add new product"
+msgstr "+ neues Kunstwerk hinzufügen"
+
+msgid "+123456.."
+msgstr "+4930123456"
+
+msgid "- Select Method -"
+msgstr "- Zahlungsart auswählen -"
+
+msgid "- Select a State -"
+msgstr "- Wähle ein Bundesland - "
+
+msgid "- Select a category -"
+msgstr "-Kategorie auswählen-"
+
+msgid "- Select a location -"
+msgstr "- Wähle ein Land -"
+
+msgid "- select -"
+msgstr "- auswählen -"
+
+msgid "-- Select --"
+msgstr "-- Auswählen --"
+
+msgid "--Select Country--"
+msgstr "--Land wählen--"
+
+msgid "--Select State--"
+msgstr "--Bundesland wählen--"
+
+msgid "-None-"
+msgstr "-keine-"
+
+msgid "0.00"
+msgstr "0,00"
+
+msgid "1 business day"
+msgstr "1 Werktag"
+
+msgid "1-2 business day"
+msgstr "1-2 Werktagen"
+
+msgid "1-2 weeks"
+msgstr "1-2 Wochen"
+
+msgid "1-3 business day"
+msgstr "1-3 Werktagen"
+
+msgid "2-3 weeks"
+msgstr "2-3 Wochen"
+
+msgid "3-4 weeks"
+msgstr "3-4 Wochen"
+
+msgid "3-5 business day"
+msgstr "3-5 Werktagen"
+
+msgid "4-6 weeks"
+msgstr "4-6 Wochen"
+
+msgid "6-8 weeks"
+msgstr "6-8 Wochen"
+
+msgid "<br><strong> Seller:</strong> %s"
+msgstr "<br><strong> Künstler:</strong> %s"
+
+msgid "Accepted"
+msgstr "Akzeptiert"
+
+msgid "Account Name: %s"
+msgstr "Kontoinhaber: %s"
+
+msgid "Account Number: %s"
+msgstr "IBAN: %s"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Activate Selling"
+msgstr "Verkauf aktivieren"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Add %s profile link to gain %s%% progress"
+msgstr "Füge ein %s Profillink hinzu, um %s%% Forschritt zu erhalten."
+
+msgid "Add Announcement"
+msgstr "Benachrichtigung hinzufügen"
+
+msgid "Add Banner to gain %s%% progress"
+msgstr "Füge einen Banner hinzu,um %s%% Fortschritt zu erhalten."
+
+msgid "Add Location"
+msgstr "+ Land hinzufügen"
+
+msgid "Add Map location to gain %s%% progress"
+msgstr "Füge eine Adresse für die Karte hinzu, um %s%% Forschritt zu erhalten."
+
+msgid "Add New Announcement"
+msgstr "Neue Benachrichtigung hinzufügen"
+
+msgid "Add New Product"
+msgstr "Neues Kunstwerk hinzufügen"
+
+msgid "Add New Variation"
+msgstr "weiteren Print hinzufügen"
+
+msgid "Add Note"
+msgstr "Notiz hinzufügen"
+
+msgid "Add Options"
+msgstr "Größen und Ausführungen verwalten"
+
+msgid "Add Phone to gain %s%% progress"
+msgstr "Füge eine Telefonnummer hinzu, um %s%% Fortschritt zu erhalten."
+
+msgid "Add Profile Picture to gain %s%% progress"
+msgstr "Füge ein Profilfoto hinzu, um %s%% Fortschritt zu erhalten."
+
+msgid "Add Store Name to gain %s%% progress"
+msgstr "Füge einen Anzeigenamen hinzu, um %s%% Fortschritt zu erhalten."
+
+msgid "Add Variation"
+msgstr "weiteren Print hinzufügen"
+
+msgid "Add a Payment method to gain %s%% progress"
+msgstr "Füge eine Zahlungsart hinzu, um %s%% Forschritt zu erhalten."
+
+msgid "Add address to gain %s%% progress"
+msgstr "Füge eine Anschrift hinzu, um %s%% Forschritt zu erhalten."
+
+msgid "Add new product"
+msgstr "Neues Kunstwerk hinzufügen"
+
+msgid "Add note"
+msgstr "Notiz hinzufügen"
+
+msgid ""
+"Add the countries you deliver your products to. You can specify states as "
+"well. If the shipping price is same except some countries/states, there is "
+"an option <strong>Everywhere Else</strong>, you can use that."
+msgstr ""
+"Gebe hier die Länder an, in die du liefern möchtest. Nachdem du ein Land "
+"gewählt hast, kannst du optional noch ein Bundesland/Kanton angeben."
+"<br>Falls die Lieferkosten bis auf einige Länder überall gleich sein sollten,"
+" wähle \"Alle anderen\" sein."
+
+msgid "Add/Edit Product Style"
+msgstr "Produktstil"
+
+msgid "Additional cost"
+msgstr "Zusätzliche Kosten"
+
+msgid "Address"
+msgstr "Anschrift"
+
+msgid "Address field for %s is required"
+msgstr "Adressfeld für %s ist erforderlich"
+
+msgid "Address: %s"
+msgstr "Adresse: %s"
+
+msgid "Admin area access"
+msgstr "Zugang Adminbereich"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All (%d)"
+msgstr "Alle (%d)"
+
+msgid "All Logs"
+msgstr "Alle Logs"
+
+msgid "All Seller"
+msgstr "Alle Künstler"
+
+msgid "All Sellers"
+msgstr "Alle Künstler"
+
+msgid "All dates"
+msgstr "Jedes Datum"
+
+msgid "Allow"
+msgstr "Erlauben"
+
+msgid "Allow Backorders"
+msgstr "Lieferrückstand"
+
+msgid "Allow Backorders?"
+msgstr "Lieferrückstand erlauben?"
+
+msgid "Allow but notify customer"
+msgstr "Erlauben, aber Kunden benachrichtigen"
+
+msgid "Allow only one quantity of this product to be bought in a single order"
+msgstr "Erlaube nur den Verkauf eines einzelnen Produktes pro Bestellung."
+
+msgid "Allow, but notify customer"
+msgstr "Erlauben, aber Kunden benachrichtigen"
+
+msgid "Announcement"
+msgstr "Benachrichtigungen"
+
+msgid "Announcement Settings"
+msgstr "Benachrichtigungseinstellungen"
+
+msgid "Any"
+msgstr "Jede"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "Approve"
+msgstr "Genehmigen"
+
+msgid "Approve Requests"
+msgstr "Anfragen genehmigen"
+
+msgid "Approved"
+msgstr "Bestätigt"
+
+msgid "Approved Requests"
+msgstr "Akzeptierte Auszahlungen"
+
+msgid "Are you cheating?"
+msgstr "Schummeln, was?"
+
+msgid "Are you sure want to delete"
+msgstr "Bist du dir sicher?"
+
+msgid "Are you want to sure ?"
+msgstr "Bist du dir sicher?"
+
+msgid "At a Glance"
+msgstr "Auf einen Blick"
+
+msgid "Attributes"
+msgstr "Attribut"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Available"
+msgstr "Verfügbar"
+
+msgid "Back to Dashboard"
+msgstr "zurück zum Dashboard"
+
+msgid "Back to all Notice"
+msgstr "zurück zu allen Benachrichtigungen"
+
+msgid "Balance"
+msgstr "Kontostand"
+
+msgid "Bank Name: %s"
+msgstr "Name der Bank: %s"
+
+msgid "Bank Transfer"
+msgstr "Überweisung"
+
+msgid "Become a Seller"
+msgstr "Werde ein Künstler"
+
+msgid "Billing Address"
+msgstr "Rechnungsanschrift"
+
+msgid "Bulk Actions"
+msgstr "Massenbearbeitung"
+
+msgid "By Day"
+msgstr "Nach Tag"
+
+msgid "By Month"
+msgstr "Nach Monat"
+
+msgid "By Seller"
+msgstr "Nach Künstler"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+msgid "Cancelled (%d)"
+msgstr "Abgebrochen (%d)"
+
+msgid "Cart %s"
+msgstr "Warenkorb %s"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Category Selection"
+msgstr "Kategorieauswahl"
+
+msgid "Check this if you want to enable shipping for your store"
+msgstr "Wähle diese Option aus, um Versand für deine Kunstwerke zu aktivieren."
+
+msgid "Choose a category"
+msgstr "Wähle eine Kategorie"
+
+msgid "Choose an image"
+msgstr ""
+"Bitte lade ein Foto deines Kunstwerks hoch. Es sollte min. 800x800 Pixel "
+"groß sein"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Commision"
+msgstr "Kommission"
+
+msgid "Commision: "
+msgstr "Kommission"
+
+msgid "Complete"
+msgstr "Fertiggestellt"
+
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+msgid "Completed (%d)"
+msgstr "Abgeschlossen (%d)"
+
+msgid "Contact Seller"
+msgstr "Künstler kontaktieren"
+
+msgid "Copy Container Background"
+msgstr "Copyright Hintergrund"
+
+msgid "Cost"
+msgstr "Kosten"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Country "
+msgstr "Land"
+
+msgid "Create variation using those attribute options"
+msgstr "Produktvarianten automatisch"
+
+msgid "Current Balance: %s"
+msgstr "Aktueller Kontostand: %s"
+
+msgid "Customer"
+msgstr "Kunde"
+
+msgid "Customer Email"
+msgstr "E-Mail Kunde"
+
+msgid "Customer IP"
+msgstr "IP des Kunden"
+
+msgid "Customer IP:"
+msgstr "IP des Kunden:"
+
+msgid "Customer Message"
+msgstr "Kundennachricht"
+
+msgid "Customer Name"
+msgstr "Name Kunde"
+
+msgid "Customer Note:"
+msgstr "Kundennotiz"
+
+msgid "Customer Phone"
+msgstr "Telefon Kunde"
+
+msgid "Customer note"
+msgstr "Kundennotiz"
+
+msgid "Customer will get this info in their order email"
+msgstr "Der Kunde wird diese Nachricht nach Kauf deines Kunstwerkes erhalten."
+
+msgid "Customer:"
+msgstr "Kunde:"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid ""
+"Days, ( Make order matured to make a withdraw request) <br> Value \"0\" will "
+"inactive this option"
+msgstr ""
+"Anzahl der Tage, die nach einer Bestellung vergehen müssen, um eine "
+"Auszahlung anfordern zu können.<br> Wert \"0\" = Option inaktiv"
+
+msgid "Default Shipping Price"
+msgstr "Versandkosten"
+
+msgid "Define seller store URL (%s<strong>[this-text]</strong>/[seller-name])"
+msgstr ""
+"Lege eine URL für die Künstlerprofile fest "
+"(%s<strong>[URL]</strong>/[kuenstler-name])"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete Permanently"
+msgstr "L&ouml;schen"
+
+msgid "Delete note"
+msgstr "Notiz löschen"
+
+msgid "Delete permanently"
+msgstr "L&ouml;schen"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Details about your product..."
+msgstr "Details zu deinem Kunstwerk"
+
+msgid "Dimensions"
+msgstr "Dimensionen"
+
+msgid "Discounted Price"
+msgstr "Heruntergesetzter Preis"
+
+msgid "Do not allow"
+msgstr "Nicht erlauben"
+
+msgid "Download PayPal mass payment file"
+msgstr "Paypal Payment-Datei herunterladen"
+
+msgid "Draft"
+msgstr "Entwurf"
+
+msgid "Draft (%d)"
+msgstr "Entwurf (%d)"
+
+msgid "E-mail"
+msgstr "E-Mail"
+
+msgid "Earning"
+msgstr "Kontostand"
+
+msgid "Earning Reports"
+msgstr "Einnahmen"
+
+msgid "Edit"
+msgstr "Ändern"
+
+msgid "Edit Account"
+msgstr "Konto bearbeiten"
+
+msgid "Edit Announcement"
+msgstr "Benachrichtigung bearbeiten"
+
+msgid "Edit Product"
+msgstr "Kunstwerk bearbeiten"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Email sent successfully!"
+msgstr "Anfrage erfolgreich versandt! Vielen Dank."
+
+msgid "Email:"
+msgstr "E-Mail:"
+
+msgid "Enable Selling"
+msgstr "Verkauf aktivieren"
+
+msgid "Enable Shipping"
+msgstr "Versand aktivieren"
+
+msgid "Enable or disable product selling capability"
+msgstr "Aktiviere oder deaktiviere den Produktverkauf"
+
+msgid "Enable product stock management"
+msgstr "Lagerbestand aktivieren"
+
+msgid "Enable shipping functionality"
+msgstr "Lieferung & Versand aktivieren"
+
+msgid "Enable terms and conditions for seller store"
+msgstr "Aktiviere individuelle AGBs für die Künstlerprofile"
+
+msgid "Enter attribute options values corresponding options name"
+msgstr "Bitte gib an, welches Material und welche Größen du anbieten möchtest."
+
+msgid "Enter you variation attribute option name"
+msgstr "Bitte gib an, welches Material und welche Größen du anbieten möchtest."
+
+msgid "Err!"
+msgstr "Fehler!"
+
+msgid "Error!"
+msgstr "Fehler!"
+
+msgid "Every second product of same type will be charged with this price"
+msgstr "Für jedes zweite Produkt des gleichen Produkttyps fällt diese Gebühr an."
+
+msgid "Everywhere Else"
+msgstr "Alle anderen"
+
+msgid "Export All"
+msgstr "Alle exportieren"
+
+msgid "Export Filtered"
+msgstr "Ausgewählte exportieren"
+
+msgid "Feature Seller"
+msgstr "Feature Artist"
+
+msgid "File %d"
+msgstr "Datei %d"
+
+msgid "File %d: %s"
+msgstr "Datei %d: %s"
+
+msgid "Filter"
+msgstr "Filtern"
+
+msgid "Find Address"
+msgstr "Finde Adresse"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Flat View"
+msgstr "Flache Ansicht (erweitert)"
+
+msgid "Footer Background"
+msgstr "Footer Hintergrund"
+
+msgid "Footer Widget link"
+msgstr "Footer Widget Link"
+
+msgid "Footer Widget link hover"
+msgstr "Footer Widget Link Hover"
+
+msgid "Footer text"
+msgstr "Footer Text"
+
+msgid "Footer widget header"
+msgstr "Footer Widget Header"
+
+msgid "From"
+msgstr "Von"
+
+msgid "From:"
+msgstr "Von:"
+
+msgid "General"
+msgstr "Allgemeines"
+
+msgid "General Details"
+msgstr "Bestelldetails"
+
+msgid "Header Background"
+msgstr "Header Hintergrund"
+
+msgid "How much amount (%) a seller will get from each order"
+msgstr "Wie viel Prozent (%) erhält der Künstler von einer Bestellung?"
+
+msgid "How much amount (%) will get from each order"
+msgstr "Wie viel Prozent bekommt der Künstler vom Verkaufspreis?"
+
+msgid "I am a customer"
+msgstr "Ich bin ein Kunde"
+
+msgid "I am a seller"
+msgstr "Ich bin Künstler"
+
+msgid "IP"
+msgstr "IP"
+
+msgid ""
+"If a customer buys more than one type product from your store, first product "
+"of the every second type will be charged with this price"
+msgstr ""
+"Wenn ein Kunde mehr als einen Typ Produkt von dir kauft, wird für jedes "
+"erste Produkt jedes zweiten Produkttyps eine zusätzliche Gebühr berechnet."
+
+msgid ""
+"If the shipping price is same for all the states, use this field. Else add "
+"the states below"
+msgstr ""
+"Wenn die Versandkosten für alle Bundesländer dieses Landes gleich sind, "
+"benutze dieses Feld."
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "In Stock"
+msgstr "Auf Lager"
+
+msgid "In stock"
+msgstr "Auf Lager"
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Instead going pending, products will be published directly"
+msgstr "Kunstwerke werden direkt online gestellt (ohne Überprüfung)"
+
+msgid "Invalid email"
+msgstr "Ungültige E-Mail-Adresse"
+
+msgid "Inventory & Variants"
+msgstr "Lager & Bestand"
+
+msgid "Item"
+msgstr "Artikel"
+
+msgid "Last Modified"
+msgstr "Zuletzt geändert"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Latest Announcement"
+msgstr "letzte Benachrichtigungen"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Link To"
+msgstr "Link zu"
+
+msgid "Link hover"
+msgstr "Link hover"
+
+msgid "Log in"
+msgstr "Login"
+
+msgid "Make Inactivate"
+msgstr "Künstler deaktivieren"
+
+msgid "Make feature seller"
+msgstr "Mache Künstler zum Feature Seller"
+
+msgid "Make selling status enable for new registred seller"
+msgstr ""
+"Neue Künstler können ohne Freischaltung Produkte anlegen (aber nicht online "
+"stellen)"
+
+msgid "Manage inventory, and configure the options for selling this product."
+msgstr "Verwalte den Lagerbestand."
+
+msgid "Manage shipping and tax for this product"
+msgstr "Gib hier die Maße deines Kunstwerks an und regle den Versand."
+
+msgid "Map"
+msgstr "Karte"
+
+msgid "Mark Approve"
+msgstr "Akzeptieren"
+
+msgid "Mark Not Spam"
+msgstr "Kein Spam"
+
+msgid "Mark Pending"
+msgstr "zu erledigen"
+
+msgid "Mark Spam"
+msgstr "Span"
+
+msgid "Mark Trash"
+msgstr "Papierkorb"
+
+msgid "Mark as Cancelled"
+msgstr "Anfragen abbrechen"
+
+msgid "Method"
+msgstr "Zahlungsmethode"
+
+msgid "Method Details"
+msgstr "Zahlungsempfänger"
+
+msgid "Minimum Withdraw Limit"
+msgstr "Minimalen Kontostand"
+
+msgid "Minimum balance required to make a withdraw request"
+msgstr ""
+"Minimum für Kontostand eines Künstlers, um eine Auszahlung anfordern zu "
+"können."
+
+msgid "Multiple"
+msgstr "Mehrere"
+
+msgid "My Account"
+msgstr "Mein Konto"
+
+msgid "My Orders"
+msgstr "Meine Bestellungen"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Name of bank"
+msgstr "Bankinstitut"
+
+msgid "Navigation Background"
+msgstr "Navigationshintergrund"
+
+msgid "Navigation Link"
+msgstr "Navigationslink"
+
+msgid "Navigation Link Hover"
+msgstr "Navigationslink Hover"
+
+msgid "New Announcement"
+msgstr "Neue Benachrichtigung"
+
+msgid "New Product Status"
+msgstr "Initialer Produktstatus"
+
+msgid "New Seller Enable Selling"
+msgstr "Neue Künstler direkt zulassen"
+
+msgid "Next &raquo;"
+msgstr "Nächste &raquo;"
+
+msgid "No Active Seller"
+msgstr "Keine aktiven Künstler"
+
+msgid "No Announcement Found"
+msgstr "Keine Benachrichtigung gefunden"
+
+msgid "No Announcement found"
+msgstr "Keine Benachrichtigungen gefunden"
+
+msgid "No Announcement found in trash"
+msgstr "Keine Benachrichtigungen im Papierkorb gefunden"
+
+msgid "No Pending Seller"
+msgstr "Keine Künstler ausstehend (in Bearbeitung)"
+
+msgid "No Result Found"
+msgstr "Nichts gefunden"
+
+msgid "No announcement found"
+msgstr "Keine Benachrichtigungen gefunden"
+
+msgid "No orders found"
+msgstr "Noch keine Bestellungen gefunden. Nicht aufgeben!"
+
+msgid "No orders found!"
+msgstr "Noch keine Bestellungen gefunden. Nicht aufgeben!"
+
+msgid "No product found"
+msgstr "Keine Produkte gefunden"
+
+msgid "No result found"
+msgstr "Nichts gefunden"
+
+msgid "No seller assigned!"
+msgstr "Kein Künstler ausgewählt"
+
+msgid "No shipping class"
+msgstr "Keine Versandklasse"
+
+msgid "No users found!"
+msgstr "Kein Benutzer gefunden!"
+
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+msgid "Not Spam"
+msgstr "Kein Spam"
+
+msgid "Note"
+msgstr "Notiz"
+
+msgid "Number of items sold"
+msgstr "Anzahl verkaufter Kunstwerke"
+
+msgid "Number of orders"
+msgstr "Anzahl Bestellungen"
+
+msgid "On hold"
+msgstr "Wartend"
+
+msgid "On-hold"
+msgstr "Wartend"
+
+msgid "On-hold (%d)"
+msgstr "Wartend (%d)"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Option Name"
+msgstr "Option"
+
+msgid "Option Values"
+msgstr "Wert"
+
+msgid "Option..."
+msgstr "Option wählen"
+
+msgid "Order"
+msgstr "Bestellung"
+
+msgid "Order %s"
+msgstr "Bestellung %s"
+
+msgid "Order Date"
+msgstr "Bestelldatum"
+
+msgid "Order Date:"
+msgstr "Bestelldatum:"
+
+msgid "Order Items"
+msgstr "Bestelldetails"
+
+msgid "Order No"
+msgstr "Bestellnummer"
+
+msgid "Order Notes"
+msgstr "Kundennotiz"
+
+msgid "Order Status"
+msgstr "Bestellstatus"
+
+msgid "Order Status Change"
+msgstr "Bestellstatusänderung"
+
+msgid "Order Status for Withdraw"
+msgstr "Bestellstatus für Auszahlung"
+
+msgid "Order Status:"
+msgstr "Bestellstatus: "
+
+msgid "Order Total"
+msgstr "Gesamtbetrag"
+
+msgid "Order status for which seller can make a withdraw request."
+msgstr "Bestellstatus, für welchen ein Künstler eine Auszahlung anfordern kann."
+
+msgid "Order total in this period"
+msgstr "Gesamter Umsatz diesen Monat"
+
+msgid "Orders"
+msgstr "Bestellungen"
+
+msgid "Other Options"
+msgstr "Weitere Optionen"
+
+msgid "Other States"
+msgstr "Anderes Bundesland"
+
+msgid "Out of Stock"
+msgstr "Nicht auf Lager"
+
+msgid "Out of stock"
+msgstr "Nicht auf Lager"
+
+msgid "Override Shipping"
+msgstr "Versand überschreiben"
+
+msgid "Override default shipping cost for this product"
+msgstr "Überschreibe die Standardversandkosten für dieses Kunstwerk."
+
+msgid "Overview"
+msgstr "Übersicht"
+
+msgid "Pageview"
+msgstr "Besucher"
+
+msgid "Payment"
+msgstr "Zahlung"
+
+msgid "Payment Method"
+msgstr "Zahlungsmethode"
+
+msgid "Payment Settings"
+msgstr "Zahlungseinstellungen"
+
+msgid "Payment method"
+msgstr "Zahlungsmethode"
+
+msgid "Paypal"
+msgstr "Paypal"
+
+msgid "Pending"
+msgstr "zu erledigen"
+
+msgid "Pending ("
+msgstr "zu erledigen ("
+
+msgid "Pending (%d)"
+msgstr "zu bearbeiten (%d)"
+
+msgid "Pending Reivew"
+msgstr "Ausstehende Überprüfung"
+
+msgid "Pending Review"
+msgstr "Ausstehende Überprüfung"
+
+msgid "Pending Review (%d)"
+msgstr "Ausstehende Überprüfung (%d)"
+
+msgid "Per Product Additional Price"
+msgstr "Zusätzliche Gebühr pro Produkttyp"
+
+msgid "Per Qty Additional Price"
+msgstr "Gebühr für jedes zusätzliche Produkt"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Phone No"
+msgstr "Telefon"
+
+msgid "Phone:"
+msgstr "Telefon:"
+
+msgid "Please enter a valid URL."
+msgstr "Bitte gib eine gültige URL ein."
+
+msgid "Please enter a valid date."
+msgstr "Bitte gib ein gültiges Datum ein."
+
+msgid "Please enter a valid email address."
+msgstr "Bitte gib eine gültige E-Mail-Adresse ein."
+
+msgid "Please enter at least {0} characters."
+msgstr "Bitte gib deinen vollständigen Namen ein."
+
+msgid "Please enter product title"
+msgstr "Bitte gebe einen Titel für das Kunstwerk ein."
+
+msgid "Please fix this field."
+msgstr "Bitte überprüfe deine Eingabe."
+
+msgid "Please select a State from the dropdown"
+msgstr "Bitte wähle ein Bundesland aus"
+
+msgid "Please select a category"
+msgstr "Bitte wähle eine Kategorie"
+
+msgid "Please select a country from the dropdown"
+msgstr "Bitte wähle ein Land aus"
+
+msgid "Please select atleast one category"
+msgstr "Bitte wähle min. eine Kategorie"
+
+msgid "Post/ZIP Code"
+msgstr "Postleitzahl (PLZ)"
+
+msgid "Price"
+msgstr "Preis"
+
+msgid "Private note"
+msgstr "Private Notiz"
+
+msgid "Processing"
+msgstr "in Bearbeitung"
+
+msgid "Processing (%d)"
+msgstr "in Bearbeitung (%d)"
+
+msgid "Processing Time"
+msgstr "Bearbeitungszeit"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Product Status"
+msgstr "Produktstatus"
+
+msgid "Product Status:"
+msgstr "Produktstatus"
+
+msgid "Product does not exist"
+msgstr "Produkt existiert nicht"
+
+msgid "Product has been deleted successfully!"
+msgstr "Kunstwerk wurde erfolgreich gelöscht!"
+
+msgid "Product name.."
+msgstr "Titel des Kunstwerks"
+
+msgid "Product status when a seller creates a product"
+msgstr ""
+"Der Produktstatus für neue Kunstwerke, die durch einen Künstler eingestellt "
+"wurden."
+
+msgid "Products"
+msgstr "Kunstwerke"
+
+msgid "Profile Picture"
+msgstr "Profilbild"
+
+msgid "Publish product directly"
+msgstr "Kunstwerke direkt ver&ouml;ffentlichen"
+
+msgid "Published"
+msgstr "Veröffentlicht"
+
+msgid "Publishing"
+msgstr "Ver&ouml;ffentlichung"
+
+msgid "Purchase Note"
+msgstr "Nachricht an Kunden"
+
+msgid "Purchased"
+msgstr "Gekauft"
+
+msgid "Qty"
+msgstr "Anzahl"
+
+msgid "Quantity"
+msgstr "Bestand"
+
+msgid "Quick Edit"
+msgstr "Quick Edit"
+
+msgid "Rated %d out of 5"
+msgstr "Mit %d von 5 Sternen bewertet"
+
+msgid "Rating"
+msgstr "Bewertung"
+
+msgid "Ready to ship in..."
+msgstr "Bereit zum Versand in..."
+
+msgid "Refund Policy"
+msgstr "Rückgabebedingungen"
+
+msgid "Refunded"
+msgstr "Zurückerstattet"
+
+msgid "Refunded (%d)"
+msgstr "Zurückerstattet (%d)"
+
+msgid "Remove"
+msgstr "L&ouml;schen"
+
+msgid "Reports"
+msgstr "Berichte"
+
+msgid "Requests approved!"
+msgstr "Anfrage bestätigt!"
+
+msgid "Requests cancelled!"
+msgstr "Anfrage abgebrochen!"
+
+msgid "Requests deleted!"
+msgstr "Anfrage gelöscht!"
+
+msgid "Resore"
+msgstr "Wiederherstellen"
+
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+msgid "Review Editing"
+msgstr "Rezensionen bearbeiten"
+
+msgid "SEO Title :"
+msgstr "SEO Titel:"
+
+msgid "SWIFT: %s"
+msgstr "BIC: %s"
+
+msgid "Sales"
+msgstr "Verkäufe"
+
+msgid "Sales by day"
+msgstr "Verkäufe nach Tag"
+
+msgid "Sales in this period"
+msgstr "Umsatz diesen Monat"
+
+msgid "Same as parent"
+msgstr "Genau wie Übergeordneter"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+msgid "Save Product"
+msgstr "Speichern"
+
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+msgid "Schedule Discounted Price"
+msgstr "Heruntergesetzten Preis planen"
+
+msgid "Scheduled"
+msgstr "Geplant"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Search Announcement"
+msgstr "Suche Benachrichtigung"
+
+msgid "See All"
+msgstr "Alle anzeigen"
+
+msgid "Select Sellers"
+msgstr "Künstler auswählen"
+
+msgid "Select Sellers..."
+msgstr "Künstler auswählen..."
+
+msgid "Select a Store..."
+msgstr "Wähle einen Künstler"
+
+msgid "Select product tags"
+msgstr "Wähle passende Schlagworte"
+
+msgid "Selected Seller"
+msgstr "Künstler auswählen"
+
+msgid "Seller"
+msgstr "Künstler"
+
+msgid "Seller Dashboard"
+msgstr "Künstler Dashboard"
+
+msgid "Seller Earning"
+msgstr "Künstler Einnahmen"
+
+msgid "Seller Listing"
+msgstr "Künstlerliste"
+
+msgid "Seller Percentage"
+msgstr "Kommission für Künstler"
+
+msgid "Seller Store URL"
+msgstr "Künstler-Profil-URL"
+
+msgid "Seller can change order status"
+msgstr "Künstler kann Bestellstatus ändern"
+
+msgid "Seller can edit product reviews"
+msgstr "Künstler kann Rezensionen bearbeiten"
+
+msgid "Sellers"
+msgstr "Künstler"
+
+msgid "Sellers Listing"
+msgstr "Künstler Liste"
+
+msgid "Selling"
+msgstr "Verkauf"
+
+msgid "Selling Options"
+msgstr "Verkaufseinstellungen"
+
+msgid "Send Announcement To"
+msgstr "Sende Benachrichtigung an"
+
+msgid "Send Message"
+msgstr "Anfrage senden"
+
+msgid "Sent To"
+msgstr "Sende an"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Settings <i class=\"ui ui-angle-right pull-right\"></i>"
+msgstr "Einstellungen <i class=\"ui ui-angle-right pull-right\"></i>"
+
+msgid "Ship to"
+msgstr "Liefern an"
+
+msgid "Shipping"
+msgstr "Versand"
+
+msgid "Shipping & Tax"
+msgstr "Produktmaße & Versand"
+
+msgid "Shipping Address"
+msgstr "Lieferadresse"
+
+msgid "Shipping Cost"
+msgstr "Versandkosten"
+
+msgid "Shipping Cost : "
+msgstr "Versandkosten: "
+
+msgid "Shipping Policy"
+msgstr "Lieferbedingungen"
+
+msgid "Shipping Settings"
+msgstr "Lieferung & Versand"
+
+msgid "Shipping class:"
+msgstr "Versandgruppe"
+
+msgid ""
+"Shipping classes are used by certain shipping methods to group similar "
+"products."
+msgstr "Versandgruppen werden genutzt, um ähnliche Produkte zu gruppieren."
+
+msgid "Shipping method"
+msgstr "Versandmethode"
+
+msgid "Shipping options saved successfully"
+msgstr "Einstellungen erfolgreich gespeichert."
+
+msgid "Shipping price for this state"
+msgstr "Versandkosten für dieses Bundesland."
+
+msgid "Ships from:"
+msgstr "Versand aus:"
+
+msgid "Shop Name"
+msgstr "Künstlername"
+
+msgid "Shop URL"
+msgstr "Profil-URL"
+
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Sidebar widget header"
+msgstr "Sidebar Widget Header"
+
+msgid "Sign Up"
+msgstr "Registrieren"
+
+msgid "Simple Product"
+msgstr "Einfaches Produkt"
+
+msgid "Single"
+msgstr "Nur eine"
+
+msgid "Social Profile"
+msgstr "Soziale Profile"
+
+msgid "Social Profiles"
+msgstr "Soziale Profile"
+
+msgid ""
+"Social profiles help you to gain more trust. Consider adding your social "
+"profile links for better user interaction."
+msgstr ""
+"Soziale Profile helfen dir dabei, mehr Vertrauen zu schaffen und deine "
+"sozialen Profile bekannter zu machen."
+
+msgid "Something went wrong!"
+msgstr "Etwas ist schiefgelaufen!"
+
+msgid "Something wrong, Please try again"
+msgstr "Etwas ist schief gelaufen, bitte versuche es erneut."
+
+msgid "Sorry, no transactions found!"
+msgstr "Entschuldige, keine Auszahlung gefunden!"
+
+msgid "Spam"
+msgstr "Spam"
+
+msgid "Spam ("
+msgstr "Spam ("
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start with adding a Banner to gain profile progress"
+msgstr "Füge einen Banner hinzu, um dein Profil zu vervollständigen."
+
+msgid "State"
+msgstr "Bundesland / Kanton"
+
+msgid "State "
+msgstr "Bundesland"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stock"
+msgstr "Lager"
+
+msgid "Stock Qty"
+msgstr "Bestandsmenge"
+
+msgid "Stock Status"
+msgstr "Lagerstatus"
+
+msgid "Stock status"
+msgstr "Lagerstatus"
+
+msgid "Store"
+msgstr "Profil"
+
+msgid "Store List"
+msgstr "Künstler Liste"
+
+msgid "Store Name"
+msgstr "Anzeigename"
+
+msgid "Store Name : "
+msgstr "Anzeigename:"
+
+msgid "Store SEO"
+msgstr "Profil SEO"
+
+msgid "Store name"
+msgstr "Angezeigter Name"
+
+msgid "Street "
+msgstr "Straße und Hausnummer"
+
+msgid "Street 2"
+msgstr "Adressezusatz"
+
+msgid "Submit"
+msgstr "Abschicken"
+
+msgid "Submit Request"
+msgstr "Anfrage abschicken"
+
+msgid "Submitted on "
+msgstr "Abgeschickt am"
+
+msgid "Success!"
+msgstr "Gratulation!"
+
+msgid "Swift code"
+msgstr "BIC"
+
+msgid "Tab View"
+msgstr "Tab Ansicht"
+
+msgid "Tags"
+msgstr "Schlagworte"
+
+msgid "Terms and Conditions"
+msgstr "AGBs"
+
+msgid "The country you ship to"
+msgstr "Das Land in das du lieferst."
+
+msgid ""
+"The place you send the products for delivery. Most of the time it as store "
+"location"
+msgstr "Land, aus dem das Kunstwerk versandt wird."
+
+msgid "The product has been saved successfully."
+msgstr "Das Kunstwerk wurde erfolgreich gespeichert."
+
+msgid "The state you ship to"
+msgstr "Das Bundesland/Kanton, an das du lieferst."
+
+msgid "The style you prefer for seller to add or edit products. "
+msgstr "Der Stil, der beim Erstellen neuer Produkte verwendet werden soll."
+
+msgid "The time required before sending the product for delivery"
+msgstr "Die Zeit, die vergeht, bevor das Produkt zum Versand bereit ist."
+
+msgid "Theme Logo"
+msgstr "Logo"
+
+msgid "There are no notes for this order yet."
+msgstr "Keine Notizen vorhanden."
+
+msgid ""
+"These are the withdraw methods available for you. Please update your payment "
+"informations below to submit withdraw requests and get your store payments "
+"seamlessly."
+msgstr ""
+"Hier siehst du die möglichen Zahlungsarten, die zur Auszahlung bereit stehen."
+" Bitte gebe deine Zahlungsdaten unten an, damit wir eine Auszahlung an dich "
+"vornehmen können."
+
+msgid "This field is required from localization."
+msgstr "Dieses Feld ist ein Pflichtfeld."
+
+msgid ""
+"This is the base price and will be the starting shipping price for each "
+"product"
+msgstr "Dies sind die Basis-Versandkosten, die für jedes Produkt gelten."
+
+msgid "This month's sales"
+msgstr "Einnahmen diesen Monat"
+
+msgid ""
+"This page contains your store-wide shipping settings, costs, shipping and "
+"refund policy."
+msgstr ""
+"Auf dieser Seite kannst du deine Liefer- und Versandbedingungen- und Kosten, "
+"sowie dein Rückgaberecht einstellen."
+
+msgid "This product has multiple options"
+msgstr "Ich möchte das Kunstwerk als Print verfügbar machen."
+
+msgid "This seller will be marked as a feature seller."
+msgstr "Dieser Künstler wird als Feature Artist markeirt."
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Title:"
+msgstr "Titel:"
+
+msgid "To"
+msgstr "Bis"
+
+msgid "To:"
+msgstr "Bis:"
+
+msgid "Tools"
+msgstr "Tools"
+
+msgid "Top earners"
+msgstr "Am meisten Verdient mit.."
+
+msgid "Top sellers"
+msgstr "Am meisten verkauft"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Total Earning"
+msgstr "Gesamte Einnahmen"
+
+msgid "Total Earning in this period"
+msgstr "Gesamte Einnahmen diesen Monat"
+
+msgid "Total Sales"
+msgstr "Umsatz Gesamt"
+
+msgid "Total: "
+msgstr "Gesamt: "
+
+msgid "Totals"
+msgstr "Gesamt"
+
+msgid "Trash"
+msgstr "Papierkorb"
+
+msgid "Trash ("
+msgstr "Papierkorb ("
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Type an address to find"
+msgstr "Gebe Adresse ein, um zu suchen"
+
+msgid "Type your messsage..."
+msgstr ""
+"Beschreibe dein Projekt: Was ist dein Anliegen? welche Materialien sollen "
+"verwendet werden? Worauf sollte der Künstler achten?"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Unapprove"
+msgstr "Nicht genehmigen"
+
+msgid "Unknown error!"
+msgstr "Unbekannter Fehler"
+
+msgid "Until it's been cancelled or approved, you can't submit any new request."
+msgstr ""
+"Bis deine Anfrage angenommen oder abgelehnt wird, kannst du keine neue "
+"Anfrage senden."
+
+msgid "Update"
+msgstr "Ändern"
+
+msgid "Update Comment"
+msgstr "Kommentar aktualisieren"
+
+msgid "Update Settings"
+msgstr "Änderungen speichern"
+
+msgid "Update account to Seller"
+msgstr "Werde Künstler und verkaufe deine Kunstwerke"
+
+msgid "Upload Logo"
+msgstr "Logo hochladen"
+
+msgid "Upload Photo"
+msgstr "Profilfoto hochladen"
+
+msgid "Upload a product cover image"
+msgstr "Produktbild hochladen"
+
+msgid "Upload banner"
+msgstr "Banner hochladen"
+
+msgid "Upload your logo to replace the default Logo (dimension : 180 X 50)"
+msgstr "Lade dein Logo hoch (180x50 Pixel)"
+
+msgid "Used for variations"
+msgstr "Als Produktvariante nutzen"
+
+msgid "User Name"
+msgstr "Username"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Variant"
+msgstr "Größe (in cm)"
+
+msgid "Variation #%s of %s"
+msgstr "Variante #%s von %s"
+
+msgid "View"
+msgstr "Anzeigen"
+
+msgid "View Announcement"
+msgstr "Benachrichtigung ansehen"
+
+msgid "View Comment"
+msgstr "Kommentar ansehen"
+
+msgid "View Product"
+msgstr "Kunstwerk ansehen"
+
+msgid "View Product &rarr;"
+msgstr "Kunstwerk ansehen &rarr;"
+
+msgid "Views"
+msgstr "Besucher"
+
+msgid "Visible on the product page"
+msgstr "Auf Produktseite sichtbar"
+
+msgid "Visit Store"
+msgstr "Profil anzeigen"
+
+msgid "Visit your store"
+msgstr "Besuche dein Profil"
+
+msgid "Weight"
+msgstr "Gewicht"
+
+msgid "What option do you prefer for seller to select product category? "
+msgstr "Sollen Künstler nur eine oder mehrere Kategorien auswählen können?"
+
+msgid "Withdraw"
+msgstr "Auszahlung"
+
+msgid "Withdraw %s"
+msgstr "%s Auszahlung"
+
+msgid "Withdraw Amount"
+msgstr "Auszuzahlender Betrag"
+
+msgid "Withdraw Methods"
+msgstr "Auszahlungsarten"
+
+msgid "Withdraw Request"
+msgstr "Auszahlung anfordern"
+
+msgid "Withdraw Requests"
+msgstr "Ausszahlunganfragen"
+
+msgid "Withdraw Threshold"
+msgstr "Auszahlungsgrenzwert"
+
+msgid "Withdraw methods for sellers"
+msgstr "Auszahlungsarten für die Künstler"
+
+msgid "Write your terms, conditions and instructions about refund"
+msgstr "Gib deine Rückgabebedinungen und eine Anleitung dazu an."
+
+msgid "Write your terms, conditions and instructions about shipping"
+msgstr "Beschreibe deine Lieferbedingungen und/oder Instruktionen für den Kunden."
+
+msgid "Y/m/d"
+msgstr "d.m.Y"
+
+msgid "Year:"
+msgstr "Jahr:"
+
+msgid "You already withdrawed %s. This amount will deducted from your next balance."
+msgstr ""
+"Du hast dir bereits %s auszahlen lassen. Dieser Wert wird von deinem "
+"Kontostand abgebucht."
+
+msgid ""
+"You can enable/disable shipping for your products. Also you can override "
+"these shipping costs from an individual product."
+msgstr ""
+"<strong>Diese Einstellungen gelten für all deine Kunstwerke und dienen daher "
+"als Berechnungsgrundlage.</strong><br>Du kannst diese Einstellungen jedoch "
+"individuell pro Kunstwerk überschreiben, sollten die Versandkasten einmal "
+"von der Norm abweichen."
+
+msgid "You can not edit reviews!"
+msgstr "Du kannst keine Bewertungen ändern!"
+
+msgid "You do not have permission to change this order"
+msgstr "Du hast keine Befugnis, diese Bestellung zu bearbeiten."
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Du hast keine Befugnis, diese Seite zu &ouml;ffnen."
+
+msgid "You don't have enough balance for this request"
+msgstr "Dein Kontostand ist zu niedrig, um eine Auszahlung anzufordern."
+
+msgid "You don't have sufficient balance for a withdraw request!"
+msgstr "Dein Kontostand ist zu niedrig, um eine Auszahlung anzufordern!"
+
+msgid "You have taken too long. Please go back and retry."
+msgstr "Du hast zu lange gebraucht. Bitte gehe zurück und versuche es erneut."
+
+msgid "You've already pending withdraw request(s)."
+msgstr "Du hast noch ausstehende Auszahlungsanforderungen."
+
+msgid "Your Name"
+msgstr "Dein Name"
+
+msgid "Your account is not enabled for selling, please contact the admin"
+msgstr ""
+"Dein Account wurde noch nicht freigeschaltet. Wir werden uns so schnell wie "
+"möglich darum kümmern."
+
+msgid "Your bank account name"
+msgstr "Kontoinhaber"
+
+msgid "Your bank account number"
+msgstr "IBAN"
+
+msgid "Your changes has been updated!"
+msgstr "Deine Änderungen wurden gespeichert!"
+
+msgid "Your information has been saved successfully"
+msgstr "Deine Informationen wurden erfolgreich gespeichert."
+
+msgid "Your request has been cancelled successfully!"
+msgstr "Deine Anfrage wurde erfolgreich abgebrochen."
+
+msgid "Your request has been received successfully and is under review!"
+msgstr "Deine Anfrage wurde erfolgreich übermittelt und wird nun überprüft."
+
+msgid "[%s] New Product Added"
+msgstr "[%s] Neues Produkt hinzugefügt"
+
+msgid "[%s] New Seller Registered"
+msgstr "[%s] Neue Künstler registriert"
+
+msgid "[%s] New Withdraw Request"
+msgstr "[%s] Neue Auszahlung anfordern"
+
+msgid "[%s] Your Withdraw Request has been approved"
+msgstr "[%s] Deine Auszahlungsanforderung wurde angenommen"
+
+msgid "[%s] Your Withdraw Request has been cancelled"
+msgstr "[%s] Deine Auszahlungsanforderung wurde abgebrochen"
+
+msgid "[%s] Your product has been approved!"
+msgstr "[%s] Dein Produkt wurde freigeschaltet!"
+
+msgid "added %s ago"
+msgstr "vor %s hinzugefügt"
+
+msgid "cancel"
+msgstr "abbrechen"
+
+msgid "edit"
+msgstr "bearbeiten"
+
+msgid "height"
+msgstr "Höhe"
+
+msgid "http://www.weare-art.com/support"
+msgstr "http://www.weare-art.com"
+
+msgid "length"
+msgstr "Länger"
+
+msgid "orders placed in this period"
+msgstr "Bestellungen Gesamt diesen Monat"
+
+msgid "out of 5"
+msgstr "von 5"
+
+msgid "sales"
+msgstr "Verkäufe"
+
+msgid "store name"
+msgstr "Anzeigename"
+
+msgid "waa - Artist Manager"
+msgstr "waa - Artist Manager"
+
+msgid "waa Announcement"
+msgstr "Benachrichtigungen"
+
+msgid "waa Dashboard"
+msgstr "Dashboard"
+
+msgid "waa News Updates"
+msgstr "Updates"
+
+msgid "waa Options"
+msgstr "Optionen"
+
+msgid "waa Tools"
+msgstr "Tools"
+
+msgid "waa name required"
+msgstr "waa Name erforderlich"
+
+msgid "waa type required"
+msgstr "waa Typ erforderlich"
+
+msgid "width"
+msgstr "Breite"
+
+msgid "you@example.com"
+msgstr "E-Mail-Adresse"

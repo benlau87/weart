@@ -67,7 +67,7 @@ add_shortcode('artists', 'waa_product_categories_art');
 
 
 /*
-* Show artists shortcode
+* Show hirable artists shortcode
 *  params: number,order
 */
 function waa_show_hirable_artists($atts)
@@ -113,7 +113,7 @@ function waa_show_hirable_artists($atts)
                     <div class="artist-hover">
                         <div class="entry_author_image">' . get_avatar($artist->ID, 150) . '</div>
                         <div class="bottom"><a href="' . waa_get_store_url($artist->ID) . '"
-                                               title="' . printf(__('Profil von %s ansehen	', 'waa'), $artist_info['store_name']) . '">' . $artist_info['store_name'] . '</a>
+                                               title="' . sprintf(__('Profil von %s ansehen	', 'waa'), $artist_info['store_name']) . '">' . $artist_info['store_name'] . '</a>
                         </div>
                     </div>
                     </a>

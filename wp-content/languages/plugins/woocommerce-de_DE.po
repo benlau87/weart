@@ -1,49 +1,52 @@
-# Copyright (C) 2015 WooThemes
-# This file is distributed under the same license as the WooCommerce package.
-# Translators:
-# modularte <admin@modularte.de>, 2014-2015
-# Arne B <a.brockmann@birddog.cc>, 2014
-# Bart <b.podlewski@gmail.com>, 2014
-# Ben Hartwich <mail@benjaminhartwich.de>, 2015
-# Inpsyde Team <woocommerce-transiflex@inpsyde.com>, 2014
-# Inpsyde Team <woocommerce-transiflex@inpsyde.com>, 2014
-# Dirk Jarzyna <jarzyna.dirk@gmail.com>, 2014
-# Dominik Bitly <dominik.bittl@gmail.com>, 2014
-# Dominik Rackien <rackien@outlook.de>, 2015
-# Felix <felix.hollenstein@colibri-interactive.com>, 2014
-# Gerd Neumann <gerd.neumann@riseup.net>, 2015
-# Heinz J. Hafner <ich@heinzhafner.de>, 2015
-# Henryk Ibe-Meinhardt <henryk.ibemeinhardt@googlemail.com>, 2014
-# Henryk Ibe-Meinhardt <henryk.ibemeinhardt@googlemail.com>, 2014
-# Inpsyde Team <woocommerce-transiflex@inpsyde.com>, 2013-2014
-# Jan Brauckmann <brauckmann.j@gmail.com>, 2014
-# Jens Nachtigall <nachtigall@web.de>, 2015
-# Jörn Hassler <joern.hassler@hdmx.de>, 2014
-# sixsigma <kevin.konrad90@gmail.com>, 2014
-# long.run.international <long.run.international@googlemail.com>, 2014
-# long.run.international <long.run.international@googlemail.com>, 2014
-# Nikolai Kolodziej <kolodziej.nikolai@googlemail.com>, 2015
-# OttNorml <ottnorml@gmail.com>, 2015
-# QisaGo <ysajid@gmail.com>, 2014
-# Saskia Lund <saskialund@me.com>, 2015
-# Scott Heinrich <scottaheinrich@gmail.com>, 2014
-# sixsigma <kevin.konrad90@gmail.com>, 2014
-# Tobias Perschon <tobias@perschon.at>, 2014
-# Torsten Landsiedel <mail@torstenlandsiedel.de>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce\n"
 "Report-Msgid-Bugs-To: https://github.com/woothemes/woocommerce/issues\n"
 "POT-Creation-Date: 2015-08-24 16:25:50+00:00\n"
-"PO-Revision-Date: 2015-08-25 20:15+0000\n"
-"Last-Translator: Gerd Neumann <gerd.neumann@riseup.net>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/woothemes/woocommerce/language/de_DE/)\n"
+"PO-Revision-Date: Tue Dec 15 2015 10:29:36 GMT+0100 (Mitteleuropäische Zeit)\n"
+"Last-Translator: benlau <weart@benlau.de>\n"
+"Language-Team: German (Germany) (http://www.transifex."
+"com/woothemes/woocommerce/language/de_DE/)\n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../../plugins/woocommerce\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: de_DE"
+
+#: i18n/locale-info.php:351
+msgid "Consumption tax"
+msgstr ""
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
+msgid "Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>."
+msgstr ""
+
+#: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
+msgid ""
+"Supports the following placeholders: <code>[qty]</code> = number of items, "
+"<code>[cost]</code> = cost of items, <code>[fee percent=\"10\" "
+"min_fee=\"20\"]</code> = Percentage based fee."
+msgstr ""
+
+#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:125
+msgid "What zip/post codes are available for local delivery?"
+msgstr ""
+
+#: includes/wc-cart-functions.php:100
+#, c-format
+msgctxt "Item name in quotes"
+msgid "&ldquo;%s&rdquo;"
+msgstr ""
 
 #: i18n/countries.php:18
 msgid "Afghanistan"
@@ -1020,10 +1023,6 @@ msgstr "Sambia"
 #: i18n/countries.php:261
 msgid "Zimbabwe"
 msgstr "Simbabwe"
-
-#: i18n/locale-info.php:351
-msgid "Consumption tax"
-msgstr ""
 
 #: i18n/states/AR.php:13
 msgid "Ciudad Aut&oacute;noma de Buenos Aires"
@@ -4167,9 +4166,11 @@ msgstr "Metro Manila"
 
 #: i18n/states/TH.php:13
 msgid ""
-"Amnat Charoen "
-"(&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"
-msgstr "Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;&#3636;&#3597;)"
+"Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;"
+"&#3636;&#3597;)"
+msgstr ""
+"Amnat Charoen (&#3629;&#3635;&#3609;&#3634;&#3592;&#3648;&#3592;&#3619;"
+"&#3636;&#3597;)"
 
 #: i18n/states/TH.php:14
 msgid "Ang Thong (&#3629;&#3656;&#3634;&#3591;&#3607;&#3629;&#3591;)"
@@ -4177,30 +4178,35 @@ msgstr "Ang Thong (&#3629;&#3656;&#3634;&#3591;&#3607;&#3629;&#3591;)"
 
 #: i18n/states/TH.php:15
 msgid ""
-"Ayutthaya "
-"(&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
-msgstr "Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
+"Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;"
+"&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
+msgstr ""
+"Ayutthaya (&#3614;&#3619;&#3632;&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;"
+"&#3629;&#3618;&#3640;&#3608;&#3618;&#3634;)"
 
 #: i18n/states/TH.php:16
 msgid ""
-"Bangkok "
-"(&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;&#3634;&#3609;&#3588;&#3619;)"
-msgstr "Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;&#3634;&#3609;&#3588;&#3619;)"
+"Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;"
+"&#3634;&#3609;&#3588;&#3619;)"
+msgstr ""
+"Bangkok (&#3585;&#3619;&#3640;&#3591;&#3648;&#3607;&#3614;&#3617;&#3627;"
+"&#3634;&#3609;&#3588;&#3619;)"
 
 #: i18n/states/TH.php:17
 msgid "Bueng Kan (&#3610;&#3638;&#3591;&#3585;&#3634;&#3628;)"
 msgstr "Bueng Kan (&#3610;&#3638;&#3591;&#3585;&#3634;&#3628;)"
 
 #: i18n/states/TH.php:18
-msgid ""
-"Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
+msgid "Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
 msgstr "Buri Ram (&#3610;&#3640;&#3619;&#3637;&#3619;&#3633;&#3617;&#3618;&#3660;)"
 
 #: i18n/states/TH.php:19
 msgid ""
-"Chachoengsao "
-"(&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;&#3634;)"
-msgstr "Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;&#3634;)"
+"Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;"
+"&#3634;)"
+msgstr ""
+"Chachoengsao (&#3593;&#3632;&#3648;&#3594;&#3636;&#3591;&#3648;&#3607;&#3619;"
+"&#3634;)"
 
 #: i18n/states/TH.php:20
 msgid "Chai Nat (&#3594;&#3633;&#3618;&#3609;&#3634;&#3607;)"
@@ -4215,8 +4221,7 @@ msgid "Chanthaburi (&#3592;&#3633;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 msgstr "Chanthaburi (&#3592;&#3633;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:23
-msgid ""
-"Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
+msgid "Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
 msgstr "Chiang Mai (&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;)"
 
 #: i18n/states/TH.php:24
@@ -4232,21 +4237,24 @@ msgid "Chumphon (&#3594;&#3640;&#3617;&#3614;&#3619;)"
 msgstr "Chumphon (&#3594;&#3640;&#3617;&#3614;&#3619;)"
 
 #: i18n/states/TH.php:27
-msgid ""
-"Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
+msgid "Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
 msgstr "Kalasin (&#3585;&#3634;&#3628;&#3626;&#3636;&#3609;&#3608;&#3640;&#3660;)"
 
 #: i18n/states/TH.php:28
 msgid ""
-"Kamphaeng Phet "
-"(&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;&#3619;)"
-msgstr "Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;&#3619;)"
+"Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;"
+"&#3619;)"
+msgstr ""
+"Kamphaeng Phet (&#3585;&#3635;&#3649;&#3614;&#3591;&#3648;&#3614;&#3594;"
+"&#3619;)"
 
 #: i18n/states/TH.php:29
 msgid ""
-"Kanchanaburi "
-"(&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;)"
+"Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;"
+")"
+msgstr ""
+"Kanchanaburi (&#3585;&#3634;&#3597;&#3592;&#3609;&#3610;&#3640;&#3619;&#3637;"
+")"
 
 #: i18n/states/TH.php:30
 msgid "Khon Kaen (&#3586;&#3629;&#3609;&#3649;&#3585;&#3656;&#3609;)"
@@ -4274,15 +4282,19 @@ msgstr "Lopburi (&#3621;&#3614;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:36
 msgid ""
-"Mae Hong Son "
-"(&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;&#3609;)"
-msgstr "Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;&#3609;)"
+"Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;"
+"&#3609;)"
+msgstr ""
+"Mae Hong Son (&#3649;&#3617;&#3656;&#3630;&#3656;&#3629;&#3591;&#3626;&#3629;"
+"&#3609;)"
 
 #: i18n/states/TH.php:37
 msgid ""
-"Maha Sarakham "
-"(&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;&#3617;)"
-msgstr "Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;&#3617;)"
+"Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;"
+"&#3617;)"
+msgstr ""
+"Maha Sarakham (&#3617;&#3627;&#3634;&#3626;&#3634;&#3619;&#3588;&#3634;"
+"&#3617;)"
 
 #: i18n/states/TH.php:38
 msgid "Mukdahan (&#3617;&#3640;&#3585;&#3604;&#3634;&#3627;&#3634;&#3619;)"
@@ -4302,21 +4314,27 @@ msgstr "Nakhon Phanom (&#3609;&#3588;&#3619;&#3614;&#3609;&#3617;)"
 
 #: i18n/states/TH.php:42
 msgid ""
-"Nakhon Ratchasima "
-"(&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;&#3617;&#3634;)"
-msgstr "Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;&#3617;&#3634;)"
+"Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;"
+"&#3617;&#3634;)"
+msgstr ""
+"Nakhon Ratchasima (&#3609;&#3588;&#3619;&#3619;&#3634;&#3594;&#3626;&#3637;"
+"&#3617;&#3634;)"
 
 #: i18n/states/TH.php:43
 msgid ""
-"Nakhon Sawan "
-"(&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;)"
-msgstr "Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;)"
+"Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;"
+")"
+msgstr ""
+"Nakhon Sawan (&#3609;&#3588;&#3619;&#3626;&#3623;&#3619;&#3619;&#3588;&#3660;"
+")"
 
 #: i18n/states/TH.php:44
 msgid ""
-"Nakhon Si Thammarat "
-"(&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;&#3619;&#3617;&#3619;&#3634;&#3594;)"
-msgstr "Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;&#3619;&#3617;&#3619;&#3634;&#3594;)"
+"Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;"
+"&#3619;&#3617;&#3619;&#3634;&#3594;)"
+msgstr ""
+"Nakhon Si Thammarat (&#3609;&#3588;&#3619;&#3624;&#3619;&#3637;&#3608;&#3619;"
+"&#3619;&#3617;&#3619;&#3634;&#3594;)"
 
 #: i18n/states/TH.php:45
 msgid "Nan (&#3609;&#3656;&#3634;&#3609;)"
@@ -4328,9 +4346,11 @@ msgstr "Narathiwat (&#3609;&#3619;&#3634;&#3608;&#3636;&#3623;&#3634;&#3626;)"
 
 #: i18n/states/TH.php:47
 msgid ""
-"Nong Bua Lam Phu "
-"(&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;&#3635;&#3616;&#3641;)"
-msgstr "Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;&#3635;&#3616;&#3641;)"
+"Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;"
+"&#3635;&#3616;&#3641;)"
+msgstr ""
+"Nong Bua Lam Phu (&#3627;&#3609;&#3629;&#3591;&#3610;&#3633;&#3623;&#3621;"
+"&#3635;&#3616;&#3641;)"
 
 #: i18n/states/TH.php:48
 msgid "Nong Khai (&#3627;&#3609;&#3629;&#3591;&#3588;&#3634;&#3618;)"
@@ -4341,8 +4361,7 @@ msgid "Nonthaburi (&#3609;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 msgstr "Nonthaburi (&#3609;&#3609;&#3607;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:50
-msgid ""
-"Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
+msgid "Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
 msgstr "Pathum Thani (&#3611;&#3607;&#3640;&#3617;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:51
@@ -4362,8 +4381,7 @@ msgid "Phayao (&#3614;&#3632;&#3648;&#3618;&#3634;)"
 msgstr "Phayao (&#3614;&#3632;&#3648;&#3618;&#3634;)"
 
 #: i18n/states/TH.php:55
-msgid ""
-"Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
+msgid "Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
 msgstr "Phetchabun (&#3648;&#3614;&#3594;&#3619;&#3610;&#3641;&#3619;&#3603;&#3660;)"
 
 #: i18n/states/TH.php:56
@@ -4388,15 +4406,19 @@ msgstr "Phuket (&#3616;&#3641;&#3648;&#3585;&#3655;&#3605;)"
 
 #: i18n/states/TH.php:61
 msgid ""
-"Prachin Buri "
-"(&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;&#3637;)"
+"Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;"
+"&#3637;)"
+msgstr ""
+"Prachin Buri (&#3611;&#3619;&#3634;&#3592;&#3637;&#3609;&#3610;&#3640;&#3619;"
+"&#3637;)"
 
 #: i18n/states/TH.php:62
 msgid ""
-"Prachuap Khiri Khan "
-"(&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
-msgstr "Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
+"Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;"
+"&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
+msgstr ""
+"Prachuap Khiri Khan (&#3611;&#3619;&#3632;&#3592;&#3623;&#3610;&#3588;&#3637;"
+"&#3619;&#3637;&#3586;&#3633;&#3609;&#3608;&#3660;)"
 
 #: i18n/states/TH.php:63
 msgid "Ranong (&#3619;&#3632;&#3609;&#3629;&#3591;)"
@@ -4424,21 +4446,27 @@ msgstr "Sakon Nakhon (&#3626;&#3585;&#3621;&#3609;&#3588;&#3619;)"
 
 #: i18n/states/TH.php:69
 msgid ""
-"Samut Prakan "
-"(&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;&#3634;&#3619;)"
-msgstr "Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;&#3634;&#3619;)"
+"Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;"
+"&#3634;&#3619;)"
+msgstr ""
+"Samut Prakan (&#3626;&#3617;&#3640;&#3607;&#3619;&#3611;&#3619;&#3634;&#3585;"
+"&#3634;&#3619;)"
 
 #: i18n/states/TH.php:70
 msgid ""
-"Samut Sakhon "
-"(&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;)"
-msgstr "Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;)"
+"Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;"
+")"
+msgstr ""
+"Samut Sakhon (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3634;&#3588;&#3619;"
+")"
 
 #: i18n/states/TH.php:71
 msgid ""
-"Samut Songkhram "
-"(&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;&#3619;&#3634;&#3617;)"
-msgstr "Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;&#3619;&#3634;&#3617;)"
+"Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;"
+"&#3619;&#3634;&#3617;)"
+msgstr ""
+"Samut Songkhram (&#3626;&#3617;&#3640;&#3607;&#3619;&#3626;&#3591;&#3588;"
+"&#3619;&#3634;&#3617;)"
 
 #: i18n/states/TH.php:72
 msgid "Saraburi (&#3626;&#3619;&#3632;&#3610;&#3640;&#3619;&#3637;)"
@@ -4449,8 +4477,7 @@ msgid "Satun (&#3626;&#3605;&#3641;&#3621;)"
 msgstr "Satun (&#3626;&#3605;&#3641;&#3621;)"
 
 #: i18n/states/TH.php:74
-msgid ""
-"Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
+msgid "Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
 msgstr "Sing Buri (&#3626;&#3636;&#3591;&#3627;&#3660;&#3610;&#3640;&#3619;&#3637;)"
 
 #: i18n/states/TH.php:75
@@ -4467,15 +4494,19 @@ msgstr "Sukhothai (&#3626;&#3640;&#3650;&#3586;&#3607;&#3633;&#3618;)"
 
 #: i18n/states/TH.php:78
 msgid ""
-"Suphan Buri "
-"(&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;&#3637;)"
-msgstr "Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;&#3637;)"
+"Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;"
+"&#3637;)"
+msgstr ""
+"Suphan Buri (&#3626;&#3640;&#3614;&#3619;&#3619;&#3603;&#3610;&#3640;&#3619;"
+"&#3637;)"
 
 #: i18n/states/TH.php:79
 msgid ""
-"Surat Thani "
-"(&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;&#3634;&#3609;&#3637;)"
+"Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;"
+"&#3634;&#3609;&#3637;)"
+msgstr ""
+"Surat Thani (&#3626;&#3640;&#3619;&#3634;&#3625;&#3598;&#3619;&#3660;&#3608;"
+"&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:80
 msgid "Surin (&#3626;&#3640;&#3619;&#3636;&#3609;&#3607;&#3619;&#3660;)"
@@ -4495,23 +4526,22 @@ msgstr "Trat (&#3605;&#3619;&#3634;&#3604;)"
 
 #: i18n/states/TH.php:84
 msgid ""
-"Ubon Ratchathani "
-"(&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;&#3634;&#3609;&#3637;)"
-msgstr "Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;&#3634;&#3609;&#3637;)"
+"Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;"
+"&#3634;&#3609;&#3637;)"
+msgstr ""
+"Ubon Ratchathani (&#3629;&#3640;&#3610;&#3621;&#3619;&#3634;&#3594;&#3608;"
+"&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:85
 msgid "Udon Thani (&#3629;&#3640;&#3604;&#3619;&#3608;&#3634;&#3609;&#3637;)"
 msgstr "Udon Thani (&#3629;&#3640;&#3604;&#3619;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:86
-msgid ""
-"Uthai Thani "
-"(&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
+msgid "Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
 msgstr "Uthai Thani (&#3629;&#3640;&#3607;&#3633;&#3618;&#3608;&#3634;&#3609;&#3637;)"
 
 #: i18n/states/TH.php:87
-msgid ""
-"Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
+msgid "Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
 msgstr "Uttaradit (&#3629;&#3640;&#3605;&#3619;&#3604;&#3636;&#3605;&#3606;&#3660;)"
 
 #: i18n/states/TH.php:88
@@ -5126,6 +5156,7 @@ msgid "Backordered"
 msgstr "Im Lieferrückstand"
 
 #: includes/abstracts/abstract-wc-order.php:1757
+#, c-format
 msgid "&nbsp;<small>%svia %s</small>"
 msgstr "&nbsp;<small>%svia %s</small>"
 
@@ -5167,6 +5198,7 @@ msgstr "Gesamt:"
 
 #: includes/abstracts/abstract-wc-order.php:2135
 #: templates/emails/plain/email-order-items.php:49
+#, c-format
 msgid "Download %d"
 msgstr "Download %d:"
 
@@ -5180,15 +5212,18 @@ msgid "WooCommerce"
 msgstr "WooCommerce"
 
 #: includes/abstracts/abstract-wc-order.php:2222
+#, c-format
 msgid "Order status changed from %s to %s."
 msgstr "Status der Bestellung von %s auf %s geändert."
 
 #: includes/abstracts/abstract-wc-order.php:2480
+#, c-format
 msgid "Item #%s variation #%s stock reduced from %s to %s."
 msgstr "Lagerbestand der Produktvariante #%s reduziert von %s auf %s."
 
 #: includes/abstracts/abstract-wc-order.php:2482
 #: includes/class-wc-ajax.php:1415
+#, c-format
 msgid "Item #%s stock reduced from %s to %s."
 msgstr "Lagerbestand des Produkts #%s reduziert von %s auf %s."
 
@@ -5235,6 +5270,7 @@ msgstr "Vorrätig"
 
 #: includes/abstracts/abstract-wc-product.php:631
 #: includes/class-wc-product-variation.php:530
+#, c-format
 msgid "Only %s left in stock"
 msgstr "Nur noch %s vorrätig"
 
@@ -5247,6 +5283,7 @@ msgstr "(kann nachgeliefert werden)"
 
 #: includes/abstracts/abstract-wc-product.php:642
 #: includes/class-wc-product-variation.php:540
+#, c-format
 msgid "%s in stock"
 msgstr "%s vorrätig"
 
@@ -5265,6 +5302,7 @@ msgstr "Nicht vorrätig"
 
 #: includes/abstracts/abstract-wc-product.php:1110
 #: templates/single-product/rating.php:27
+#, c-format
 msgid "Rated %s out of 5"
 msgstr "Bewertet mit %s von 5"
 
@@ -5274,6 +5312,7 @@ msgid "out of 5"
 msgstr "von 5"
 
 #: includes/abstracts/abstract-wc-product.php:1467
+#, c-format
 msgid "%s &ndash; %s"
 msgstr "%s &ndash; %s"
 
@@ -5288,11 +5327,14 @@ msgstr "Consumer Secret ist ungültig"
 msgid ""
 "WooCommerce API. Use a consumer key in the username field and a consumer "
 "secret in the password field"
-msgstr "WooCommerce API. Verwenden Sie als Benutzernamen einen Consumer Key und als Passwort ein Consumer Secret"
+msgstr ""
+"WooCommerce API. Verwenden Sie als Benutzernamen einen Consumer Key und als "
+"Passwort ein Consumer Secret"
 
 #: includes/api/class-wc-api-authentication.php:145
 #: includes/api/v1/class-wc-api-authentication.php:148
 #: includes/api/v2/class-wc-api-authentication.php:148
+#, c-format
 msgid "%s parameter is missing"
 msgstr "Parameter %s fehlt"
 
@@ -5384,6 +5426,7 @@ msgstr "Ungültiger Gutschein-Code"
 #: includes/api/v2/class-wc-api-products.php:210
 #: includes/api/v2/class-wc-api-products.php:2095
 #: includes/api/v2/class-wc-api-webhooks.php:169
+#, c-format
 msgid "No %1$s data specified to create %1$s"
 msgstr "Keine %1$s Daten angegeben um %1$s zu erstellen"
 
@@ -5403,6 +5446,7 @@ msgstr "Sie haben keine Berechtigungen, um Gutscheine anzulegen."
 #: includes/api/v2/class-wc-api-products.php:224
 #: includes/api/v2/class-wc-api-products.php:2059
 #: includes/api/v2/class-wc-api-server.php:427 includes/class-wc-auth.php:159
+#, c-format
 msgid "Missing parameter %s"
 msgstr "Fehlender Parameter %s"
 
@@ -5417,8 +5461,11 @@ msgstr "Dieser Gutschein existiert bereits."
 #: includes/api/class-wc-api-coupons.php:379
 #: includes/api/v2/class-wc-api-coupons.php:270
 #: includes/api/v2/class-wc-api-coupons.php:379
+#, c-format
 msgid "Invalid coupon type - the coupon type must be any of these: %s"
-msgstr "Ungültiger Gutschein-Typ – der Gutschein muss einem dieser Typen entsprechen: %s"
+msgstr ""
+"Ungültiger Gutschein-Typ – der Gutschein muss einem dieser Typen entsprechen:"
+" %s"
 
 #: includes/api/class-wc-api-coupons.php:329
 #: includes/api/class-wc-api-customers.php:400
@@ -5436,6 +5483,7 @@ msgstr "Ungültiger Gutschein-Typ – der Gutschein muss einem dieser Typen ents
 #: includes/api/v2/class-wc-api-products.php:312
 #: includes/api/v2/class-wc-api-products.php:2176
 #: includes/api/v2/class-wc-api-webhooks.php:245
+#, c-format
 msgid "No %1$s data specified to edit %1$s"
 msgstr "Keine %1$s Daten angegeben um %1$s zu bearbeiten"
 
@@ -5454,6 +5502,7 @@ msgstr "Gutschein konnte nicht aktualisiert werden"
 #: includes/api/v2/class-wc-api-customers.php:789
 #: includes/api/v2/class-wc-api-orders.php:1788
 #: includes/api/v2/class-wc-api-products.php:2363
+#, c-format
 msgid "No %1$s data specified to create/edit %1$s"
 msgstr "Keine %1$s Daten angegeben um %1$s zu erstellen/bearbeiten"
 
@@ -5465,6 +5514,7 @@ msgstr "Keine %1$s Daten angegeben um %1$s zu erstellen/bearbeiten"
 #: includes/api/v2/class-wc-api-customers.php:797
 #: includes/api/v2/class-wc-api-orders.php:1796
 #: includes/api/v2/class-wc-api-products.php:2371
+#, c-format
 msgid "Unable to accept more than %s items for this request"
 msgstr "Es können nicht mehr als %s Objekte pro Request verarbeitet werden."
 
@@ -5538,7 +5588,9 @@ msgstr "Sie haben keine Berechtigung, die Anzahl der Bestellungen anzusehen"
 #: includes/api/class-wc-api-orders.php:391
 #: includes/api/v2/class-wc-api-orders.php:391
 msgid "You do not have permission to create orders"
-msgstr "Sie haben keine ausreichende Berechtigungsstufe, um Bestellungen zu erstellen."
+msgstr ""
+"Sie haben keine ausreichende Berechtigungsstufe, um Bestellungen zu "
+"erstellen."
 
 #: includes/api/class-wc-api-orders.php:407
 #: includes/api/class-wc-api-orders.php:566
@@ -5549,6 +5601,7 @@ msgstr "Kunden-ID ist ungültig"
 
 #: includes/api/class-wc-api-orders.php:417
 #: includes/api/v2/class-wc-api-orders.php:417
+#, c-format
 msgid "Cannot create order: %s"
 msgstr "Bestellung kann nicht angelegt werden: %s"
 
@@ -5747,12 +5800,16 @@ msgstr "Bestell-Rückerstattungs-ID ist ungültig"
 #: includes/api/v2/class-wc-api-orders.php:1698
 #: includes/api/v2/class-wc-api-orders.php:1757
 msgid "An order refund with the provided ID could not be found"
-msgstr "Eine Bestell-Rückerstattung konnte für die angegebene ID nicht gefunden werden"
+msgstr ""
+"Eine Bestell-Rückerstattung konnte für die angegebene ID nicht gefunden "
+"werden"
 
 #: includes/api/class-wc-api-orders.php:1606
 #: includes/api/v2/class-wc-api-orders.php:1605
 msgid "You do not have permission to create order refunds"
-msgstr "Sie haben keine Berechtigungen, um Rückerstattungen einer Bestellung vorzunehmen"
+msgstr ""
+"Sie haben keine Berechtigungen, um Rückerstattungen einer Bestellung "
+"vorzunehmen"
 
 #: includes/api/class-wc-api-orders.php:1619
 #: includes/api/v2/class-wc-api-orders.php:1618
@@ -5767,14 +5824,18 @@ msgstr "Betrag für Rückerstattung muss ein positiver Wert sein"
 #: includes/api/class-wc-api-orders.php:1631
 #: includes/api/v2/class-wc-api-orders.php:1630
 msgid "Cannot create order refund, please try again"
-msgstr "Rückerstattung der Bestellung konnte nicht vorgenommen werden, bitte erneut versuchen"
+msgstr ""
+"Rückerstattung der Bestellung konnte nicht vorgenommen werden, bitte erneut "
+"versuchen"
 
 #: includes/api/class-wc-api-orders.php:1648
 #: includes/api/v2/class-wc-api-orders.php:1647
 msgid ""
 "An error occurred while attempting to create the refund using the payment "
 "gateway API"
-msgstr "Fehler beim Versuch, die Rückerstattung mittels Payment Gateway API zu vollziehen"
+msgstr ""
+"Fehler beim Versuch, die Rückerstattung mittels Payment Gateway API zu "
+"vollziehen"
 
 #: includes/api/class-wc-api-orders.php:1704
 #: includes/api/class-wc-api-orders.php:1763
@@ -5798,6 +5859,7 @@ msgstr "Sie haben nicht die Berechtigung, Produkte anzulegen"
 #: includes/api/class-wc-api-products.php:353
 #: includes/api/v2/class-wc-api-products.php:239
 #: includes/api/v2/class-wc-api-products.php:358
+#, c-format
 msgid "Invalid product type - the product type must be any of these: %s"
 msgstr "Ungültiger Produkt-Typ – der Produkt-Typ muss einer von diesen sein: %s"
 
@@ -5827,6 +5889,7 @@ msgstr "Diese Art.-Nr. ist bereits einem anderen Produkt zugeteilt"
 
 #: includes/api/class-wc-api-products.php:1232
 #: includes/api/v2/class-wc-api-products.php:1237
+#, c-format
 msgid "Variation #%s of %s"
 msgstr "Variante #%s von %s"
 
@@ -5843,11 +5906,13 @@ msgstr "Platzhalter"
 
 #: includes/api/class-wc-api-products.php:1796
 #: includes/api/v2/class-wc-api-products.php:1801
+#, c-format
 msgid "Invalid URL %s"
 msgstr "%s URL ist ungültig"
 
 #: includes/api/class-wc-api-products.php:1808
 #: includes/api/v2/class-wc-api-products.php:1813
+#, c-format
 msgid "Error getting remote image %s"
 msgstr "Fehler beim Abruf des Bildes"
 
@@ -5877,33 +5942,43 @@ msgstr "Ein Produkt-Attribut mit der angegebenen ID konnte nicht gefunden werden
 
 #: includes/api/class-wc-api-products.php:2058
 #: includes/api/v2/class-wc-api-products.php:2063
+#, c-format
 msgid "Slug \"%s\" is too long (28 characters max). Shorten it, please."
 msgstr "Slug „%s“ ist zu lang (28 Zeichen maximal). Bitte kürzen."
 
 #: includes/api/class-wc-api-products.php:2060
 #: includes/api/v2/class-wc-api-products.php:2065
-msgid ""
-"Slug \"%s\" is not allowed because it is a reserved term. Change it, please."
-msgstr "Slug „%s“ ist nicht erlaubt, weil es reservierte Begriffe enthält. Bitte ändern."
+#, c-format
+msgid "Slug \"%s\" is not allowed because it is a reserved term. Change it, please."
+msgstr ""
+"Slug „%s“ ist nicht erlaubt, weil es reservierte Begriffe enthält. Bitte "
+"ändern."
 
 #: includes/api/class-wc-api-products.php:2062
 #: includes/api/v2/class-wc-api-products.php:2067
+#, c-format
 msgid "Slug \"%s\" is already in use. Change it, please."
 msgstr "Slug „%s“ wird bereits verwendet. Bitte ändern."
 
 #: includes/api/class-wc-api-products.php:2067
 #: includes/api/v2/class-wc-api-products.php:2072
+#, c-format
 msgid ""
 "Invalid product attribute type - the product attribute type must be any of "
 "these: %s"
-msgstr "Ungültiger Produkt-Attribut-Typ – der Produkt-Attribut-Typ muss einer der folgenden sein: %s"
+msgstr ""
+"Ungültiger Produkt-Attribut-Typ – der Produkt-Attribut-Typ muss einer der "
+"folgenden sein: %s"
 
 #: includes/api/class-wc-api-products.php:2072
 #: includes/api/v2/class-wc-api-products.php:2077
+#, c-format
 msgid ""
 "Invalid product attribute order_by type - the product attribute order_by "
 "type must be any of these: %s"
-msgstr "Ungültiger Produkt-Attribut-Typ für order_by – der Produkt-Attribut-Typ für order_by muss einer der folgenden sein: %s"
+msgstr ""
+"Ungültiger Produkt-Attribut-Typ für order_by – der Produkt-Attribut-Typ für "
+"order_by muss einer der folgenden sein: %s"
 
 #: includes/api/class-wc-api-products.php:2097
 #: includes/api/v2/class-wc-api-products.php:2102
@@ -5935,6 +6010,7 @@ msgstr "Das Attribut konnte nicht gelöscht werden"
 #: includes/api/v1/class-wc-api-resource.php:325
 #: includes/api/v2/class-wc-api-products.php:2297
 #: includes/api/v2/class-wc-api-resource.php:386
+#, c-format
 msgid "Deleted %s"
 msgstr "%s gelöscht"
 
@@ -5947,35 +6023,41 @@ msgstr "Sie haben keine Berechtigung, diesen Bericht anzusehen"
 #: includes/api/class-wc-api-resource.php:85
 #: includes/api/v1/class-wc-api-resource.php:74
 #: includes/api/v2/class-wc-api-resource.php:85
+#, c-format
 msgid "Invalid %s ID"
 msgstr "Ungültige ID für %s"
 
 #: includes/api/class-wc-api-resource.php:94
 #: includes/api/v2/class-wc-api-resource.php:94
+#, c-format
 msgid "No %s found with the ID equal to %s"
 msgstr "Kein(e) %s gefunden mit der ID gleich %s"
 
 #: includes/api/class-wc-api-resource.php:102
 #: includes/api/v1/class-wc-api-resource.php:86
 #: includes/api/v2/class-wc-api-resource.php:102
+#, c-format
 msgid "Invalid %s"
 msgstr "%s ist ungültig"
 
 #: includes/api/class-wc-api-resource.php:110
 #: includes/api/v1/class-wc-api-resource.php:93
 #: includes/api/v2/class-wc-api-resource.php:110
+#, c-format
 msgid "You do not have permission to read this %s"
 msgstr "Sie haben keine Berechtigung, %s anzusehen"
 
 #: includes/api/class-wc-api-resource.php:115
 #: includes/api/v1/class-wc-api-resource.php:98
 #: includes/api/v2/class-wc-api-resource.php:115
+#, c-format
 msgid "You do not have permission to edit this %s"
 msgstr "Sie haben keine Berechtigung, %s zu bearbeiten"
 
 #: includes/api/class-wc-api-resource.php:120
 #: includes/api/v1/class-wc-api-resource.php:103
 #: includes/api/v2/class-wc-api-resource.php:120
+#, c-format
 msgid "You do not have permission to delete this %s"
 msgstr "Sie haben keine Berechtigung, %s zu löschen"
 
@@ -5994,12 +6076,14 @@ msgstr "Der Kunde kann nicht gelöscht werden"
 #: includes/api/class-wc-api-resource.php:377
 #: includes/api/v1/class-wc-api-resource.php:316
 #: includes/api/v2/class-wc-api-resource.php:377
+#, c-format
 msgid "This %s cannot be deleted"
 msgstr "%s kann nicht gelöscht werden"
 
 #: includes/api/class-wc-api-resource.php:380
 #: includes/api/v1/class-wc-api-resource.php:319
 #: includes/api/v2/class-wc-api-resource.php:380
+#, c-format
 msgid "Permanently deleted %s"
 msgstr "%s dauerhaft gelöscht"
 
@@ -6046,17 +6130,20 @@ msgstr "Webhook-Thema wird benötigt und muss gültig sein"
 #: includes/api/class-wc-api-webhooks.php:279
 #: includes/api/v2/class-wc-api-webhooks.php:188
 #: includes/api/v2/class-wc-api-webhooks.php:279
-msgid ""
-"Webhook delivery URL must be a valid URL starting with http:// or https://"
-msgstr "Webhook-Auslieferungs-URL („Webhook delivery URL“) muss eine gültige URL sein, welche mit http:// oder https:// beginnt"
+msgid "Webhook delivery URL must be a valid URL starting with http:// or https://"
+msgstr ""
+"Webhook-Auslieferungs-URL („Webhook delivery URL“) muss eine gültige URL "
+"sein, welche mit http:// oder https:// beginnt"
 
 #: includes/api/class-wc-api-webhooks.php:197
 #: includes/api/v2/class-wc-api-webhooks.php:197
+#, c-format
 msgid "Webhook created on %s"
 msgstr "Webhook erstellt am %s"
 
 #: includes/api/class-wc-api-webhooks.php:203
 #: includes/api/v2/class-wc-api-webhooks.php:203
+#, c-format
 msgid "Cannot create webhook: %s"
 msgstr "Konnte Webhook %s nicht anlegen."
 
@@ -6123,6 +6210,7 @@ msgid "Allow"
 msgstr "Erlauben"
 
 #: includes/class-wc-ajax.php:1116
+#, c-format
 msgid "File %d"
 msgstr "Datei %d"
 
@@ -6130,9 +6218,12 @@ msgstr "Datei %d"
 msgid ""
 "No products had their stock reduced - they may not have stock management "
 "enabled."
-msgstr "Keine Produkte mit reduziertem Lagerbestand – vielleicht ist die Lagerverwaltung nicht aktiviert."
+msgstr ""
+"Keine Produkte mit reduziertem Lagerbestand – vielleicht ist die "
+"Lagerverwaltung nicht aktiviert."
 
 #: includes/class-wc-ajax.php:1467 includes/class-wc-ajax.php:2278
+#, c-format
 msgid "Item #%s stock increased from %s to %s."
 msgstr "Lagerbestand von Produkt #%s erhöht von %s auf %s."
 
@@ -6140,7 +6231,9 @@ msgstr "Lagerbestand von Produkt #%s erhöht von %s auf %s."
 msgid ""
 "No products had their stock increased - they may not have stock management "
 "enabled."
-msgstr "Keine Produkte mit erhöhtem Lagerbestand – vielleicht ist die Lagerverwaltung nicht aktiviert."
+msgstr ""
+"Keine Produkte mit erhöhtem Lagerbestand – vielleicht ist die "
+"Lagerverwaltung nicht aktiviert."
 
 #: includes/class-wc-ajax.php:1496
 #: includes/widgets/class-wc-widget-product-categories.php:52
@@ -6182,9 +6275,11 @@ msgstr "API-Schlüssel erfolgreich aktualisiert."
 
 #: includes/class-wc-ajax.php:2426
 msgid ""
-"API Key generated successfully. Make sure to copy your new API keys now. You"
-" won't be able to see it again!"
-msgstr "API-Schlüssel erfolgreich erstellt. Sichern Sie sich jetzt eine Kopie Ihrer neuen API-Schlüssel, Sie werden sie nicht erneut angezeigt bekommen!"
+"API Key generated successfully. Make sure to copy your new API keys now. You "
+"won't be able to see it again!"
+msgstr ""
+"API-Schlüssel erfolgreich erstellt. Sichern Sie sich jetzt eine Kopie Ihrer "
+"neuen API-Schlüssel, Sie werden sie nicht erneut angezeigt bekommen!"
 
 #: includes/class-wc-ajax.php:2427
 msgid "Revoke Key"
@@ -6259,10 +6354,12 @@ msgid "View and manage products"
 msgstr "Produkte anzeigen und verwalten"
 
 #: includes/class-wc-auth.php:164
+#, c-format
 msgid "Invalid scope %s"
 msgstr "Ungültiger Scope %s"
 
 #: includes/class-wc-auth.php:169
+#, c-format
 msgid "The %s is not a valid URL"
 msgstr "%s ist keine gültige URL"
 
@@ -6271,6 +6368,7 @@ msgid "The callback_url need to be over SSL"
 msgstr "Die callback_url muss SSL-geschützt sein"
 
 #: includes/class-wc-auth.php:192
+#, c-format
 msgid "%s - API %s (created on %s at %s)."
 msgstr "%s - API %s (erstellt am %s um %s)."
 
@@ -6278,7 +6376,9 @@ msgstr "%s - API %s (erstellt am %s um %s)."
 msgid ""
 "An error occurred in the request and at the time were unable to send the "
 "consumer data"
-msgstr "Im Request ist ein Fehler aufgetreten und die zu verarbeitenden Daten (consumer data) konnten nicht gesendet werden"
+msgstr ""
+"Im Request ist ein Fehler aufgetreten und die zu verarbeitenden Daten "
+"(consumer data) konnten nicht gesendet werden"
 
 #: includes/class-wc-auth.php:295
 msgid "API disabled!"
@@ -6293,6 +6393,7 @@ msgid "You do not have permissions to access this page!"
 msgstr "Sie haben nicht die Berechtigungen um auf diese Seite zuzugreifen."
 
 #: includes/class-wc-auth.php:353
+#, c-format
 msgid "Error: %s"
 msgstr "Fehler: %s"
 
@@ -6305,61 +6406,87 @@ msgid "Error 404"
 msgstr "Fehler 404"
 
 #: includes/class-wc-breadcrumb.php:211
+#, c-format
 msgid "Products tagged &ldquo;%s&rdquo;"
 msgstr "Produkte verschlagwortet mit „%s“"
 
 #: includes/class-wc-breadcrumb.php:262
+#, c-format
 msgid "Posts tagged &ldquo;%s&rdquo;"
 msgstr "Beiträge verschlagwortet mit „%s“"
 
 #: includes/class-wc-breadcrumb.php:304
+#, c-format
 msgid "Author: %s"
 msgstr "Autor: %s"
 
 #: includes/class-wc-breadcrumb.php:339
+#, c-format
 msgid "Search results for &ldquo;%s&rdquo;"
 msgstr "Suchergebnisse für „%s“"
 
 #: includes/class-wc-breadcrumb.php:348
+#, c-format
 msgid "Page %d"
 msgstr "Seite %d"
 
 #: includes/class-wc-cache-helper.php:190
+#, c-format
 msgid ""
 "In order for <strong>database caching</strong> to work with WooCommerce you "
-"must add <code>_wc_session_</code> to the \"Ignored Query Strings\" option "
-"in W3 Total Cache settings <a href=\"%s\">here</a>."
-msgstr "Um WooCommere mit <strong>Datenbank-Caching</strong> kompatibel zu machen, musst du <code>_wc_session_</code> zu den „Ignored Query Strings“-Optionen in den  <a href=\"%s\">W3 Total Cache Einstellungen</a> ändern."
+"must add <code>_wc_session_</code> to the \"Ignored Query Strings\" option in "
+"W3 Total Cache settings <a href=\"%s\">here</a>."
+msgstr ""
+"Um WooCommere mit <strong>Datenbank-Caching</strong> kompatibel zu machen, "
+"musst du <code>_wc_session_</code> zu den „Ignored Query Strings“-Optionen "
+"in den  <a href=\"%s\">W3 Total Cache Einstellungen</a> ändern."
 
 #: includes/class-wc-cart.php:237
+#, c-format
 msgid ""
 "%s has been removed from your cart because it can no longer be purchased. "
 "Please contact us if you need assistance."
-msgstr "%s wurde aus Ihrem Warenkorb entfernt, da es nicht mehr gekauft werden kann. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen."
+msgstr ""
+"%s wurde aus Ihrem Warenkorb entfernt, da es nicht mehr gekauft werden kann. "
+"Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen."
 
 #: includes/class-wc-cart.php:440
 msgid "An item which is no longer available was removed from your cart."
-msgstr "Ein Produkt, das nicht länger verfügbar ist, wurde aus Ihrem Warenkorb entfernt."
+msgstr ""
+"Ein Produkt, das nicht länger verfügbar ist, wurde aus Ihrem Warenkorb "
+"entfernt."
 
 #: includes/class-wc-cart.php:466
+#, c-format
 msgid ""
 "Sorry, \"%s\" is not in stock. Please edit your cart and try again. We "
 "apologise for any inconvenience caused."
-msgstr "Leider ist „%s“ nicht vorrätig. Bitte bearbeiten Sie Ihren Warenkorb und versuchen Sie es erneut. Wir bitten, die Unannehmlichkeiten zu entschuldigen."
+msgstr ""
+"Leider ist „%s“ nicht vorrätig. Bitte bearbeiten Sie Ihren Warenkorb und "
+"versuchen Sie es erneut. Wir bitten, die Unannehmlichkeiten zu entschuldigen."
 
 #: includes/class-wc-cart.php:480
+#, c-format
 msgid ""
 "Sorry, we do not have enough \"%s\" in stock to fulfill your order (%s in "
 "stock). Please edit your cart and try again. We apologise for any "
 "inconvenience caused."
-msgstr "Leider ist „%s“ nicht ausreichend vorrätig, um Ihre Bestellung auszuführen (%s vorrätig). Bitte bearbeiten Sie Ihren Warenkorb und versuchen Sie es erneut. Wir bitten, die Unannehmlichkeiten zu entschuldigen."
+msgstr ""
+"Leider ist „%s“ nicht ausreichend vorrätig, um Ihre Bestellung auszuführen "
+"(%s vorrätig). Bitte bearbeiten Sie Ihren Warenkorb und versuchen Sie es "
+"erneut. Wir bitten, die Unannehmlichkeiten zu entschuldigen."
 
 #: includes/class-wc-cart.php:515
+#, c-format
 msgid ""
-"Sorry, we do not have enough \"%s\" in stock to fulfill your order right "
-"now. Please try again in %d minutes or edit your cart and try again. We "
-"apologise for any inconvenience caused."
-msgstr "Leider ist „%s“ nicht ausreichend vorrätig, um Ihre Bestellung auszuführen. Bitte versuchen Sie es in %d Minuten erneut, oder bearbeiten Sie Ihren Warenkorb und versuchen Sie es dann erneut. Wir bitten, die Unannehmlichkeiten zu entschuldigen."
+"Sorry, we do not have enough \"%s\" in stock to fulfill your order right now. "
+"Please try again in %d minutes or edit your cart and try again. We apologise "
+"for any inconvenience caused."
+msgstr ""
+"Leider ist „%s“ nicht ausreichend vorrätig, um Ihre Bestellung auszuführen. "
+"Bitte versuchen Sie es in %d Minuten erneut, oder bearbeiten Sie Ihren "
+"Warenkorb und versuchen Sie es dann erneut. Wir bitten, die "
+"Unannehmlichkeiten zu entschuldigen."
 
 #: includes/class-wc-cart.php:681
 msgid "Get cart should not be called before the wp_loaded action."
@@ -6372,6 +6499,7 @@ msgid "View Cart"
 msgstr "Warenkorb ansehen"
 
 #: includes/class-wc-cart.php:888
+#, c-format
 msgid "You cannot add another &quot;%s&quot; to your cart."
 msgstr "Sie können kein weiteres Exemplar von „%s“ zu Ihrem Warenkorb hinzufügen."
 
@@ -6380,22 +6508,31 @@ msgid "Sorry, this product cannot be purchased."
 msgstr "Dieses Produkt kann leider nicht gekauft werden."
 
 #: includes/class-wc-cart.php:899
+#, c-format
 msgid ""
 "You cannot add &quot;%s&quot; to the cart because the product is out of "
 "stock."
-msgstr "Sie können „%s“ Ihrem Warenkorb nicht hinzufügen, weil das Produkt derzeit nicht vorrätig ist. "
+msgstr ""
+"Sie können „%s“ Ihrem Warenkorb nicht hinzufügen, weil das Produkt derzeit "
+"nicht vorrätig ist. "
 
 #: includes/class-wc-cart.php:903
+#, c-format
 msgid ""
 "You cannot add that amount of &quot;%s&quot; to the cart because there is "
 "not enough stock (%s remaining)."
-msgstr "Sie können die Menge von „%s“ nicht dem Warenkorb hinzufügen, weil diese nicht vorrätig ist (%s vorrätig)."
+msgstr ""
+"Sie können die Menge von „%s“ nicht dem Warenkorb hinzufügen, weil diese "
+"nicht vorrätig ist (%s vorrätig)."
 
 #: includes/class-wc-cart.php:924
+#, c-format
 msgid ""
 "You cannot add that amount to the cart &mdash; we have %s in stock and you "
 "already have %s in your cart."
-msgstr "Sie können diese Menge nicht Ihrem Warenkorb hinzufügen. Wir haben %s vorrätig und %s sind bereits im Warenkorb."
+msgstr ""
+"Sie können diese Menge nicht Ihrem Warenkorb hinzufügen. Wir haben %s "
+"vorrätig und %s sind bereits im Warenkorb."
 
 #: includes/class-wc-checkout.php:69 includes/class-wc-checkout.php:78
 #: includes/class-wc-emails.php:43 includes/class-wc-emails.php:52
@@ -6422,18 +6559,26 @@ msgstr "Anmerkungen zur Bestellung"
 #: includes/class-wc-checkout.php:233 includes/class-wc-checkout.php:245
 #: includes/class-wc-checkout.php:258 includes/class-wc-checkout.php:269
 #: includes/class-wc-checkout.php:276
+#, c-format
 msgid "Error %d: Unable to create order. Please try again."
-msgstr "Fehler %d: Bestellung konnte nicht erzeugt werden. Bitte versuchen Sie es erneut."
+msgstr ""
+"Fehler %d: Bestellung konnte nicht erzeugt werden. Bitte versuchen Sie es "
+"erneut."
 
 #: includes/class-wc-checkout.php:345
 msgid "We were unable to process your order, please try again."
-msgstr "Wir waren nicht in der Lage Ihre Bestellung zu verarbeiten, bitte versuchen Sie es erneut."
+msgstr ""
+"Wir waren nicht in der Lage Ihre Bestellung zu verarbeiten, bitte versuchen "
+"Sie es erneut."
 
 #: includes/class-wc-checkout.php:358
+#, c-format
 msgid ""
-"Sorry, your session has expired. <a href=\"%s\" class=\"wc-backward\">Return"
-" to homepage</a>"
-msgstr "Ihre Session ist abgelaufen. <a href=\"%s\" class=\"wc-backward\">Zurück zur Startseite</a>"
+"Sorry, your session has expired. <a href=\"%s\" class=\"wc-backward\">Return to "
+"homepage</a>"
+msgstr ""
+"Ihre Session ist abgelaufen. <a href=\"%s\" class=\"wc-backward\">Zurück zur "
+"Startseite</a>"
 
 #: includes/class-wc-checkout.php:438 includes/class-wc-form-handler.php:85
 msgid "is a required field."
@@ -6458,13 +6603,18 @@ msgstr "ist nicht gültig. Bitte nutzen Sie eine der folgenden Möglichkeiten:"
 
 #: includes/class-wc-checkout.php:540
 msgid "You must accept our Terms &amp; Conditions."
-msgstr "Die Zustimmung zu unseren Allgemeinen Geschäftsbedingungen (AGB) ist erforderlich."
+msgstr ""
+"Die Zustimmung zu unseren Allgemeinen Geschäftsbedingungen (AGB) ist "
+"erforderlich."
 
 #: includes/class-wc-checkout.php:546
+#, c-format
 msgid ""
 "Unfortunately <strong>we do not ship %s</strong>. Please enter an "
 "alternative shipping address."
-msgstr "Leider versenden wir <strong>nicht nach %s</strong>. Bitte geben Sie eine andere Lieferadresse an."
+msgstr ""
+"Leider versenden wir <strong>nicht nach %s</strong>. Bitte geben Sie eine "
+"andere Lieferadresse an."
 
 #: includes/class-wc-checkout.php:555
 msgid "Invalid shipping method."
@@ -6621,30 +6771,40 @@ msgid "Coupon is not valid."
 msgstr "Gutschein ist nicht gültig."
 
 #: includes/class-wc-coupon.php:711
+#, c-format
 msgid "Coupon \"%s\" does not exist!"
 msgstr "Der Gutschein „%s“ existiert nicht!"
 
 #: includes/class-wc-coupon.php:714
+#, c-format
 msgid ""
 "Sorry, it seems the coupon \"%s\" is invalid - it has now been removed from "
 "your order."
-msgstr "Leider scheint der Gutschein „%s“ ungültig zu sein – er wurde jetzt aus Ihrer Bestellung entfernt."
+msgstr ""
+"Leider scheint der Gutschein „%s“ ungültig zu sein – er wurde jetzt aus "
+"Ihrer Bestellung entfernt."
 
 #: includes/class-wc-coupon.php:717
+#, c-format
 msgid ""
-"Sorry, it seems the coupon \"%s\" is not yours - it has now been removed "
-"from your order."
-msgstr "Leider scheint der Gutschein „%s“ nicht zu Ihnen zu gehören – er wurde von Ihrer Bestellung entfernt."
+"Sorry, it seems the coupon \"%s\" is not yours - it has now been removed from "
+"your order."
+msgstr ""
+"Leider scheint der Gutschein „%s“ nicht zu Ihnen zu gehören – er wurde von "
+"Ihrer Bestellung entfernt."
 
 #: includes/class-wc-coupon.php:720
 msgid "Coupon code already applied!"
 msgstr "Gutschein-Code bereits angewendet!"
 
 #: includes/class-wc-coupon.php:723
+#, c-format
 msgid ""
 "Sorry, coupon \"%s\" has already been applied and cannot be used in "
 "conjunction with other coupons."
-msgstr "Leider wurde der Gutschein „%s bereits angewendet und kann nicht in Verbindung mit anderen Gutscheinen genutzt werden."
+msgstr ""
+"Leider wurde der Gutschein „%s bereits angewendet und kann nicht in "
+"Verbindung mit anderen Gutscheinen genutzt werden."
 
 #: includes/class-wc-coupon.php:726
 msgid "Coupon usage limit has been reached."
@@ -6655,10 +6815,12 @@ msgid "This coupon has expired."
 msgstr "Dieser Gutschein ist abgelaufen."
 
 #: includes/class-wc-coupon.php:732
+#, c-format
 msgid "The minimum spend for this coupon is %s."
 msgstr "Der Mindestbetrag für diesen Gutschein ist %s."
 
 #: includes/class-wc-coupon.php:735
+#, c-format
 msgid "The maximum spend for this coupon is %s."
 msgstr "Der Maximalbetrag für diesen Gutschein beträgt %s."
 
@@ -6667,10 +6829,12 @@ msgid "Sorry, this coupon is not applicable to your cart contents."
 msgstr "Leider ist dieser Gutschein nicht auf den Inhalt Ihres Warenkorbs anwendbar."
 
 #: includes/class-wc-coupon.php:751
+#, c-format
 msgid "Sorry, this coupon is not applicable to the products: %s."
 msgstr "Leider ist dieser Gutschein nicht für diese Produkte anwendbar: %s."
 
 #: includes/class-wc-coupon.php:771
+#, c-format
 msgid "Sorry, this coupon is not applicable to the categories: %s."
 msgstr "Leider ist dieser Gutschein nicht für diese Kategorien anwendbar: %s."
 
@@ -6761,10 +6925,12 @@ msgid "Product low in stock"
 msgstr "Produkt bald nicht mehr vorrätig"
 
 #: includes/class-wc-emails.php:394
+#, c-format
 msgid "%s is low in stock."
 msgstr "%s hat einen niedrigen Lagerbestand."
 
 #: includes/class-wc-emails.php:394
+#, c-format
 msgid "There are %d left"
 msgstr "Noch %d verfügbar"
 
@@ -6773,6 +6939,7 @@ msgid "Product out of stock"
 msgstr "Produkt nicht vorrätig."
 
 #: includes/class-wc-emails.php:412
+#, c-format
 msgid "%s is out of stock."
 msgstr "%s ist ausverkauft."
 
@@ -6781,6 +6948,7 @@ msgid "Product Backorder"
 msgstr "Produkt im Lieferrückstand"
 
 #: includes/class-wc-emails.php:442
+#, c-format
 msgid "%s units of %s have been backordered in order #%s."
 msgstr "%s Stück von %s sind im Lieferrückstand für die Bestellung mit der Nummer %s."
 
@@ -6829,6 +6997,7 @@ msgid "Payment method added."
 msgstr "Zahlungsart hinzugefügt."
 
 #: includes/class-wc-form-handler.php:389
+#, c-format
 msgid "%s removed. %sUndo?%s"
 msgstr "%s entfernt. %sRückgängig machen?%s"
 
@@ -6838,6 +7007,7 @@ msgid "Item"
 msgstr "Artikel"
 
 #: includes/class-wc-form-handler.php:435
+#, c-format
 msgid "You can only have 1 %s in your cart."
 msgstr "Sie dürfen nur 1 %s in Ihrem Warenkorb haben."
 
@@ -6861,11 +7031,12 @@ msgstr "Ihre Bestellung wurde storniert."
 msgid ""
 "Your order can no longer be cancelled. Please contact us if you need "
 "assistance."
-msgstr "Ihre Bestellung kann nicht mehr storniert werden. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen."
+msgstr ""
+"Ihre Bestellung kann nicht mehr storniert werden. Bitte kontaktieren Sie uns,"
+" wenn Sie Hilfe benötigen."
 
 #: includes/class-wc-form-handler.php:666
-msgid ""
-"Please choose the quantity of items you wish to add to your cart&hellip;"
+msgid "Please choose the quantity of items you wish to add to your cart&hellip;"
 msgstr "Bitte wählen Sie die Anzahl, die Sie Ihrem Warenkorb hinzufügen möchten…"
 
 #: includes/class-wc-form-handler.php:674
@@ -6873,6 +7044,7 @@ msgid "Please choose a product to add to your cart&hellip;"
 msgstr "Bitte wählen Sie ein Produkt, um es Ihrem Warenkorb hinzuzufügen…"
 
 #: includes/class-wc-form-handler.php:727
+#, c-format
 msgid "%s is a required field"
 msgid_plural "%s are required fields"
 msgstr[0] "%s ist ein Pflichtfeld"
@@ -6903,6 +7075,7 @@ msgid "A user could not be found with this email address."
 msgstr "Kein Benutzer mit dieser E-Mail-Adresse gefunden."
 
 #: includes/class-wc-form-handler.php:799
+#, c-format
 msgid "You are now logged in as <strong>%s</strong>"
 msgstr "Sie sind nun als <strong>%s</strong> angemeldet."
 
@@ -6935,12 +7108,15 @@ msgstr "erforderlich"
 msgid ""
 "Sorry, no products matched your selection. Please choose a different "
 "combination."
-msgstr "Leider entsprechen keine Produkte Ihrer Auswahl. Bitte wählen Sie eine andere Kombination."
+msgstr ""
+"Leider entsprechen keine Produkte Ihrer Auswahl. Bitte wählen Sie eine "
+"andere Kombination."
 
 #: includes/class-wc-frontend-scripts.php:266
-msgid ""
-"Sorry, this product is unavailable. Please choose a different combination."
-msgstr "Dieses Produkt ist leider nicht verfügbar. Bitte wählen Sie eine andere Kombination."
+msgid "Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+"Dieses Produkt ist leider nicht verfügbar. Bitte wählen Sie eine andere "
+"Kombination."
 
 #: includes/class-wc-frontend-scripts.php:272
 msgid "Select an option&hellip;"
@@ -6993,10 +7169,14 @@ msgid "Seems you don't have permission to do this!"
 msgstr "Sieht so aus als hättest du keine Berechtigung um dies zu tun!"
 
 #: includes/class-wc-language-pack-upgrader.php:257
+#, c-format
 msgid ""
 "An authentication error occurred while updating the translation. Please try "
 "again or configure your %sUpgrade Constants%s."
-msgstr "Ein Authentifizierungsfehler ist aufgetreten, während die Übersetzung aktualisiert werden sollte. Bitte versuchen Sie es erneut oder konfigurieren Sie Ihre %sUpgrade Constants%s."
+msgstr ""
+"Ein Authentifizierungsfehler ist aufgetreten, während die Übersetzung "
+"aktualisiert werden sollte. Bitte versuchen Sie es erneut oder konfigurieren "
+"Sie Ihre %sUpgrade Constants%s."
 
 #: includes/class-wc-language-pack-upgrader.php:260
 msgid "Sorry but there is no translation available for your language =/"
@@ -7007,6 +7187,7 @@ msgid "Translations installed/updated successfully!"
 msgstr "Übersetzungen wurden erfolgreich installiert/aktualisiert!"
 
 #: includes/class-wc-order.php:40 includes/wc-cart-functions.php:246
+#, c-format
 msgid "(Includes %s)"
 msgstr "(Enthält %s)"
 
@@ -7145,34 +7326,42 @@ msgid "New Shipping Class Name"
 msgstr "Neuer Versandklassenname"
 
 #: includes/class-wc-post-types.php:178
+#, c-format
 msgid "Search %s"
 msgstr "%s suchen"
 
 #: includes/class-wc-post-types.php:179
+#, c-format
 msgid "All %s"
 msgstr "Alle %"
 
 #: includes/class-wc-post-types.php:180
+#, c-format
 msgid "Parent %s"
 msgstr "Übergeordnetes %s"
 
 #: includes/class-wc-post-types.php:181
+#, c-format
 msgid "Parent %s:"
 msgstr "Übergeordnetes %s:"
 
 #: includes/class-wc-post-types.php:182
+#, c-format
 msgid "Edit %s"
 msgstr "%s bearbeiten"
 
 #: includes/class-wc-post-types.php:183
+#, c-format
 msgid "Update %s"
 msgstr "%s aktualisieren"
 
 #: includes/class-wc-post-types.php:184
+#, c-format
 msgid "Add New %s"
 msgstr "%s neu hinzufügen"
 
 #: includes/class-wc-post-types.php:185
+#, c-format
 msgid "New %s"
 msgstr "Neu %s"
 
@@ -7364,9 +7553,10 @@ msgid "Parent Coupon"
 msgstr "Übergeordneter Gutschein"
 
 #: includes/class-wc-post-types.php:360
-msgid ""
-"This is where you can add new coupons that customers can use in your store."
-msgstr "Hier können Sie neue Gutscheine hinzufügen, die Ihre Kunden in Ihrem Shop verwenden können."
+msgid "This is where you can add new coupons that customers can use in your store."
+msgstr ""
+"Hier können Sie neue Gutscheine hinzufügen, die Ihre Kunden in Ihrem Shop "
+"verwenden können."
 
 #: includes/class-wc-post-types.php:383
 msgid "Webhooks"
@@ -7417,42 +7607,49 @@ msgid "Parent Webhook"
 msgstr "Übergeordneter Webhook"
 
 #: includes/class-wc-post-types.php:426
+#, c-format
 msgid "Pending Payment <span class=\"count\">(%s)</span>"
 msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
 msgstr[0] "Zahlung ausstehend <span class=\"count\">(%s)</span>"
 msgstr[1] "Zahlung ausstehend <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:434
+#, c-format
 msgid "Processing <span class=\"count\">(%s)</span>"
 msgid_plural "Processing <span class=\"count\">(%s)</span>"
 msgstr[0] "In Bearbeitung <span class=\"count\">(%s)</span>"
 msgstr[1] "In Bearbeitung <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:442
+#, c-format
 msgid "On Hold <span class=\"count\">(%s)</span>"
 msgid_plural "On Hold <span class=\"count\">(%s)</span>"
 msgstr[0] "Wartend <span class=\"count\">(%s)</span>"
 msgstr[1] "Wartend <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:450
+#, c-format
 msgid "Completed <span class=\"count\">(%s)</span>"
 msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] "Abgeschlossen <span class=\"count\">(%s)</span>"
 msgstr[1] "Fertiggestellt <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:458
+#, c-format
 msgid "Cancelled <span class=\"count\">(%s)</span>"
 msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
 msgstr[0] "Storniert <span class=\"count\">(%s)</span>"
 msgstr[1] "Storniert <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:466
+#, c-format
 msgid "Refunded <span class=\"count\">(%s)</span>"
 msgid_plural "Refunded <span class=\"count\">(%s)</span>"
 msgstr[0] "Rückerstattet <span class=\"count\">(%s)</span>"
 msgstr[1] "Rückerstattet <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:474
+#, c-format
 msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] "Fehlgeschlagen <span class=\"count\">(%s)</span>"
@@ -7475,9 +7672,12 @@ msgstr "Ausführung wählen"
 msgid ""
 "This variable product has no active variations so cannot be published. "
 "Changing status to draft."
-msgstr "Dieses variable Produkt hat keine aktiven Varianten und wird nicht veröffentlicht. Status wird in Entwurf geändert."
+msgstr ""
+"Dieses variable Produkt hat keine aktiven Varianten und wird nicht "
+"veröffentlicht. Status wird in Entwurf geändert."
 
 #: includes/class-wc-product-variation.php:658
+#, c-format
 msgid "%s &ndash; %s%s"
 msgstr "%s &ndash; %s%s"
 
@@ -7497,6 +7697,7 @@ msgstr "Bestellung erhalten"
 #: templates/emails/customer-note.php:26
 #: templates/emails/customer-processing-order.php:22
 #: templates/emails/customer-refunded-order.php:29
+#, c-format
 msgid "Order #%s"
 msgstr "Bestellnummer %s"
 
@@ -7526,7 +7727,10 @@ msgstr "Stornierte Bestellung"
 msgid ""
 "Cancelled order emails are sent to the recipient list when orders have been "
 "marked cancelled (if they were previously processing or on-hold)."
-msgstr "E-Mails für stornierte Bestellungen werden an die Empfängerliste gesendet, wenn Bestellungen als „storniert“ markiert wurden (sofern sie zuvor „In Bearbeitung“ oder „Wartend“ waren)"
+msgstr ""
+"E-Mails für stornierte Bestellungen werden an die Empfängerliste gesendet, "
+"wenn Bestellungen als „storniert“ markiert wurden (sofern sie zuvor „In "
+"Bearbeitung“ oder „Wartend“ waren)"
 
 #: includes/emails/class-wc-email-cancelled-order.php:32
 msgid "[{site_title}] Cancelled order ({order_number})"
@@ -7561,10 +7765,13 @@ msgstr "Empfänger"
 
 #: includes/emails/class-wc-email-cancelled-order.php:118
 #: includes/emails/class-wc-email-new-order.php:125
+#, c-format
 msgid ""
 "Enter recipients (comma separated) for this email. Defaults to "
 "<code>%s</code>."
-msgstr "Geben Sie (kommasepariert) die Empfänger für die E-Mail ein. Standard: <code>%s</code>."
+msgstr ""
+"Geben Sie (kommasepariert) die Empfänger für die E-Mail ein. Standard: "
+"<code>%s</code>."
 
 #: includes/emails/class-wc-email-cancelled-order.php:123
 #: includes/emails/class-wc-email-customer-completed-order.php:144
@@ -7574,10 +7781,13 @@ msgstr "Betreff"
 
 #: includes/emails/class-wc-email-cancelled-order.php:125
 #: includes/emails/class-wc-email-new-order.php:132
+#, c-format
 msgid ""
-"This controls the email subject line. Leave blank to use the default "
-"subject: <code>%s</code>."
-msgstr "Hiermit legen Sie die E-Mail-Betreffzeile fest. Leer lassen für den Standardbetreff: <code>%s</code>."
+"This controls the email subject line. Leave blank to use the default subject:"
+" <code>%s</code>."
+msgstr ""
+"Hiermit legen Sie die E-Mail-Betreffzeile fest. Leer lassen für den "
+"Standardbetreff: <code>%s</code>."
 
 #: includes/emails/class-wc-email-cancelled-order.php:130
 #: includes/emails/class-wc-email-customer-completed-order.php:151
@@ -7589,10 +7799,13 @@ msgstr "E-Mail-Kopfzeile"
 
 #: includes/emails/class-wc-email-cancelled-order.php:132
 #: includes/emails/class-wc-email-new-order.php:139
+#, c-format
 msgid ""
 "This controls the main heading contained within the email notification. "
 "Leave blank to use the default heading: <code>%s</code>."
-msgstr "Hiermit legen Sie die Hauptkopfzeile innerhalb der E-Mail-Benachrichtigung fest. Leer lassen für die Standardkopfzeile: <code>%s</code>."
+msgstr ""
+"Hiermit legen Sie die Hauptkopfzeile innerhalb der E-Mail-Benachrichtigung "
+"fest. Leer lassen für die Standardkopfzeile: <code>%s</code>."
 
 #: includes/emails/class-wc-email-cancelled-order.php:137
 #: includes/emails/class-wc-email-customer-completed-order.php:172
@@ -7619,7 +7832,10 @@ msgstr "Bestellung fertiggestellt"
 msgid ""
 "Order complete emails are sent to customers when their orders are marked "
 "completed and usually indicate that their orders have been shipped."
-msgstr "E-Mails für abgeschlossene Bestellungen werden an den Kunden gesendet, wenn Bestellungen als „abgeschlossen“ markiert wurden. Diese E-Mails weisen den Kunden für gewöhnlich darauf hin, dass die Bestellung versandt wurde."
+msgstr ""
+"E-Mails für abgeschlossene Bestellungen werden an den Kunden gesendet, wenn "
+"Bestellungen als „abgeschlossen“ markiert wurden. Diese E-Mails weisen den "
+"Kunden für gewöhnlich darauf hin, dass die Bestellung versandt wurde."
 
 #: includes/emails/class-wc-email-customer-completed-order.php:31
 msgid "Your order is complete"
@@ -7634,9 +7850,10 @@ msgid "Your order is complete - download your files"
 msgstr "Ihre Bestellung wurde fertiggestellt – laden Sie Ihre Dateien herunter"
 
 #: includes/emails/class-wc-email-customer-completed-order.php:42
-msgid ""
-"Your {site_title} order from {order_date} is complete - download your files"
-msgstr "Ihre Bestellung bei {site_title} vom {order_date} wurde fertiggestellt – laden Sie Ihre Dateien herunter"
+msgid "Your {site_title} order from {order_date} is complete - download your files"
+msgstr ""
+"Ihre Bestellung bei {site_title} vom {order_date} wurde fertiggestellt – "
+"laden Sie Ihre Dateien herunter"
 
 #: includes/emails/class-wc-email-customer-completed-order.php:146
 #: includes/emails/class-wc-email-customer-completed-order.php:153
@@ -7652,6 +7869,7 @@ msgstr "Ihre Bestellung bei {site_title} vom {order_date} wurde fertiggestellt �
 #: includes/emails/class-wc-email-customer-refunded-order.php:203
 #: includes/emails/class-wc-email.php:483
 #: includes/emails/class-wc-email.php:490
+#, c-format
 msgid "Defaults to <code>%s</code>"
 msgstr "Standard: <code>%s</code>"
 
@@ -7671,7 +7889,10 @@ msgstr "Kundenrechnung"
 msgid ""
 "Customer invoice emails can be sent to customers containing their order "
 "information and payment links."
-msgstr "E-Mails mit Kundenrechnungen können an den Kunden gesendet werden und beinhalten Informationen zur Bestellung und Links, wie die Bestellung bezahlt werden kann."
+msgstr ""
+"E-Mails mit Kundenrechnungen können an den Kunden gesendet werden und "
+"beinhalten Informationen zur Bestellung und Links, wie die Bestellung "
+"bezahlt werden kann."
 
 #: includes/emails/class-wc-email-customer-invoice.php:37
 msgid "Invoice for order {order_number} from {order_date}"
@@ -7712,9 +7933,12 @@ msgstr "Neues Konto"
 
 #: includes/emails/class-wc-email-customer-new-account.php:34
 msgid ""
-"Customer \"new account\" emails are sent to the customer when a customer "
-"signs up via checkout or account pages."
-msgstr "E-Mails bezüglich neuer Kundenkonten werden an den Kunden gesendet, wenn dieser sich während des Bestellvorgangs oder über die Kundenseiten registriert."
+"Customer \"new account\" emails are sent to the customer when a customer signs "
+"up via checkout or account pages."
+msgstr ""
+"E-Mails bezüglich neuer Kundenkonten werden an den Kunden gesendet, wenn "
+"dieser sich während des Bestellvorgangs oder über die Kundenseiten "
+"registriert."
 
 #: includes/emails/class-wc-email-customer-new-account.php:39
 msgid "Your account on {site_title}"
@@ -7730,7 +7954,9 @@ msgstr "Anmerkung des Kunden"
 
 #: includes/emails/class-wc-email-customer-note.php:31
 msgid "Customer note emails are sent when you add a note to an order."
-msgstr "E-Mails bezüglich Kundenanmerkungen werden gesendet, wenn Sie einer Bestellung eine Anmerkung hinzufügen."
+msgstr ""
+"E-Mails bezüglich Kundenanmerkungen werden gesendet, wenn Sie einer "
+"Bestellung eine Anmerkung hinzufügen."
 
 #: includes/emails/class-wc-email-customer-note.php:36
 msgid "Note added to your {site_title} order from {order_date}"
@@ -7748,7 +7974,9 @@ msgstr "Bestellung in Bearbeitung"
 msgid ""
 "This is an order notification sent to customers containing their order "
 "details after payment."
-msgstr "Dies ist eine Bestellmitteilung, die an Kunden gesendet wird und Details zur Bestellung nach der Zahlung enthält."
+msgstr ""
+"Dies ist eine Bestellmitteilung, die an Kunden gesendet wird und Details zur "
+"Bestellung nach der Zahlung enthält."
 
 #: includes/emails/class-wc-email-customer-processing-order.php:31
 msgid "Thank you for your order"
@@ -7760,7 +7988,9 @@ msgstr "Bestätigung Ihrer Bestellung bei {site_title} vom {order_date}"
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:40
 msgid "Your {site_title} order from {order_date} has been partially refunded"
-msgstr "Ihre Bestellung bei {site_title} vom {order_date} wurde teilweise rückerstattet"
+msgstr ""
+"Ihre Bestellung bei {site_title} vom {order_date} wurde teilweise "
+"rückerstattet"
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:41
 msgid "Your {site_title} order from {order_date} has been refunded"
@@ -7782,7 +8012,9 @@ msgstr "Teilweise rückerstattete Bestellung"
 msgid ""
 "Order partially refunded emails are sent to customers when their orders are "
 "partially refunded."
-msgstr "E-Mails für teilweise rückerstattete Bestellungen werden an Kunden versendet, wenn deren Bestellungen teilweise rückerstattet wurden."
+msgstr ""
+"E-Mails für teilweise rückerstattete Bestellungen werden an Kunden versendet,"
+" wenn deren Bestellungen teilweise rückerstattet wurden."
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:57
 msgid "Refunded order"
@@ -7792,7 +8024,9 @@ msgstr "Rückerstattete Bestellung"
 msgid ""
 "Order refunded emails are sent to customers when their orders are marked "
 "refunded."
-msgstr "E-Mails für rückerstattete Bestellungen werden an Kunden versendet, wenn deren Bestellungen als „rückerstattet“ markiert werden."
+msgstr ""
+"E-Mails für rückerstattete Bestellungen werden an Kunden versendet, wenn "
+"deren Bestellungen als „rückerstattet“ markiert werden."
 
 #: includes/emails/class-wc-email-customer-refunded-order.php:180
 msgid "Full Refund Subject"
@@ -7818,7 +8052,9 @@ msgstr "Passwort zurücksetzen"
 msgid ""
 "Customer \"reset password\" emails are sent when customers reset their "
 "passwords."
-msgstr "„Passwort zurücksetzen“-Mails werden an Kunden gesendet, wenn diese ihr Passwort zurücksetzen."
+msgstr ""
+"„Passwort zurücksetzen“-Mails werden an Kunden gesendet, wenn diese ihr "
+"Passwort zurücksetzen."
 
 #: includes/emails/class-wc-email-customer-reset-password.php:43
 msgid "Password Reset for {site_title}"
@@ -7833,9 +8069,10 @@ msgid "New order"
 msgstr "Neue Bestellung"
 
 #: includes/emails/class-wc-email-new-order.php:29
-msgid ""
-"New order emails are sent to the recipient list when an order is received."
-msgstr "E-Mails für neue Bestellungen werden an die Empfängerliste gesendet, wenn eine neue Bestellung empfangen wurde."
+msgid "New order emails are sent to the recipient list when an order is received."
+msgstr ""
+"E-Mails für neue Bestellungen werden an die Empfängerliste gesendet, wenn "
+"eine neue Bestellung empfangen wurde."
 
 #: includes/emails/class-wc-email-new-order.php:31
 msgid "New customer order"
@@ -7871,7 +8108,9 @@ msgstr "Template-Datei aus dem Theme gelöscht"
 
 #: includes/emails/class-wc-email.php:681
 msgid "Action failed. Please refresh the page and retry."
-msgstr "Aktion fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+msgstr ""
+"Aktion fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es "
+"erneut."
 
 #: includes/emails/class-wc-email.php:741
 msgid "HTML template"
@@ -7886,20 +8125,26 @@ msgid "Delete template file"
 msgstr "Template-Datei löschen"
 
 #: includes/emails/class-wc-email.php:770
+#, c-format
 msgid ""
 "This template has been overridden by your theme and can be found in: "
 "<code>%s</code>."
-msgstr "Dieses Template wurde vom Theme überschrieben und ist zu finden in:  <code>%s</code>."
+msgstr ""
+"Dieses Template wurde vom Theme überschrieben und ist zu finden in:  "
+"<code>%s</code>."
 
 #: includes/emails/class-wc-email.php:783
 msgid "Copy file to theme"
 msgstr "Datei zum Theme kopieren"
 
 #: includes/emails/class-wc-email.php:786
+#, c-format
 msgid ""
 "To override and edit this email template copy <code>%s</code> to your theme "
 "folder: <code>%s</code>."
-msgstr "Um das E-Mail-Template zu überschreiben und zu bearbeiten, <code>%s</code> in den Theme Ordner <code>%s</code> kopieren. "
+msgstr ""
+"Um das E-Mail-Template zu überschreiben und zu bearbeiten, <code>%s</code> "
+"in den Theme Ordner <code>%s</code> kopieren. "
 
 #: includes/emails/class-wc-email.php:795
 msgid "File was not found."
@@ -7922,8 +8167,7 @@ msgid "BACS"
 msgstr "Überweisung"
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:32
-msgid ""
-"Allows payments by BACS, more commonly known as direct bank/wire transfer."
+msgid "Allows payments by BACS, more commonly known as direct bank/wire transfer."
 msgstr "Erlaubt Zahlungen per Banküberweisung."
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:76
@@ -7978,8 +8222,7 @@ msgstr "Beschreibung"
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:89
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:69
 #: includes/gateways/cod/class-wc-gateway-cod.php:70
-msgid ""
-"Payment method description that the customer will see on your checkout."
+msgid "Payment method description that the customer will see on your checkout."
 msgstr "Beschreibung der Zahlungsart, die Kunden auf Ihrer Website sehen."
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:90
@@ -7987,7 +8230,10 @@ msgid ""
 "Make your payment directly into our bank account. Please use your Order ID "
 "as the payment reference. Your order won't be shipped until the funds have "
 "cleared in our account."
-msgstr "Überweisen Sie direkt an unsere Bankverbindung. Bitte nutzen Sie die Bestellnummer als Verwendungszweck. Ihre Bestellung wird erst nach Geldeingang auf unserem Konto versandt."
+msgstr ""
+"Überweisen Sie direkt an unsere Bankverbindung. Bitte nutzen Sie die "
+"Bestellnummer als Verwendungszweck. Ihre Bestellung wird erst nach "
+"Geldeingang auf unserem Konto versandt."
 
 #: includes/gateways/bacs/class-wc-gateway-bacs.php:94
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:74
@@ -8086,10 +8332,13 @@ msgstr "Scheck"
 
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:28
 msgid ""
-"Allows cheque payments. Why would you take cheques in this day and age? Well"
-" you probably wouldn't but it does allow you to make test purchases for "
+"Allows cheque payments. Why would you take cheques in this day and age? Well "
+"you probably wouldn't but it does allow you to make test purchases for "
 "testing order emails and the 'success' pages etc."
-msgstr "Bezahlung per Scheck erlauben. Warum würde man heutzutage Schecks annehmen? Man würde wohl nicht, aber auf diese Weise können Sie Testkäufe tätigen, um Bestell-E-Mails und die „Danke“-Seite zu testen."
+msgstr ""
+"Bezahlung per Scheck erlauben. Warum würde man heutzutage Schecks annehmen? "
+"Man würde wohl nicht, aber auf diese Weise können Sie Testkäufe tätigen, um "
+"Bestell-E-Mails und die „Danke“-Seite zu testen."
 
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:56
 msgid "Enable Cheque Payment"
@@ -8101,9 +8350,11 @@ msgstr "Bezahlung per Scheck"
 
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:70
 msgid ""
-"Please send your cheque to Store Name, Store Street, Store Town, Store State"
-" / County, Store Postcode."
-msgstr "Bitte senden Sie Ihren Scheck an Shop-Name, Shop-Straße, Shop-PLZ, Shop-Ort, Shop-Land."
+"Please send your cheque to Store Name, Store Street, Store Town, Store State "
+"/ County, Store Postcode."
+msgstr ""
+"Bitte senden Sie Ihren Scheck an Shop-Name, Shop-Straße, Shop-PLZ, Shop-Ort, "
+"Shop-Land."
 
 #: includes/gateways/cheque/class-wc-gateway-cheque.php:116
 msgid "Awaiting cheque payment"
@@ -8116,7 +8367,9 @@ msgstr "Per Nachnahme"
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:27
 msgid "Have your customers pay with cash (or by other means) upon delivery."
-msgstr "Wollen Ihre Kunden per Nachnahme bei der Auslieferung zahlen (bar oder über andere Zahlungsarten)?"
+msgstr ""
+"Wollen Ihre Kunden per Nachnahme bei der Auslieferung zahlen (bar oder über "
+"andere Zahlungsarten)?"
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:61
 msgid "Enable COD"
@@ -8145,9 +8398,12 @@ msgstr "Für Versandarten verfügbar machen"
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:94
 msgid ""
-"If COD is only available for certain methods, set it up here. Leave blank to"
-" enable for all methods."
-msgstr "Falls die Zahlung per Nachnahme nur für bestimmte Versandarten möglich ist, bitte hier erfassen. Leer lassen, um sie für alle Versandarten verfügbar zu machen."
+"If COD is only available for certain methods, set it up here. Leave blank to "
+"enable for all methods."
+msgstr ""
+"Falls die Zahlung per Nachnahme nur für bestimmte Versandarten möglich ist, "
+"bitte hier erfassen. Leer lassen, um sie für alle Versandarten verfügbar zu "
+"machen."
 
 #: includes/gateways/cod/class-wc-gateway-cod.php:98
 msgid "Select shipping methods"
@@ -8175,11 +8431,16 @@ msgid "PayPal"
 msgstr "PayPal"
 
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:34
+#, c-format
 msgid ""
-"PayPal standard sends customers to PayPal to enter their payment "
-"information. PayPal IPN requires fsockopen/cURL support to update order "
-"statuses after payment. Check the %ssystem status%s page for more details."
-msgstr "PayPal Standard leitet Kunden zur PayPal-Seite weiter, wo diese ihre Zahlungsinformationen eingeben. PayPal IPN benötigt Unterstützung für fsockopen/cURLum Bestellstatus nach Zahlungseingang aktualisieren zu können. Überprüfen Sie die Seite %sSystemstatus%s für weitere Details."
+"PayPal standard sends customers to PayPal to enter their payment information."
+" PayPal IPN requires fsockopen/cURL support to update order statuses after "
+"payment. Check the %ssystem status%s page for more details."
+msgstr ""
+"PayPal Standard leitet Kunden zur PayPal-Seite weiter, wo diese ihre "
+"Zahlungsinformationen eingeben. PayPal IPN benötigt Unterstützung für "
+"fsockopen/cURLum Bestellstatus nach Zahlungseingang aktualisieren zu können. "
+"Überprüfen Sie die Seite %sSystemstatus%s für weitere Details."
 
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:93
 msgid "PayPal Acceptance Mark"
@@ -8198,64 +8459,82 @@ msgid "PayPal does not support your store currency."
 msgstr "PayPal bietet keine Unterstützung für Ihre Währung an."
 
 #: includes/gateways/paypal/class-wc-gateway-paypal.php:290
+#, c-format
 msgid "Refunded %s - Refund ID: %s"
 msgstr "Rückerstattet %s – Rückerstattungs-ID: %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:130
+#, c-format
 msgid "Validation error: PayPal currencies do not match (code %s)."
 msgstr "Validierungsfehler: Paypal-Währungen stimmen nicht überein. (Code %s)."
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:144
+#, c-format
 msgid "Validation error: PayPal amounts do not match (gross %s)."
 msgstr "Validierungsfehler: Paypal-Beträge stimmen nicht überein. (Brutto %s)."
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:158
-msgid ""
-"Validation error: PayPal IPN response from a different email address (%s)."
-msgstr "Validierungsfehler: PayPal-IPN-Antwort von einer unterschiedlichen E-Mail-Adresse (%s)."
+#, c-format
+msgid "Validation error: PayPal IPN response from a different email address (%s)."
+msgstr ""
+"Validierungsfehler: PayPal-IPN-Antwort von einer unterschiedlichen E-Mail-"
+"Adresse (%s)."
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:181
 msgid "IPN payment completed"
 msgstr "IPN-Zahlung abgeschlossen"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:189
+#, c-format
 msgid "Payment pending: %s"
 msgstr "Zahlung ausstehend: %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:206
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:242
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:256
+#, c-format
 msgid "Payment %s via IPN."
 msgstr "Zahlung %s über IPN."
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:245
+#, c-format
 msgid "Payment for order #%s refunded/reversed"
 msgstr "Bezahlung für die Bestellung %s zurückerstattet/storniert"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:246
+#, c-format
 msgid "Order #%s has been marked as refunded - PayPal reason code: %s"
 msgstr "Bestellung %s wurde als „rückerstattet“ markiert – PayPal reason code: %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:259
+#, c-format
 msgid "Payment for order #%s reversed"
 msgstr "Zahlung für Bestellung %s storniert"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:260
-msgid ""
-"Order #%s has been marked on-hold due to a reversal - PayPal reason code: %s"
-msgstr "Bestellung %s wurde aufgrund einer Stornierung als „wartend“ markiert – PayPal reason code: %s"
+#, c-format
+msgid "Order #%s has been marked on-hold due to a reversal - PayPal reason code: %s"
+msgstr ""
+"Bestellung %s wurde aufgrund einer Stornierung als „wartend“ markiert – "
+"PayPal reason code: %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:270
+#, c-format
 msgid "Reversal cancelled for order #%s"
 msgstr "Stornierung abgebrochen für Bestellung %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:271
+#, c-format
 msgid ""
 "Order #%s has had a reversal cancelled. Please check the status of payment "
 "and update the order status accordingly here: %s"
-msgstr "Für die Bestellung %s wurde eine Stornierung abgebrochen. Bitte überprüfen Sie den Zahlungsstatus und aktualisieren Sie den Bestellstatus entsprechend unter: %s"
+msgstr ""
+"Für die Bestellung %s wurde eine Stornierung abgebrochen. Bitte überprüfen "
+"Sie den Zahlungsstatus und aktualisieren Sie den Bestellstatus entsprechend "
+"unter: %s"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-pdt-handler.php:74
+#, c-format
 msgid "Validation error: PayPal amounts do not match (amt %s)."
 msgstr "Validierungsfehler: PayPal-Beträge stimmen nicht überein (amt %s)."
 
@@ -8265,6 +8544,7 @@ msgstr "PDT-Zahlung abgeschlossen"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:182
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-request.php:265
+#, c-format
 msgid "Shipping via %s"
 msgstr "Versand via %s"
 
@@ -8279,9 +8559,11 @@ msgstr "Beschreibungstext, den Benutzer bei der Auswahl dieser Zahlungsart sehen
 
 #: includes/gateways/paypal/includes/settings-paypal.php:29
 msgid ""
-"Pay via PayPal; you can pay with your credit card if you don't have a PayPal"
-" account."
-msgstr "Mit Paypal bezahlen. Sollten Sie keinen Paypal-Account besitzen, können Sie auch mit Ihrer Kreditkarte bezahlen."
+"Pay via PayPal; you can pay with your credit card if you don't have a PayPal "
+"account."
+msgstr ""
+"Mit Paypal bezahlen. Sollten Sie keinen Paypal-Account besitzen, können Sie "
+"auch mit Ihrer Kreditkarte bezahlen."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:32
 msgid "PayPal Email"
@@ -8291,7 +8573,9 @@ msgstr "PayPal E-Mail"
 msgid ""
 "Please enter your PayPal email address; this is needed in order to take "
 "payment."
-msgstr "Bitte geben Sie die E-Mail-Adresse Ihres PayPal-Kontos ein; sie wird benötigt, um die Bezahlung abzuschließen."
+msgstr ""
+"Bitte geben Sie die E-Mail-Adresse Ihres PayPal-Kontos ein; sie wird "
+"benötigt, um die Bezahlung abzuschließen."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:40
 msgid "PayPal Sandbox"
@@ -8302,10 +8586,13 @@ msgid "Enable PayPal sandbox"
 msgstr "PayPal Sandbox aktivieren"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:44
+#, c-format
 msgid ""
-"PayPal sandbox can be used to test payments. Sign up for a developer account"
-" <a href=\"%s\">here</a>."
-msgstr "PayPal Sandbox kann verwendet werden, um Zahlungen zu testen. Registrieren Sie sich <a href=\"%s\">hier</a> für ein Entwickler-Konto."
+"PayPal sandbox can be used to test payments. Sign up for a developer account "
+"<a href=\"%s\">here</a>."
+msgstr ""
+"PayPal Sandbox kann verwendet werden, um Zahlungen zu testen. Registrieren "
+"Sie sich <a href=\"%s\">hier</a> für ein Entwickler-Konto."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:47
 msgid "Debug Log"
@@ -8316,8 +8603,11 @@ msgid "Enable logging"
 msgstr "Logging aktivieren"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:51
+#, c-format
 msgid "Log PayPal events, such as IPN requests, inside <code>%s</code>"
-msgstr "PayPal-Vorgänge, z.B. IPN-Anfragen, innerhalb von <code>%s</code> protokollieren"
+msgstr ""
+"PayPal-Vorgänge, z.B. IPN-Anfragen, innerhalb von <code>%s</code> "
+"protokollieren"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:54
 msgid "Advanced options"
@@ -8329,10 +8619,14 @@ msgstr "Empfänger E-Mail"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:61
 msgid ""
-"If your main PayPal email differs from the PayPal email entered above, input"
-" your main receiver email for your PayPal account here. This is used to "
+"If your main PayPal email differs from the PayPal email entered above, input "
+"your main receiver email for your PayPal account here. This is used to "
 "validate IPN requests."
-msgstr "Falls sich Ihre hauptsächliche PayPal-E-Mail-Adresse von der oben eingegebenen PayPal-E-Mail-Adresse unterscheidet, geben Sie hier Ihre hauptsächliche Empfänger-E-Mail-Adresse Ihres PayPal-Kontos ein. Diese wird zur Überprüfung von IPN-Anfragen genutzt."
+msgstr ""
+"Falls sich Ihre hauptsächliche PayPal-E-Mail-Adresse von der oben "
+"eingegebenen PayPal-E-Mail-Adresse unterscheidet, geben Sie hier Ihre "
+"hauptsächliche Empfänger-E-Mail-Adresse Ihres PayPal-Kontos ein. Diese wird "
+"zur Überprüfung von IPN-Anfragen genutzt."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:67
 msgid "PayPal Identity Token"
@@ -8340,11 +8634,15 @@ msgstr "PayPal Identitäts-Token"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:69
 msgid ""
-"Optionally enable \"Payment Data Transfer\" (Profile > Profile and Settings "
-"> My Selling Tools > Website Preferences) and then copy your identity token "
+"Optionally enable \"Payment Data Transfer\" (Profile > Profile and Settings > "
+"My Selling Tools > Website Preferences) and then copy your identity token "
 "here. This will allow payments to be verified without the need for PayPal "
 "IPN."
-msgstr "Optional „Übertragung der Zahlungsdaten“ aktivieren (Mein Profil > Kontoeinstellungen > Verkäufer/Händler > Website-Einstellungen). Den Identitäts-Token von dort kopieren und dann hier einfügen. Dadurch können Zahlungen auch ohne PayPal IPN überprüft werden."
+msgstr ""
+"Optional „Übertragung der Zahlungsdaten“ aktivieren (Mein Profil > "
+"Kontoeinstellungen > Verkäufer/Händler > Website-Einstellungen). Den "
+"Identitäts-Token von dort kopieren und dann hier einfügen. Dadurch können "
+"Zahlungen auch ohne PayPal IPN überprüft werden."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:75
 msgid "Invoice Prefix"
@@ -8355,7 +8653,11 @@ msgid ""
 "Please enter a prefix for your invoice numbers. If you use your PayPal "
 "account for multiple stores ensure this prefix is unique as PayPal will not "
 "allow orders with the same invoice number."
-msgstr "Bitte geben Sie ein Präfix für Ihre Rechnungsnummern ein. Falls Sie Ihr PayPal-Konto für mehrere Shops verwenden, stellen Sie bitte sicher, dass das Präfix einzigartig ist, sonst wird PayPal keine Bestellungen mit identischer Rechnungsnummer akzeptieren. "
+msgstr ""
+"Bitte geben Sie ein Präfix für Ihre Rechnungsnummern ein. Falls Sie Ihr "
+"PayPal-Konto für mehrere Shops verwenden, stellen Sie bitte sicher, dass das "
+"Präfix einzigartig ist, sonst wird PayPal keine Bestellungen mit identischer "
+"Rechnungsnummer akzeptieren. "
 
 #: includes/gateways/paypal/includes/settings-paypal.php:82
 msgid "Shipping Details"
@@ -8369,23 +8671,28 @@ msgstr "Lieferadresse an PayPal senden anstatt Rechnungsadresse."
 msgid ""
 "PayPal allows us to send one address. If you are using PayPal for shipping "
 "labels you may prefer to send the shipping address rather than billing."
-msgstr "PayPal ermöglicht es uns, genau eine Adresse zu übermitteln. Wenn Sie PayPal für Versand-Etiketten nutzen, dann möchten Sie vielleicht die Liefer- statt der Rechnungsadresse senden."
+msgstr ""
+"PayPal ermöglicht es uns, genau eine Adresse zu übermitteln. Wenn Sie PayPal "
+"für Versand-Etiketten nutzen, dann möchten Sie vielleicht die Liefer- statt "
+"der Rechnungsadresse senden."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:89
 msgid "Address Override"
 msgstr "Adresse überschreiben"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:91
-msgid ""
-"Enable \"address_override\" to prevent address information from being "
-"changed."
-msgstr "Aktivieren Sie „address_override“, damit Adressinformationen nicht geändert werden können."
+msgid "Enable \"address_override\" to prevent address information from being changed."
+msgstr ""
+"Aktivieren Sie „address_override“, damit Adressinformationen nicht geändert "
+"werden können."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:92
 msgid ""
 "PayPal verifies addresses therefore this setting can cause errors (we "
 "recommend keeping it disabled)."
-msgstr "PayPal verifiziert Adressen, daher können bei dieser Einstellung Fehler auftreten. (Deaktivierung empfohlen)"
+msgstr ""
+"PayPal verifiziert Adressen, daher können bei dieser Einstellung Fehler "
+"auftreten. (Deaktivierung empfohlen)"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:96
 msgid "Payment Action"
@@ -8413,7 +8720,9 @@ msgstr "Seitenstil"
 msgid ""
 "Optionally enter the name of the page style you wish to use. These are "
 "defined within your PayPal account."
-msgstr "Optional können Sie den Namen des gewünschten Seitenstils eingeben. Seitenstile werden innerhalb Ihres PayPal-Kontos definiert."
+msgstr ""
+"Optional können Sie den Namen des gewünschten Seitenstils eingeben. "
+"Seitenstile werden innerhalb Ihres PayPal-Kontos definiert."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:113
 #: includes/gateways/paypal/includes/settings-paypal.php:126
@@ -8427,10 +8736,14 @@ msgid "API Credentials"
 msgstr "API Zugangsdaten"
 
 #: includes/gateways/paypal/includes/settings-paypal.php:118
+#, c-format
 msgid ""
 "Enter your PayPal API credentials to process refunds via PayPal. Learn how "
 "to access your PayPal API Credentials %shere%s."
-msgstr "Gib deine PayPal API Zugangsdaten ein, um Rückerstattungen direkt über PayPal abzuwickeln. Wie du an deine PayPal API Zugangsdaten kommst, siehst du %shier%s."
+msgstr ""
+"Gib deine PayPal API Zugangsdaten ein, um Rückerstattungen direkt über "
+"PayPal abzuwickeln. Wie du an deine PayPal API Zugangsdaten kommst, siehst "
+"du %shier%s."
 
 #: includes/gateways/paypal/includes/settings-paypal.php:121
 msgid "API Username"
@@ -8450,88 +8763,128 @@ msgstr "API Passwort"
 msgid "API Signature"
 msgstr "API Signatur"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:93
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:187
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:93
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:187
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:316
 msgid ""
-"Please make sure your card details have been entered correctly and that your"
-" browser supports JavaScript."
-msgstr "Bitte stellen Sie sicher, dass Sie Ihre Kreditkarte korrekt eingegeben haben und dass Ihr Browser JavaScript unterstützt."
+"Please make sure your card details have been entered correctly and that your "
+"browser supports JavaScript."
+msgstr ""
+"Bitte stellen Sie sicher, dass Sie Ihre Kreditkarte korrekt eingegeben haben "
+"und dass Ihr Browser JavaScript unterstützt."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:96
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:190
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:96
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:190
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:319
 msgid ""
 "Developers: Please make sure that you're including jQuery and there are no "
 "JavaScript errors on the page."
-msgstr "Entwickler: Bitte sicherstellen, dass jQuery eingebunden ist und es keine JavaScript-Fehler auf der Seite gibt."
+msgstr ""
+"Entwickler: Bitte sicherstellen, dass jQuery eingebunden ist und es keine "
+"JavaScript-Fehler auf der Seite gibt."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:113
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:210
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:113
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:210
 msgid "Error creating user in Simplify Commerce."
 msgstr "Fehler beim Erzeugen eines Benutzers in Simplify Commerce."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:181
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:291
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:60
-msgid ""
-"Sorry, the minimum allowed order total is 0.50 to use this payment method."
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:181
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:291
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:60
+msgid "Sorry, the minimum allowed order total is 0.50 to use this payment method."
 msgstr "Der Mindestbestellwert für diese Zahlungsart beträgt leider 0,50."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:297
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:439
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:70
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:297
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:439
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:70
 msgid "Customer not found"
 msgstr "Kunde nicht gefunden"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:305
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:305
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:328
+#, c-format
 msgid "%s - Order #%s"
 msgstr "%s – Bestellnummer %s"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:327
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:100
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:327
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:100
+#, c-format
 msgid "Simplify payment error: %s"
 msgstr "Fehler bei Simplify-Zahlung: %s"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:337
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:462
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:337
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:462
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:485
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:110
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:110
+#, c-format
 msgid "Simplify payment approved (ID: %s, Auth Code: %s)"
 msgstr "Simplify Zahlung genehmigt  (ID: %s, Auth Code: %s)"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:341
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:341
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:348
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:114
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:114
 msgid "Simplify payment declined"
 msgstr "Simplify Zahlung abgelehnt"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:343
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:343
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:350
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:116
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:116
 msgid "Payment was declined - please try another card."
 msgstr "Bezahlung wurde abgelehnt – bitte versuchen Sie es mit einer anderen Karte."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:357
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:467
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:357
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:467
+#, c-format
 msgid "Simplify Transaction Failed (%s)"
 msgstr "Simplify Transaktion fehlgeschlagen (%s)"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:434
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:434
+#, c-format
 msgid "%s - Pre-order for \"%s\""
 msgstr "%s – Vorbestellung für „%s“"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:434
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:65
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:434
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:65
+#, c-format
 msgid "(Order #%s)"
 msgstr "(Bestellnummer %s)"
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:464
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:464
 msgid "Payment was declined - the customer need to try another card."
-msgstr "Bezahlung wurde abgelehnt – der Kunde sollte eine andere Kreditkarte versuchen."
+msgstr ""
+"Bezahlung wurde abgelehnt – der Kunde sollte eine andere Kreditkarte "
+"versuchen."
 
-#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.php:511
+#: includes/gateways/simplify-commerce/class-wc-addons-gateway-simplify-commerce.
+#: php:511
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:457
 msgid "Payment was declined by Simplify Commerce."
 msgstr "Die Zahlung wurde von Simplify Commerce abgelehnt."
@@ -8542,9 +8895,12 @@ msgstr "Simplify Commerce"
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:25
 msgid ""
-"Take payments via Simplify Commerce - uses simplify.js to create card tokens"
-" and the Simplify Commerce SDK. Requires SSL when sandbox is disabled."
-msgstr "Bezahlungen via Simpliy Commerce – nutzt simplify.js zur Erstellung von Kreditkarten-Token und das Simplify Commerce SDK. Benötigt SSL wenn Sandbox-Modus deaktiviert ist."
+"Take payments via Simplify Commerce - uses simplify.js to create card tokens "
+"and the Simplify Commerce SDK. Requires SSL when sandbox is disabled."
+msgstr ""
+"Bezahlungen via Simpliy Commerce – nutzt simplify.js zur Erstellung von "
+"Kreditkarten-Token und das Simplify Commerce SDK. Benötigt SSL wenn Sandbox-"
+"Modus deaktiviert ist."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:89
 msgid "Simplify Commerce by Mastercard"
@@ -8561,7 +8917,11 @@ msgid ""
 "into one. Choose Simplify Commerce as your WooCommerce payment gateway to "
 "get access to your money quickly with a powerful, secure payment engine "
 "backed by MasterCard."
-msgstr "Simplify Commerce ist Handels- und Bezahl-Plattform in einem. Wählen Sie Simplify Commerce als Ihr WooCommerce Bezahl-Gateway, um schnellen Zugriff auf Ihr Geld zu erhalten. Simplify Commerce ist eine leistungsfähige, sichere Bezahl-Plattform – unterstützt von MasterCard."
+msgstr ""
+"Simplify Commerce ist Handels- und Bezahl-Plattform in einem. Wählen Sie "
+"Simplify Commerce als Ihr WooCommerce Bezahl-Gateway, um schnellen Zugriff "
+"auf Ihr Geld zu erhalten. Simplify Commerce ist eine leistungsfähige, "
+"sichere Bezahl-Plattform – unterstützt von MasterCard."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:97
 msgid "Sign up for Simplify Commerce"
@@ -8572,22 +8932,33 @@ msgid "Learn more"
 msgstr "Mehr erfahren"
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:144
+#, c-format
 msgid ""
 "Simplify Commerce Error: Simplify commerce requires PHP 5.3 and above. You "
 "are using version %s."
-msgstr "Simplify Commerce Fehler: Simplify commerce benötigt PHP 5.3 oder höher. Sie verwenden Version %s."
+msgstr ""
+"Simplify Commerce Fehler: Simplify commerce benötigt PHP 5.3 oder höher. Sie "
+"verwenden Version %s."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:149
 msgid "Simplify Commerce Error: Please enter your public and private keys"
-msgstr "Simplify Commerce Fehler: Bitten geben Sie Ihren öffentlichen und privaten Schlüssel ein"
+msgstr ""
+"Simplify Commerce Fehler: Bitten geben Sie Ihren öffentlichen und privaten "
+"Schlüssel ein"
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:154
+#, c-format
 msgid ""
-"Simplify Commerce is enabled, but the <a href=\"%s\">force SSL option</a> is"
-" disabled; your checkout may not be secure! Please enable SSL and ensure "
-"your server has a valid SSL certificate - Simplify Commerce will only work "
-"in sandbox mode."
-msgstr "Simplify Commerce ist aktiviert, aber die Option <a href=\"%s\">Sicheren Bestell- und Bezahlvorgang erzwingen</a> deaktiviert. Der Bestellvorgang Ihres Shops könnte unverschlüsselt sein. Bitte aktivieren Sie SSL und stellen Sie sicher, dass Ihr Server ein gültiges SSL-Zertifikat verwendet. Simplify Commerce funktioniert momentan nur im Sandbox-Modus."
+"Simplify Commerce is enabled, but the <a href=\"%s\">force SSL option</a> is "
+"disabled; your checkout may not be secure! Please enable SSL and ensure your "
+"server has a valid SSL certificate - Simplify Commerce will only work in "
+"sandbox mode."
+msgstr ""
+"Simplify Commerce ist aktiviert, aber die Option <a href=\"%s\">Sicheren "
+"Bestell- und Bezahlvorgang erzwingen</a> deaktiviert. Der Bestellvorgang "
+"Ihres Shops könnte unverschlüsselt sein. Bitte aktivieren Sie SSL und "
+"stellen Sie sicher, dass Ihr Server ein gültiges SSL-Zertifikat verwendet. "
+"Simplify Commerce funktioniert momentan nur im Sandbox-Modus."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:184
 msgid "Enable Simplify Commerce"
@@ -8606,6 +8977,7 @@ msgid "Enable Hosted Payments"
 msgstr "Hosted Payments aktivieren"
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:207
+#, c-format
 msgid ""
 "Standard will display the credit card fields on your store (SSL required). "
 "%1$s Hosted Payments will display a Simplify Commerce modal dialog on your "
@@ -8613,7 +8985,14 @@ msgid ""
 "page (if not SSL). %1$s Note: Hosted Payments need a new API Key pair with "
 "the hosted payments flag selected. %2$sFor more details check the Simplify "
 "Commerce docs%3$s."
-msgstr "„Standard“ zeigt die Kreditkarten-Felder innerhalb Ihres Shops an (hierfür wird SSL-Verschlüsselung benötigt). %1$s „Hosted Payments“ zeigt ein Popup von Simplify Commerce innerhalb Ihres Shops (wenn SSL-verschlüsselt) oder leitet den Kunden zu einer Simplify-Commerce-Seite weiter (wenn nicht SSL-verschlüsselt). %1$s Hinweis:  „Hosted Payments“ benötigen ein API-Schlüsselpaar, bei dem die Hosted-Payments-Option gesetzt ist. %2$sFür weitere Informationen, siehe die Simplify Commerce Dokumentation%3$s."
+msgstr ""
+"„Standard“ zeigt die Kreditkarten-Felder innerhalb Ihres Shops an (hierfür "
+"wird SSL-Verschlüsselung benötigt). %1$s „Hosted Payments“ zeigt ein Popup "
+"von Simplify Commerce innerhalb Ihres Shops (wenn SSL-verschlüsselt) oder "
+"leitet den Kunden zu einer Simplify-Commerce-Seite weiter (wenn nicht SSL-"
+"verschlüsselt). %1$s Hinweis:  „Hosted Payments“ benötigen ein API-"
+"Schlüsselpaar, bei dem die Hosted-Payments-Option gesetzt ist. %2$sFür "
+"weitere Informationen, siehe die Simplify Commerce Dokumentation%3$s."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:211
 msgid "Hosted Payments"
@@ -8639,7 +9018,9 @@ msgstr "Sandbox-Modus aktivieren"
 msgid ""
 "Place the payment gateway in sandbox mode using sandbox API keys (real "
 "payments will not be taken)."
-msgstr "Versetzen Sie das Zahlungs-Gateway in den Sandbox-Modus, indem Sie Sandbox-API-Schlüssel verwenden. Echte Zahlungen werden dann nicht durchgeführt."
+msgstr ""
+"Versetzen Sie das Zahlungs-Gateway in den Sandbox-Modus, indem Sie Sandbox-"
+"API-Schlüssel verwenden. Echte Zahlungen werden dann nicht durchgeführt."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:229
 msgid "Sandbox Public Key"
@@ -8650,7 +9031,9 @@ msgstr "Öffentlicher Sandbox-Schlüssel"
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:245
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:252
 msgid "Get your API keys from your Simplify account: Settings > API Keys."
-msgstr "Erhalten Sie Ihren API-Schlüssel von Ihrem Simplify-Konto unter Einstellungen > API Schlüssel."
+msgstr ""
+"Erhalten Sie Ihren API-Schlüssel von Ihrem Simplify-Konto unter "
+"Einstellungen > API Schlüssel."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:236
 msgid "Sandbox Private Key"
@@ -8665,6 +9048,7 @@ msgid "Private Key"
 msgstr "Privater Schlüssel"
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:266
+#, c-format
 msgid "TEST MODE ENABLED. Use a test card: %s"
 msgstr "TESTMODUS AKTIV. Verwende eine Testkarte: %s"
 
@@ -8684,7 +9068,9 @@ msgstr "ist ungültig"
 msgid ""
 "Thank you for your order, please click the button below to pay with credit "
 "card using Simplify Commerce by MasterCard."
-msgstr "Vielen Dank für Ihre Bestellung. Bitte klicken Sie auf den Button unten, um mit Kreditkarte über Simplify Commerce von MasterCard zu bezahlen."
+msgstr ""
+"Vielen Dank für Ihre Bestellung. Bitte klicken Sie auf den Button unten, um "
+"mit Kreditkarte über Simplify Commerce von MasterCard zu bezahlen."
 
 #: includes/gateways/simplify-commerce/class-wc-gateway-simplify-commerce.php:437
 msgid "Pay Now"
@@ -8698,7 +9084,9 @@ msgstr "Bestellung abbrechen und Warenkorb zurücksetzen"
 msgid "Refund was declined."
 msgstr "Rückerstattung wurde abgelehnt."
 
-#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-simplify-commerce-deprecated.php:65
+#: includes/gateways/simplify-commerce-deprecated/class-wc-addons-gateway-
+#: simplify-commerce-deprecated.php:65
+#, c-format
 msgid "%s - Subscription for \"%s\""
 msgstr "%s – Abonnement für \"%s\""
 
@@ -8709,18 +9097,9 @@ msgstr "Versandkostenpauschale"
 
 #: includes/shipping/flat-rate/class-wc-shipping-flat-rate.php:25
 msgid "Flat Rate Shipping lets you charge a fixed rate for shipping."
-msgstr "Mit der Versandkostenpauschale können Sie einen festen Betrag für den Versand berechnen bzw. festlegen."
-
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
-msgid "Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>."
 msgstr ""
-
-#: includes/shipping/flat-rate/includes/settings-flat-rate.php:7
-msgid ""
-"Supports the following placeholders: <code>[qty]</code> = number of items, "
-"<code>[cost]</code> = cost of items, <code>[fee percent=\"10\" "
-"min_fee=\"20\"]</code> = Percentage based fee."
-msgstr ""
+"Mit der Versandkostenpauschale können Sie einen festen Betrag für den "
+"Versand berechnen bzw. festlegen."
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:16
 msgid "Enable this shipping method"
@@ -8732,7 +9111,8 @@ msgid "Method Title"
 msgstr "Bezeichnung"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:27
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:34
+#: includes/shipping/international-delivery/class-wc-shipping-international-
+#: delivery.php:34
 msgid "Availability"
 msgstr "Verfügbarkeit"
 
@@ -8778,11 +9158,14 @@ msgid "Shipping Class Costs"
 msgstr "Kosten für Versandklasse"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:73
-msgid ""
-"These costs can optionally be added based on the %sproduct shipping class%s."
-msgstr "Optional können diese Kosten basierend auf der %sProduktversandklasse%s hinzugefügt werden."
+#, c-format
+msgid "These costs can optionally be added based on the %sproduct shipping class%s."
+msgstr ""
+"Optional können diese Kosten basierend auf der %sProduktversandklasse%s "
+"hinzugefügt werden."
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:80
+#, c-format
 msgid "\"%s\" Shipping Class Cost"
 msgstr "Kosten für Versandklasse „%s“"
 
@@ -8809,7 +9192,9 @@ msgstr "Pro Klasse: Versandkosten für jede Versandklasse einzeln berechnen"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:103
 msgid "Per Order: Charge shipping for the most expensive shipping class"
-msgstr "Pro Bestellung: Versandkosten entsprechen der teuerstes Versandklasse der Bestellung"
+msgstr ""
+"Pro Bestellung: Versandkosten entsprechen der teuerstes Versandklasse der "
+"Bestellung"
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:110
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:115
@@ -8820,20 +9205,28 @@ msgstr "Zusätzliche Tarife"
 msgid ""
 "These rates are extra shipping options with additional costs (based on the "
 "flat rate)."
-msgstr "Diese Tarife stellen Extra-Versandoptionen mit zusätzlichen Kosten dar (basierend auf der Versandkostenpauschale)."
+msgstr ""
+"Diese Tarife stellen Extra-Versandoptionen mit zusätzlichen Kosten dar "
+"(basierend auf der Versandkostenpauschale)."
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:117
 msgid ""
 "One per line: Option Name | Additional Cost [+- Percents] | Per Cost Type "
 "(order, class, or item) Example: <code>Priority Mail | 6.95 [+ 0.2%] | "
 "order</code>."
-msgstr "Ein Eintrag pro Zeile: Bezeichnung | Zusätzliche Kosten [+- Prozent] | „Pro“-Typ: pro Bestellung, pro Versandklasse oder pro Artikel (order, class oder item) Beispiel: <code>Versand mit hoher Priorität | 6,95 [+ 0.2%] | order</code>."
+msgstr ""
+"Ein Eintrag pro Zeile: Bezeichnung | Zusätzliche Kosten [+- Prozent] | „Pro“-"
+"Typ: pro Bestellung, pro Versandklasse oder pro Artikel (order, class oder "
+"item) Beispiel: <code>Versand mit hoher Priorität | 6,95 [+ 0.2%] | "
+"order</code>."
 
 #: includes/shipping/flat-rate/includes/settings-flat-rate.php:120
 msgid ""
 "Option Name | Additional Cost [+- Percents%] | Per Cost Type (order, class, "
 "or item)"
-msgstr "Bezeichnung | Zusätzliche Kosten [+- Prozent] | „je“-Typ: je Bestellung, je Versandklasse oder je Artikel (order, class, oder item)"
+msgstr ""
+"Bezeichnung | Zusätzliche Kosten [+- Prozent] | „je“-Typ: je Bestellung, je "
+"Versandklasse oder je Artikel (order, class, oder item)"
 
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:30
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:70
@@ -8875,25 +9268,30 @@ msgid "Minimum Order Amount"
 msgstr "Mindestbestellwert"
 
 #: includes/shipping/free-shipping/class-wc-shipping-free-shipping.php:111
-msgid ""
-"Users will need to spend this amount to get free shipping (if enabled "
-"above)."
-msgstr "Benutzer müssen diesen Betrag ausgeben, um versandkostenfrei bestellen zu können (falls oben aktiviert)."
+msgid "Users will need to spend this amount to get free shipping (if enabled above)."
+msgstr ""
+"Benutzer müssen diesen Betrag ausgeben, um versandkostenfrei bestellen zu "
+"können (falls oben aktiviert)."
 
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:21
+#: includes/shipping/international-delivery/class-wc-shipping-international-
+#: delivery.php:21
 msgid "International Flat Rate"
 msgstr "Internationale Versandkostenpauschale"
 
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:22
-msgid ""
-"International Flat Rate Shipping lets you charge a fixed rate for shipping."
-msgstr "Mit der internationalen Versandkostenpauschale können Sie einen festen Betrag für den Versand festlegen."
+#: includes/shipping/international-delivery/class-wc-shipping-international-
+#: delivery.php:22
+msgid "International Flat Rate Shipping lets you charge a fixed rate for shipping."
+msgstr ""
+"Mit der internationalen Versandkostenpauschale können Sie einen festen "
+"Betrag für den Versand festlegen."
 
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:40
+#: includes/shipping/international-delivery/class-wc-shipping-international-
+#: delivery.php:40
 msgid "Selected countries"
 msgstr "Ausgewählte Länder"
 
-#: includes/shipping/international-delivery/class-wc-shipping-international-delivery.php:41
+#: includes/shipping/international-delivery/class-wc-shipping-international-
+#: delivery.php:41
 msgid "Excluding selected countries"
 msgstr "Ausgewählte Länder ausschließen"
 
@@ -8903,9 +9301,10 @@ msgid "Local Delivery"
 msgstr "Nationaler Versand"
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:25
-msgid ""
-"Local delivery is a simple shipping method for delivering orders locally."
-msgstr "Nationaler Versand ist eine einfache Versandart, um Bestellungen im Inland zu versenden."
+msgid "Local delivery is a simple shipping method for delivering orders locally."
+msgstr ""
+"Nationaler Versand ist eine einfache Versandart, um Bestellungen im Inland "
+"zu versenden."
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:89
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:66
@@ -8942,18 +9341,16 @@ msgstr "Versandgebühr"
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:117
 msgid ""
-"What fee do you want to charge for local delivery, disregarded if you choose"
-" free. Leave blank to disable."
-msgstr "Welche Gebühr Sie für nationalen Versand verlangen möchten; bleibt unberücksichtigt, wenn Sie kostenlos wählen. Leer lassen zum Deaktivieren."
+"What fee do you want to charge for local delivery, disregarded if you choose "
+"free. Leave blank to disable."
+msgstr ""
+"Welche Gebühr Sie für nationalen Versand verlangen möchten; bleibt "
+"unberücksichtigt, wenn Sie kostenlos wählen. Leer lassen zum Deaktivieren."
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:123
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:79
 msgid "Allowed Zip/Post Codes"
 msgstr "Erlaubte Postleitzahlen"
-
-#: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:125
-msgid "What zip/post codes are available for local delivery?"
-msgstr ""
 
 #: includes/shipping/local-delivery/class-wc-shipping-local-delivery.php:127
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:83
@@ -8961,7 +9358,10 @@ msgid ""
 "Separate codes with a comma. Accepts wildcards, e.g. <code>P*</code> will "
 "match a postcode of PE30. Also accepts a pattern, e.g. <code>NG1___</code> "
 "would match NG1 1AA but not NG10 1AA"
-msgstr "Postleitzahlen mit Komma getrennt angeben. Platzhalter erlaubt, z.B. <code>P*</code> hat PE30 als Treffer. Muster ebenfalls erlaubt, z.B. <code>NG1___</code> trifft auf NG1 1AA zu, aber nicht auf NG10 1AA"
+msgstr ""
+"Postleitzahlen mit Komma getrennt angeben. Platzhalter erlaubt, z.B. "
+"<code>P*</code> hat PE30 als Treffer. Muster ebenfalls erlaubt, z.B. "
+"<code>NG1___</code> trifft auf NG1 1AA zu, aber nicht auf NG10 1AA"
 
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:24
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:75
@@ -8972,7 +9372,9 @@ msgstr "Abholung vor Ort"
 msgid ""
 "Local pickup is a simple method which allows customers to pick up orders "
 "themselves."
-msgstr "„Abholung vor Ort“ ist eine einfache Zustellungsmethode, die es den Kunden erlaubt, ihre Bestellungen selbst abzuholen."
+msgstr ""
+"„Abholung vor Ort“ ist eine einfache Zustellungsmethode, die es den Kunden "
+"erlaubt, ihre Bestellungen selbst abzuholen."
 
 #: includes/shipping/local-pickup/class-wc-shipping-local-pickup.php:68
 msgid "Enable local pickup"
@@ -8988,7 +9390,9 @@ msgstr "Versandkosten aktualisiert."
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:90
 msgid "Invalid order. If you have an account please log in and try again."
-msgstr "Ungültige Bestellung. Falls Sie ein Benutzerkonto haben, melden Sie sich bitte an und versuchen es erneut."
+msgstr ""
+"Ungültige Bestellung. Falls Sie ein Benutzerkonto haben, melden Sie sich "
+"bitte an und versuchen es erneut."
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:90
 #: includes/shortcodes/class-wc-shortcode-my-account.php:108
@@ -8998,10 +9402,13 @@ msgstr "Mein Konto"
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:109
 #: includes/shortcodes/class-wc-shortcode-checkout.php:157
+#, c-format
 msgid ""
 "This order&rsquo;s status is &ldquo;%s&rdquo;&mdash;it cannot be paid for. "
 "Please contact us if you need assistance."
-msgstr "Der Status dieser Bestellung ist „%s“ – sie kann nicht bezahlt werden. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen."
+msgstr ""
+"Der Status dieser Bestellung ist „%s“ – sie kann nicht bezahlt werden. Bitte "
+"kontaktieren Sie uns, wenn Sie Hilfe benötigen."
 
 #: includes/shortcodes/class-wc-shortcode-checkout.php:113
 #: includes/shortcodes/class-wc-shortcode-checkout.php:161
@@ -9022,7 +9429,9 @@ msgstr "Datum:"
 msgid ""
 "The order totals have been updated. Please confirm your order by pressing "
 "the Place Order button at the bottom of the page."
-msgstr "Der Gesamtbetrag der Bestellung wurde aktualisiert. Bitte bestätigen Sie Ihre Bestellung, indem Sie den Kaufen-Button am Ende der Seite klicken."
+msgstr ""
+"Der Gesamtbetrag der Bestellung wurde aktualisiert. Bitte bestätigen Sie "
+"Ihre Bestellung, indem Sie den Kaufen-Button am Ende der Seite klicken."
 
 #: includes/shortcodes/class-wc-shortcode-my-account.php:200
 msgid "Your password has been reset."
@@ -9047,7 +9456,9 @@ msgstr "Für diesen Benutzer ist es nicht erlaubt, das Passwort zurückzusetzen.
 
 #: includes/shortcodes/class-wc-shortcode-my-account.php:285
 msgid "Check your e-mail for the confirmation link."
-msgstr "Bitte überprüfen Sie Ihren Posteingang. Sie haben eine E-Mail mit einem Bestätigungslink erhalten."
+msgstr ""
+"Bitte überprüfen Sie Ihren Posteingang. Sie haben eine E-Mail mit einem "
+"Bestätigungslink erhalten."
 
 #: includes/shortcodes/class-wc-shortcode-my-account.php:304
 #: includes/shortcodes/class-wc-shortcode-my-account.php:309
@@ -9089,6 +9500,7 @@ msgid "This product is protected and cannot be purchased."
 msgstr "Dieses Produkt ist geschützt und kann nicht gekauft werden."
 
 #: includes/wc-cart-functions.php:78
+#, c-format
 msgid "%s has been added to your cart."
 msgid_plural "%s have been added to your cart."
 msgstr[0] "%s wurde Ihrem Warenkorb hinzugefügt."
@@ -9119,6 +9531,7 @@ msgid "Free"
 msgstr "Kostenlos"
 
 #: includes/wc-core-functions.php:78
+#, c-format
 msgid "Order &ndash; %s"
 msgstr "Bestellung &ndash; %s"
 
@@ -9335,16 +9748,24 @@ msgid "Product % Discount"
 msgstr "Produkt % Rabatt"
 
 #: includes/wc-deprecated-functions.php:706
+#, c-format
 msgid ""
-"The shop_order_status taxonomy is no more in WooCommerce 2.2! You should use"
-" the new WooCommerce post_status instead, <a href=\"%s\">read more...</a>"
-msgstr "Die Taxonomie „shop_order_status“ ist in WooCommerce 2.2 nicht mehr vorhanden! Sie sollten den neuen WooCommerce „post_status“ stattdessen verwenden, <a href=\"%s\">mehr dazu…</a>"
+"The shop_order_status taxonomy is no more in WooCommerce 2.2! You should use "
+"the new WooCommerce post_status instead, <a href=\"%s\">read more...</a>"
+msgstr ""
+"Die Taxonomie „shop_order_status“ ist in WooCommerce 2.2 nicht mehr "
+"vorhanden! Sie sollten den neuen WooCommerce „post_status“ stattdessen "
+"verwenden, <a href=\"%s\">mehr dazu…</a>"
 
 #: includes/wc-deprecated-functions.php:710
+#, c-format
 msgid ""
-"The \"publish\" order status is no more in WooCommerce 2.2! You should use "
-"the new WooCommerce post_status instead, <a href=\"%s\">read more...</a>"
-msgstr "Der Bestellstatus „veröffentlicht“ (publish) ist in WooCommerce 2.2 nicht mehr vorhanden! Sie sollten den neuen WooCommerce „post_status“ stattdessen verwenden, <a href=\"%s\">mehr dazu…</a>"
+"The \"publish\" order status is no more in WooCommerce 2.2! You should use the "
+"new WooCommerce post_status instead, <a href=\"%s\">read more...</a>"
+msgstr ""
+"Der Bestellstatus „veröffentlicht“ (publish) ist in WooCommerce 2.2 nicht "
+"mehr vorhanden! Sie sollten den neuen WooCommerce „post_status“ stattdessen "
+"verwenden, <a href=\"%s\">mehr dazu…</a>"
 
 #: includes/wc-notice-functions.php:27 includes/wc-notice-functions.php:59
 #: includes/wc-notice-functions.php:77 includes/wc-notice-functions.php:100
@@ -9357,6 +9778,7 @@ msgid "Unpaid order cancelled - time limit reached."
 msgstr "Unbezahlte Bestellung abgebrochen – Zeitlimit erreicht."
 
 #: includes/wc-order-functions.php:629
+#, c-format
 msgid "Refund &ndash; %s"
 msgstr "Rückerstattung &ndash; %s"
 
@@ -9381,10 +9803,12 @@ msgid "New products"
 msgstr "Neue Produkte"
 
 #: includes/wc-template-functions.php:139
+#, c-format
 msgid "New products added to %s"
 msgstr "Neue Produkte hinzugefügt zu %s"
 
 #: includes/wc-template-functions.php:147
+#, c-format
 msgid "New products tagged %s"
 msgstr "Neue Produkte verschlagwortet %s"
 
@@ -9392,13 +9816,17 @@ msgstr "Neue Produkte verschlagwortet %s"
 msgid ""
 "This is a demo store for testing purposes &mdash; no orders shall be "
 "fulfilled."
-msgstr "Dies ist ein für Testzwecke aufgesetzter Demo-Shop &ndash; Bestellungen werden nicht ausgeführt."
+msgstr ""
+"Dies ist ein für Testzwecke aufgesetzter Demo-Shop &ndash; Bestellungen "
+"werden nicht ausgeführt."
 
 #: includes/wc-template-functions.php:449
+#, c-format
 msgid "Search Results: &ldquo;%s&rdquo;"
 msgstr "Suchergebnisse: „%s“"
 
 #: includes/wc-template-functions.php:452
+#, c-format
 msgid "&nbsp;&ndash; Page %s"
 msgstr "&nbsp;&ndash; Seite %s"
 
@@ -9433,6 +9861,7 @@ msgid "Additional Information"
 msgstr "Zusätzliche Informationen"
 
 #: includes/wc-template-functions.php:1023
+#, c-format
 msgid "Reviews (%d)"
 msgstr "Bewertungen (%d)"
 
@@ -9440,7 +9869,9 @@ msgstr "Bewertungen (%d)"
 msgid ""
 "Use $args argument as an array instead. Deprecated argument will be removed "
 "in WC 2.2."
-msgstr "Use $args argument as an array instead. Deprecated argument will be removed in WC 2.2."
+msgstr ""
+"Use $args argument as an array instead. Deprecated argument will be removed "
+"in WC 2.2."
 
 #: includes/wc-template-functions.php:1318
 msgid "Place order"
@@ -9474,18 +9905,20 @@ msgid "Uncategorized"
 msgstr "Ohne Kategorie"
 
 #: includes/wc-user-functions.php:52
-msgid ""
-"An account is already registered with your email address. Please login."
-msgstr "Für diese E-Mail-Adresse existiert bereits ein Kundenkonto. Bitte melden Sie sich an."
+msgid "An account is already registered with your email address. Please login."
+msgstr ""
+"Für diese E-Mail-Adresse existiert bereits ein Kundenkonto. Bitte melden Sie "
+"sich an."
 
 #: includes/wc-user-functions.php:61
 msgid "Please enter a valid account username."
 msgstr "Bitte geben Sie einen gültigen Benutzernamen ein."
 
 #: includes/wc-user-functions.php:65
-msgid ""
-"An account is already registered with that username. Please choose another."
-msgstr "Ein Kundenkonto mit diesem Benutzernamen existiert bereits. Bitte wählen Sie einen anderen."
+msgid "An account is already registered with that username. Please choose another."
+msgstr ""
+"Ein Kundenkonto mit diesem Benutzernamen existiert bereits. Bitte wählen Sie "
+"einen anderen."
 
 #: includes/wc-user-functions.php:86
 msgid "Please enter an account password."
@@ -9499,7 +9932,9 @@ msgstr "FEHLER"
 msgid ""
 "Couldn&#8217;t register you&hellip; please contact us if you continue to "
 "have problems."
-msgstr "Wir konnten für Sie kein Kundenkonto anlegen&hellip; Bitte kontaktieren Sie uns, wenn Sie weiterhin Probleme haben."
+msgstr ""
+"Wir konnten für Sie kein Kundenkonto anlegen&hellip; Bitte kontaktieren Sie "
+"uns, wenn Sie weiterhin Probleme haben."
 
 #: includes/wc-webhook-functions.php:23
 msgid "Active"
@@ -9531,7 +9966,9 @@ msgstr "Ausblenden, wenn Warenkorb leer ist"
 
 #: includes/widgets/class-wc-widget-layered-nav-filters.php:23
 msgid "Shows active layered nav filters so users can see and deactivate them."
-msgstr "Zeigt aktive Filter der Layer-Navigation, so dass Benutzer diese sehen und deaktivieren können."
+msgstr ""
+"Zeigt aktive Filter der Layer-Navigation, so dass Benutzer diese sehen und "
+"deaktivieren können."
 
 #: includes/widgets/class-wc-widget-layered-nav-filters.php:25
 msgid "WooCommerce Layered Nav Filters"
@@ -9559,7 +9996,9 @@ msgstr "Max"
 msgid ""
 "Shows a custom attribute in a widget which lets you narrow down the list of "
 "products when viewing product categories."
-msgstr "Zeigt eine benutzerdefiniertes Eigenschaft in einem Widget an, welches die angezeigte Produktübersicht in der Produktkategorie-Ansicht eingrenzt."
+msgstr ""
+"Zeigt eine benutzerdefiniertes Eigenschaft in einem Widget an, welches die "
+"angezeigte Produktübersicht in der Produktkategorie-Ansicht eingrenzt."
 
 #: includes/widgets/class-wc-widget-layered-nav.php:25
 msgid "WooCommerce Layered Nav"
@@ -9598,6 +10037,7 @@ msgid "OR"
 msgstr "ODER"
 
 #: includes/widgets/class-wc-widget-layered-nav.php:181
+#, c-format
 msgid "Any %s"
 msgstr "Beliebige %s"
 
@@ -9605,7 +10045,9 @@ msgstr "Beliebige %s"
 msgid ""
 "Shows a price filter slider in a widget which lets you narrow down the list "
 "of shown products when viewing product categories."
-msgstr "Zeigt einen Preisfilter-Schieberegler in einem Widget an, mit welchem Sie die angezeigten Produkte in der Produktkategorie-Ansicht eingrenzen können."
+msgstr ""
+"Zeigt einen Preisfilter-Schieberegler in einem Widget an, mit welchem Sie "
+"die angezeigten Produkte in der Produktkategorie-Ansicht eingrenzen können."
 
 #: includes/widgets/class-wc-widget-price-filter.php:27
 msgid "WooCommerce Price Filter"
@@ -9756,7 +10198,9 @@ msgstr "Verborgene Produkte anzeigen"
 
 #: includes/widgets/class-wc-widget-recent-reviews.php:23
 msgid "Display a list of your most recent reviews on your site."
-msgstr "Stellt eine Übersicht der kürzlich abgegebenen Bewertungen auf Ihrer Site bereit."
+msgstr ""
+"Stellt eine Übersicht der kürzlich abgegebenen Bewertungen auf Ihrer Site "
+"bereit."
 
 #: includes/widgets/class-wc-widget-recent-reviews.php:25
 msgid "WooCommerce Recent Reviews"
@@ -9795,14 +10239,19 @@ msgid "Top Rated Products"
 msgstr "Bestbewertete Produkte"
 
 #: templates/auth/form-grant-access.php:16 templates/auth/form-login.php:18
+#, c-format
 msgid "%s would like to connect to your store"
 msgstr "%s möchte sich mit Ihrem Shop verbinden"
 
 #: templates/auth/form-grant-access.php:20
+#, c-format
 msgid "This will give \"%s\" <strong>%s</strong> access which will allow it to:"
-msgstr "Dadurch erhält „%s“ <strong>%s</strong> Zugriff, wodurch folgendes erlaubt sein wird:"
+msgstr ""
+"Dadurch erhält „%s“ <strong>%s</strong> Zugriff, wodurch folgendes erlaubt "
+"sein wird:"
 
 #: templates/auth/form-grant-access.php:30
+#, c-format
 msgid "Logged in as %s"
 msgstr "Angemeldet als %s"
 
@@ -9819,10 +10268,13 @@ msgid "Deny"
 msgstr "Ablehnen"
 
 #: templates/auth/form-login.php:22
+#, c-format
 msgid ""
 "To connect to %1$s you need to be logged in. Log in to your store below, or "
 "%2$scancel and return to %1$s%3$s"
-msgstr "Sie müssen angemeldet sein um sich mit %1$s zu verbinden. Melden Sie sich unten im Shop an, oder %2$sabbrechen und zurück zu %1$s%3$s"
+msgstr ""
+"Sie müssen angemeldet sein um sich mit %1$s zu verbinden. Melden Sie sich "
+"unten im Shop an, oder %2$sabbrechen und zurück zu %1$s%3$s"
 
 #: templates/auth/form-login.php:26 templates/myaccount/form-login.php:35
 msgid "Username or email address"
@@ -9846,6 +10298,7 @@ msgid "Return To Shop"
 msgstr "Zurück zum Shop"
 
 #: templates/cart/cart-shipping.php:20
+#, c-format
 msgid "Shipping #%d"
 msgstr "Versand #%d"
 
@@ -9856,13 +10309,17 @@ msgstr "Versand"
 
 #: templates/cart/cart-shipping.php:59
 msgid "Please use the shipping calculator to see available shipping methods."
-msgstr "Bitte nutzen Sie den Versandkosten-Rechner zur Anzeige möglicher Versandarten."
+msgstr ""
+"Bitte nutzen Sie den Versandkosten-Rechner zur Anzeige möglicher "
+"Versandarten."
 
 #: templates/cart/cart-shipping.php:63
 msgid ""
 "Please continue to the checkout and enter your full address to see if there "
 "are any available shipping methods."
-msgstr "Bitte gehen Sie zur Kasse und geben Sie Ihre Lieferadresse ein, um sich mögliche Versandoptionen anzeigen zu lassen."
+msgstr ""
+"Bitte gehen Sie zur Kasse und geben Sie Ihre Lieferadresse ein, um sich "
+"mögliche Versandoptionen anzeigen zu lassen."
 
 #: templates/cart/cart-shipping.php:67
 msgid "Please fill in your details to see available shipping methods."
@@ -9872,7 +10329,9 @@ msgstr "Bitte geben Sie Ihre Details ein, um verfügbare Versandarten zu sehen."
 msgid ""
 "There are no shipping methods available. Please double check your address, "
 "or contact us if you need any help."
-msgstr "Keine Versandarten verfügbar. Bitte prüfen Sie Ihre Adresse – oder kontaktieren Sie uns, wenn Sie Hilfe benötigen."
+msgstr ""
+"Keine Versandarten verfügbar. Bitte prüfen Sie Ihre Adresse – oder "
+"kontaktieren Sie uns, wenn Sie Hilfe benötigen."
 
 #: templates/cart/cart-totals.php:19
 msgid "Cart Totals"
@@ -9891,14 +10350,19 @@ msgid "Total"
 msgstr "Summe"
 
 #: templates/cart/cart-totals.php:90
+#, c-format
 msgid " (taxes estimated for %s)"
 msgstr "(Steuer geschätzt auf %s)"
 
 #: templates/cart/cart-totals.php:93
+#, c-format
 msgid ""
-"Note: Shipping and taxes are estimated%s and will be updated during checkout"
-" based on your billing and shipping information."
-msgstr "Hinweis: Versandkosten und Steuern sind geschätzt%s und werden während des Bestellvorgangs aktualisiert, basierend auf Ihren Rechnungs- und Versandinformationen."
+"Note: Shipping and taxes are estimated%s and will be updated during checkout "
+"based on your billing and shipping information."
+msgstr ""
+"Hinweis: Versandkosten und Steuern sind geschätzt%s und werden während des "
+"Bestellvorgangs aktualisiert, basierend auf Ihren Rechnungs- und "
+"Versandinformationen."
 
 #: templates/cart/cart.php:29 templates/emails/admin-cancelled-order.php:23
 #: templates/emails/admin-new-order.php:28
@@ -9964,7 +10428,10 @@ msgstr "Betrag aktualisieren"
 msgid ""
 "There are some issues with the items in your cart (shown above). Please go "
 "back to the cart page and resolve these issues before checking out."
-msgstr "Es gibt einige Probleme mit Ihrer Bestellung im Warenkorb (oben angezeigt). Bitte gehen Sie zurück auf die Warenkorb-Seite und lösen Sie diese Probleme vor dem Kauf."
+msgstr ""
+"Es gibt einige Probleme mit Ihrer Bestellung im Warenkorb (oben angezeigt). "
+"Bitte gehen Sie zurück auf die Warenkorb-Seite und lösen Sie diese Probleme "
+"vor dem Kauf."
 
 #: templates/checkout/cart-errors.php:22
 msgid "Return To Cart"
@@ -9986,7 +10453,10 @@ msgstr "Kundenkonto neu anlegen?"
 msgid ""
 "Create an account by entering the information below. If you are a returning "
 "customer please login at the top of the page."
-msgstr "Erstellen Sie ein Konto, indem Sie hier zusätzlich ein Passwort eingeben. Sollten Sie bereits ein Kundenkonto besitzen, so melden Sie sich bitte oben auf der Seite an."
+msgstr ""
+"Erstellen Sie ein Konto, indem Sie hier zusätzlich ein Passwort eingeben. "
+"Sollten Sie bereits ein Kundenkonto besitzen, so melden Sie sich bitte oben "
+"auf der Seite an."
 
 #: templates/checkout/form-checkout.php:20
 msgid "You must be logged in to checkout."
@@ -10017,7 +10487,10 @@ msgid ""
 "If you have shopped with us before, please enter your details in the boxes "
 "below. If you are a new customer please proceed to the Billing &amp; "
 "Shipping section."
-msgstr "Wenn Sie schon einmal bei uns eingekauft haben, geben Sie bitte Ihren Benutzernamen bzw. E-Mail und Ihr Passwort ein. Falls Sie ein neuer Kunde sind, füllen Sie bitte die Zahlungs- und Versandangaben unten aus. "
+msgstr ""
+"Wenn Sie schon einmal bei uns eingekauft haben, geben Sie bitte Ihren "
+"Benutzernamen bzw. E-Mail und Ihr Passwort ein. Falls Sie ein neuer Kunde "
+"sind, füllen Sie bitte die Zahlungs- und Versandangaben unten aus. "
 
 #: templates/checkout/form-pay.php:21
 msgid "Qty"
@@ -10036,7 +10509,10 @@ msgid ""
 "Sorry, it seems that there are no available payment methods for your "
 "location. Please contact us if you require assistance or wish to make "
 "alternate arrangements."
-msgstr "Leider sind keine Zahlungsarten für Ihr Land verfügbar. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen oder alternative Absprachen treffen möchten."
+msgstr ""
+"Leider sind keine Zahlungsarten für Ihr Land verfügbar. Bitte kontaktieren "
+"Sie uns, wenn Sie Hilfe benötigen oder alternative Absprachen treffen "
+"möchten."
 
 #: templates/checkout/form-pay.php:90
 msgid "Pay for order"
@@ -10048,42 +10524,58 @@ msgstr "Lieferung an eine andere Adresse senden?"
 
 #: templates/checkout/payment.php:30
 msgid "Please fill in your details above to see available payment methods."
-msgstr "Bitte füllen Sie die Angaben oben aus, um die verfügbaren Zahlungsarten abzurufen."
+msgstr ""
+"Bitte füllen Sie die Angaben oben aus, um die verfügbaren Zahlungsarten "
+"abzurufen."
 
 #: templates/checkout/payment.php:32
 msgid ""
 "Sorry, it seems that there are no available payment methods for your state. "
 "Please contact us if you require assistance or wish to make alternate "
 "arrangements."
-msgstr "Leider sind keine Zahlungsarten für Ihr/e Bundesland/Region verfügbar. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen oder alternative Absprachen treffen möchten."
+msgstr ""
+"Leider sind keine Zahlungsarten für Ihr/e Bundesland/Region verfügbar. Bitte "
+"kontaktieren Sie uns, wenn Sie Hilfe benötigen oder alternative Absprachen "
+"treffen möchten."
 
 #: templates/checkout/payment.php:43
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
-"ensure you click the <em>Update Totals</em> button before placing your "
-"order. You may be charged more than the amount stated above if you fail to "
-"do so."
-msgstr "Sollte Ihr Browser kein JavaScript unterstützen, oder wenn dieses deaktiviert wurde, stellen Sie bitte sicher, das Sie den Button <em>Gesamtbetrag aktualisieren</em> klicken, bevor Sie Ihre Bestellung abschicken. Wenn Sie das nicht tun, könnte es möglich sein, das Sie mehr bezahlen müssen, als oben angegeben ist."
+"ensure you click the <em>Update Totals</em> button before placing your order."
+" You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"Sollte Ihr Browser kein JavaScript unterstützen, oder wenn dieses "
+"deaktiviert wurde, stellen Sie bitte sicher, das Sie den Button "
+"<em>Gesamtbetrag aktualisieren</em> klicken, bevor Sie Ihre Bestellung "
+"abschicken. Wenn Sie das nicht tun, könnte es möglich sein, das Sie mehr "
+"bezahlen müssen, als oben angegeben ist."
 
 #: templates/checkout/payment.php:43
 msgid "Update totals"
 msgstr "Gesamtbetrag aktualisieren"
 
 #: templates/checkout/payment.php:53
+#, c-format
 msgid ""
 "I&rsquo;ve read and accept the <a href=\"%s\" target=\"_blank\">terms &amp; "
 "conditions</a>"
-msgstr "Ich habe die <a href=\"%s\" target=\"_blank\">Allgemeinen Geschäftsbedingungen</a> gelesen und bestätige diese hiermit."
+msgstr ""
+"Ich habe die <a href=\"%s\" target=\"_blank\">Allgemeinen "
+"Geschäftsbedingungen</a> gelesen und bestätige diese hiermit."
 
 #: templates/checkout/thankyou.php:18
 msgid ""
 "Unfortunately your order cannot be processed as the originating "
 "bank/merchant has declined your transaction."
-msgstr "Unglücklicherweise kann Ihre Bestellung nicht weiter verarbeitet werden, da Ihre ausführende Bank/Händler die Transaktion abgelehnt hat."
+msgstr ""
+"Unglücklicherweise kann Ihre Bestellung nicht weiter verarbeitet werden, da "
+"Ihre ausführende Bank/Händler die Transaktion abgelehnt hat."
 
 #: templates/checkout/thankyou.php:22
 msgid "Please attempt your purchase again or go to your account page."
-msgstr "Bitte versuchen Sie den Kauf noch einmal oder gehen Sie zurück zu Ihrem Kundenkonto."
+msgstr ""
+"Bitte versuchen Sie den Kauf noch einmal oder gehen Sie zurück zu Ihrem "
+"Kundenkonto."
 
 #: templates/checkout/thankyou.php:24
 msgid "Please attempt your purchase again."
@@ -10099,30 +10591,41 @@ msgstr "Vielen Dank. Ihre Bestellung ist eingegangen."
 
 #: templates/emails/admin-cancelled-order.php:13
 #: templates/emails/plain/admin-cancelled-order.php:15
+#, c-format
 msgid "The order #%d from %s has been cancelled. The order was as follows:"
 msgstr "Die Bestellung %d vom %s wurde abgebrochen. Die Bestellung lautet wie folgt:"
 
 #: templates/emails/admin-cancelled-order.php:17
+#, c-format
 msgid "Order: %s"
 msgstr "Bestellung: %s"
 
 #: templates/emails/admin-new-order.php:18
+#, c-format
 msgid "You have received an order from %s. The order is as follows:"
-msgstr "Sie haben eine Bestellung von %s erhalten. Die Bestellung lautet wie folgt:"
+msgstr ""
+"Hi Julia, hi Max. Ihr Habt eine Bestellung von %s erhalten. Die Bestellung "
+"lautet wie folgt:"
 
 #: templates/emails/customer-completed-order.php:18
 #: templates/emails/plain/customer-completed-order.php:16
+#, c-format
 msgid ""
-"Hi there. Your recent order on %s has been completed. Your order details are"
-" shown below for your reference:"
-msgstr "Ihre Bestellung bei %s wurde nun fertiggestellt. Ihre Bestelldetails werden unten zur Kontrolle angezeigt:"
+"Hi there. Your recent order on %s has been completed. Your order details are "
+"shown below for your reference:"
+msgstr ""
+"Ihre Bestellung bei %s wurde nun fertiggestellt. Ihre Bestelldetails werden "
+"unten zur Kontrolle angezeigt:"
 
 #: templates/emails/customer-invoice.php:20
 #: templates/emails/plain/customer-invoice.php:17
+#, c-format
 msgid ""
 "An order has been created for you on %s. To pay for this order please use "
 "the following link: %s"
-msgstr "Ihre Bestellung bei %s wurde erstellt. Um diese Bestellung zu bezahlen, klicken Sie bitte folgenden Link: %s."
+msgstr ""
+"Ihre Bestellung bei %s wurde erstellt. Um diese Bestellung zu bezahlen, "
+"klicken Sie bitte folgenden Link: %s."
 
 #: templates/emails/customer-invoice.php:20
 msgid "pay"
@@ -10130,20 +10633,26 @@ msgstr "zahlen"
 
 #: templates/emails/customer-new-account.php:18
 #: templates/emails/plain/customer-new-account.php:16
-msgid ""
-"Thanks for creating an account on %s. Your username is <strong>%s</strong>."
-msgstr "Vielen Dank, dass Sie ein Konto bei %s erstellt haben. Ihr Benutzername ist <strong>%s</strong>."
+#, c-format
+msgid "Thanks for creating an account on %s. Your username is <strong>%s</strong>."
+msgstr ""
+"Vielen Dank, dass Sie ein Konto bei %s erstellt haben. Ihr Benutzername ist "
+"<strong>%s</strong>."
 
 #: templates/emails/customer-new-account.php:22
+#, c-format
 msgid "Your password has been automatically generated: <strong>%s</strong>"
 msgstr "Ihr Password wurde automatisch generiert: <strong>%s</strong>"
 
 #: templates/emails/customer-new-account.php:26
 #: templates/emails/plain/customer-new-account.php:21
+#, c-format
 msgid ""
 "You can access your account area to view your orders and change your "
 "password here: %s."
-msgstr "Um Bestellungen anzusehen oder Ihr Passwort zu ändern, melden Sie sich hier in Ihrem Benutzerkonto an: %s"
+msgstr ""
+"Um Bestellungen anzusehen oder Ihr Passwort zu ändern, melden Sie sich hier "
+"in Ihrem Benutzerkonto an: %s"
 
 #: templates/emails/customer-note.php:18
 #: templates/emails/plain/customer-note.php:16
@@ -10160,13 +10669,21 @@ msgstr "Zu Ihrer Kontrolle, hier noch einmal Ihre Bestelldetails."
 msgid ""
 "Your order has been received and is now being processed. Your order details "
 "are shown below for your reference:"
-msgstr "Ihre Bestellung ist bei uns eingegangen und wird nun bearbeitet. Ihre Bestelldetails werden unten zur Kontrolle angezeigt:"
+msgstr ""
+"Vielen Dank für deine Bestellung bei WeArt, wir werden sie nun bearbeiten "
+"und an den Künstler weiterleiten. Du erhältst dann eine Mail mit allen "
+"Angaben zum Versand und eine mit Mehrwertsteuer ausgewiesene Rechnung.<br>\n"
+"Solltest du Fragen zu deiner Bestellung haben, schreibe eine Mail an "
+"support@weare-art.com und gebe dabei bitte immer deine Auftragsnummer mit an."
+" "
 
 #: templates/emails/customer-refunded-order.php:20
+#, c-format
 msgid "Hi there. Your order on %s has been partially refunded."
 msgstr "Hallo, Ihre Bestellung bei %s wurde teilweise rückerstattet."
 
 #: templates/emails/customer-refunded-order.php:23
+#, c-format
 msgid "Hi there. Your order on %s has been refunded."
 msgstr "Hallo, Ihre Bestellung bei %s wurde rückerstattet."
 
@@ -10177,19 +10694,21 @@ msgstr "Rückerstatteter Betrag"
 
 #: templates/emails/customer-reset-password.php:18
 #: templates/emails/plain/customer-reset-password.php:16
-msgid ""
-"Someone requested that the password be reset for the following account:"
+msgid "Someone requested that the password be reset for the following account:"
 msgstr "Jemand hat die Zurücksetzen des Passworts für folgendes Konto beantragt: "
 
 #: templates/emails/customer-reset-password.php:19
 #: templates/emails/plain/customer-reset-password.php:18
+#, c-format
 msgid "Username: %s"
 msgstr "Benutzername: %s"
 
 #: templates/emails/customer-reset-password.php:20
 #: templates/emails/plain/customer-reset-password.php:19
 msgid "If this was a mistake, just ignore this email and nothing will happen."
-msgstr "Falls Sie diese E-Mail irrtümlich erhalten haben, ignorieren Sie diese bitte und nichts weiteres wird passieren. "
+msgstr ""
+"Falls Sie diese E-Mail irrtümlich erhalten haben, ignorieren Sie diese bitte "
+"und nichts weiteres wird passieren. "
 
 #: templates/emails/customer-reset-password.php:21
 #: templates/emails/plain/customer-reset-password.php:20
@@ -10217,6 +10736,7 @@ msgstr "Lieferadresse"
 #: templates/emails/plain/customer-note.php:30
 #: templates/emails/plain/customer-processing-order.php:22
 #: templates/emails/plain/customer-refunded-order.php:22
+#, c-format
 msgid "Order number: %s"
 msgstr "Bestellnummer: %s"
 
@@ -10232,28 +10752,36 @@ msgstr "d. F Y"
 
 #: templates/emails/plain/admin-cancelled-order.php:36
 #: templates/emails/plain/admin-new-order.php:37
+#, c-format
 msgid "View order: %s"
 msgstr "Bestellung anzeigen: %s"
 
 #: templates/emails/plain/admin-new-order.php:16
+#, c-format
 msgid "You have received an order from %s."
 msgstr "Sie haben eine Bestellung von %s erhalten."
 
 #: templates/emails/plain/customer-new-account.php:19
+#, c-format
 msgid "Your password is <strong>%s</strong>."
 msgstr "Ihr Passwort lautet: <strong>%s</strong>"
 
 #: templates/emails/plain/customer-refunded-order.php:16
+#, c-format
 msgid ""
 "Hi there. Your order on %s has been refunded. Your order details are shown "
 "below for your reference:"
-msgstr "Hallo, Ihre Bestellung bei %s wurde rückerstattet. Ihre Bestelldetails werden unten zur Kontrolle angezeigt:"
+msgstr ""
+"Hallo, Ihre Bestellung bei %s wurde rückerstattet. Ihre Bestelldetails "
+"werden unten zur Kontrolle angezeigt:"
 
 #: templates/emails/plain/email-order-items.php:35
+#, c-format
 msgid "Quantity: %s"
 msgstr "Anzahl: %s"
 
 #: templates/emails/plain/email-order-items.php:38
+#, c-format
 msgid "Cost: %s"
 msgstr "Kosten: %s"
 
@@ -10279,6 +10807,7 @@ msgid "Showing the single result"
 msgstr "Einzelergebnis angezeigt"
 
 #: templates/loop/result-count.php:32
+#, c-format
 msgid "Showing all %d results"
 msgstr "Alle %d Ergebnisse angezeigt"
 
@@ -10288,10 +10817,13 @@ msgstr "Angebot!"
 
 #: templates/myaccount/form-add-payment-method.php:41
 msgid ""
-"Sorry, it seems that there are no payment methods which support adding a new"
-" payment method. Please contact us if you require assistance or wish to make"
-" alternate arrangements."
-msgstr "Leider gibt es anscheinend keine Zahlungsarten, die das Hinzufügen einer neuen Zahlungsart zulassen. Bitte kontaktieren Sie uns, wenn Sie Hilfe benötigen oder alternative Absprachen treffen möchten."
+"Sorry, it seems that there are no payment methods which support adding a new "
+"payment method. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+"Leider gibt es anscheinend keine Zahlungsarten, die das Hinzufügen einer "
+"neuen Zahlungsart zulassen. Bitte kontaktieren Sie uns, wenn Sie Hilfe "
+"benötigen oder alternative Absprachen treffen möchten."
 
 #: templates/myaccount/form-edit-account.php:23
 msgid "First name"
@@ -10359,7 +10891,10 @@ msgstr "Anti-Spam"
 msgid ""
 "Lost your password? Please enter your username or email address. You will "
 "receive a link to create a new password via email."
-msgstr "Haben Sie Ihr Passwort vergessen? Bitte geben Sie Ihren Benutzernamen oder E-Mail-Adresse ein. Sie erhalten einen Link per E-Mail, womit Sie sich ein neues Passwort erstellen können. "
+msgstr ""
+"Haben Sie Ihr Passwort vergessen? Bitte geben Sie Ihren Benutzernamen oder E-"
+"Mail-Adresse ein. Sie erhalten einen Link per E-Mail, womit Sie sich ein "
+"neues Passwort erstellen können. "
 
 #: templates/myaccount/form-lost-password.php:28
 msgid "Enter a new password below."
@@ -10382,15 +10917,20 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/myaccount/my-account.php:19
+#, c-format
 msgid "Hello <strong>%1$s</strong> (not %1$s? <a href=\"%2$s\">Sign out</a>)."
 msgstr "Hallo <strong>%1$s</strong> (nicht %1$s? <a href=\"%2$s\">Abmelden</a>)."
 
 #: templates/myaccount/my-account.php:24
+#, c-format
 msgid ""
 "From your account dashboard you can view your recent orders, manage your "
 "shipping and billing addresses and <a href=\"%s\">edit your password and "
 "account details</a>."
-msgstr "In Ihrer Kontoübersicht können Sie Ihre letzten Bestellungen sehen, Liefer- und Rechnungsadressen verwalten, sowie Ihr <a href=\"%s\">Passwort und Konto-Details bearbeiten</a>."
+msgstr ""
+"In Ihrer Kontoübersicht können Sie Ihre letzten Bestellungen sehen, Liefer- "
+"und Rechnungsadressen verwalten, sowie Ihr <a href=\"%s\">Passwort und Konto-"
+"Details bearbeiten</a>."
 
 #: templates/myaccount/my-address.php:17
 msgid "My Addresses"
@@ -10413,6 +10953,7 @@ msgid "Available Downloads"
 msgstr "Verfügbare Downloads"
 
 #: templates/myaccount/my-downloads.php:29
+#, c-format
 msgid "%s download remaining"
 msgid_plural "%s downloads remaining"
 msgstr[0] "%s Download verfügbar"
@@ -10431,6 +10972,7 @@ msgid "Order Number"
 msgstr "Bestellnummer"
 
 #: templates/myaccount/my-orders.php:59
+#, c-format
 msgid "%s for %s item"
 msgid_plural "%s for %s items"
 msgstr[0] "%s für %s Produkt"
@@ -10445,11 +10987,14 @@ msgid "View"
 msgstr "Anzeigen"
 
 #: templates/myaccount/view-order.php:20
+#, c-format
 msgid ""
-"Order #<mark class=\"order-number\">%s</mark> was placed on <mark class"
-"=\"order-date\">%s</mark> and is currently <mark class=\"order-"
-"status\">%s</mark>."
-msgstr "Bestellung <mark class=\"order-number\">%s</mark> wurde am <mark class=\"order-date\">%s</mark> erstellt und befindet sich momentan im Status <mark class=\"order-status\">%s</mark>."
+"Order #<mark class=\"order-number\">%s</mark> was placed on <mark class=\"order-"
+"date\">%s</mark> and is currently <mark class=\"order-status\">%s</mark>."
+msgstr ""
+"Bestellung <mark class=\"order-number\">%s</mark> wurde am <mark class=\"order-"
+"date\">%s</mark> erstellt und befindet sich momentan im Status <mark "
+"class=\"order-status\">%s</mark>."
 
 #: templates/myaccount/view-order.php:24 templates/order/tracking.php:25
 msgid "Order Updates"
@@ -10464,7 +11009,11 @@ msgid ""
 "To track your order please enter your Order ID in the box below and press "
 "the \"Track\" button. This was given to you on your receipt and in the "
 "confirmation email you should have received."
-msgstr "Um den Status Ihrer Bestellung zu verfolgen, geben Sie bitte Ihre Bestellnummer ein und klicken auf „Nachverfolgen“. Die Bestellnummer steht auf dem Bestellbeleg oder in der Bestätigungsmail, die Sie erhalten haben sollten."
+msgstr ""
+"Um den Status Ihrer Bestellung zu verfolgen, geben Sie bitte Ihre "
+"Bestellnummer ein und klicken auf „Nachverfolgen“. Die Bestellnummer steht "
+"auf dem Bestellbeleg oder in der Bestätigungsmail, die Sie erhalten haben "
+"sollten."
 
 #: templates/order/form-tracking.php:22
 msgid "Order ID"
@@ -10511,6 +11060,7 @@ msgid "Order Details"
 msgstr "Bestelldetails"
 
 #: templates/order/tracking.php:14
+#, c-format
 msgid "Order #%s which was made %s has the status &ldquo;%s&rdquo;"
 msgstr "Bestellung %s vom %s hat den Status „%s“"
 
@@ -10563,16 +11113,19 @@ msgid "Dimensions"
 msgstr "Größe"
 
 #: templates/single-product/rating.php:29
+#, c-format
 msgid "out of %s5%s"
 msgstr "von %s5%s"
 
 #: templates/single-product/rating.php:30
+#, c-format
 msgid "based on %s customer rating"
 msgid_plural "based on %s customer ratings"
 msgstr[0] "basierend auf einer Kundenbewertung"
 msgstr[1] "basierend auf %s Kundenbewertungen"
 
 #: templates/single-product/rating.php:33
+#, c-format
 msgid "%s customer review"
 msgid_plural "%s customer reviews"
 msgstr[0] "%s Kundenrezension"
@@ -10583,6 +11136,7 @@ msgid "Related Products"
 msgstr "Ähnliche Produkte"
 
 #: templates/single-product/review.php:29
+#, c-format
 msgid "Rated %d out of 5"
 msgstr "bewertet %d von 5"
 
@@ -10603,6 +11157,7 @@ msgid "You may also like&hellip;"
 msgstr "Das könnte Ihnen auch gefallen&hellip;"
 
 #: templates/single-product-reviews.php:24
+#, c-format
 msgid "%s review for %s"
 msgid_plural "%s reviews for %s"
 msgstr[0] "%s Bewertung für %s"
@@ -10625,6 +11180,7 @@ msgid "Be the first to review"
 msgstr "Schreiben Sie die erste Bewertung zu"
 
 #: templates/single-product-reviews.php:61
+#, c-format
 msgid "Leave a Reply to %s"
 msgstr "Schreiben Sie eine Antwort zu %s"
 
@@ -10633,6 +11189,7 @@ msgid "Submit"
 msgstr "Senden"
 
 #: templates/single-product-reviews.php:76
+#, c-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a review."
 msgstr "Sie müssen sich <a href=\"%s\">anmelden</a> um eine Bewertung abzugeben."
 
@@ -10669,9 +11226,10 @@ msgid "Your Review"
 msgstr "Ihre Bewertung"
 
 #: templates/single-product-reviews.php:99
-msgid ""
-"Only logged in customers who have purchased this product may leave a review."
-msgstr "Nur angemeldete Kunden, die dieses Produkt gekauft haben, dürfen eine Bewertung abgeben."
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"Nur angemeldete Kunden, die dieses Produkt gekauft haben, dürfen eine "
+"Bewertung abgeben."
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.woothemes.com/woocommerce/"
@@ -10679,7 +11237,9 @@ msgstr "http://www.woothemes.com/woocommerce/"
 
 #. Description of the plugin/theme
 msgid "An e-commerce toolkit that helps you sell anything. Beautifully."
-msgstr "Ein E-Commerce Werkzeugkasten, der dir hilft, alles zu verkaufen. Fantastisch, oder?"
+msgstr ""
+"Ein E-Commerce Werkzeugkasten, der dir hilft, alles zu verkaufen. "
+"Fantastisch, oder?"
 
 #. Author of the plugin/theme
 msgid "WooThemes"
@@ -10696,6 +11256,7 @@ msgstr "Georgien"
 
 #: includes/abstracts/abstract-wc-order.php:1098
 #: includes/abstracts/abstract-wc-order.php:1109
+#, c-format
 msgctxt "full name"
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
@@ -10707,6 +11268,7 @@ msgstr "Von:"
 
 #: includes/api/class-wc-api-webhooks.php:197
 #: includes/api/v2/class-wc-api-webhooks.php:197
+#, c-format
 msgctxt "Webhook created on date parsed by strftime"
 msgid "%b %d, %Y @ %I:%M %p"
 msgstr "%d %b %Y um %H:%M"
@@ -10749,7 +11311,9 @@ msgstr "Ein Ergebnis ist verfügbar, drücken Sie die Eingabetaste um es auszuw�
 #: includes/class-wc-frontend-scripts.php:274
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
-msgstr "%qty% Ergebnisse stehen zur Verfügung, verwenden Sie die Hoch-/Runter-Pfeiltasten zum Navigieren."
+msgstr ""
+"%qty% Ergebnisse stehen zur Verfügung, verwenden Sie die Hoch-/Runter-"
+"Pfeiltasten zum Navigieren."
 
 #: includes/class-wc-frontend-scripts.php:275
 msgctxt "enhanced select"
@@ -10767,6 +11331,7 @@ msgid "Please enter 1 or more characters"
 msgstr "Bitte 1 oder mehr Buchstaben eingeben"
 
 #: includes/class-wc-frontend-scripts.php:278
+#, c-format
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr "Bitte %qty% oder mehr Buchstaben eingeben"
@@ -10777,6 +11342,7 @@ msgid "Please delete 1 character"
 msgstr "Bitte 1 Buchstaben löschen"
 
 #: includes/class-wc-frontend-scripts.php:280
+#, c-format
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr "Bitte %qty% Buchstaben löschen"
@@ -10787,6 +11353,7 @@ msgid "You can only select 1 item"
 msgstr "Sie können nur 1 Produkt auswählen"
 
 #: includes/class-wc-frontend-scripts.php:282
+#, c-format
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr "Sie können nur %qty% Produkte auswählen"
@@ -10938,6 +11505,7 @@ msgstr "Fehlgeschlagen"
 #: includes/class-wc-product-grouped.php:193
 #: includes/class-wc-product-variable.php:326
 #: includes/class-wc-product-variable.php:332
+#, c-format
 msgctxt "Price range: from-to"
 msgid "%1$s&ndash;%2$s"
 msgstr "%1$s&ndash;%2$s"
@@ -10947,12 +11515,8 @@ msgctxt "Tax status"
 msgid "None"
 msgstr "Keine"
 
-#: includes/wc-cart-functions.php:100
-msgctxt "Item name in quotes"
-msgid "&ldquo;%s&rdquo;"
-msgstr ""
-
 #: includes/wc-core-functions.php:78 includes/wc-order-functions.php:629
+#, c-format
 msgctxt "Order date parsed by strftime"
 msgid "%b %d, %Y @ %I:%M %p"
 msgstr "%d %b %Y um %H:%M"
@@ -10978,6 +11542,7 @@ msgid "Order"
 msgstr "Bestellung"
 
 #: includes/widgets/class-wc-widget-recent-reviews.php:86
+#, c-format
 msgctxt "by comment author"
 msgid "by %1$s"
 msgstr "von %1$s"
@@ -10988,6 +11553,7 @@ msgid "Qty"
 msgstr "Menge"
 
 #: templates/loop/result-count.php:34
+#, c-format
 msgctxt "%1$d = first, %2$d = last, %3$d = total"
 msgid "Showing %1$d&ndash;%2$d of %3$d results"
 msgstr "%1$d&ndash;%2$d von %3$d Ergebnissen angezeigt"

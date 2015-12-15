@@ -30,13 +30,13 @@
 		});
 
 		// resize avatar picture, if art image to small
-		$('#artists-page li.product.type-product').each(function() {
+		/* $('#artists-page li.product.type-product').each(function() {
 			if($(this).outerHeight() < 175) {
 					$(this).find('.bottom').hide();
 					$('.entry_author_image', this).css('width', '75px');
 					$('.entry_author_image', this).css('height', '75px');
 				}
-		});		
+		}); */
 		
 		$('.woocommerce .shop_table dd.variation-Gre p, .woocommerce .shop_table dd.variation-Material p').each(function() {
 			if($(this).text() == 'Original') {
