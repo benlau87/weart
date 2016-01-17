@@ -30,8 +30,8 @@ img {
 }
 
 .navbar-brand > img {
-    height: 70px;
-    width: 140px;
+    height: 80px;
+    width: auto;
 }
 
 p.form-row {
@@ -561,6 +561,14 @@ blockquote em {
 
 #footer ul li {
     margin: 0;
+}
+
+#footer .socials i {
+    margin: 0 5px;
+}
+
+#footer .socials a:hover {
+    border:none;
 }
 
 #copyright {

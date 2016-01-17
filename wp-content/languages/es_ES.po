@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the 4.3.x package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-09-23 09:30:59+0000\n"
+"PO-Revision-Date: 2015-09-26 22:31:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -207,11 +207,6 @@ msgstr "¡El llamado método constructor para %1$s es <strong>obsoleto</strong> 
 msgid "Previewing theme"
 msgstr "Previsualizar el tema"
 
-#: wp-includes/class-wp-editor.php:829
-msgctxt "HTML tag"
-msgid "Preformatted"
-msgstr "Formato previo"
-
 #: wp-includes/class-wp-customize-section.php:410
 #: wp-includes/class-wp-customize-section.php:427
 msgid "Active theme"
@@ -252,6 +247,11 @@ msgstr "Reordenar los elementos del menú"
 #: wp-includes/locale.php:199
 msgid "The %s directory of the develop repository must be used for RTL."
 msgstr "La carpeta %s del repositorio de desarrollo debe usarse para RTL."
+
+#: wp-includes/class-wp-editor.php:829
+msgctxt "HTML tag"
+msgid "Preformatted"
+msgstr "Preformateado"
 
 #: wp-includes/user.php:2272
 msgid "[%s] Notice of Email Change"
@@ -7675,7 +7675,7 @@ msgstr "No se han encontrado adjuntos."
 
 #: wp-includes/script-loader.php:503
 msgid "Save Draft"
-msgstr "Guardar"
+msgstr "Solo guardar"
 
 #: wp-includes/class-wp-editor.php:884 wp-includes/media-template.php:383
 #: wp-includes/media-template.php:563 wp-includes/revision.php:31

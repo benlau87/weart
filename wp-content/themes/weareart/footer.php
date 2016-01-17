@@ -7,9 +7,13 @@
 				<?php dynamic_sidebar('footer-col-4'); ?>
 			<div class="clearfix"></div>
 			<div id="copyright">
-			<div class="col-md-12">
-				<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'waa' ), '&copy;', date( 'Y' ), esc_html( get_bloginfo( 'name' ) ) ); ?>
-			</div>
+				<div class="col-md-8">
+					<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'waa' ), '&copy;', date( 'Y' ), esc_html( get_bloginfo( 'name' ) ) ); ?>
+				</div>
+				<div class="col-md-4 text-right socials">
+					<a href="https://www.facebook.com/weartlovers/" target="_blank"><i class="ui ui-facebook"></i></a>
+					<a href="https://www.instagram.com/weartlovers/" target="_blank"><i class="ui ui-pinterest"></i></a>
+				</div>
 			</div>
 		</footer>
 	</div>
