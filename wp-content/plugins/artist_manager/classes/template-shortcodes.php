@@ -200,6 +200,12 @@ class waa_Template_Shortcodes
             $price = floatval($_POST['_regular_price']);
             $featured_image = absint($_POST['feat_image_id']);
 
+
+            /**
+             * validate, if artist has entered shipping information
+             */
+
+
             if (empty($post_title)) {
 
                 $errors[] = __('Please enter product title', 'waa');
@@ -718,7 +724,8 @@ class waa_Template_Shortcodes
         }
 
 
-        if (isset($_POST['waa_update_shipping_options']) && wp_verify_nonce($_POST['waa_shipping_form_field_nonce'], 'waa_shipping_form_field')) {
+        if (isset($_POST['waa_update_shipping_options']) && wp_verify_nonce($_POST['waa_shipping_form_field_nonce'], 'waa_shipping_form_field') && $_POST['dps_pt'] && $_POST['dps_form_location'] &&
+            isset($_POST['dps_country_to'])) {
 
             $user_id = get_current_user_id();
             $s_rates = array();
@@ -807,6 +814,10 @@ class waa_Template_Shortcodes
             wp_redirect(add_query_arg(array('message' => 'shipping_saved'), $shipping_url));
             exit;
 
+        } elseif (isset($_POST['waa_update_shipping_options']) && wp_verify_nonce($_POST['waa_shipping_form_field_nonce'], 'waa_shipping_form_field')) {
+            $shipping_url = waa_get_navigation_url('settings/shipping');
+            wp_redirect(add_query_arg(array('message' => 'shipping_not_saved'), $shipping_url));
+            exit;
         }
     }
 
