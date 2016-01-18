@@ -58,28 +58,28 @@ global $product;
 				 */
 			#	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title',5);
 				#do_action( 'woocommerce_single_product_summary' );
-				
+
 				woocommerce_template_single_title();
-				
+
 				$author     = get_user_by( 'id', $product->post->post_author );
 				$author_info     = waa_get_store_info( $author->ID );
-				printf( 'von <a href="%s" class="artist">%s</a>', waa_get_store_url( $author->ID ), $author_info['store_name'] ); 
+				printf( 'von <a href="%s" class="artist">%s</a>', waa_get_store_url( $author->ID ), $author_info['store_name'] );
 				woocommerce_template_single_price();
 				woocommerce_template_single_add_to_cart();
 				woocommerce_template_single_meta();
 			?>
-			
-			
+
+
 			<?php  #$product->list_attributes(); ?>
 		</div><!-- .summary -->
 	</div><!-- .row productinfo -->
-		
-	<div class="artist-block">	
-		<div class="artist-info">	
+
+	<div class="artist-block">
+		<div class="artist-info">
 			<div class="artist-profilepic"><?php echo get_avatar( $author->ID, 150 ); ?></div>
-			<div class="artist-shortdesc">		
-				<span style="font-weight:bold; font-style:italic">&raquo; <?= the_title().' &laquo;</span> '.__('von', 'waa'); ?><a href="<?= waa_get_store_url( $author->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $author_info['store_name']); ?>"> 
-					<?= $author_info['store_name']; 
+			<div class="artist-shortdesc">
+				<span style="font-weight:bold; font-style:italic">&raquo; <?= the_title().' &laquo;</span> '.__('von', 'waa'); ?><a href="<?= waa_get_store_url( $author->ID ) ?>" title="<?php printf( __('Profil von %s ansehen	', 'waa'), $author_info['store_name']); ?>">
+					<?= $author_info['store_name'];
 						$city_term = get_term_by('id', $author_info['region'], 'pa_stadt');
 						$city_id = $city_term->term_id;
 						$city_link = get_term_link( $city_id, 'pa_stadt' );
@@ -87,7 +87,7 @@ global $product;
 					(<?php printf( __('<em>Künstler aus</em> <a href="%1$s" title="weitere Künstler aus %2$s anzeigen">%2$s</a>', 'waa'), $city_link, $city_term->name );?>)
 					<?php
 									the_content();
-					#echo ( isset($author_info['description'] )) ? '<p>'.truncate_string($author_info['description'], '300').'</p>' : '' 
+					#echo ( isset($author_info['description'] )) ? '<p>'.truncate_string($author_info['description'], '300').'</p>' : ''
 					?>
 			</div>
 		</div>
@@ -107,23 +107,23 @@ global $product;
 			'orderby'        => 'rand',
 			'post__not_in' => array( $product->id )
 	);
-		
+
  $the_query = new WP_Query($args);
- 
+
 	if ( $the_query->have_posts() ) {
 		echo '<div class="row more-products-by-artist">';
 		echo '<div class="col-md-12">';
 		echo '<h3>';
-		printf( __( 'weitere Produkte von %s', 'waa' ), $author_info['store_name'] );		
+		printf( __( 'weitere Produkte von %s', 'waa' ), $author_info['store_name'] );
 		echo '</h3>';
 		echo '<ul class="products" id="more-product-by-artist">';
 		echo '<li class="grid-sizer"></li>';
 		echo '<li class="gutter-sizer"></li>';
-	
-		while ( $the_query->have_posts() ) : $the_query->the_post(); 		
+
+		while ( $the_query->have_posts() ) : $the_query->the_post();
 
  ?>
- 
+
  <?php wc_get_template_part( 'content', 'product' ); ?>
 
  <?php

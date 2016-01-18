@@ -57,12 +57,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php do_action('prdctfltr_output'); ?>
 				</div>
 				<div class="col-md-3">
-					 <?php  echo do_shortcode('[yith_woocommerce_ajax_search]'); ?> 
+					 <?php  echo do_shortcode('[yith_woocommerce_ajax_search]'); ?>
 			</div>
 			</div>
-			
-			
-			
+
+
+
 			<?php woocommerce_product_loop_start(); ?>
 
 				<?php woocommerce_product_subcategories(); ?>

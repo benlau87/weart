@@ -991,7 +991,7 @@ ul.products li.product-category.product {
 }
 
 .gutter-sizer {
-    width: 1%;
+    width: 1.25%;
 }
 
 .page-id-16 .grid-sizer, #post-14 .grid-sizer, #artists-page .grid-sizer {
@@ -1901,12 +1901,13 @@ li.payment_method_paypal img {
 }
 
 .yith-ajaxsearchform-container {
-    margin-top: 36px;
+    margin-top: 35px;
 }
 
 @media all and (max-width: 990px) {
     .yith-ajaxsearchform-container {
         margin-top: -20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -2135,8 +2136,16 @@ li.payment_method_paypal img {
 @media all and (max-width: 992px) {
     /* masonry product grid */
     ul.products li.product.type-product {
-        width: 100%;
+        width: 49%;
         margin: 0 0 35px 0;
+    }
+
+    .grid-sizer {
+        width: 49%;
+    }
+
+    .gutter-sizer {
+        width: 2%;
     }
 
     .showcase .grid-sizer {
@@ -2167,13 +2176,7 @@ li.payment_method_paypal img {
         margin-right: -15px;
     }
 
-    .grid-sizer, ul.products li.product-category.product {
-        width: 48%;
-    }
 
-    .gutter-sizer {
-        width: 4%;
-    }
 
     .grid-sizer-masonry {
         width: 100%;
@@ -2190,11 +2193,7 @@ li.payment_method_paypal img {
         width: 0;
     }
 
-    /* masonry product grid */
-    ul.products li.product.type-product, .showcase ul.products li.product.type-product {
-        width: 100%;
-        margin: 0 0 35px 0;
-    }
+
 
     .showcase .grid-sizer {
         width: 100%%;

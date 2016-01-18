@@ -40,27 +40,27 @@ $woocommerce_loop['loop'] ++;
 			 * @hooked woocommerce_subcategory_thumbnail - 10
 			 */
 			#do_action( 'woocommerce_before_subcategory_title', $category );
-			
-			
+
+
 			// category (artist) thumb
 			#woocommerce_subcategory_thumbnail($category);
 			#print_r($category);
 			$user = get_user_by('login',$category->slug);
-		  the_author_image_size(150, 150, $user->ID); 
+		  the_author_image_size(150, 150, $user->ID);
 			// random product (art) thumb
 			$post_array = get_posts(array('post_type' => 'product', 'term' => $category->term_id, 'numberposts' => 1, 'orderby' => rand));
 			$rand_post_id = $post_array[0]->ID;
 			?>
-			
-		<div class="the_post_image">	
-		<?php 
+
+		<div class="the_post_image">
+		<?php
 			$image_title 	= esc_attr( get_the_title( get_post_thumbnail_id() ) );
 			$image       	= get_the_post_thumbnail( $post->ID, array(600,600), array(
 				'title'	=> $image_title,
 				'alt'	=> $image_title
 				) );
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
-		?>		
+		?>
 		</div>
 		<h3>
 			<?php

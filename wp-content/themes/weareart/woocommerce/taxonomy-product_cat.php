@@ -22,21 +22,21 @@ get_header( 'shop' ); ?>
 	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 	 * @hooked woocommerce_breadcrumb - 20
 	 */
-	 
+
 	 // breadcrumb
 #	do_action( 'woocommerce_before_main_content' );
 ?>
-<?php 
+<?php
 
 // get category
-$term = get_queried_object(); 
+$term = get_queried_object();
 $children = get_terms( $term->taxonomy, array(
 	'parent'    => $term->term_id,
 	'hide_empty' => false
 ) );
 
 // show artists
-if($children) { 
+if($children) {
 ?>
 	<div id="content">
 		<div class="container">
@@ -56,16 +56,16 @@ if($children) {
 
 					<?php woocommerce_product_loop_start(); ?>
 						<?php woocommerce_product_subcategories(); ?>
-					<?php woocommerce_product_loop_end(); 
-					
+					<?php woocommerce_product_loop_end();
+
 					endif; ?>
 				</div>
 			</div>
 		</div>
 	</div>
-<?php } 
+<?php }
 // show artist profile page
-else { 
+else {
 	// get user by category-slug
 	$user = get_user_by('login',$term->slug);
 	$user_info = get_userdata($user->ID);
@@ -79,19 +79,19 @@ else {
 						banner
 					</div>
 				</div>
-				<div class="row">				
+				<div class="row">
 					<div class="sidebar-right col-md-4 col-sm-6 col-xs-12">
 					<?php
 					if ( have_posts() ) :
 					#do_action( 'woocommerce_before_shop_loop' );
 					#woocommerce_product_loop_start();
 					?>
-					<div class="showcase-content">	
+					<div class="showcase-content">
 						<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 							<h1 class="page-title"><?= $user_info->display_name; ?></h1>
 						<?php endif; ?>
 							<?php the_author_image_size(150, 150, $user->ID); ?>
-						<div class="showcase2-content">	
+						<div class="showcase2-content">
 							<span class="artist-location"><?= $user_meta['artist_city'][0]; ?>, <?= $user_meta['artist_country'][0]; ?></span><br>
 							<span class="artist-art-count">Artworks: <?= $wp_query->found_posts; ?></span>
 							<span class="artist-tags">Art Style:
@@ -127,7 +127,7 @@ else {
 								<?php } ?>
 							</ul>
 						</div>
-						<?php } ?>						
+						<?php } ?>
 					</div>
 				</div>
 
@@ -135,7 +135,7 @@ else {
 				<?php
 					woocommerce_product_loop_start();
 					while ( have_posts() ) : the_post(); ?>
-					
+
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 

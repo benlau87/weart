@@ -52,17 +52,17 @@ $city_name = $city_term->name;
 <li <?php post_class( $classes ); ?>>
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-	<a href="<?php the_permalink(); ?>">	
-		<?php the_post_thumbnail('large'); ?>	
+	<a href="<?php the_permalink(); ?>">
+		<?php the_post_thumbnail( array(600,600) ); ?>
 	</a>
 	<div class="art-info">
 		<header>
-			<span class="tagged_as">				
+			<span class="tagged_as">
 				<?php ($city_name ? printf( __('<span class="city"><a href="%1$s" title="Künstler aus %2$s anzeigen">%2$s</a> / </span>', 'waa'), $city_link, $city_name ) : ''); ?>
 				<?= $product->get_categories(); ?>
 			</span>
 			<?php	#woocommerce_product_loop_tags();	?>
-			<div class="title"><h3><a href="<?php the_permalink(); ?>">	
+			<div class="title"><h3><a href="<?php the_permalink(); ?>">
 		<?php
 			/**
 			 * woocommerce_before_shop_loop_item_title hook
@@ -85,24 +85,24 @@ $city_name = $city_term->name;
 			</header>
 			<footer>
 			<?php
-			
+
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
 			 *
 			 * @hooked woocommerce_template_loop_rating - 5
 			 * @hooked woocommerce_template_loop_price - 10
-			 */		
+			 */
 			remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
-			#do_action( 'woocommerce_after_shop_loop_item_title' );			
-			
+			#do_action( 'woocommerce_after_shop_loop_item_title' );
+
 			echo '<span class="artist">';
 			printf( 'von <a href="%s">%s</a>', waa_get_store_url( $author->ID ), $store_info['store_name'] ) .'</span>';
-			
+
 			add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 			remove_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);
 			do_action( 'woocommerce_after_shop_loop_item_title' );
-			
-			
+
+
 			?>
 		</footer>
 	</div>
