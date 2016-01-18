@@ -1044,6 +1044,87 @@ function waa_get_seller_bank_details( $seller_id ) {
     return nl2br( implode( "\n", $details ) );
 }
 
+
+/**
+ * Get seller shipping details
+ *
+ * @param int $seller_id
+ * @return string
+ */
+function waa_get_seller_shipping_details( $seller_id ) {
+    $info = waa_get_store_info( $seller_id );
+    $payment = $info['payment']['bank'];
+    $details = array();
+
+    if ( isset( $payment['ac_name'] ) ) {
+        $details[] = sprintf( __( 'Account Name: %s', 'waa' ), $payment['ac_name'] );
+    }
+    if ( isset( $payment['ac_iban'] ) ) {
+        $details[] = sprintf( __( 'Account Number: %s', 'waa' ), $payment['ac_iban'] );
+    }
+    if ( isset( $payment['ac_bic'] ) ) {
+        $details[] = sprintf( __( 'SWIFT: %s', 'waa' ), $payment['ac_bic'] );
+    }
+    if ( isset( $payment['bank_name'] ) ) {
+        $details[] = sprintf( __( 'Bank Name: %s', 'waa' ), $payment['bank_name'] );
+    }
+
+    return nl2br( implode( "\n", $details ) );
+}
+
+
+/**
+ * Check if Artist allows pickup
+ *
+ * @param $user_id
+ * @return bool
+ */
+function artist_has_pickup($user_id)
+{
+    $_dps_shipping_enable = get_user_meta($user_id, '_dps_shipping_enable', true);
+    $_dps_enable_pickup = get_user_meta($user_id, '_dps_enable_pickup', true);
+    if ($_dps_shipping_enable == 'yes' && $_dps_enable_pickup == 'yes') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Check if Artist has entered shipping information
+ *
+ * @param $user_id
+ * @return bool
+ */
+function artist_has_shipping($user_id)
+{
+    $_dps_shipping_type_price = get_user_meta($user_id, '_dps_shipping_type_price', true);
+    $_dps_pt = get_user_meta($user_id, '_dps_pt', true); // time to send package
+    $_dps_form_location = get_user_meta($user_id, '_dps_form_location', true);
+    // wenn gebuehr = 0 muss _dps_state_rates angegeben sein und gebuehr darf dort nicht != 0 sein.
+    $_dps_country_rates = unserialize(reset(get_user_meta($user_id, '_dps_country_rates', true)));
+    $_dps_state_rates = unserialize(reset(get_user_meta($user_id, '_dps_state_rates', true)));
+
+    if (artist_has_pickup($user_id))
+        return true;
+    else if (($_dps_pt != '' && $_dps_form_location != '') && ($_dps_shipping_type_price != '0' || !empty($_dps_country_rates) || !empty($_dps_state_rates) ))
+        return true;
+    return false;
+}
+
+/**
+ *  Check if Artist is allowed to add a new product
+ *
+ * @param $user_id
+ * @return bool
+ */
+function artist_can_add_product($user_id)
+{
+    if (artist_has_shipping($user_id))
+        return true;
+    return false;
+}
+
 /**
  * Get seller listing
  *

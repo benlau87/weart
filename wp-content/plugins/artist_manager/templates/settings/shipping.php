@@ -45,41 +45,26 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                     <strong><?php _e('Shipping options saved successfully', 'waa'); ?></strong>
                 </div>
                 <?php
-            }
-            ?>
+            } elseif (isset($_GET['message']) && $_GET['message'] == 'shipping_not_saved') { ?>
+                <div class="waa-alert waa-alert-danger">
+                    <button type="button" class="waa-close" data-dismiss="alert">&times;</button>
+                    <strong><?php _e('Bitte fülle alle mit einem Sternchen * markierten Felder aus.', 'waa'); ?></strong>
+    </div>
+           <?php }   ?>
 
             <form method="post" id="shipping-form" action="" class="waa-form-horizontal">
 
-                <?php  wp_nonce_field( 'waa_shipping_form_field', 'waa_shipping_form_field_nonce' ); ?>
+                <?php wp_nonce_field('waa_shipping_form_field', 'waa_shipping_form_field_nonce'); ?>
 
                 <?php
                 do_action('waa_shipping_settings_form_top'); ?>
-
-                <div class="waa-form-group">
-                    <label class="waa-w4 waa-control-label" for="dps_enable_shipping" style="margin-top:6px">
-                        <?php _e('Enable Shipping', 'waa'); ?>
-                        <span class="waa-tooltips-help tips"
-                              title="<?php esc_attr_e('Check this if you want to enable shipping for your store', 'waa'); ?>">
-                            <i class="ui ui-question-circle"></i>
-                        </span>
-                    </label>
-
-                    <div class="waa-w5 waa-text-left">
-                        <div class="checkbox">
-                            <label>
-                                <input type="hidden" name="dps_enable_shipping" value="no">
-                                <input type="checkbox" name="dps_enable_shipping"
-                                       value="yes" <?php checked('yes', $dps_enable_shipping, true); ?>> <?php _e('Enable shipping functionality', 'waa'); ?>
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                <input type="hidden" name="dps_enable_shipping" value="yes">
 
                 <div class="waa-form-group">
                     <label class="waa-w4 waa-control-label" for="dps_enable_shipping" style="margin-top:6px">
                         <?php _e('Selbstabholung', 'waa'); ?>
                         <span class="waa-tooltips-help tips"
-                              title="<?php esc_attr_e('Biete deinen Kund an, das Kunstwerk bei dir persönlich abzuholen.', 'waa'); ?>">
+                              title="<?php esc_attr_e('Biete deinen Kunden an, das Kunstwerk bei dir persönlich abzuholen.', 'waa'); ?>">
                             <i class="ui ui-question-circle"></i>
                         </span>
                     </label>
@@ -88,12 +73,45 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                         <div class="checkbox">
                             <label>
                                 <input type="hidden" name="dps_enable_pickup" value="no">
-                                   <input type="checkbox" name="dps_enable_pickup"
+                                <?php
+                                function is_pickup_allowed($user_id)
+                                {
+                                    $profile_info = waa_get_store_info( $user_id );
+
+                                    if ( isset( $profile_info['address'] ) ) {
+
+                                        $address = $profile_info['address'];
+
+                                        $street_1     = isset( $address['street_1'] ) ? $address['street_1'] : '';
+                                        $city         = isset( $address['city'] ) ? $address['city'] : '';
+                                        $zip          = isset( $address['zip'] ) ? $address['zip'] : '';
+                                        $country_code = isset( $address['country'] ) ? $address['country'] : '';
+
+                                        if(!empty($street_1) && !empty($city) && !empty($zip) && !empty($country_code)) {
+                                            return true;
+                                        }
+                                    } else {
+                                        return false;
+                                    }
+                                }
+
+                                if (is_pickup_allowed($user_id)) : ?>
+                                    <input type="checkbox" name="dps_enable_pickup"
                                            value="yes" <?php checked('yes', $dps_enable_pickup, true); ?>> <?php _e('Selbstabholung erlauben', 'waa'); ?>
+                                <?php else: ?>
+                                    <input type="checkbox" name=""
+                                           value="" disabled>
+                                    <s><?php _e('Selbstabholung erlauben', 'waa'); ?></s>
+                                    <br>
+                                    <small><?php printf(__('Du kannst diese Option nur wählen, wenn du in deinem <a href="%s">Profil</a> eine vollständige Adresse hinterlegt hast', 'waa'), waa_get_navigation_url('settings/store')); ?></small>
+                                <?php endif; ?>
                             </label>
                         </div>
                     </div>
                 </div>
+
+                <hr/>
+                <br>
 
                 <div class="waa-shipping-wrapper">
 
@@ -112,22 +130,22 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                                    type="number" step="any" min="0">
                         </div>
                     </div>
-
+<!--
                     <div class="waa-form-group waa-shipping-price waa-shipping-add-product">
                         <label class="waa-w4 waa-control-label" for="dps_additional_product">
-                            <?php _e('Per Product Additional Price', 'waa'); ?>
+                            <?php /*_e('Per Product Additional Price', 'waa'); */?>
                             <span class="waa-tooltips-help tips"
-                                  title="<?php esc_attr_e('If a customer buys more than one type product from your store, first product of the every second type will be charged with this price', 'waa'); ?>">
+                                  title="<?php /*esc_attr_e('If a customer buys more than one type product from your store, first product of the every second type will be charged with this price', 'waa'); */?>">
                                 <i class="ui ui-question-circle"></i>
                             </span>
                         </label>
 
                         <div class="waa-w5 waa-text-left">
-                            <input id="additional_product" value="<?php echo $dps_additional_product; ?>"
+                            <input id="additional_product" value="<?php /*echo $dps_additional_product; */?>"
                                    name="dps_additional_product" placeholder="0.00" class="waa-form-control"
                                    type="number" step="any" min="0">
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="waa-form-group waa-shipping-price waa-shipping-add-qty">
                         <label class="waa-w4 waa-control-label" for="dps_additional_qty">
@@ -147,7 +165,7 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
 
                     <div class="waa-form-group waa-shipping-price waa-shipping-add-qty">
                         <label class="waa-w4 waa-control-label" for="dps_pt">
-                            <?php _e('Processing Time', 'waa'); ?>
+                            <?php _e('Processing Time', 'waa'); ?> *
                             <span class="waa-tooltips-help tips"
                                   title="<?php esc_attr_e('The time required before sending the product for delivery', 'waa'); ?>">
                                 <i class="ui ui-question-circle"></i>
@@ -155,7 +173,7 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                         </label>
 
                         <div class="waa-w5 waa-text-left">
-                            <select name="dps_pt" id="dps_pt" class="waa-form-control">
+                            <select name="dps_pt" id="dps_pt" class="waa-form-control" required>
                                 <?php foreach ($processing_time as $processing_key => $processing_value): ?>
                                     <option
                                         value="<?php echo $processing_key; ?>" <?php selected($dps_pt, $processing_key); ?>><?php echo $processing_value; ?></option>
@@ -197,7 +215,7 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
 
                     <div class="waa-form-group">
                         <label class="waa-w4 waa-control-label" for="dps_form_location">
-                            <?php _e('Ships from:', 'waa'); ?>
+                            <?php _e('Ships from:', 'waa'); ?> *
                             <span class="waa-tooltips-help tips"
                                   title="<?php _e('The place you send the products for delivery. Most of the time it as store location', 'waa'); ?>">
                                 <i class="ui ui-question-circle"></i>
@@ -205,7 +223,7 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                         </label>
 
                         <div class="waa-w5">
-                            <select name="dps_form_location" class="waa-form-control">
+                            <select name="dps_form_location" class="waa-form-control" required>
                                 <?php waa_country_dropdown($countries, $dps_form_location); ?>
                             </select>
                         </div>
@@ -372,13 +390,13 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                                             <tbody>
                                             <tr class="dps-shipping-location">
                                                 <td>
-                                                    <label for=""><?php _e('Ship to', 'waa'); ?>
+                                                    <label for=""><?php _e('Ship to', 'waa'); ?> *
                                                         <span class="waa-tooltips-help tips"
                                                               title="<?php _e('The country you ship to', 'waa'); ?>">
                                                     <i class="ui ui-question-circle"></i></span></label>
                                                     <select name="dps_country_to[]"
                                                             class="waa-form-control dps_country_selection"
-                                                            id="dps_country_selection">
+                                                            id="dps_country_selection" required>
                                                         <?php waa_country_dropdown($countries, '', true); ?>
                                                     </select>
                                                 </td>
