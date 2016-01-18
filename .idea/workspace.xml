@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3a05fdd-3ee1-4195-b6ca-55f595236e40" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/languages/waa-de_DE.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/languages/waa-de_DE.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-shortcodes.php" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-shortcodes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/languages/waa-de_DE.pot" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/languages/waa-de_DE.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php" afterPath="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/wordfence/tmp/configCache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/wordfence/tmp/configCache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/weareart/css/global.css" afterPath="$PROJECT_DIR$/wp-content/themes/weareart/css/global.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/price.php" afterPath="$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/price.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/weareart/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/weareart/functions.php" />
     </list>
     <ignored path="weart.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,16 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shipping.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="88" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="template-shortcodes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-shortcodes.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,71 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="price.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="price.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/price.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5271318">
+            <state vertical-scroll-proportion="-18.307692">
               <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wc-template.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/wc-template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wc-functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/wc-functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2176" column="24" selection-start-line="2176" selection-start-column="17" selection-end-line="2176" selection-end-column="24" />
-              <folding>
-                <marker date="1446594117760" expanded="true" signature="24454:24825" placeholder="SELECT ${$wp..${$wpdb-&gt;posts}..." />
-                <marker date="1446594117760" expanded="true" signature="44065:44436" placeholder="SELECT ${$wp..${$wpdb-&gt;posts}..." />
-                <marker date="1446594117760" expanded="true" signature="64139:64305" placeholder="SELECT meta_..${{$wpdb-&gt;postmeta}..." />
-                <marker date="1446594117760" expanded="true" signature="74372:74538" placeholder="SELECT meta_..${{$wpdb-&gt;postmeta}..." />
-                <marker date="1446594117760" expanded="true" signature="88460:88626" placeholder="SELECT meta_..${{$wpdb-&gt;postmeta}..." />
-                <marker date="1446594117760" expanded="true" signature="96301:96551" placeholder="SELECT SUM(o..${{$wpdb-&gt;prefix}..." />
-                <marker date="1446594117760" expanded="true" signature="109118:109464" placeholder="SELECT SUM(n..${{$wpdb-&gt;prefix}..." />
-                <marker date="1446594117760" expanded="true" signature="109991:110434" placeholder="SELECT AVG(c..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2061" column="41" selection-start-line="2061" selection-start-column="31" selection-end-line="2061" selection-end-column="41" />
-              <folding>
-                <marker date="1450218461589" expanded="true" signature="3508:3634" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
-                <marker date="1450218461589" expanded="true" signature="4507:4661" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
-                <marker date="1450218461589" expanded="true" signature="5604:5919" placeholder="SELECT c.com..${$wpdb-&gt;comments}..." />
-                <marker date="1450218461589" expanded="true" signature="7024:7287" placeholder="SELECT SUM(m..${{$wpdb-&gt;postmeta}..." />
-                <marker date="1450218461589" expanded="true" signature="7815:8262" placeholder="SELECT SUM(o..${{$wpdb-&gt;prefix}..." />
-                <marker date="1450218461589" expanded="true" signature="8590:9234" placeholder="SELECT oi.or..${{$wpdb-&gt;prefix}..." />
-                <marker date="1450218461589" expanded="true" signature="34784:35139" placeholder="SELECT COUNT..." />
-                <marker date="1450218461589" expanded="true" signature="38133:38384" placeholder="SELECT selle..${{$wpdb-&gt;prefix}..." />
-                <marker date="1450218461589" expanded="true" signature="45982:46175" placeholder="SELECT DISTI..." />
-                <marker date="1450218461589" expanded="true" signature="50631:50719" placeholder="SELECT post_..${{$wpdb-&gt;postmeta}..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-product-single.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="161" column="72" selection-start-line="161" selection-start-column="32" selection-end-line="161" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -136,22 +58,86 @@
       <file leaf-file-name="global.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/css/global.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template-tags.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/template-tags.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="355" column="23" selection-start-line="355" selection-start-column="23" selection-end-line="355" selection-end-column="65" />
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="27" column="106" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.61572534">
+              <caret line="1104" column="43" selection-start-line="1104" selection-start-column="38" selection-end-line="1104" selection-end-column="43" />
               <folding>
-                <marker date="1447194879038" expanded="true" signature="17576:18144" placeholder="SELECT t.ter..${$wpdb-&gt;terms}..." />
-                <marker date="1447194879038" expanded="true" signature="19023:19591" placeholder="SELECT t.ter..${$wpdb-&gt;terms}..." />
+                <marker date="1453118973943" expanded="true" signature="3508:3634" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
+                <marker date="1453118973943" expanded="true" signature="4507:4661" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
+                <marker date="1453118973943" expanded="true" signature="5604:5919" placeholder="SELECT c.com..${$wpdb-&gt;comments}..." />
+                <marker date="1453118973943" expanded="true" signature="7024:7287" placeholder="SELECT SUM(m..${{$wpdb-&gt;postmeta}..." />
+                <marker date="1453118973943" expanded="true" signature="7815:8262" placeholder="SELECT SUM(o..${{$wpdb-&gt;prefix}..." />
+                <marker date="1453118973943" expanded="true" signature="8590:9234" placeholder="SELECT oi.or..${{$wpdb-&gt;prefix}..." />
+                <marker date="1453118973943" expanded="true" signature="34784:35139" placeholder="SELECT COUNT..." />
+                <marker date="1453118973943" expanded="true" signature="38133:38384" placeholder="SELECT selle..${{$wpdb-&gt;prefix}..." />
+                <marker date="1453118973943" expanded="true" signature="45982:46175" placeholder="SELECT DISTI..." />
+                <marker date="1453118973943" expanded="true" signature="50631:50719" placeholder="SELECT post_..${{$wpdb-&gt;postmeta}..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header-shop.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header-shop.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-29.5">
+              <caret line="261" column="77" selection-start-line="261" selection-start-column="77" selection-end-line="261" selection-end-column="77" />
+              <folding>
+                <marker date="1453118629406" expanded="true" signature="4345:4468" placeholder="..." />
+                <marker date="1453118629406" expanded="true" signature="6948:7284" placeholder="..." />
+                <marker date="1453118629406" expanded="true" signature="7096:7284" placeholder="..." />
+                <marker date="1453118629406" expanded="true" signature="8315:8445" placeholder="..." />
+                <marker date="1453118629406" expanded="true" signature="8336:8427" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/admin-functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products-listing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/products-listing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.0">
+              <caret line="119" column="41" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,12 +160,13 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-settings.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/weareart/404.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/weareart/functions/functions-shortcodes.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/weareart/css/global.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-shortcodes.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/price.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/weareart/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php" />
       </list>
     </option>
   </component>
@@ -242,7 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -423,8 +409,101 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artist_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artist_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artist_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -511,27 +590,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="24" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/classes/template-settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="21" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/store.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -717,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header-shop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -749,13 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="106" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
         </state>
       </provider>
     </entry>
@@ -801,14 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/css/global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/template-tags.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -816,25 +852,6 @@
           <folding>
             <marker date="1447194879038" expanded="true" signature="17576:18144" placeholder="SELECT t.ter..${$wpdb-&gt;terms}..." />
             <marker date="1447194879038" expanded="true" signature="19023:19591" placeholder="SELECT t.ter..${$wpdb-&gt;terms}..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2061" column="41" selection-start-line="2061" selection-start-column="31" selection-end-line="2061" selection-end-column="41" />
-          <folding>
-            <marker date="1450218461589" expanded="true" signature="3508:3634" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
-            <marker date="1450218461589" expanded="true" signature="4507:4661" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
-            <marker date="1450218461589" expanded="true" signature="5604:5919" placeholder="SELECT c.com..${$wpdb-&gt;comments}..." />
-            <marker date="1450218461589" expanded="true" signature="7024:7287" placeholder="SELECT SUM(m..${{$wpdb-&gt;postmeta}..." />
-            <marker date="1450218461589" expanded="true" signature="7815:8262" placeholder="SELECT SUM(o..${{$wpdb-&gt;prefix}..." />
-            <marker date="1450218461589" expanded="true" signature="8590:9234" placeholder="SELECT oi.or..${{$wpdb-&gt;prefix}..." />
-            <marker date="1450218461589" expanded="true" signature="34784:35139" placeholder="SELECT COUNT..." />
-            <marker date="1450218461589" expanded="true" signature="38133:38384" placeholder="SELECT selle..${{$wpdb-&gt;prefix}..." />
-            <marker date="1450218461589" expanded="true" signature="45982:46175" placeholder="SELECT DISTI..." />
-            <marker date="1450218461589" expanded="true" signature="50631:50719" placeholder="SELECT post_..${{$wpdb-&gt;postmeta}..." />
           </folding>
         </state>
       </provider>
@@ -898,9 +915,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/price.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5271318">
+        <state vertical-scroll-proportion="-18.307692">
           <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/css/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="27" column="106" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/header-shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/products-listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="119" column="41" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.5">
+          <caret line="261" column="77" selection-start-line="261" selection-start-column="77" selection-end-line="261" selection-end-column="77" />
+          <folding>
+            <marker date="1453118629406" expanded="true" signature="4345:4468" placeholder="..." />
+            <marker date="1453118629406" expanded="true" signature="6948:7284" placeholder="..." />
+            <marker date="1453118629406" expanded="true" signature="7096:7284" placeholder="..." />
+            <marker date="1453118629406" expanded="true" signature="8315:8445" placeholder="..." />
+            <marker date="1453118629406" expanded="true" signature="8336:8427" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/admin-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61572534">
+          <caret line="1104" column="43" selection-start-line="1104" selection-start-column="38" selection-end-line="1104" selection-end-column="43" />
+          <folding>
+            <marker date="1453118973943" expanded="true" signature="3508:3634" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
+            <marker date="1453118973943" expanded="true" signature="4507:4661" placeholder="SELECT post_..${{$wpdb-&gt;posts}..." />
+            <marker date="1453118973943" expanded="true" signature="5604:5919" placeholder="SELECT c.com..${$wpdb-&gt;comments}..." />
+            <marker date="1453118973943" expanded="true" signature="7024:7287" placeholder="SELECT SUM(m..${{$wpdb-&gt;postmeta}..." />
+            <marker date="1453118973943" expanded="true" signature="7815:8262" placeholder="SELECT SUM(o..${{$wpdb-&gt;prefix}..." />
+            <marker date="1453118973943" expanded="true" signature="8590:9234" placeholder="SELECT oi.or..${{$wpdb-&gt;prefix}..." />
+            <marker date="1453118973943" expanded="true" signature="34784:35139" placeholder="SELECT COUNT..." />
+            <marker date="1453118973943" expanded="true" signature="38133:38384" placeholder="SELECT selle..${{$wpdb-&gt;prefix}..." />
+            <marker date="1453118973943" expanded="true" signature="45982:46175" placeholder="SELECT DISTI..." />
+            <marker date="1453118973943" expanded="true" signature="50631:50719" placeholder="SELECT post_..${{$wpdb-&gt;postmeta}..." />
+          </folding>
         </state>
       </provider>
     </entry>
