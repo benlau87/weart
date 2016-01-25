@@ -109,7 +109,7 @@ function waa_show_hirable_artists($atts)
                 $return .= '</div>';
                 $return .= '<div class="artist">' . $artist_info['store_name'] . ' <br />';
                 $return .= (isset($post_counts[$artist->ID]) ? '<span class="artist-style">' . __('Kunstwerke', 'waa') . ': ' . $post_counts[$artist->ID] . '</span>' : '');
-                    $return .= '</div>
+                $return .= '</div>
                     <div class="artist-hover">
                         <div class="entry_author_image">' . get_avatar($artist->ID, 150) . '</div>
                         <div class="bottom"><a href="' . waa_get_store_url($artist->ID) . '"
@@ -128,6 +128,14 @@ function waa_show_hirable_artists($atts)
 
 add_shortcode('hirable_artists', 'waa_show_hirable_artists');
 
+function wp_user_query_random_enable($query)
+{
+    if ($query->query_vars["orderby"] == 'rand') {
+        $query->query_orderby = 'ORDER by RAND()';
+    }
+}
+
+add_filter('pre_user_query', 'wp_user_query_random_enable');
 
 /*
 * Home Slider (art show)
@@ -140,7 +148,7 @@ function waa_home_art_slider($atts)
         'order' => 'rand',
     ), $atts);
 
-    $user_search = new WP_User_Query(array('role' => 'seller', 'number' => 99999));
+    $user_search = new WP_User_Query(array('role' => 'seller', 'number' => 99999, 'orderby' => 'rand'));
     $artists = (array)$user_search->get_results();
     $post_counts = count_many_users_posts(wp_list_pluck($artists, 'ID'), 'product');
 
@@ -152,7 +160,7 @@ function waa_home_art_slider($atts)
         $args = array(
             'post_type' => 'product',
             'post_status' => 'publish',
-            'posts_per_page' => 8,
+            'posts_per_page' => 1,
             'author' => $artist->ID,
             'orderby' => 'rand'
         );
@@ -164,20 +172,23 @@ function waa_home_art_slider($atts)
             $large_image_url = wp_get_attachment_image_src(get_post_thumbnail_id($art->ID), 'large');
             #echo $large_image_url[1].'x'.$large_image_url[2];
 
-            if ($large_image_url[1] > $large_image_url[2] * 1.5) {
-                ?>
-                <li>
-                    <img src="<?= $large_image_url[0]; ?>" alt="<?= $image_title ?>">
-                    <header>
-                    </header>
-                    <footer>
-                        <a href="<?= get_permalink($art->ID) ?>"
-                           class="title"><?= $art->post_title; ?></a><br><?= __('von', 'waa') ?> <a
-                            href="<?= waa_get_store_url($artist->ID) ?>" class="artist-name"
-                            title="<?php printf(__('Kunstwerk von %s	', 'waa'), $artist_info['store_name']); ?>"><?= $artist_info['store_name']; ?></a>
-                    </footer>
-                </li>
-            <?php }
+            # if ($large_image_url[1] > $large_image_url[2] * 1.5) {
+            ?>
+            <li>
+                <div class="slider-img"><a href="<?= get_permalink($art->ID) ?>"
+                                           class="title"><img src="<?= $large_image_url[0]; ?>"
+                                                              alt="<?= $image_title ?>"></a></div>
+                <header>
+                </header>
+                <footer>
+                    <a href="<?= get_permalink($art->ID) ?>"
+                       class="title"><?= $art->post_title; ?></a><br><?= __('von', 'waa') ?> <a
+                        href="<?= waa_get_store_url($artist->ID) ?>" class="artist-name"
+                        title="<?php printf(__('Kunstwerk von %s	', 'waa'), $artist_info['store_name']); ?>"><?= $artist_info['store_name']; ?></a>
+                </footer>
+            </li>
+            <?php
+            #}
         }
     }
     echo '</ul>';

@@ -59,5 +59,9 @@ jQuery(document).ready(function ($) {
 
     $slider.height('initial');
 
+    $('img').bind('contextmenu', function(e) {
+        return false;
+    });
+
 
 });

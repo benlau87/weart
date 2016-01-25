@@ -12,7 +12,7 @@
 				</div>
 				<div class="col-md-4 text-right socials">
 					<a href="https://www.facebook.com/weartlovers/" target="_blank"><i class="ui ui-facebook"></i></a>
-					<a href="https://www.instagram.com/weartlovers/" target="_blank"><i class="ui ui-pinterest"></i></a>
+					<a href="https://www.instagram.com/weartlovers/" target="_blank"><i class="ui ui-instagram"></i></a>
 				</div>
 			</div>
 		</footer>
