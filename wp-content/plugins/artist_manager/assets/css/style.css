@@ -23,6 +23,11 @@
   cursor:pointer;
 }
 
+.product-type-box span {
+  color: #222;
+  font-weight:bold;
+}
+
 .waa-dashboard .waa-dash-sidebar ul.waa-dashboard-menu {
   background: #242424;
   list-style: none;

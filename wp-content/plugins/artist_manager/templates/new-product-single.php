@@ -215,7 +215,7 @@ if (empty($waa_product_type) && !empty($product))
                         <div class="product-set-type">
 
                             <div class="col-md-4 col-md-offset-1 product-type-box">
-                                <a href="#" class="sell-original">Original verkaufen</a>
+                                <span>Original verkaufen</span>
 
                                 <div class="type-desc" id="sell-original-btn">
                                     <?= __('Falls du das Original-Kunstwerk verkaufen möchtest, wähle diese Option aus. ', 'waa') ?>
@@ -223,7 +223,7 @@ if (empty($waa_product_type) && !empty($product))
                             </div>
 
                             <div class="col-md-4 col-md-offset-1 product-type-box" id="sell-prints-btn">
-                                <a href="#" class="sell-prints">Prints verkaufen</a>
+                                <span>Prints verkaufen</span>
 
                                 <div class="type-desc">
                                     <?= __('Du möchtest Abzüge von deinem Kunstwerk verkaufen? Dann klicke hier.', 'waa') ?>
