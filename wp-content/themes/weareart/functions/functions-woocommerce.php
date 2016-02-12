@@ -16,6 +16,10 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
+/**
+ * @param $price
+ * @return string
+ */
 function format_currency_price($price) {
     $price = number_format($price, 2, ',', ',');
     $currency_pos = get_option( 'woocommerce_currency_pos');
@@ -59,40 +63,57 @@ function woocommerce_product_loop_tags() {
     echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( '', '', $tag_count, 'woocommerce' ) . ' ', '</span>' );
 }
 
-add_filter('woocommerce_attribute_show_in_nav_menus', 'wc_reg_for_menus', 1, 2);
-
+/**
+ * @param $register
+ * @param string $name
+ * @return bool
+ */
 function wc_reg_for_menus( $register, $name = '' ) {
      if ( $name == 'pa_stadt' ) $register = true;
      return $register;
 }
+add_filter('woocommerce_attribute_show_in_nav_menus', 'wc_reg_for_menus', 1, 2);
 
-// Removes Product Successfully Added to Cart 
-add_filter( 'woocommerce_add_to_cart_message', 'custom_add_to_cart_message' );
-add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
+/**
+ * Removes Product Successfully Added to Cart
+ * @param $message
+ * @return string
+ */
 function custom_add_to_cart_message( $message  ){
 	return '';
 }
+add_filter( 'woocommerce_add_to_cart_message', 'custom_add_to_cart_message' );
+add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
 
-// get all (visible) variation prices for a product
+/**
+ * get all (visible) variation prices for a product
+ * @param $product
+ * @param bool|false $count
+ * @return int|string
+ */
 function waa_get_variation_prices($product, $count = false) {
 	global $woocommerce;
 	$variation_ids = $product->children['visible'];
 	$i = 0;
-	foreach ($variation_ids as $variation) {		
+	foreach ($variation_ids as $variation) {
 		$product_variation = new WC_Product_Variation($variation);
 		$variation_id[$i] = $variation;
 		$regular_price[$i] = $product_variation->regular_price;
 		$variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
-		if ( $variation_name[$i] != 'original') 
+		if ( $variation_name[$i] != 'original')
 			$output .= '<input type="hidden" id="variation_price_'.$variation_id[$i].'" value="'.$regular_price[$i].'" name="'.$variation_id[$i].'" />';
 		$i++;
 	}
 	if ($count)
 		return count($variation_ids);
-	else 
+	else
 		return $output;
 }
 
+/**
+ * @param $product_id
+ * @return array|mixed
+ */
 function waa_get_max_variation_price($product_id) {
 	global $wpdb;
 	$sql = "SELECT
@@ -104,40 +125,72 @@ function waa_get_max_variation_price($product_id) {
 
 	$data = $wpdb->get_results( $sql );
 
-
+    $output = '';
 	foreach($data as $variation) {
 		$variation_price = get_post_meta($variation->ID, '_regular_price', true);
 		$variation_name = get_post_meta($variation->ID, 'attribute_pa_print_groesse', true);
-		
+
 		if($variation_name != 'original') {
 			$output[] = $variation_price;
 		}
 	}
 
 	$output = (is_array($output) ? max($output) : $output);
-	
+
 	return $output;
 }
 
+/**
+ * @param $product_id
+ * @return string
+ */
 function waa_get_variable_price($product_id) {
-		$_create_variation = get_post_meta($product_id, '_create_variation', true);		
-		$_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
-		$_max_variation_price = waa_get_max_variation_price($product_id);
-	#	$_max_variation_price = get_post_meta($product_id, '_max_variation_price', true);
-		
-		if($_create_variation == 'no' || $_min_variation_price == $_max_variation_price) {
-			$_min_variation_price = ($_min_variation_price 	? get_post_meta($product_id, '_min_variation_price', true) : get_post_meta($product_id, '_regular_price', true));
-			$output = number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();
-		} else {
-			$output = __('ab', 'waa').' '.number_format($_min_variation_price, 2, ',','.'). ' '.get_woocommerce_currency_symbol();
-		}
-		return $output;
+    $_create_variation = get_post_meta($product_id, '_create_variation', true);
+    $_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
+    $_max_variation_price = waa_get_max_variation_price($product_id);
+
+    if($_create_variation == 'no' || $_min_variation_price == $_max_variation_price) {
+        $_min_variation_price = $_min_variation_price 	? '_min_variation_price' : '_regular_price';
+        $output = waa_get_woocs_price($product_id, $_min_variation_price);
+    } else {
+        $output = __('ab', 'waa').' '.waa_get_woocs_price($product_id, '_min_variation_price');
+    }
+    return $output;
 }
 
-// Hook in
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+/**
+ * @param $product_id
+ * @return string
+ */
+function waa_get_variable_price_html($product_id) {
+    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., <a href="#">zzgl. Versand</a>', 'waa') . '</small></p>';
+}
 
-// Our hooked in function - $fields is passed via the filter!
+/**
+ * @param $product_id
+ * @param $key
+ * @return string
+ */
+function waa_get_woocs_price($product_id, $key) {
+    $woocs = new WOOCS();
+    return number_format($woocs->woocs_exchange_value(get_post_meta($product_id, $key, true)), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+}
+
+/**
+ * @param $product_id
+ * @param $key
+ * @return string
+ */
+function waa_get_woocs_price_html($product_id, $key) {
+    $woocs = new WOOCS();
+    $out = '<p class="price"><span class="amount">'.number_format($woocs->woocs_exchange_value(get_post_meta($product_id, $key, true)), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., <a href="#">zzgl. Versand</a>', 'waa') . '</small></p>';
+    return $out;
+}
+
+/**
+ * @param $fields
+ * @return mixed
+ */
 function custom_override_checkout_fields( $fields ) {
     # unset($fields['order']['order_comments']);
      unset($fields['billing']['billing_address_2']);
@@ -146,5 +199,6 @@ function custom_override_checkout_fields( $fields ) {
 
      return $fields;
 }
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
 ?>

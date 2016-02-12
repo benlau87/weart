@@ -8,7 +8,7 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-  <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+  <a id="skippy" class="sr-only sr-only-focusable" tabindex="-1" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
 
 <header class="navbar navbar-static-top
 <?php if(is_home()) {

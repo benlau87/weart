@@ -231,7 +231,7 @@ class waa_Ajax {
         }
 
         foreach ( $product_ids as $product_id ) {
-            $product    = get_product( $product_id );
+            $product    = wc_get_product( $product_id );
             $files      = $product->get_files();
 
             if ( ! $order->billing_email )
@@ -385,7 +385,7 @@ class waa_Ajax {
 
         $variations = array();
 
-        $_product = get_product( $post_id, array( 'product_type' => 'variable' ) );
+        $_product = wc_get_product( $post_id, array( 'product_type' => 'variable' ) );
 
         // Put variation attributes into an array
         foreach ( $_product->get_attributes() as $attribute ) {

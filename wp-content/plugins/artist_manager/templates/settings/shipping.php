@@ -7,15 +7,21 @@ $processing_time = waa_get_shipping_processing_times();
 
 $dps_enable_shipping = get_user_meta($user_id, '_dps_shipping_enable', true);
 $dps_enable_pickup = get_user_meta($user_id, '_dps_enable_pickup', true);
-$dps_shipping_type_price = get_user_meta($user_id, '_dps_shipping_type_price', true);
-$dps_additional_product = get_user_meta($user_id, '_dps_additional_product', true);
-$dps_additional_qty = get_user_meta($user_id, '_dps_additional_qty', true);
+$profile_info = waa_get_store_info($user_id);
+$address_country = isset($profile_info['address']['country']) ? $profile_info['address']['country'] : '';
 $dps_form_location = get_user_meta($user_id, '_dps_form_location', true);
+$dps_form_location = $dps_form_location ? $dps_form_location : $address_country;
 $dps_country_rates = get_user_meta($user_id, '_dps_country_rates', true);
 $dps_state_rates = get_user_meta($user_id, '_dps_state_rates', true);
 $dps_pt = get_user_meta($user_id, '_dps_pt', true);
 $dps_shipping_policy = get_user_meta($user_id, '_dps_ship_policy', true);
 $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
+
+$dps_country_to = get_user_meta($user_id, '_dps_country_rates', true);
+$dps_home_country = array_key_exists('home_country', $dps_country_to) ? 'yes' : '';
+$dps_eu_countries = array_key_exists('eu_countries', $dps_country_to) ? 'yes' : '';
+$dps_switzerland = array_key_exists('switzerland', $dps_country_to) ? 'yes' : '';
+
 ?>
 <div class="waa-dashboard-wrap">
     <?php waa_get_template('dashboard-nav.php', array('active_menu' => 'settings/shipping')); ?>
@@ -49,8 +55,8 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                 <div class="waa-alert waa-alert-danger">
                     <button type="button" class="waa-close" data-dismiss="alert">&times;</button>
                     <strong><?php _e('Bitte fülle alle mit einem Sternchen * markierten Felder aus.', 'waa'); ?></strong>
-    </div>
-           <?php }   ?>
+                </div>
+            <?php } ?>
 
             <form method="post" id="shipping-form" action="" class="waa-form-horizontal">
 
@@ -76,18 +82,18 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                                 <?php
                                 function is_pickup_allowed($user_id)
                                 {
-                                    $profile_info = waa_get_store_info( $user_id );
+                                    $profile_info = waa_get_store_info($user_id);
 
-                                    if ( isset( $profile_info['address'] ) ) {
+                                    if (isset($profile_info['address'])) {
 
                                         $address = $profile_info['address'];
 
-                                        $street_1     = isset( $address['street_1'] ) ? $address['street_1'] : '';
-                                        $city         = isset( $address['city'] ) ? $address['city'] : '';
-                                        $zip          = isset( $address['zip'] ) ? $address['zip'] : '';
-                                        $country_code = isset( $address['country'] ) ? $address['country'] : '';
+                                        $street_1 = isset($address['street_1']) ? $address['street_1'] : '';
+                                        $city = isset($address['city']) ? $address['city'] : '';
+                                        $zip = isset($address['zip']) ? $address['zip'] : '';
+                                        $country_code = isset($address['country']) ? $address['country'] : '';
 
-                                        if(!empty($street_1) && !empty($city) && !empty($zip) && !empty($country_code)) {
+                                        if (!empty($street_1) && !empty($city) && !empty($zip) && !empty($country_code)) {
                                             return true;
                                         }
                                     } else {
@@ -114,55 +120,6 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
                 <br>
 
                 <div class="waa-shipping-wrapper">
-
-                    <div class="waa-form-group waa-shipping-price waa-shipping-type-price">
-                        <label class="waa-w4 waa-control-label" for="shipping_type_price">
-                            <?php _e('Default Shipping Price', 'waa'); ?>
-                            <span class="waa-tooltips-help tips"
-                                  title="<?php esc_attr_e('This is the base price and will be the starting shipping price for each product', 'waa'); ?>">
-                                <i class="ui ui-question-circle"></i>
-                            </span>
-                        </label>
-
-                        <div class="waa-w5 waa-text-left">
-                            <input id="shipping_type_price" value="<?php echo $dps_shipping_type_price; ?>"
-                                   name="dps_shipping_type_price" placeholder="0.00" class="waa-form-control"
-                                   type="number" step="any" min="0">
-                        </div>
-                    </div>
-<!--
-                    <div class="waa-form-group waa-shipping-price waa-shipping-add-product">
-                        <label class="waa-w4 waa-control-label" for="dps_additional_product">
-                            <?php /*_e('Per Product Additional Price', 'waa'); */?>
-                            <span class="waa-tooltips-help tips"
-                                  title="<?php /*esc_attr_e('If a customer buys more than one type product from your store, first product of the every second type will be charged with this price', 'waa'); */?>">
-                                <i class="ui ui-question-circle"></i>
-                            </span>
-                        </label>
-
-                        <div class="waa-w5 waa-text-left">
-                            <input id="additional_product" value="<?php /*echo $dps_additional_product; */?>"
-                                   name="dps_additional_product" placeholder="0.00" class="waa-form-control"
-                                   type="number" step="any" min="0">
-                        </div>
-                    </div>-->
-
-                    <div class="waa-form-group waa-shipping-price waa-shipping-add-qty">
-                        <label class="waa-w4 waa-control-label" for="dps_additional_qty">
-                            <?php _e('Per Qty Additional Price', 'waa'); ?>
-                            <span class="waa-tooltips-help tips"
-                                  title="<?php esc_attr_e('Every second product of same type will be charged with this price', 'waa'); ?>">
-                                <i class="ui ui-question-circle"></i>
-                            </span>
-                        </label>
-
-                        <div class="waa-w5 waa-text-left">
-                            <input id="additional_qty" value="<?php echo $dps_additional_qty; ?>"
-                                   name="dps_additional_qty" placeholder="0.00" class="waa-form-control" type="number"
-                                   step="any" min="0">
-                        </div>
-                    </div>
-
                     <div class="waa-form-group waa-shipping-price waa-shipping-add-qty">
                         <label class="waa-w4 waa-control-label" for="dps_pt">
                             <?php _e('Processing Time', 'waa'); ?> *
@@ -236,203 +193,55 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
 
                                 <p class="waa-page-help"><?php _e('Add the countries you deliver your products to. You can specify states as well. If the shipping price is same except some countries/states, there is an option <strong>Everywhere Else</strong>, you can use that.', 'waa') ?></p>
 
-                                <?php if ($dps_country_rates) : ?>
 
-                                    <?php foreach ($dps_country_rates as $country => $country_rate) : ?>
-
-                                        <div class="dps-shipping-location-content">
-
-                                            <table class="dps-shipping-table">
-                                                <tbody>
-
-                                                <tr class="dps-shipping-location">
-                                                    <td width="40%">
-                                                        <label for=""><?php _e('Ship to', 'waa'); ?>
-                                                            <span class="waa-tooltips-help tips"
-                                                                  title="<?php _e('The country you ship to', 'waa'); ?>">
-                                                        <i class="ui ui-question-circle"></i></span></label>
-                                                        <select name="dps_country_to[]"
-                                                                class="waa-form-control dps_country_selection"
-                                                                id="dps_country_selection">
-                                                            <?php waa_country_dropdown($countries, $country, true); ?>
-                                                        </select>
-                                                    </td>
-                                                    <td class="dps_shipping_location_cost">
-                                                        <label for=""><?php _e('Cost', 'waa'); ?>
-                                                            <span class="waa-tooltips-help tips"
-                                                                  title="<?php _e('If the shipping price is same for all the states, use this field. Else add the states below', 'waa'); ?>">
-                                                        <i class="ui ui-question-circle"></i></span></label>
-
-                                                        <div class="waa-input-group">
-                                                            <span
-                                                                class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                            <input type="text" placeholder="0.00"
-                                                                   class="waa-form-control"
-                                                                   name="dps_country_to_price[]"
-                                                                   value="<?php echo esc_attr($country_rate); ?>">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr class="dps-shipping-states-wrapper">
-                                                    <table class="dps-shipping-states">
-                                                        <tbody>
-                                                        <?php if ($dps_state_rates): ?>
-                                                            <?php if (isset($dps_state_rates[$country])): ?>
-
-                                                                <?php foreach ($dps_state_rates[$country] as $state => $state_rate): ?>
-
-                                                                    <?php if (isset($states[$country]) && !empty($states[$country])): ?>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <label
-                                                                                    for=""><?php _e('State', 'waa') ?>
-                                                                                    <span class="waa-tooltips-help tips"
-                                                                                          title="<?php _e('The state you ship to', 'waa'); ?>">
-                                                                                    <i class="ui ui-question-circle"></i></span></label>
-                                                                                <select
-                                                                                    name="dps_state_to[<?php echo $country ?>][]"
-                                                                                    class="waa-form-control dps_state_selection">
-                                                                                    <?php waa_state_dropdown($states[$country], $state, true); ?>
-                                                                                </select>
-                                                                            </td>
-                                                                            <td>
-                                                                                <label
-                                                                                    for=""><?php _e('Cost', 'waa'); ?>
-                                                                                    <span class="waa-tooltips-help tips"
-                                                                                          title="<?php _e('Shipping price for this state', 'waa'); ?>">
-                                                                                    <i class="ui ui-question-circle"></i></span></label>
-
-                                                                                <div class="waa-input-group">
-                                                                                    <span
-                                                                                        class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                                                    <input type="text"
-                                                                                           placeholder="0.00"
-                                                                                           value="<?php echo $state_rate; ?>"
-                                                                                           class="waa-form-control"
-                                                                                           name="dps_state_to_price[<?php echo $country; ?>][]">
-                                                                                </div>
-                                                                            </td>
-
-                                                                            <td width="15%">
-                                                                                <label for=""></label>
-
-                                                                                <div>
-                                                                                    <a class="dps-add" href="#"><i
-                                                                                            class="ui ui-plus"></i></a>
-                                                                                    <a class="dps-remove" href="#"><i
-                                                                                            class="ui ui-minus"></i></a>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                    <?php else: ?>
-
-                                                                        <tr>
-                                                                            <td>
-                                                                                <label
-                                                                                    for=""><?php _e('State', 'waa'); ?></label>
-                                                                                <input type="text"
-                                                                                       name="dps_state_to[<?php echo $country ?>][]"
-                                                                                       class="waa-form-control dps_state_selection"
-                                                                                       placeholder="<?= __('State', 'waa'); ?>"
-                                                                                       value="<?php echo $state; ?>">
-                                                                            </td>
-                                                                            <td>
-                                                                                <label
-                                                                                    for=""><?php _e('Cost', 'waa'); ?></label>
-
-                                                                                <div class="waa-input-group">
-                                                                                    <span
-                                                                                        class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                                                    <input type="text"
-                                                                                           placeholder="0.00"
-                                                                                           class="waa-form-control"
-                                                                                           name="dps_state_to_price[<?php echo $country; ?>][]"
-                                                                                           value="<?php echo $state_rate; ?>">
-                                                                                </div>
-                                                                            </td>
-
-                                                                            <td width="14%">
-                                                                                <label for=""></label>
-
-                                                                                <div>
-                                                                                    <a class="dps-add" href="#"><i
-                                                                                            class="ui ui-plus"></i></a>
-                                                                                    <a class="dps-remove" href="#"><i
-                                                                                            class="ui ui-minus"></i></a>
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                    <?php endif ?>
-
-                                                                <?php endforeach ?>
-
-                                                            <?php endif ?>
-
-                                                        <?php endif ?>
-                                                        </tbody>
-                                                    </table>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                            <a href="#" class="dps-shipping-remove"><i class="ui ui-remove"></i></a>
-                                        </div>
-
-                                    <?php endforeach; ?>
-
-                                <?php else: ?>
-
-                                    <div class="dps-shipping-location-content">
-                                        <table class="dps-shipping-table">
-                                            <tbody>
-                                            <tr class="dps-shipping-location">
-                                                <td>
-                                                    <label for=""><?php _e('Ship to', 'waa'); ?> *
+                                <div class="dps-shipping-location-content">
+                                    <table class="dps-shipping-table">
+                                        <tbody>
+                                        <tr class="dps-shipping-location">
+                                            <td colspan="3" width="100%" class="text-center">
+                                                <?php _e('Ship to', 'waa'); ?> *
                                                         <span class="waa-tooltips-help tips"
                                                               title="<?php _e('The country you ship to', 'waa'); ?>">
                                                     <i class="ui ui-question-circle"></i></span></label>
-                                                    <select name="dps_country_to[]"
-                                                            class="waa-form-control dps_country_selection"
-                                                            id="dps_country_selection" required>
-                                                        <?php waa_country_dropdown($countries, '', true); ?>
-                                                    </select>
-                                                </td>
-                                                <td class="dps_shipping_location_cost">
-                                                    <label for=""><?php _e('Cost', 'waa'); ?>
-                                                        <span class="waa-tooltips-help tips"
-                                                              title="<?php _e('If the shipping price is same for all the states, use this field. Else add the states below', 'waa'); ?>">
-                                                    <i class="ui ui-question-circle"></i></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">
+                                                <div class="checkbox">
+                                                    <label for="home_country">
+                                                        <input type="checkbox" name="dps_country_to[]" value="home_country" id="home_country"
+                                                               class="waa-form-control dps_country_selection"
+                                                               id="home_country" <?php checked('yes', $dps_home_country, true); ?>>
+                                                        <?= __('Heimatland', 'waa'); ?>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <div class="checkbox">
+                                                    <label for="eu_countries">
+                                                        <input type="checkbox" name="dps_country_to[]" value="eu_countries" id="eu_countries"
+                                                               class="waa-form-control dps_country_selection" <?php checked('yes', $dps_eu_countries, true); ?>>
+                                                        <?= __('EU', 'waa'); ?>
+                                                    </label>
+                                                </div>
 
-                                                    <div class="waa-input-group">
-                                                        <span
-                                                            class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                        <input type="text" placeholder="0.00" class="waa-form-control"
-                                                               name="dps_country_to_price[]">
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr class="dps-shipping-states-wrapper">
-                                                <table class="dps-shipping-states">
-                                                    <tbody></tbody>
-                                                </table>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <a href="#" class="dps-shipping-remove"><i class="ui ui-remove"></i></a>
-                                    </div>
-                                <?php endif; ?>
-
+                                            </td>
+                                            <td class="col-md-4">
+                                                <div class="checkbox">
+                                                    <label for="switzerland">
+                                                        <input type="checkbox" name="dps_country_to[]" value="switzerland" id="switzerland"
+                                                               class="waa-form-control dps_country_selection" <?php checked('yes', $dps_switzerland, true); ?>>
+                                                        <?= __('Schweiz', 'waa'); ?>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <a href="#"
-                               class="waa-btn waa-btn-default dps-shipping-add waa-right"><?php _e('Add Location', 'waa'); ?></a>
                         </div>
                     </div>
-
                 </div>
 
                 <?php
@@ -454,43 +263,3 @@ $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
         </article>
     </div><!-- .waa-dashboard-content -->
 </div><!-- .waa-dashboard-wrap -->
-
-<!-- Added for Render content via Jquery -->
-
-<div class="dps-shipping-location-content" id="dps-shipping-hidden-lcoation-content">
-    <table class="dps-shipping-table">
-        <tbody>
-
-        <tr class="dps-shipping-location">
-            <td>
-                <label for=""><?php _e('Ship to', 'waa'); ?>
-                    <span class="waa-tooltips-help tips" title="<?php _e('The country you ship to', 'waa'); ?>">
-                    <i class="ui ui-question-circle"></i></span></label>
-                <select name="dps_country_to[]" class="waa-form-control dps_country_selection"
-                        id="dps_country_selection">
-                    <?php waa_country_dropdown($countries, '', true); ?>
-                </select>
-            </td>
-            <td class="dps_shipping_location_cost">
-                <label for=""><?php _e('Cost', 'waa'); ?>
-                    <span class="waa-tooltips-help tips"
-                          title="<?php _e('If the shipping price is same for all the states, use this field. Else add the states below', 'waa'); ?>">
-                    <i class="ui ui-question-circle"></i></span></label>
-
-                <div class="waa-input-group">
-                    <span class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                    <input type="text" placeholder="0.00" class="waa-form-control" name="dps_country_to_price[]">
-                </div>
-            </td>
-        </tr>
-        <tr class="dps-shipping-states-wrapper">
-            <table class="dps-shipping-states">
-                <tbody></tbody>
-            </table>
-        </tr>
-        </tbody>
-    </table>
-    <a href="#" class="dps-shipping-remove"><i class="ui ui-remove"></i></a>
-</div>
-
-<!-- End of render content via jquery -->

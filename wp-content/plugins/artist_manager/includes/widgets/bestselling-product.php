@@ -9,7 +9,7 @@ class waa_Best_Selling_Widget extends WP_Widget {
      * @return void
      **/
     public function __construct() {
-        $widget_ops = array( 'classname' => 'woocommerce widget_products waa-best-selling', 'description' => 'A Widget for displaying Best Selling Products for waa' );
+        $widget_ops = array( 'classname' => 'woocommerce widwc_get_products waa-best-selling', 'description' => 'A Widget for displaying Best Selling Products for waa' );
         $this->WP_Widget( 'waa-best-selling-widget', 'waa: Best Selling Widget', $widget_ops );
     }
 

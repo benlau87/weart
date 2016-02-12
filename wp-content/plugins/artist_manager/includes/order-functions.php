@@ -357,7 +357,7 @@ function waa_get_order_status_class( $status ) {
  *
  * @return string list of products
  */
-function waa_get_product_list_by_order( $order, $glue = ',' ) {
+function waa_wc_get_product_list_by_order( $order, $glue = ',' ) {
 
     $product_list = '';
     $order_item   = $order->get_items();

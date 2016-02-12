@@ -474,7 +474,8 @@ function waa_process_product_meta( $post_id ) {
     $is_virtual         = ( $is_downloadable == 'yes' ) ? 'yes' : 'no';
 		
 		// do not sell original?
-		$waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'yes' : 'no';
+        // reverse logic: waa_only_prints now stands for "i want to sell the original art as well"
+		$waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
     update_post_meta( $post_id, 'waa_only_print', $waa_only_print );		
 		
 		// save original price, if original can be bought
@@ -490,7 +491,7 @@ function waa_process_product_meta( $post_id ) {
     update_post_meta( $post_id, '_create_variation', 'no' );
 
     // Gallery Images
-    $attachment_ids = array_filter( explode( ',', woocommerce_clean( $_POST['product_image_gallery'] ) ) );
+    $attachment_ids = array_filter( explode( ',', wc_clean( $_POST['product_image_gallery'] ) ) );
     update_post_meta( $post_id, '_product_image_gallery', implode( ',', $attachment_ids ) );
 
     // Update post meta
@@ -545,7 +546,7 @@ function waa_process_product_meta( $post_id ) {
 
     // Unique SKU
     $sku                = get_post_meta($post_id, '_sku', true);
-    $new_sku            = woocommerce_clean( stripslashes( $_POST['_sku'] ) );
+    $new_sku            = wc_clean( stripslashes( $_POST['_sku'] ) );
     if ( $new_sku == '' ) {
         update_post_meta( $post_id, '_sku', '' );
     } elseif ( $new_sku !== $sku ) {
@@ -568,12 +569,14 @@ function waa_process_product_meta( $post_id ) {
             update_post_meta( $post_id, '_sku', '' );
         }
     }
-		
-		// WAA Values
-		if ( isset( $_POST['waa_date_created'] ) )
+
+    // WAA Values
+    if ( isset( $_POST['waa_date_created'] ) )
         update_post_meta( $post_id, 'waa_date_created', strtotime( $_POST['waa_date_created'] ) );
-		
-		
+
+    if ( isset( $_POST['waa_product_type'] ) )
+        update_post_meta( $post_id, 'waa_product_type', $_POST['waa_product_type'] );
+
     // Save Attributes
     $attributes = array();
 
@@ -628,7 +631,7 @@ function waa_process_product_meta( $post_id ) {
                 if ( $values ) {
                     // Add attribute to array, but don't set values
                     $attributes[ sanitize_title( $attribute_names[ $i ] ) ] = array(
-                        'name'          => woocommerce_clean( $attribute_names[ $i ] ),
+                        'name'          => wc_clean( $attribute_names[ $i ] ),
                         'value'         => '',
                         'position'      => $attribute_position[ $i ],
                         'is_visible'    => $is_visible,
@@ -640,11 +643,11 @@ function waa_process_product_meta( $post_id ) {
             } elseif ( isset( $attribute_values[ $i ] ) ) {
 
                 // Text based, separate by pipe
-                $values = implode( ' | ', array_map( 'woocommerce_clean', $attribute_values[$i] ) );
+                $values = implode( ' | ', array_map( 'wc_clean', $attribute_values[$i] ) );
 
                 // Custom attribute - Add attribute to array and set the values
                 $attributes[ sanitize_title( $attribute_names[ $i ] ) ] = array(
-                    'name'          => woocommerce_clean( $attribute_names[ $i ] ),
+                    'name'          => wc_clean( $attribute_names[ $i ] ),
                     'value'         => $values,
                     'position'      => $attribute_position[ $i ],
                     'is_visible'    => $is_visible,
@@ -885,7 +888,8 @@ function waa_new_process_product_meta( $post_id ) {
     $_required_tax      = ( isset( $_POST['_required_tax'] ) && $_POST['_required_tax'] == 'yes' ) ? 'yes' : 'no';
     $_has_attribute     = ( isset( $_POST['_has_attribute'] ) && $_POST['_has_attribute'] == 'yes' ) ? 'yes' : 'no';
     $_create_variation  = ( isset( $_POST['_create_variation'] ) && $_POST['_create_variation'] == 'yes' ) ? 'yes' : 'no';
-    $waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'yes' : 'no';
+    // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
+    $waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
 		
     // Save has variation and create variations flag
     update_post_meta( $post_id, '_required_tax', $_required_tax );
@@ -903,12 +907,15 @@ function waa_new_process_product_meta( $post_id ) {
     update_post_meta( $post_id, '_downloadable', $is_downloadable );
     update_post_meta( $post_id, '_virtual', $is_virtual );
 		
-		// WAA Values
-		$waa_date_created       = ( isset( $_POST['waa_date_created'] ) ) ?  $_POST['waa_date_created'] : '';
-		update_post_meta( $post_id, 'waa_date_created', $waa_date_created );
+    // WAA Values
+    $waa_date_created       = ( isset( $_POST['waa_date_created'] ) ) ?  $_POST['waa_date_created'] : '';
+    update_post_meta( $post_id, 'waa_date_created', $waa_date_created );
+
+    $waa_product_type       = ( isset( $_POST['waa_product_type'] ) ) ?  $_POST['waa_product_type'] : '';
+    update_post_meta( $post_id, 'waa_product_type', $waa_product_type );
 
     // Gallery Images
-    $attachment_ids = array_filter( explode( ',', woocommerce_clean( $_POST['product_image_gallery'] ) ) );
+    $attachment_ids = array_filter( explode( ',', wc_clean( $_POST['product_image_gallery'] ) ) );
     update_post_meta( $post_id, '_product_image_gallery', implode( ',', $attachment_ids ) );
 
     // Update post meta
@@ -931,7 +938,7 @@ function waa_new_process_product_meta( $post_id ) {
 			}
 		
 			 $attributes[ sanitize_title( $waa_region_attr ) ] = array(
-						'name'          => woocommerce_clean( $waa_region_attr ),
+						'name'          => wc_clean( $waa_region_attr ),
 						'value'         => $waa_region_val,
 						'position'      => 1,
 						'is_visible'    => 0,
@@ -1009,7 +1016,7 @@ function waa_new_process_product_meta( $post_id ) {
 
     // Unique SKU
     $sku     = get_post_meta($post_id, '_sku', true);
-    $new_sku = woocommerce_clean( stripslashes( $_POST['_sku'] ) );
+    $new_sku = wc_clean( stripslashes( $_POST['_sku'] ) );
     if ( $new_sku == '' ) {
         update_post_meta( $post_id, '_sku', '' );
     } elseif ( $new_sku !== $sku ) {
@@ -1100,7 +1107,7 @@ function waa_new_process_product_meta( $post_id ) {
                     if ( $values ) {
                         // Add attribute to array, but don't set values
                         $attributes[ sanitize_title( $attribute_names[ $i ] ) ] = array(
-                            'name'          => woocommerce_clean( $attribute_names[ $i ] ),
+                            'name'          => wc_clean( $attribute_names[ $i ] ),
                             'value'         => '',
                             'position'      => $attribute_position[ $i ],
                             'is_visible'    => $is_visible,
@@ -1112,11 +1119,11 @@ function waa_new_process_product_meta( $post_id ) {
                 } elseif ( isset( $attribute_values[ $i ] ) ) {
 
                     // Text based, separate by pipe
-                    $values = implode( ' | ', array_map( 'woocommerce_clean', $attribute_values[$i] ) );
+                    $values = implode( ' | ', array_map( 'wc_clean', $attribute_values[$i] ) );
 
                     // Custom attribute - Add attribute to array and set the values
                     $attributes[ sanitize_title( $attribute_names[ $i ] ) ] = array(
-                        'name'          => woocommerce_clean( $attribute_names[ $i ] ),
+                        'name'          => wc_clean( $attribute_names[ $i ] ),
                         'value'         => $values,
                         'position'      => $attribute_position[ $i ],
                         'is_visible'    => $is_visible,
@@ -2147,7 +2154,7 @@ function waa_create_sub_order_shipping( $parent_order, $order_id, $seller_produc
 
     // emulate shopping cart for calculating the shipping method
     foreach ($seller_products as $product_item) {
-        $product = get_product( $product_item['product_id'] );
+        $product = wc_get_product( $product_item['product_id'] );
 
         if ( $product->needs_shipping() ) {
             $shipping_products[] = array(
@@ -2451,7 +2458,7 @@ function waa_get_top_rated_products( $per_page = 8 ) {
  */
 function waa_get_on_sale_products( $per_page = 10, $paged = 1 ) {
     // Get products on sale
-    $product_ids_on_sale = wc_get_product_ids_on_sale();
+    $product_ids_on_sale = wc_wc_get_product_ids_on_sale();
 
     $args = array(
         'posts_per_page'    => $per_page,
@@ -2609,8 +2616,8 @@ function waa_user_update_to_seller( $user, $data ) {
         'phone'          => $data['phone'],
 				'description'	=> $data['description'],
 				'enable_services'	=> $data['enable_services'],
-				'country'	=> $data['country'],
-				'region'	=> $data['region'],
+				'waa_user_country'	=> $data['country'],
+				'waa_user_region'	=> $data['region'],
         'show_email'     => 'no',
         'address'        => $data['address'],
         'location'       => '',
@@ -2645,10 +2652,9 @@ function waa_become_seller_handler () {
             'fname'    => __( 'Enter your first name', 'waa' ),
             'lname'    => __( 'Enter your last name', 'waa' ),
             'shopname' => __( 'Enter your shop name', 'waa' ),
-            'address'  => __( 'Enter your shop address', 'waa' ),
             'phone'    => __( 'Enter your phone number', 'waa' ),
-            'country'    => __( 'Select your country', 'waa' ),
-            'region'    => __( 'Select your region', 'waa' ),
+            'waa_user_country'    => __( 'Select your country', 'waa' ),
+            'waa_user_region'    => __( 'Select your region', 'waa' ),
         );
 
         foreach ($checks as $field => $error) {
@@ -2659,8 +2665,7 @@ function waa_become_seller_handler () {
 
         if ( ! $errors ) {
             waa_user_update_to_seller( $user, $_POST );
-
-            wp_redirect( waa_get_page_url( 'myaccount', 'waa' ) );
+            wp_redirect( waa_get_page_url( 'dashboard', 'waa' ) );
         }
     }
 }
@@ -2673,7 +2678,7 @@ add_action( 'template_redirect', 'waa_become_seller_handler' );
  * A hacky and dirty way to do this from this action. Because there is no easy
  * way to do this by removing action hooks from WooCommerce. It would be easier
  * if they were from functions. Because they are added from classes, we can't
- * remove those action hooks. Thats why we are doing this from the phpmailer_init action
+ * remove those action hooks. Th    ats why we are doing this from the phpmailer_init action
  * by returning a fake phpmailer class.
  *
  * @param  array $attr

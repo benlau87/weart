@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-16 00:10+0100\n"
+"PO-Revision-Date: 2016-02-12 18:54+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -2526,23 +2526,23 @@ msgstr ""
 
 #: includes/wc-functions.php:2549
 msgid "Enter your first name"
-msgstr ""
+msgstr "Bitte gib deinen Vornamen an."
 
 #: includes/wc-functions.php:2550
 msgid "Enter your last name"
-msgstr ""
+msgstr "Bitte gib deinen Nachnamen an."
 
 #: includes/wc-functions.php:2551
 msgid "Enter your shop name"
-msgstr ""
+msgstr "Bitte gib deinen Künstlernamen an."
 
 #: includes/wc-functions.php:2552
 msgid "Enter your shop address"
-msgstr ""
+msgstr "Bitte gib eine Adresse an."
 
 #: includes/wc-functions.php:2553
 msgid "Enter your phone number"
-msgstr ""
+msgstr "Bitte gib eine Telefonnummer an."
 
 #: includes/wc-functions.php:2588
 msgid "Your {site_title} order receipt from {order_date}"
@@ -3168,12 +3168,12 @@ msgstr "Überschreibe die Standardversandkosten für dieses Kunstwerk."
 
 #: templates/edit/shipping.php:56 templates/new-product-single.php:677
 msgid "Additional cost"
-msgstr "Zusätzliche Kosten"
+msgstr "zusätzliche Kosten"
 
 #: templates/edit/shipping.php:64 templates/new-product-single.php:682
 #: templates/settings/shipping.php:113
 msgid "Per Qty Additional Price"
-msgstr "Gebühr für jedes zusätzliche Produkt"
+msgstr "Gebühr für jeden zusätzlichen Print"
 
 #: templates/edit/shipping.php:72 templates/new-product-single.php:687
 #: templates/settings/shipping.php:126
@@ -3441,11 +3441,11 @@ msgstr ""
 
 #: templates/new-product-single.php:613
 msgid "Shipping & Tax"
-msgstr "Produktmaße & Versand"
+msgstr "Versandeinstellungen"
 
 #: templates/new-product-single.php:616
 msgid "Manage shipping and tax for this product"
-msgstr "Gib hier die Maße deines Kunstwerks an und regle den Versand."
+msgstr "Gib hier die Maße deines Kunstwerks (Original) an und regle den Versand."
 
 #: templates/new-product-single.php:627
 msgid "This product required shipping"
@@ -3829,11 +3829,11 @@ msgstr "Die Zeit, die vergeht, bevor das Produkt zum Versand bereit ist."
 
 #: templates/settings/shipping.php:145
 msgid "Write your terms, conditions and instructions about shipping"
-msgstr "Beschreibe deine Lieferbedingungen und/oder Instruktionen für den Kunden."
+msgstr "Beschreibe deine Lieferbedingungen und/oder Instruktionen für den Kunden. Falls du hier nichts angibst, gelten die Lieferbedingungen von WeArt."
 
 #: templates/settings/shipping.php:158
 msgid "Write your terms, conditions and instructions about refund"
-msgstr "Gib deine Rückgabebedinungen und eine Anleitung dazu an."
+msgstr "Gib deine Rückgabebedinungen und eine Anleitung dazu an. Falls du hier nichts angibst, gelten die WeArt Rückgabebedingungen."
 
 #: templates/settings/shipping.php:170
 msgid "Ships from:"
@@ -3845,12 +3845,12 @@ msgstr "Land, aus dem das Kunstwerk versandt wird."
 
 #: templates/settings/shipping.php:188
 msgid "Add the countries you deliver your products to. You can specify states as well. If the shipping price is same except some countries/states, there is an option <strong>Everywhere Else</strong>, you can use that."
-msgstr "Gebe hier die Länder an, in die du liefern möchtest. Nachdem du ein Land gewählt hast, kannst du optional noch ein Bundesland/Kanton angeben.<br>Falls die Lieferkosten bis auf einige Länder überall gleich sein sollten, wähle \"Alle anderen\" sein."
+msgstr "Gebe hier die Länder an, in die du liefern möchtest. "
 
 #: templates/settings/shipping.php:202 templates/settings/shipping.php:306
 #: templates/settings/shipping.php:369
 msgid "The country you ship to"
-msgstr "Das Land in das du lieferst."
+msgstr "Du kannst auch mehrere Länder auswählen."
 
 #: templates/settings/shipping.php:210 templates/settings/shipping.php:314
 #: templates/settings/shipping.php:377
@@ -3956,7 +3956,7 @@ msgstr ""
 
 #: templates/store.php:85
 msgid "No products were found of this seller!"
-msgstr ""
+msgstr "Es wurden keine Kunstwerke von diesem Künstler gefunden."
 
 #: templates/update-account.php:28
 msgid "Update account to Seller"

@@ -52,10 +52,6 @@ small {
     display: inline-block;
 }
 
-.radio label, .checkbox label {
-    line-height: 1.5
-}
-
 input[type="text"], input[type="email"], input[type="search"], input[type="tel"], input[type="password"], input[type="number"], input[type="submit"], select, textarea, button, .button, .waa-form-control {
     border: 1px solid #e3e3e3;
     font-size: 16px;
@@ -74,6 +70,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus,
 
 input[type="checkbox"], input[type="radio"] {
     margin-right: 2px !important
+}
+
+.radio label, .checkbox label {
+    line-height: 2;
 }
 
 .modal .close {
@@ -1852,6 +1852,13 @@ li.payment_method_paypal img {
 /* Produktfilter */
 .pf_default_select .prdctfltr_filter > span, .pf_select .prdctfltr_filter > span {
     padding: 11px 10px 6px !important;
+}
+
+
+.prdctfltr_wc.prdctfltr_square .prdctfltr_filter label > span:before {
+    margin-top: 0px !important;
+    margin-bottom: 6px !important;
+    margin-right: 9px !important;
 }
 
 .prdctfltr_woocommerce_filter {

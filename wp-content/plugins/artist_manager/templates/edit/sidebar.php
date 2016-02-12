@@ -59,7 +59,7 @@ $_downloadable   = get_post_meta( $post->ID, '_downloadable', true );
         }
         ?>
 
-        <span class="waa-toggle-selected-display"><?php echo waa_get_product_status( $product_type ); ?></span>
+        <span class="waa-toggle-selected-display"><?php echo waa_wc_get_product_status( $product_type ); ?></span>
         <a class="waa-toggle-edit waa-label waa-label-success" href="#"><?php _e( 'Edit', 'waa' ); ?></a>
 
             <div class="waa-toggle-select-container waa-hide">

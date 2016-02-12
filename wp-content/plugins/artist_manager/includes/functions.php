@@ -453,7 +453,7 @@ function waa_format_time( $datetime ) {
  * @param array $attr
  * @param string $type
  */
-function waa_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'text'  ) {
+function waa_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'text', $currency = false  ) {
     $placeholder = isset( $attr['placeholder'] ) ? esc_attr( $attr['placeholder'] ) : '';
     $class       = isset( $attr['class'] ) ? esc_attr( $attr['class'] ) : 'waa-form-control';
     $name        = isset( $attr['name'] ) ? esc_attr( $attr['name'] ) : $meta_key;
@@ -510,8 +510,9 @@ function waa_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'text
         case 'number':
             $min = isset( $attr['min'] ) ? $attr['min'] : 0;
             $step = isset( $attr['step'] ) ? $attr['step'] : 'any';
+            $woocs = new WOOCS();
             ?>
-            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>">
+            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?= $currency ? $woocs->woocs_exchange_value( esc_attr( $value ) ) : esc_attr( $value ) ; ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>">
             <?php
             break;
 
@@ -597,7 +598,7 @@ function waa_get_post_status_label_class( $status ) {
  * @param string $status
  * @return string
  */
-function waa_get_product_status( $status ) {
+function waa_wc_get_product_status( $status ) {
     switch ($status) {
         case 'simple':
             $name = __( 'Simple Product', 'waa' );
@@ -1102,8 +1103,8 @@ function artist_has_shipping($user_id)
     $_dps_pt = get_user_meta($user_id, '_dps_pt', true); // time to send package
     $_dps_form_location = get_user_meta($user_id, '_dps_form_location', true);
     // wenn gebuehr = 0 muss _dps_state_rates angegeben sein und gebuehr darf dort nicht != 0 sein.
-    $_dps_country_rates = unserialize(reset(get_user_meta($user_id, '_dps_country_rates', true)));
-    $_dps_state_rates = unserialize(reset(get_user_meta($user_id, '_dps_state_rates', true)));
+    $_dps_country_rates = unserialize(is_array(get_user_meta($user_id, '_dps_country_rates', true)) ? reset(get_user_meta($user_id, '_dps_country_rates', true)) : get_user_meta($user_id, '_dps_country_rates', true));
+    #$_dps_state_rates = unserialize(is_array(get_user_meta($user_id, '_dps_state_rates', true)) ? reset(get_user_meta($user_id, '_dps_state_rates', true)) : get_user_meta($user_id, '_dps_state_rates', true));
 
     if (artist_has_pickup($user_id))
         return true;
@@ -1897,8 +1898,6 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
     );
 
     $profile_info = waa_get_store_info( get_current_user_id() );
-
-
 
     $address         = isset( $profile_info['address'] ) ? $profile_info['address'] : '';
     $address_street1 = isset( $profile_info['address']['street_1'] ) ? $profile_info['address']['street_1'] : '';

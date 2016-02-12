@@ -22,6 +22,7 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $post_status = 'publish';
     $from_shortcode = true;
     $waa_date_created = $_POST['waa_date_created'];
+    $waa_product_type = $_POST['waa_product_type'];
     $_has_attribute = $_POST['_has_attribute'];
     #$_create_variations = $_POST['_create_variation'];
     $_manage_stock = $_POST['_manage_stock'];
@@ -48,7 +49,7 @@ if (isset($_GET['product_id'])) {
     $post_content = $post->post_content;
     $post_excerpt = $post->post_excerpt;
     $post_status = $post->post_status;
-    $product = get_product($post_id);
+    $product = wc_get_product($post_id);
     $from_shortcode = true;
 }
 
@@ -83,8 +84,10 @@ if ($product) {
 
     /* Art specific fields */
     $waa_date_created = get_post_meta($post_id, 'waa_date_created', true);
-    $waa_only_print = get_post_meta($post_id, 'waa_only_print', true);
+    // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
+    $waa_only_print = get_post_meta($post_id, 'waa_only_print', true) == 'yes' ? 'no' : 'yes';
     $waa_original_price = get_post_meta($post_id, 'waa_original_price', true);
+    $waa_product_type = get_post_meta($post_id, 'waa_product_type', true);
 
 
     $processing_time = waa_get_shipping_processing_times();
@@ -118,7 +121,58 @@ if ($tax_classes) {
 if (!$from_shortcode) {
     get_header();
 }
+
+if ($_POST['waa_product_type'] == 'sell-original' || $waa_product_type == 'sell-original') {
+    ?>
+    <script>jQuery(document).ready(function () {
+            setWaaProductTypeOriginal();
+        }); </script>
+<?php }
+if ($_POST['waa_product_type'] == 'sell-prints' || $waa_product_type == 'sell-prints') {
+    ?>
+    <script>jQuery(document).ready(function () {
+            setWaaProductTypePrints();
+        }); </script>
+<?php }
+if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both') {
+    ?>
+    <script>jQuery(document).ready(function () {
+            setWaaProductTypeBoth();
+        }); </script>
+<?php }
+if (empty($waa_product_type) && !empty($product))
+    echo '<script>jQuery(document).ready(function() { showProductContainer(); });</script>';
 ?>
+<script type="text/javascript">
+    function showProductContainer() {
+        jQuery('.product-set-type').hide();
+        jQuery('.product-edit-new-container').show();
+    }
+    function setWaaProductTypeOriginal() {
+        showProductContainer();
+        jQuery('.hide-if-sell-original').hide();
+        jQuery('.hide_if_only_print').show();
+        jQuery('#waa_only_print').attr('checked', true);
+        jQuery('#_sold_individually').attr('checked', true);
+        jQuery('#_manage_stock').attr('checked', true);
+        jQuery('#_stock').val(1);
+        jQuery('#waa_product_type').val('sell-original');
+        jQuery('#_regular_price').attr('required', true);
+    }
+    function setWaaProductTypePrints() {
+        showProductContainer();
+        jQuery('.hide-if-sell-prints').hide();
+        jQuery('#waa_only_print').attr('checked', false);
+        jQuery('#_sold_individually').attr('checked', false);
+        jQuery('#waa_product_type').val('sell-prints');
+        jQuery('#_regular_price').attr('required', false);
+    }
+    function setWaaProductTypeBoth() {
+        showProductContainer();
+        jQuery('.hide-if-sell-both').hide();
+        jQuery('#waa_product_type').val('sell-both');
+    }
+</script>
 <section id="content" role="main">
     <div class="container">
         <div class="row">
@@ -157,12 +211,34 @@ if (!$from_shortcode) {
                             </h1>
                         </header><!-- .entry-header -->
 
-                        <div class="product-edit-new-container">
+
+                        <div class="product-set-type">
+
+                            <div class="col-md-4 col-md-offset-1 product-type-box">
+                                <a href="#" class="sell-original">Original verkaufen</a>
+
+                                <div class="type-desc" id="sell-original-btn">
+                                    <?= __('Falls du das Original-Kunstwerk verkaufen möchtest, wähle diese Option aus. ', 'waa') ?>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-md-offset-1 product-type-box" id="sell-prints-btn">
+                                <a href="#" class="sell-prints">Prints verkaufen</a>
+
+                                <div class="type-desc">
+                                    <?= __('Du möchtest Abzüge von deinem Kunstwerk verkaufen? Dann klicke hier.', 'waa') ?>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="product-edit-new-container" style="display: none">
                             <?php if (waa_Template_Shortcodes::$errors) { ?>
                                 <div class="waa-alert waa-alert-danger">
                                     <a class="waa-close" data-dismiss="alert">&times;</a>
-
-                                    <?php foreach (waa_Template_Shortcodes::$errors as $error) { ?>
+                                    <?php
+                                    foreach (waa_Template_Shortcodes::$errors as $error) { ?>
 
                                         <strong><?php _e('Error!', 'waa'); ?></strong> <?php echo $error ?>.<br>
 
@@ -191,6 +267,8 @@ if (!$from_shortcode) {
 
                                     <form class="waa-product-edit-form" role="form" method="post">
 
+                                        <input name="waa_product_type" id="waa_product_type" type="hidden"
+                                               value="<?= isset($waa_product_type) ? $waa_product_type : 'default' ?>"/>
                                         <?php if ($post_id): ?>
                                             <?php do_action('waa_product_data_panel_tabs'); ?>
                                         <?php endif; ?>
@@ -208,23 +286,6 @@ if (!$from_shortcode) {
                                                     <label for="post_title"
                                                            class="form-label"><?php _e('Title', 'waa'); ?></label>
                                                     <?php waa_post_input_box($post_id, 'post_title', array('placeholder' => __('Product name..', 'waa'), 'value' => $post_title, 'required' => true)); ?>
-                                                </div>
-
-                                                <div class="hide_if_only_print waa-clearfix">
-
-                                                    <div class="waa-form-group waa-clearfix waa-price-container">
-
-                                                        <div class="regular-price">
-                                                            <label for="_regular_price"
-                                                                   class="form-label"><?php _e('Price', 'waa'); ?></label>
-
-                                                            <div class="waa-input-group">
-                                                                <span
-                                                                    class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                                <?php waa_post_input_box($post_id, '_regular_price', array('placeholder' => __('0.00', 'waa'), 'value' => $_regular_price), 'number'); ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                                 <?php if (waa_get_option('product_category_style', 'waa_selling', 'single') == 'single'): ?>
@@ -276,6 +337,29 @@ if (!$from_shortcode) {
                                                         </ul>
                                                     </div>
                                                 <?php endif; ?>
+
+                                                <div class="waa-clearfix waa-form-group">
+                                                    <input name="waa_only_print" id="waa_only_print"
+                                                           value="yes"
+                                                           type="checkbox" <?php checked($waa_only_print, 'yes'); ?>
+                                                           style="display: none">
+
+                                                    <div class="hide_if_only_print waa-clearfix" style="display:none">
+                                                        <div class="waa-form-group waa-clearfix waa-price-container">
+                                                            <div class="regular-price">
+                                                                <label for="_regular_price"
+                                                                       class="form-label"><?php _e('Price', 'waa'); ?></label>
+
+                                                                <div class="waa-input-group">
+                                                                <span
+                                                                    class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
+                                                                    <?php waa_post_input_box($post_id, '_regular_price', array('placeholder' => __('0.00', 'waa'), 'value' => $_regular_price), 'number', true); ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="waa-clearfix waa-form-group">
                                                     <label for="waa_date_created"
@@ -429,7 +513,8 @@ if (!$from_shortcode) {
                                         </div>
 
 
-                                        <div class="waa-edit-row waa-clearfix waa-variation-container">
+                                        <div
+                                            class="waa-edit-row waa-clearfix waa-variation-container hide-if-sell-original">
 
                                             <?php
                                             $current_user = get_current_user_id();
@@ -441,12 +526,9 @@ if (!$from_shortcode) {
                                             <label class="form-label" for="_has_attribute">
                                                 <input name="_has_attribute" value="no" type="hidden">
                                                 <input name="_has_attribute" id="_has_attribute" value="yes"
-                                                       type="checkbox" <?php checked($_create_variations, 'yes'); ?>>
-                                                <?php _e('This product has multiple options', 'waa'); ?>
-                                                <span class="waa-tooltips-help tips" title=""
-                                                      data-original-title="<?= __('Biete Prints in verschienen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>">
-																					<i class="ui ui-question-circle"></i>
-																				</span>
+                                                       type="checkbox"
+                                                       style="display:none" <?php checked($_create_variations, 'yes'); ?>>
+                                                <?= __('Biete Prints in verschiedenen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>
                                             </label>
 
                                             <?php if ($_create_variations != 'yes'): ?>
@@ -485,9 +567,9 @@ if (!$from_shortcode) {
                                                     <table class="waa-table">
                                                         <thead>
                                                         <tr>
-                                                            <th width="25%"><?= __('Variant', 'waa') ?></th>
-                                                            <th width="45%"><?= __('Material / Ausführung', 'waa') ?></th>
-                                                            <th width="25%"><?= __('Price', 'waa') ?></th>
+                                                            <th width="20%"><?= __('Variant', 'waa') ?></th>
+                                                            <th width="35%"><?= __('Material / Ausführung', 'waa') ?></th>
+                                                            <th width="20%"><?= __('Price', 'waa') ?></th>
                                                             <th width="5%"></th>
                                                         </tr>
                                                         </thead>
@@ -509,8 +591,8 @@ if (!$from_shortcode) {
                                                                        value=""
                                                                        placeholder="<?= __('z.B. Hochglanzpapier', 'waa'); ?>">
                                                             </td>
-                                                            <td class="waa-input-group">
-                                                                <span class="waa-input-group-addon">€</span>
+                                                            <td class="">
+
                                                                 <input type="number" name="variable_regular_price[]"
                                                                        placeholder="0,00" class="waa-form-control"
                                                                        min="0" step="any">
@@ -523,19 +605,9 @@ if (!$from_shortcode) {
                                                             </td>
                                                         </tr>
                                                         <tr class="add-print-btn">
-                                                            <td colspan="3"><a href="#" class="btn-add-print"
+                                                            <td colspan="4"><a href="#" class="btn-add-print"
                                                                                id="add-row"><i class="ui ui-plus"></i>
                                                                     &nbsp;<?= __('Add Variation', 'waa'); ?></a><br><br>
-                                                                <label class="form-label" for="waa_only_print">
-                                                                    <input name="waa_only_print" id="waa_only_print"
-                                                                           value="yes"
-                                                                           type="checkbox" <?php checked($waa_only_print, 'yes'); ?>>
-                                                                    <?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
-                                                                    <span class="waa-tooltips-help tips" title=""
-                                                                          data-original-title="<?= __('', 'waa') ?>">
-																												<i class="ui ui-question-circle"></i>
-																											</span>
-                                                                </label>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -567,7 +639,8 @@ if (!$from_shortcode) {
                                         <?php if ($post_id): ?>
                                             <?php do_action('waa_product_edit_after_main'); ?>
                                         <?php endif; ?>
-                                        <div class="waa-product-inventory waa-edit-row waa-clearfix">
+                                        <div
+                                            class="waa-product-inventory waa-edit-row waa-clearfix hide-if-sell-original hide-if-sell-both hide-if-sell-prints">
                                             <div class="waa-side-left">
                                                 <h2><?php _e('Inventory & Variants', 'waa'); ?></h2>
 
@@ -587,7 +660,7 @@ if (!$from_shortcode) {
                                                     <div class="waa-w3 hide_if_variation">
                                                         <label for="_stock"
                                                                class="waa-form-label"><?php _e('Quantity', 'waa'); ?></label>
-                                                        <input type="number" name="_stock"
+                                                        <input type="number" name="_stock" id="_stock"
                                                                placeholder="<?php __('1', 'waa'); ?>"
                                                                value="<?php echo wc_stock_amount($_stock); ?>" min="0"
                                                                step="1">
@@ -659,7 +732,8 @@ if (!$from_shortcode) {
                                                             <input type="checkbox" id="_disable_shipping"
                                                                    name="_disable_shipping" <?php checked($_disable_shipping, 'no'); ?>>
 
-                                                            <div class="waa-shipping-dimention-options">
+                                                            <div
+                                                                class="waa-shipping-dimention-options hide-if-sell-prints">
                                                                 <?php waa_post_input_box($post_id, '_weight', array('class' => '', 'placeholder' => __('Gewicht (' . esc_html(get_option('woocommerce_weight_unit')) . ')', 'waa'), 'value' => $_weight), 'number'); ?>
                                                                 <?php waa_post_input_box($post_id, '_length', array('class' => '', 'placeholder' => __('L&auml;nge (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_length), 'number'); ?>
                                                                 <?php waa_post_input_box($post_id, '_width', array('class' => '', 'placeholder' => __('Breite (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_width), 'number'); ?>
@@ -671,16 +745,16 @@ if (!$from_shortcode) {
                                                                 <?php do_action('waa_product_options_shipping'); ?>
                                                             <?php endif; ?>
                                                             <div class="waa-shipping-product-options">
-
-                                                                <div class="waa-form-group">
-                                                                    <?php waa_post_input_box($post_id, '_overwrite_shipping', array('label' => __('Override default shipping cost for this product', 'waa'), 'value' => $_overwrite_shipping), 'checkbox'); ?>
-                                                                    <span
-                                                                        class="waa-form-note"><?php printf(__('Deine Standardversandkosten kannst du <a href="%s" target="_blank">hier verwalten <i class="ui ui-external-link"></i></a>', 'waa'), waa_get_navigation_url('settings/shipping')); ?></span>
-                                                                </div>
+                                                                <input name="_overwrite_shipping" id="_overwrite_shipping" value="yes" type="checkbox" checked="checked" style="display:none">
 
                                                                 <div class="waa-form-group show_if_override">
                                                                     <label class="waa-control-label"
-                                                                           for="_additional_product_price"><?php _e('Additional cost', 'waa'); ?></label>
+                                                                           for="_additional_product_price"><span
+                                                                            class="hide-if-sell-original hide-if-sell-both"><?php _e('Versandkosten für einen Print', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span>
+                                                                        <span
+                                                                            class="hide-if-sell-prints hide-if-sell-both"><?php _e('Versandkosten', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span>
+                                                                        <span
+                                                                        class="hide-if-sell-prints hide-if-sell-original"><?php _e('Versandkosten für das Original', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span></label>
                                                                     <input id="_additional_product_price"
                                                                            value="<?php echo $_additional_price; ?>"
                                                                            name="_additional_price"
@@ -689,28 +763,19 @@ if (!$from_shortcode) {
                                                                            step="any">
                                                                 </div>
 
-                                                                <div class="waa-form-group show_if_override">
+                                                                <div class="waa-form-group show_if_override hide-if-sell-original">
                                                                     <label class="waa-control-label"
-                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?></label>
+                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?> <span
+                                                                            class="waa-tooltips-help tips" title=""
+                                                                            data-original-title="<?= __('Falls ein Kunde mehr als nur einen Print kaufen möchte, kannst du hier festlegen, wie viel zusätzliche Versandkosten dafür anfallen sollen.', 'waa') ?>">
+																			<i class="ui ui-question-circle"></i>
+																		</span></label>
                                                                     <input id="additional_qty"
                                                                            value="<?php echo ($_additional_qty) ? $_additional_qty : $dps_additional_qty; ?>"
                                                                            name="_additional_qty"
                                                                            placeholder="z.B. 1,99"
                                                                            class="waa-form-control" type="number"
                                                                            step="any">
-                                                                </div>
-
-                                                                <div class="waa-form-group show_if_override">
-                                                                    <label class="waa-control-label"
-                                                                           for="dps_additional_qty"><?php _e('Processing Time', 'waa'); ?></label>
-                                                                    <select name="_dps_processing_time"
-                                                                            id="_dps_processing_time"
-                                                                            class="waa-form-control">
-                                                                        <?php foreach ($processing_time as $processing_key => $processing_value): ?>
-                                                                            <option
-                                                                                value="<?php echo $processing_key; ?>" <?php selected($porduct_shipping_pt, $processing_key); ?>><?php echo $processing_value; ?></option>
-                                                                        <?php endforeach ?>
-                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>

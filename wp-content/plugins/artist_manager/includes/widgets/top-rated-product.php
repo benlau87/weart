@@ -8,7 +8,7 @@ class waa_Toprated_Widget extends WP_Widget {
      */
     function __construct() {
         parent::__construct( 'waa-top-rated', __( 'waa: Top Rated Product Widget', 'waa'), // Name
-            array( 'description' => __( 'A Widget for displaying To rated products for waa', 'waa' ), 'classname' => 'woocommerce widget_products waa-top-rated' ) // Args
+            array( 'description' => __( 'A Widget for displaying To rated products for waa', 'waa' ), 'classname' => 'woocommerce widwc_get_products waa-top-rated' ) // Args
         );
     }
 

@@ -613,7 +613,7 @@ class waa_Template_Shortcodes
 
                 $results = array(
                     'order_id' => $order->order_id,
-                    'order_items' => waa_get_product_list_by_order($the_order, ';'),
+                    'order_items' => waa_wc_get_product_list_by_order($the_order, ';'),
                     'order_shipping' => $the_order->get_shipping_method(),
                     'order_shipping_cost' => $the_order->get_total_shipping(),
                     'order_payment_method' => get_post_meta($order->order_id, '_payment_method_title', true),
@@ -685,7 +685,7 @@ class waa_Template_Shortcodes
 
                 $results = array(
                     'order_id' => $order->order_id,
-                    'order_items' => waa_get_product_list_by_order($the_order),
+                    'order_items' => waa_wc_get_product_list_by_order($the_order),
                     'order_shipping' => $the_order->get_shipping_method(),
                     'order_shipping_cost' => $the_order->get_total_shipping(),
                     'order_payment_method' => get_post_meta($order->order_id, '_payment_method_title', true),
@@ -739,22 +739,6 @@ class waa_Template_Shortcodes
                 update_user_meta($user_id, '_dps_enable_pickup', $_POST['dps_enable_pickup']);
             }
 
-            if (isset($_POST['waa_shipping_type'])) {
-                update_user_meta($user_id, '_waa_shipping_type', $_POST['waa_shipping_type']);
-            }
-
-            if (isset($_POST['dps_shipping_type_price'])) {
-                update_user_meta($user_id, '_dps_shipping_type_price', $_POST['dps_shipping_type_price']);
-            }
-
-            if (isset($_POST['dps_additional_product'])) {
-                update_user_meta($user_id, '_dps_additional_product', $_POST['dps_additional_product']);
-            }
-
-            if (isset($_POST['dps_additional_qty'])) {
-                update_user_meta($user_id, '_dps_additional_qty', $_POST['dps_additional_qty']);
-            }
-
             if (isset($_POST['dps_pt'])) {
                 update_user_meta($user_id, '_dps_pt', $_POST['dps_pt']);
             }
@@ -788,27 +772,6 @@ class waa_Template_Shortcodes
             }
 
             update_user_meta($user_id, '_dps_country_rates', $rates);
-
-            if (isset($_POST['dps_state_to'])) {
-                foreach ($_POST['dps_state_to'] as $country_code => $states) {
-
-                    foreach ($states as $key_val => $name) {
-                        $country_c = $country_code;
-                        $state_code = $name;
-                        $s_price = floatval($_POST['dps_state_to_price'][$country_c][$key_val]);
-
-                        if (!$s_price || empty($s_price)) {
-                            $s_price = 0;
-                        }
-
-                        if (!empty($name)) {
-                            $s_rates[$country_c][$state_code] = $s_price;
-                        }
-                    }
-                }
-            }
-
-            update_user_meta($user_id, '_dps_state_rates', $s_rates);
 
             $shipping_url = waa_get_navigation_url('settings/shipping');
             wp_redirect(add_query_arg(array('message' => 'shipping_saved'), $shipping_url));

@@ -9,6 +9,20 @@
   width: 17%;
   float: left;
 }
+.display-none { display: none !important; }
+
+.product-set-type {
+  margin-top:50px;
+}
+
+.product-type-box {
+  padding: 10px 20px;
+  border: 1px solid #fafafa;
+  border-radius: 5px;
+  background:#f1f1f1;
+  cursor:pointer;
+}
+
 .waa-dashboard .waa-dash-sidebar ul.waa-dashboard-menu {
   background: #242424;
   list-style: none;
@@ -2161,10 +2175,10 @@ ul.waa-seller-wrap li.waa-single-seller:nth-child(2n+1) {
   content: "\2713";
 }
 .waa-info {
-  border-top: 3px solid #109AE7;
+  border-top: 3px solid #009dce;
 }
 .waa-info:before {
-  background-color: #109AE7;
+  background-color: #009dce;
   content: "\2713";
   content: "i";
   font-family: Times, Georgia, serif;
@@ -3214,9 +3228,6 @@ table.dps-shipping-states tr td {
 }
 .waa-shipping-location-wrapper .dps-shipping-location-content table.dps-shipping-table {
   background: #F5F5F5;
-}
-.waa-shipping-location-wrapper .dps-shipping-location-content table.dps-shipping-table tr td {
-  width: 50%;
 }
 .waa-shipping-location-wrapper .dps-shipping-location-content .dps-shipping-remove {
   position: absolute;
