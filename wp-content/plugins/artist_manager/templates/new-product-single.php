@@ -214,10 +214,10 @@ if (empty($waa_product_type) && !empty($product))
 
                         <div class="product-set-type">
 
-                            <div class="col-md-4 col-md-offset-1 product-type-box">
+                            <div class="col-md-4 col-md-offset-1 product-type-box" id="sell-original-btn">
                                 <span>Original verkaufen</span>
 
-                                <div class="type-desc" id="sell-original-btn">
+                                <div class="type-desc">
                                     <?= __('Falls du das Original-Kunstwerk verkaufen möchtest, wähle diese Option aus. ', 'waa') ?>
                                 </div>
                             </div>
