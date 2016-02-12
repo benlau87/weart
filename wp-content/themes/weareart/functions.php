@@ -237,6 +237,7 @@ function add_customer_menu($items, $args)
             $items .= '
                     </ul>
                 </li>';
+            $items .= '<li>' . do_shortcode("[woocs show_flags=0 width='80px' flag_position='right' txt_type='code']") . '</li>';
         } elseif (current_user_can('manage_options')) {
             $items .= "<li class='admin-menu'><a href='" . get_admin_url() . "'>" . __('Admin', 'waa') . "</a></li>";
         }
@@ -248,8 +249,10 @@ function add_customer_menu($items, $args)
                 </li>
             </ul>
         </li>';
+        $items .= '<li>' . do_shortcode("[woocs show_flags=0 width='80px' flag_position='right' txt_type='code']") . '</li>';
 
     }
+
     return $items;
 }
 
