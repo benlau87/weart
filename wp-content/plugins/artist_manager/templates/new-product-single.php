@@ -1,10 +1,13 @@
 <?php
-
+error_reporting(E_ALL &~ E_NOTICE &~ E_STRICT);
+ini_set('display_errors', 'On');
 global $post;
 
 $from_shortcode = false;
 
 $user_id = get_current_user_id();
+
+$waa_product_type = '';
 
 if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $post_id = $post->ID;
@@ -14,32 +17,33 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $post_status = $post->post_status;
 } else {
     $post_id = NULL;
-    $post_title = $_POST['post_title'];
-    $post_content = $_POST['post_content'];
-    $_regular_price = $_POST['_regular_price'];
-    $featured_image = $_POST['feat_image_id'];
+    $post_title = isset($_POST['post_title']) ? $_POST['post_title'] : '';
+    $post_content = isset($_POST['post_content']) ? $_POST['post_content'] : '';
+    $_regular_price = isset($_POST['_regular_price']) ? $_POST['_regular_price'] : '';
+    $featured_image = isset($_POST['feat_image_id']) ? $_POST['feat_image_id'] : '';
     $post_excerpt = '';
     $post_status = 'publish';
     $from_shortcode = true;
-    $waa_date_created = $_POST['waa_date_created'];
-    $waa_product_type = $_POST['waa_product_type'];
-    $_has_attribute = $_POST['_has_attribute'];
+    $waa_date_created = isset($_POST['waa_date_created']) ? $_POST['waa_date_created'] : '';
+    $waa_product_type = isset($_POST['waa_product_type']) ? $_POST['waa_product_type'] : '';
+    $_has_attribute = isset($_POST['_has_attribute']) ? $_POST['_has_attribute'] : '';
     #$_create_variations = $_POST['_create_variation'];
-    $_manage_stock = $_POST['_manage_stock'];
-    $_sold_individually = $_POST['_sold_individually'];
-    $_stock = $_POST['_stock'];
-    $_stock_status = $_POST['_stock_status'];
-    $_backorders = $_POST['_backorders'];
-    $_weight = $_POST['_weight'];
-    $_length = $_POST['_length'];
-    $_width = $_POST['_width'];
-    $_height = $_POST['_height'];
-    $_overwrite_shipping = $_POST['_overwrite_shipping'];
-    $_additional_product_price = $_POST['_additional_product_price'];
-    $_additional_price = $_POST['_additional_price'];
-    $_additional_qty = $_POST['_additional_qty'];
-    $_purchase_note = $_POST['_purchase_note'];
-    $porduct_shipping_pt = $_POST['_dps_processing_time'];
+    $_manage_stock = isset($_POST['_manage_stock']) ? $_POST['_manage_stock'] : '';
+    $_sold_individually = isset($_POST['_sold_individually']) ? $_POST['_sold_individually'] : '';
+    $_stock = isset($_POST['_stock']) ? $_POST['_stock'] : '';
+    $_stock_status = isset( $_POST['_stock_status']) ?  $_POST['_stock_status'] : '';
+    $_backorders = isset($_POST['_backorders']) ? $_POST['_backorders'] : '';
+    $_weight = isset($_POST['_weight']) ? $_POST['_weight'] : '';
+    $_length = isset($_POST['_length']) ? $_POST['_length'] : '';
+    $_width = isset($_POST['_width']) ? $_POST['_width'] : '';
+    $_height = isset($_POST['_height']) ? $_POST['_height'] : '';
+    $_overwrite_shipping = isset($_POST['_overwrite_shipping']) ? $_POST['_overwrite_shipping'] : '';
+    $_additional_product_price = isset($_POST['_additional_product_price']) ? $_POST['_additional_product_price'] : '';
+
+    $_additional_price = waa_get_woocs_int_price_reverse(isset($_POST['_additional_price']) ? $_POST['_additional_price'] : '');
+    $_additional_qty = waa_get_woocs_int_price_reverse(isset($_POST['_additional_qty']) ? $_POST['_additional_qty'] : '');
+    $_purchase_note = isset($_POST['_purchase_note']) ? $_POST['_purchase_note'] : '';
+   # $product_shipping_pt = isset($_POST['_dps_processing_time']) ? $_POST['_dps_processing_time'] : '';
 }
 
 if (isset($_GET['product_id'])) {
@@ -53,7 +57,7 @@ if (isset($_GET['product_id'])) {
     $from_shortcode = true;
 }
 
-if ($product) {
+if (isset($product)) {
     $_regular_price = get_post_meta($post_id, '_regular_price', true);
     $_sale_price = get_post_meta($post_id, '_sale_price', true);
     $is_discount = !empty($_sale_price) ? true : false;
@@ -87,26 +91,28 @@ if ($product) {
     // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
     $waa_only_print = get_post_meta($post_id, 'waa_only_print', true) == 'yes' ? 'no' : 'yes';
     $waa_original_price = get_post_meta($post_id, 'waa_original_price', true);
-    $waa_product_type = get_post_meta($post_id, 'waa_product_type', true);
+    $waa_product_type = get_post_meta($post_id, 'waa_product_type', true) ? get_post_meta($post_id, 'waa_product_type', true) : 'fallback';
 
 
     $processing_time = waa_get_shipping_processing_times();
     $_disable_shipping = (get_post_meta($post_id, '_disable_shipping', true)) ? get_post_meta($post_id, '_disable_shipping', true) : 'no';
-    $_additional_price = get_post_meta($post_id, '_additional_price', true);
-    $_additional_qty = get_post_meta($post_id, '_additional_qty', true);
+    $_additional_price = waa_get_woocs_int_price_reverse(get_post_meta($post_id, '_additional_price', true));
+    $_additional_qty = waa_get_woocs_int_price_reverse(get_post_meta($post_id, '_additional_qty', true));
     $_processing_time = get_post_meta($post_id, '_dps_processing_time', true);
     $dps_shipping_type_price = get_user_meta($user_id, '_dps_shipping_type_price', true);
     $dps_additional_qty = get_user_meta($user_id, '_dps_additional_qty', true);
-    $dps_pt = get_user_meta($user_id, '_dps_pt', true);
 
-    $porduct_shipping_pt = ($_processing_time) ? $_processing_time : $dps_pt;
+    #$product_shipping_pt = ($_processing_time) ? $_processing_time : $dps_pt;
     $attribute_taxonomies = wc_get_attribute_taxonomies();
 
     $product_attributes = get_post_meta($post_id, '_product_attributes', true);
 
 }
 
+//print_r(get_post_meta($post_id));
+
 $processing_time = waa_get_shipping_processing_times();
+
 $tax_classes = array_filter(array_map('trim', explode("\n", get_option('woocommerce_tax_classes'))));
 $classes_options = array();
 $classes_options[''] = __('Standard', 'waa');
@@ -122,6 +128,8 @@ if (!$from_shortcode) {
     get_header();
 }
 
+$woocs = new WOOCS();
+
 if ($_POST['waa_product_type'] == 'sell-original' || $waa_product_type == 'sell-original') {
     ?>
     <script>jQuery(document).ready(function () {
@@ -134,8 +142,7 @@ if ($_POST['waa_product_type'] == 'sell-prints' || $waa_product_type == 'sell-pr
             setWaaProductTypePrints();
         }); </script>
 <?php }
-if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both' || !isset($waa_product_type) ) {
-    echo $waa_product_type;
+if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both' || $waa_product_type == 'fallback' ) {
     ?>
     <script>jQuery(document).ready(function () {
             setWaaProductTypeBoth();
@@ -355,6 +362,7 @@ if (empty($waa_product_type) && !empty($product))
                                                                 <span
                                                                     class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
                                                                     <?php waa_post_input_box($post_id, '_regular_price', array('placeholder' => __('0.00', 'waa'), 'value' => $_regular_price), 'number', true); ?>
+                                                                    <input type="hidden" name="waa_currency" value="<?= get_woocommerce_currency_symbol(); ?>"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -570,7 +578,7 @@ if (empty($waa_product_type) && !empty($product))
                                                         <tr>
                                                             <th width="20%"><?= __('Variant', 'waa') ?></th>
                                                             <th width="35%"><?= __('Material / Ausführung', 'waa') ?></th>
-                                                            <th width="20%"><?= __('Price', 'waa') ?></th>
+                                                            <th width="20%"><?= __('Price', 'waa') ?> (in <?= get_woocommerce_currency_symbol(); ?>)</th>
                                                             <th width="5%"></th>
                                                         </tr>
                                                         </thead>
@@ -624,7 +632,7 @@ if (empty($waa_product_type) && !empty($product))
                                                 <?php if ($post_id): ?>
                                                     <?php do_action('waa_product_edit_after_variations'); ?>
                                                 <?php endif; ?>
-                                                <label class="form-label hide_if_no_variation" for="waa_only_print">
+                                                <label class="form-label hide-if-sell-prints hide-if-sell-original" for="waa_only_print">
                                                     <input name="waa_only_print" id="waa_only_print" value="yes"
                                                            type="checkbox" <?php checked($waa_only_print, 'yes'); ?>>
                                                     <?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
@@ -766,7 +774,7 @@ if (empty($waa_product_type) && !empty($product))
 
                                                                 <div class="waa-form-group show_if_override hide-if-sell-original">
                                                                     <label class="waa-control-label"
-                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?> <span
+                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)<span
                                                                             class="waa-tooltips-help tips" title=""
                                                                             data-original-title="<?= __('Falls ein Kunde mehr als nur einen Print kaufen möchte, kannst du hier festlegen, wie viel zusätzliche Versandkosten dafür anfallen sollen.', 'waa') ?>">
 																			<i class="ui ui-question-circle"></i>

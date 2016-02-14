@@ -27,6 +27,15 @@ global $product;
 	 	echo get_the_password_form();
 	 	return;
 	 }
+
+#print_r(get_post_meta($product->id, '_additional_price', true));
+#print_r(get_post_meta($product->id));
+#print_r($product);
+$product_processing_time      = get_post_meta( $product->id, '_dps_processing_time', true );
+$processing_time              = ( $product_processing_time ) ? $product_processing_time : $dps_processing;
+$country_obj = new WC_Countries();
+$countries   = $country_obj->countries;
+$from              = get_user_meta( $product->post->post_author, '_dps_form_location', true );
 ?>
 
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -65,6 +74,21 @@ global $product;
 				$author_info     = waa_get_store_info( $author->ID );
 				printf( 'von <a href="%s" class="artist">%s</a>', waa_get_store_url( $author->ID ), $author_info['store_name'] );
 				woocommerce_template_single_price();
+
+			if ( $processing_time ) { ?>
+				<p>
+					<strong>
+						<?php _e( 'Ready to ship in', 'waa' ); ?> <?php echo waa_get_processing_time_value( $processing_time ); ?>
+
+						<?php
+						if ( $from ) {
+							echo __( 'from', 'waa' ) . ' ' . $countries[$from];
+						}
+						?>
+					</strong>
+				</p>
+			<?php }
+
 				woocommerce_template_single_add_to_cart();
 				woocommerce_template_single_meta();
 			?>

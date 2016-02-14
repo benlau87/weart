@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+global $woocommerce;
 ?>
 <div class="cart_totals <?php if ( WC()->customer->has_calculated_shipping() ) echo 'calculated_shipping'; ?>">
 
@@ -22,7 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="cart-subtotal">
 			<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_subtotal_html(); ?></td>
+			<td><?php #wc_cart_totals_subtotal_html();
+				echo number_format(waa_get_woocs_int_price_reverse($woocommerce->cart->subtotal), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+				 ?></td>
 		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -76,7 +78,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="order-total">
 			<th><?php _e( 'Total', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_order_total_html(); ?></td>
+			<td><?php #wc_cart_totals_order_total_html();
+				echo number_format(waa_get_woocs_int_price_reverse($woocommerce->cart->total), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>

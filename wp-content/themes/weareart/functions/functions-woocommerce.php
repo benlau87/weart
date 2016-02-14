@@ -153,7 +153,7 @@ function waa_get_variable_price($product_id) {
         $_min_variation_price = $_min_variation_price 	? '_min_variation_price' : '_regular_price';
         $output = waa_get_woocs_price($product_id, $_min_variation_price);
     } else {
-        $output = __('ab', 'waa').' '.waa_get_woocs_price($product_id, '_min_variation_price');
+        $output = __('ab', 'waa').' '.number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
     }
     return $output;
 }
@@ -163,7 +163,36 @@ function waa_get_variable_price($product_id) {
  * @return string
  */
 function waa_get_variable_price_html($product_id) {
-    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., <a href="#">zzgl. Versand</a>', 'waa') . '</small></p>';
+    $woocs = new WOOCS();
+    $currencies = $woocs->get_currencies();
+    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., zzgl. ' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . ' Versand', 'waa') . '</small></p>';
+}
+
+/**
+ * @param $product_id
+ * @param $key
+ * @return string
+ */
+function waa_get_woocs_int_price($price, $currency) {
+    $woocs = new WOOCS();
+
+    if($currency != '€') {
+        return $woocs->woocs_exchange_value($price);
+    } else {
+        return $price;
+    }
+}
+
+/**
+ * @param $product_id
+ * @param $key
+ * @return string
+ */
+function waa_get_woocs_int_price_reverse($value) {
+    $woocs = new WOOCS();
+    $currencies = $woocs->get_currencies();
+
+    return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
 }
 
 /**
@@ -173,7 +202,8 @@ function waa_get_variable_price_html($product_id) {
  */
 function waa_get_woocs_price($product_id, $key) {
     $woocs = new WOOCS();
-    return number_format($woocs->woocs_exchange_value(get_post_meta($product_id, $key, true)), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+    $currencies = $woocs->get_currencies();
+    return number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
 }
 
 /**
@@ -183,7 +213,8 @@ function waa_get_woocs_price($product_id, $key) {
  */
 function waa_get_woocs_price_html($product_id, $key) {
     $woocs = new WOOCS();
-    $out = '<p class="price"><span class="amount">'.number_format($woocs->woocs_exchange_value(get_post_meta($product_id, $key, true)), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., <a href="#">zzgl. Versand</a>', 'waa') . '</small></p>';
+    $currencies = $woocs->get_currencies();
+    $out = '<p class="price"><span class="amount">'.number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., zzgl. ' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . ' Versand', 'waa') . '</small></p>';
     return $out;
 }
 

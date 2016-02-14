@@ -511,8 +511,9 @@ function waa_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'text
             $min = isset( $attr['min'] ) ? $attr['min'] : 0;
             $step = isset( $attr['step'] ) ? $attr['step'] : 'any';
             $woocs = new WOOCS();
+            $currencies = $woocs->get_currencies();
             ?>
-            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?= $currency ? $woocs->woocs_exchange_value( esc_attr( $value ) ) : esc_attr( $value ) ; ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>">
+            <input type="number" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?= $currency ? number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, '.', ',') : esc_attr( $value ) ; ?>" class="<?php echo $class; ?>" placeholder="<?php echo $placeholder; ?>" min="<?php echo esc_attr( $min ); ?>" step="<?php echo esc_attr( $step ); ?>" size="<?php echo esc_attr( $size ); ?>">
             <?php
             break;
 

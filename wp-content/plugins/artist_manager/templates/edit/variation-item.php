@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<input type="hidden" name="variable_sku[<?php echo $loop; ?>]" value="<?php if ( isset( $_sku ) ) echo esc_attr( $_sku ); ?>" />
 </td>
 <td class="waa-input-group" >
-		<span class="waa-input-group-addon">€</span>
+		<span class="waa-input-group-addon"><?= get_woocommerce_currency_symbol(); ?></span>
     <input type="number" min="0" step="any" size="5" name="variable_regular_price[<?php echo $loop; ?>]" value="<?php if ( isset( $_regular_price ) ) echo $_regular_price; ?>" class="waa-form-control" placeholder="<?php _e( '0.00', 'waa' ); ?>" size="10"/>
 </td>
 

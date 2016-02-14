@@ -176,9 +176,10 @@ if ( $variations )  {
             $variation_data['_downloadable_files'][0]     = $_downloadable_files;
             $variation_data['placeholder_image'][0]       = esc_url( wc_placeholder_img_src() );
             $variation_data['post_id'][0]                 = $post_id;
+     $_regular_price = waa_get_woocs_int_price_reverse($variation_data['_regular_price'][0]);
 
             // Locale formatting
-            $_regular_price =  $_regular_price;
+            #$_regular_price =  $_regular_price;
             $_sale_price    = wc_format_localized_price( $_sale_price );
             $_weight        = wc_format_localized_decimal( $_weight );
             $_length        = wc_format_localized_decimal( $_length );

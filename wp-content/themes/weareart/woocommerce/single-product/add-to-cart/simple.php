@@ -24,7 +24,8 @@ if ( ! $product->is_purchasable() ) {
 	$availability      = $product->get_availability();
 	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
 
-	echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+	if ($availability['class'] != "in-stock")
+		echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
 ?>
 
 <?php if ( $product->is_in_stock() ) : ?>

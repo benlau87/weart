@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL &~ E_NOTICE &~ E_STRICT);
+ini_set('display_errors', 'On');
 /**
  * Show the variable product options.
  *
@@ -476,11 +477,15 @@ function waa_process_product_meta( $post_id ) {
 		// do not sell original?
         // reverse logic: waa_only_prints now stands for "i want to sell the original art as well"
 		$waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
-    update_post_meta( $post_id, 'waa_only_print', $waa_only_print );		
-		
+    update_post_meta( $post_id, 'waa_only_print', $waa_only_print );
+
+    $waa_currency = isset( $_POST['waa_currency'] ) ? $_POST['waa_currency']  : '€';
+    update_post_meta( $post_id, 'waa_currency', $waa_currency );
+
+
 		// save original price, if original can be bought
-		if($waa_only_print == 'no') {				
-			update_post_meta( $post_id, 'waa_original_price', $_POST['_regular_price'] );
+		if($waa_only_print == 'no') {
+			update_post_meta( $post_id, 'waa_original_price', waa_get_woocs_int_price( $_POST['_regular_price'], $waa_currency ) );
 		}
 
     // Product type + Downloadable/Virtual
@@ -496,7 +501,7 @@ function waa_process_product_meta( $post_id ) {
 
     // Update post meta
     if ( isset( $_POST['_regular_price'] ) ) {
-        update_post_meta( $post_id, '_regular_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+        update_post_meta( $post_id, '_regular_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
     }
 
     if ( isset( $_POST['_sale_price'] ) ) {
@@ -526,13 +531,14 @@ function waa_process_product_meta( $post_id ) {
     }
 
     //Save shipping meta data
-    update_post_meta( $post_id, '_disable_shipping', stripslashes( isset( $_POST['_disable_shipping'] ) ? $_POST['_disable_shipping'] : 'no' ) );
+    update_post_meta( $post_id, '_disable_shipping', 'no'  );
 
     if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
         update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
-        update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? $_POST['_additional_price'] : '' ) );
-        update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? $_POST['_additional_qty'] : '' ) );
-        update_post_meta( $post_id, '_dps_processing_time', stripslashes( isset( $_POST['_dps_processing_time'] ) ? $_POST['_dps_processing_time'] : '' ) );
+        update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? waa_get_woocs_int_price($_POST['_additional_price'], $waa_currency ) : '' ) );
+        update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? waa_get_woocs_int_price($_POST['_additional_qty'], $waa_currency ) : '' ) );
+        $user_id = get_current_user_id();
+        update_post_meta( $post_id, '_dps_processing_time', stripslashes( get_user_meta($user_id, '_dps_pt', true) ) );
     } else {
         update_post_meta( $post_id, '_overwrite_shipping', 'no' );
         update_post_meta( $post_id, '_additional_price', '' );
@@ -713,7 +719,7 @@ function waa_process_product_meta( $post_id ) {
         if ( '' !== $_POST['_sale_price'] && '' == $date_to && '' == $date_from ) {
             update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_sale_price'] ) );
         } else {
-            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency ) ) );
         }
 
         if ( '' !== $_POST['_sale_price'] && $date_from && strtotime( $date_from ) < strtotime( 'NOW', current_time( 'timestamp' ) ) ) {
@@ -721,15 +727,15 @@ function waa_process_product_meta( $post_id ) {
         }
 
         if ( $date_to && strtotime( $date_to ) < strtotime( 'NOW', current_time( 'timestamp' ) ) ) {
-            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency ) ) );
             update_post_meta( $post_id, '_sale_price_dates_from', '' );
             update_post_meta( $post_id, '_sale_price_dates_to', '' );
         }
 
       #  // reset price is discounted checkbox was not checked
     #    if ( ! isset( $_POST['_discounted_price'] ) || $_POST['_discounted_price'] == "no") {
-            update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_regular_price'] ) );
-            update_post_meta( $post_id, '_regular_price', wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', wc_format_decimal( waa_get_woocs_int_price( $_POST['_regular_price'], $waa_currency ) ) );
+            update_post_meta( $post_id, '_regular_price', wc_format_decimal( waa_get_woocs_int_price( $_POST['_regular_price'], $waa_currency ) ) );
             update_post_meta( $post_id, '_sale_price', '' );
      #   }
     }
@@ -890,16 +896,18 @@ function waa_new_process_product_meta( $post_id ) {
     $_create_variation  = ( isset( $_POST['_create_variation'] ) && $_POST['_create_variation'] == 'yes' ) ? 'yes' : 'no';
     // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
     $waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
+    $waa_currency = isset( $_POST['waa_currency'] ) ? $_POST['waa_currency']  : '€';
 		
     // Save has variation and create variations flag
     update_post_meta( $post_id, '_required_tax', $_required_tax );
     update_post_meta( $post_id, '_has_attribute', 'yes' );
     update_post_meta( $post_id, '_create_variation', $_create_variation );
     update_post_meta( $post_id, 'waa_only_print', $waa_only_print );
-						
+    update_post_meta( $post_id, 'waa_currency',$waa_currency );
+
 		// save original price, if original can be bought
 		if($waa_only_print == 'no') {				
-			update_post_meta( $post_id, 'waa_original_price', $_POST['_regular_price'] );
+			update_post_meta( $post_id, 'waa_original_price', waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) );
 		}
 
     // Product type + Downloadable/Virtual
@@ -920,7 +928,7 @@ function waa_new_process_product_meta( $post_id ) {
 
     // Update post meta
     if ( isset( $_POST['_regular_price'] ) ) {
-        update_post_meta( $post_id, '_regular_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+        update_post_meta( $post_id, '_regular_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
     }
 
     if ( isset( $_POST['_sale_price'] ) ) {
@@ -995,13 +1003,14 @@ function waa_new_process_product_meta( $post_id ) {
         }
         //Save shipping meta data
         //
-        update_post_meta( $post_id, '_disable_shipping', stripslashes( isset( $_POST['_disable_shipping'] ) ? 'no' : 'yes' ) );
+        update_post_meta( $post_id, '_disable_shipping', 'no' );
 
         if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
             update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
-            update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? $_POST['_additional_price'] : '' ) );
-            update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? $_POST['_additional_qty'] : '' ) );
-            update_post_meta( $post_id, '_dps_processing_time', stripslashes( isset( $_POST['_dps_processing_time'] ) ? $_POST['_dps_processing_time'] : '' ) );
+            update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? waa_get_woocs_int_price($_POST['_additional_price'], $waa_currency ) : '' ) );
+            update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? waa_get_woocs_int_price($_POST['_additional_qty'], $waa_currency) : '' ) );
+            $user_id = get_current_user_id();
+            update_post_meta( $post_id, '_dps_processing_time', stripslashes( get_user_meta($user_id, '_dps_pt', true) ) );
         } else {
             update_post_meta( $post_id, '_overwrite_shipping', 'no' );
             update_post_meta( $post_id, '_additional_price', '' );
@@ -1192,7 +1201,7 @@ function waa_new_process_product_meta( $post_id ) {
         if ( '' !== $_POST['_sale_price'] && '' == $date_to && '' == $date_from ) {
             update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_sale_price'] ) );
         } else {
-            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
         }
 
         if ( '' !== $_POST['_sale_price'] && $date_from && strtotime( $date_from ) < strtotime( 'NOW', current_time( 'timestamp' ) ) ) {
@@ -1200,15 +1209,15 @@ function waa_new_process_product_meta( $post_id ) {
         }
 
         if ( $date_to && strtotime( $date_to ) < strtotime( 'NOW', current_time( 'timestamp' ) ) ) {
-            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', ( $_POST['_regular_price'] === '' ) ? '' : wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
             update_post_meta( $post_id, '_sale_price_dates_from', '' );
             update_post_meta( $post_id, '_sale_price_dates_to', '' );
         }
 
         // reset price is discounted checkbox was not checked
     #    if ( isset( $_POST['_sale_price'] ) && empty( $_POST['_sale_price'] ) ) {
-            update_post_meta( $post_id, '_price', wc_format_decimal( $_POST['_regular_price'] ) );
-            update_post_meta( $post_id, '_regular_price', wc_format_decimal( $_POST['_regular_price'] ) );
+            update_post_meta( $post_id, '_price', wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
+            update_post_meta( $post_id, '_regular_price', wc_format_decimal( waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) ) );
             update_post_meta( $post_id, '_sale_price', '' );
       #  }
     }
@@ -1419,7 +1428,8 @@ function waa_new_save_variations( $post_id ) {
 
             if( isset( $_POST['_variation_product_update'] ) && $_POST['_variation_product_update'] == 'yes' ) {
 
-                $regular_price  = wc_format_decimal( $variable_regular_price[ $i ] );
+                $waa_currency = get_post_meta($post_id, 'waa_currency', true);
+                $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
                 update_post_meta( $variation_id, '_price', $regular_price );
                 update_post_meta( $variation_id, '_sku', wc_clean( $variable_sku[ $i ] ) );
@@ -1535,8 +1545,9 @@ function waa_new_save_variations( $post_id ) {
 
 
                 // Price handling
-                $regular_price  = wc_format_decimal( $variable_regular_price[ $i ] );
-                $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
+                $waa_currency = get_post_meta($post_id, 'waa_currency', true);
+                $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
+                $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( waa_get_woocs_int_price($variable_sale_price[ $i ], $waa_currency) ) );
                 $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
                 $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
@@ -1803,7 +1814,8 @@ function waa_save_variations( $post_id ) {
 
 
             // Price handling
-            $regular_price  = wc_format_decimal( $variable_regular_price[ $i ] );
+            $waa_currency = get_post_meta($post_id, 'waa_currency', true);
+            $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], 'CHF') );
             $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
             $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
             $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );

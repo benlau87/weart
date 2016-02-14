@@ -52,9 +52,9 @@ jQuery(document).ready(function ($) {
     });
 
     function setWaaProductTypeOriginal() {
-        $('#sell-original-btn').parent().parent().hide();
+        $('.product-set-type').hide();
         $('.product-edit-new-container').show();
-        $('.hide-if-sell-original').addClass('display-none')
+        $('.hide-if-sell-original').addClass('display-none');
         $('.hide_if_only_print').show();
         $('#waa_only_print').attr('checked', true);
         $('#_sold_individually').attr('checked', true);
@@ -72,9 +72,9 @@ jQuery(document).ready(function ($) {
     });
 
     function setWaaProductTypePrints() {
-        $('#sell-original-btn').parent().parent().hide();
+        $('.product-set-type').hide();
         $('.product-edit-new-container').show();
-        $('.hide-if-sell-prints').hide();
+        $('.hide-if-sell-prints').css('display', 'none !important');
         $('#waa_only_print').attr('checked', false);
         $('#_sold_individually').attr('checked', false);
         $('#waa_product_type').val('sell-prints');
@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
     });
 
     function setWaaProductTypeBoth() {
-        $('#sell-original-btn').parent().parent().hide();
+        $('.product-set-type').hide();
         $('.product-edit-new-container').show();
         $('.hide-if-sell-both').hide();
         $('#waa_product_type').val('sell-both');
@@ -379,7 +379,7 @@ jQuery(document).ready(function ($) {
         },
 
         loadTagChosen: function () {
-            $('select.product_tags').chosen();
+            $('select.product_tags').chosen( { width:"95%" });
         },
 
         loadTagIt: function () {
