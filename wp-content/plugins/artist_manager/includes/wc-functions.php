@@ -2246,11 +2246,11 @@ function waa_seller_registration_errors( $error ) {
         }
 				$country = trim( $_POST['country'] );
         if ( empty( $country ) ) {
-            return new WP_Error( 'country-error', __( 'Please select a country and a region.', 'waa' ) );
+            return new WP_Error( 'country-error', __( 'Bitte wähle ein Land und eine Region aus.', 'waa' ) );
         }
 				$region = trim( $_POST['region'] );
         if ( empty( $region ) ) {
-            return new WP_Error( 'region-error', __( 'Please select country and a region.', 'waa' ) );
+            return new WP_Error( 'region-error', __( 'Bitte wähle ein Land und eine Region aus.', 'waa' ) );
         }
     }
 

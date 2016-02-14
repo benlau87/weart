@@ -134,7 +134,8 @@ if ($_POST['waa_product_type'] == 'sell-prints' || $waa_product_type == 'sell-pr
             setWaaProductTypePrints();
         }); </script>
 <?php }
-if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both') {
+if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both' || !isset($waa_product_type) ) {
+    echo $waa_product_type;
     ?>
     <script>jQuery(document).ready(function () {
             setWaaProductTypeBoth();

@@ -197,7 +197,7 @@
 
                         <?php } else { ?>
                             <tr>
-                                <td colspan="7"><?php _e( 'No product found', 'dokan' ); ?></td>
+                                <td colspan="9"><?php _e( 'No product found', 'dokan' ); ?></td>
                             </tr>
                         <?php } ?>
 

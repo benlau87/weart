@@ -187,7 +187,7 @@
 
                         <?php } else { ?>
                             <tr>
-                                <td colspan="7"><?php _e( 'No product found', 'waa' ); ?></td>
+                                <td colspan="8"><?php _e( 'No product found', 'waa' ); ?></td>
                             </tr>
                         <?php } ?>
 
