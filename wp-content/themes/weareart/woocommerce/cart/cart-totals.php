@@ -23,8 +23,15 @@ global $woocommerce;
 		<tr class="cart-subtotal">
 			<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
 			<td><?php #wc_cart_totals_subtotal_html();
-				echo number_format(waa_get_woocs_int_price_reverse($woocommerce->cart->subtotal), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
-				 ?></td>
+				$product_price_sum = 0;
+				foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+					$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+
+					$product_price_sum += $_product->price * $cart_item['quantity'];
+				}
+
+				echo number_format(waa_get_woocs_int_price_reverse($product_price_sum), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+				 ?> <small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small></td>
 		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -79,7 +86,12 @@ global $woocommerce;
 		<tr class="order-total">
 			<th><?php _e( 'Total', 'woocommerce' ); ?></th>
 			<td><?php #wc_cart_totals_order_total_html();
-				echo number_format(waa_get_woocs_int_price_reverse($woocommerce->cart->total), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol(); ?></td>
+				// todo: coupons berechnen
+				$coupon_amount = 0;
+				foreach ( WC()->cart->coupon_discount_amounts as $key => $amount ) {
+					$coupon_amount += $amount;
+				}
+				echo number_format(waa_get_woocs_int_price_reverse($product_price_sum+WC()->cart->shipping_total-$coupon_amount), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol(); ?> <small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>

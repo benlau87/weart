@@ -145,6 +145,8 @@ function waa_get_max_variation_price($product_id) {
  * @return string
  */
 function waa_get_variable_price($product_id) {
+    $woocs = new WOOCS();
+    $currencies = $woocs->get_currencies();
     $_create_variation = get_post_meta($product_id, '_create_variation', true);
     $_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
     $_max_variation_price = waa_get_max_variation_price($product_id);
@@ -153,7 +155,7 @@ function waa_get_variable_price($product_id) {
         $_min_variation_price = $_min_variation_price 	? '_min_variation_price' : '_regular_price';
         $output = waa_get_woocs_price($product_id, $_min_variation_price);
     } else {
-        $output = __('ab', 'waa').' '.number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
+        $output = __('ab', 'waa').' '.number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
     }
     return $output;
 }
@@ -165,7 +167,7 @@ function waa_get_variable_price($product_id) {
 function waa_get_variable_price_html($product_id) {
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
-    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., zzgl. ' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . ' Versand', 'waa') . '</small></p>';
+    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="'.waa_get_shipping_costs($product_id).'">zzgl. Versand</a></small></p>';
 }
 
 /**
@@ -214,7 +216,11 @@ function waa_get_woocs_price($product_id, $key) {
 function waa_get_woocs_price_html($product_id, $key) {
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
-    $out = '<p class="price"><span class="amount">'.number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt., zzgl. ' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . ' Versand', 'waa') . '</small></p>';
+    #print_r(get_post_meta($product_id, '_additional_price'));
+
+    $out = '<p class="price"><span class="amount">'.number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips"     data-html="true" data-original-title="'.waa_get_shipping_costs($product_id).'">zzgl. Versand</a></small></p>';
+
+    #' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '
     return $out;
 }
 
@@ -232,4 +238,25 @@ function custom_override_checkout_fields( $fields ) {
 }
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
+function waa_get_shipping_costs($product_id) {
+    $shipping_costs = get_post_meta($product_id, '_additional_price', true);
+    $out = '<ul>';
+    if (is_array($shipping_costs)) {
+        foreach ($shipping_costs as $country => $costs) {
+            $out .= '<li>';
+            if ($country == 'DE') {
+                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' .get_woocommerce_currency_symbol();
+            } elseif ($country == 'CH') {
+                $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            } elseif ($country == 'everywhere') {
+                $out .= __('EU Ausland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            }
+            $out .= '</li>';
+        }
+    } else {
+        $out .= '<li>keine Versandkosten angegeben</li>';
+    }
+    $out .= '</ul>';
+    return $out;
+}
 ?>

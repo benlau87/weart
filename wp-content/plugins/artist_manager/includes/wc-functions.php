@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL &~ E_NOTICE &~ E_STRICT);
-ini_set('display_errors', 'On');
+#error_reporting(E_ALL &~ E_NOTICE &~ E_STRICT);
+#ini_set('display_errors', 'On');
 /**
  * Show the variable product options.
  *
@@ -1007,7 +1007,26 @@ function waa_new_process_product_meta( $post_id ) {
 
         if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
             update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
-            update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? waa_get_woocs_int_price($_POST['_additional_price'], $waa_currency ) : '' ) );
+
+
+            if (isset($_POST['dps_country_to_price'])) {
+
+                foreach ($_POST['dps_country_to'] as $key => $value) {
+                    $country = $value;
+                    $c_price = floatval($_POST['dps_country_to_price'][$key]);
+
+                    if (!$c_price && empty($c_price)) {
+                        $c_price = 0;
+                    }
+
+                    if (!empty($value)) {
+                        $rates[$country] = $c_price;
+                    }
+                }
+            }
+
+            update_post_meta( $post_id, '_additional_price', isset($rates) ? $rates : $_POST['_additional_price'] );
+            #update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? waa_get_woocs_int_price($_POST['_additional_price'], $waa_currency ) : '' ) );
             update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? waa_get_woocs_int_price($_POST['_additional_qty'], $waa_currency) : '' ) );
             $user_id = get_current_user_id();
             update_post_meta( $post_id, '_dps_processing_time', stripslashes( get_user_meta($user_id, '_dps_pt', true) ) );
@@ -2059,12 +2078,12 @@ function waa_create_seller_order( $parent_order, $seller_id, $seller_products ) 
         update_post_meta( $order_id, '_payment_method',         $parent_order->payment_method );
         update_post_meta( $order_id, '_payment_method_title',   $parent_order->payment_method_title );
 
-        update_post_meta( $order_id, '_order_shipping',         woocommerce_format_decimal( $shipping_cost ) );
-        update_post_meta( $order_id, '_order_discount',         woocommerce_format_decimal( $discount ) );
+        update_post_meta( $order_id, '_order_shipping',         wc_format_decimal( $shipping_cost ) );
+        update_post_meta( $order_id, '_order_discount',         wc_format_decimal( $discount ) );
         update_post_meta( $order_id, '_cart_discount',          '0' );
-        update_post_meta( $order_id, '_order_tax',              woocommerce_format_decimal( $order_tax ) );
+        update_post_meta( $order_id, '_order_tax',              wc_format_decimal( $order_tax ) );
         update_post_meta( $order_id, '_order_shipping_tax',     '0' );
-        update_post_meta( $order_id, '_order_total',            woocommerce_format_decimal( $order_in_total ) );
+        update_post_meta( $order_id, '_order_total',            wc_format_decimal( $order_in_total ) );
         update_post_meta( $order_id, '_order_key',              apply_filters('woocommerce_generate_order_key', uniqid('order_') ) );
         update_post_meta( $order_id, '_customer_user',          $parent_order->customer_user );
         update_post_meta( $order_id, '_order_currency',         get_post_meta( $parent_order->id, '_order_currency', true ) );

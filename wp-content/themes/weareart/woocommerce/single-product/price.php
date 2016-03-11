@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 global $product;
 
 $waa_only_print = get_post_meta($product->id, 'waa_only_print', true);
-$waa_original_price = waa_get_woocs_price_html($product->id, 'waa_original_price');
+#$waa_original_price = waa_get_woocs_price_html($product->id, 'waa_original_price');
 
 if ($product->product_type == 'variable')
     $available_variations = $product->get_available_variations();

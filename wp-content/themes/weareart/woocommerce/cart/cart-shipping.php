@@ -23,12 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 	?></th>
 	<td>
-		<?php if ( ! empty( $available_methods ) ) : ?>
+		<?php
+		#print_r($available_methods);
+		if ( ! empty( $available_methods ) ) : ?>
 
 			<?php if ( 1 === count( $available_methods ) ) :
 				$method = current( $available_methods );
+				#echo wp_kses_post( wc_cart_totals_shipping_method_label( $method ) );
+				echo number_format(waa_get_woocs_int_price_reverse($method->cost), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>';
 
-				echo wp_kses_post( wc_cart_totals_shipping_method_label( $method ) ); ?>
+				?>
 				<input type="hidden" name="shipping_method[<?php echo $index; ?>]" data-index="<?php echo $index; ?>" id="shipping_method_<?php echo $index; ?>" value="<?php echo esc_attr( $method->id ); ?>" class="shipping_method" />
 
 			<?php elseif ( get_option( 'woocommerce_shipping_method_format' ) === 'select' ) : ?>

@@ -211,6 +211,13 @@ function wc_custom_user_redirect($redirect, $user)
 add_filter('woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2);
 
 
+function waa_registration_redirect() {
+    return waa_get_page_url( 'dashboard', 'waa' );
+}
+
+add_filter( 'woocommerce_registration_redirect', 'waa_registration_redirect' );
+
+
 /**
  * Add customer/artist menu items
  *
@@ -280,9 +287,3 @@ function wcproduct_set_attributes($post_id, $attributes)
     // Now update the post with its new attributes
     update_post_meta($post_id, '_product_attributes', $product_attributes);
 }
-
-function wpse_19692_registration_redirect() {
-    return waa_get_page_url( 'dashboard', 'waa' );
-}
-
-add_filter( 'registration_redirect', 'wpse_19692_registration_redirect' );

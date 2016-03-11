@@ -18,9 +18,10 @@ $dps_shipping_policy = get_user_meta($user_id, '_dps_ship_policy', true);
 $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
 
 $dps_country_to = get_user_meta($user_id, '_dps_country_rates', true);
-$dps_home_country = array_key_exists('home_country', $dps_country_to) ? 'yes' : '';
-$dps_eu_countries = array_key_exists('eu_countries', $dps_country_to) ? 'yes' : '';
-$dps_switzerland = array_key_exists('switzerland', $dps_country_to) ? 'yes' : '';
+
+if(is_array($dps_country_to)) { $dps_home_country = array_key_exists(get_user_meta($user_id, '_dps_form_location', true), $dps_country_to) ? 'yes' : ''; }
+if(is_array($dps_country_to)) { $dps_eu_countries = array_key_exists('everywhere', $dps_country_to) ? 'yes' : ''; }
+if(is_array($dps_country_to)) { $dps_switzerland = array_key_exists('CH', $dps_country_to) ? 'yes' : ''; }
 
 ?>
 <div class="waa-dashboard-wrap">
@@ -209,32 +210,34 @@ $dps_switzerland = array_key_exists('switzerland', $dps_country_to) ? 'yes' : ''
                                             <td class="col-md-4 text-center">
                                                 <div class="checkbox">
                                                     <label for="home_country">
-                                                        <input type="checkbox" name="dps_country_to[]" value="home_country" id="home_country"
+                                                        <input type="checkbox" name="dps_country_to[]" value="<?= get_user_meta($user_id, '_dps_form_location', true); ?>" id="home_country"
                                                                class="waa-form-control dps_country_selection"
                                                                id="home_country" <?php checked('yes', $dps_home_country, true); ?>>
-                                                        <?= __('Heimatland', 'waa'); ?>
+                                                        <?= __('Heimatland', 'waa'); ?> (<?= get_user_meta($user_id, '_dps_form_location', true) ?>)
                                                     </label>
                                                 </div>
                                             </td>
                                             <td class="col-md-4">
                                                 <div class="checkbox">
                                                     <label for="eu_countries">
-                                                        <input type="checkbox" name="dps_country_to[]" value="eu_countries" id="eu_countries"
+                                                        <input type="checkbox" name="dps_country_to[]" value="everywhere" id="eu_countries"
                                                                class="waa-form-control dps_country_selection" <?php checked('yes', $dps_eu_countries, true); ?>>
                                                         <?= __('EU', 'waa'); ?>
                                                     </label>
                                                 </div>
 
                                             </td>
+                                            <?php if(get_user_meta($user_id, '_dps_form_location', true) != 'CH') : ?>
                                             <td class="col-md-4">
                                                 <div class="checkbox">
                                                     <label for="switzerland">
-                                                        <input type="checkbox" name="dps_country_to[]" value="switzerland" id="switzerland"
+                                                        <input type="checkbox" name="dps_country_to[]" value="CH" id="switzerland"
                                                                class="waa-form-control dps_country_selection" <?php checked('yes', $dps_switzerland, true); ?>>
                                                         <?= __('Schweiz', 'waa'); ?>
                                                     </label>
                                                 </div>
                                             </td>
+                                            <?php endif; ?>
                                         </tr>
                                         </tbody>
                                     </table>

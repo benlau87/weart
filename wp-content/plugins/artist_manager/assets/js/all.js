@@ -54,7 +54,8 @@ jQuery(document).ready(function ($) {
     function setWaaProductTypeOriginal() {
         $('.product-set-type').hide();
         $('.product-edit-new-container').show();
-        $('.hide-if-sell-original').addClass('display-none');
+        $('.hide-if-sell-original').css('display', 'none !important');
+        $('.hide-if-sell-original').hide();
         $('.hide_if_only_print').show();
         $('#waa_only_print').attr('checked', true);
         $('#_sold_individually').attr('checked', true);
@@ -75,6 +76,7 @@ jQuery(document).ready(function ($) {
         $('.product-set-type').hide();
         $('.product-edit-new-container').show();
         $('.hide-if-sell-prints').css('display', 'none !important');
+        $('.hide-if-sell-prints').hide();
         $('#waa_only_print').attr('checked', false);
         $('#_sold_individually').attr('checked', false);
         $('#waa_product_type').val('sell-prints');
@@ -2214,11 +2216,11 @@ jQuery(function ($) {
         $(this).parent().parent().remove();
     });
 
-    $('#print-size').keydown(function (e) {
+    $('tr.print-variation').find('.print-size').keydown(function (e) {
         var text = $(this).val();
 
         // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 91, 88]) !== -1 ||
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 91, 88, 110, 188, 190]) !== -1 ||
                 // Allow: Ctrl+A
             (e.keyCode == 65 && e.ctrlKey === true) ||
                 // Allow: home, end, left, right

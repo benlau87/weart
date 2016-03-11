@@ -202,7 +202,16 @@ class waa_WC_Shipping extends WC_Shipping_Method {
 
                     if ( get_post_meta( $product['product_id'], '_overwrite_shipping', true ) == 'yes' ) {
                         $default_shipping_qty_price = get_post_meta( $product['product_id'], '_additional_qty', true );
-                        $price[ $seller_id ]['addition_price'][] = get_post_meta( $product['product_id'], '_additional_price', true );
+
+                        $dps_country_rates = get_post_meta( $product['product_id'], '_additional_price', true );
+                        if ( !array_key_exists( $destination_country, $dps_country_rates ) ) {
+                            $price[$seller_id]['addition_price'] = isset( $dps_country_rates['everywhere'] ) ? $dps_country_rates['everywhere'] : 0;
+                        } else {
+                            $price[$seller_id]['addition_price'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
+                        }
+
+
+                        #$price[ $seller_id ]['addition_price'][] = get_post_meta( $product['product_id'], '_additional_price', true );
                     } else {
                         $default_shipping_qty_price = get_user_meta( $seller_id, '_dps_additional_qty', true );
                         $price[ $seller_id ]['addition_price'][] = 0;
@@ -254,7 +263,7 @@ class waa_WC_Shipping extends WC_Shipping_Method {
         }
         if ( !empty( $price ) ) {
             foreach ( $price as $s_id => $value ) {
-                $amount = $amount + ( array_sum( $value['addition_price'] )+$value['default']+array_sum( $value['qty'] )+$value['add_product']+ ( isset($value['state_rates']) ? $value['state_rates'] : 0 ) );
+                $amount = $amount + ( isset($value['addition_price']) ? $value['addition_price'] : 0 + $value['default']+array_sum( $value['qty'] )+$value['add_product']+ ( isset($value['state_rates']) ? $value['state_rates'] : 0 ) );
             }
         }
 

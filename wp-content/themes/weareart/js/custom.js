@@ -63,5 +63,7 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    $('.tips').tooltip();
+
 
 });

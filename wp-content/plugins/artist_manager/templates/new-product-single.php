@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL &~ E_NOTICE &~ E_STRICT);
-ini_set('display_errors', 'On');
+#error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+#ini_set('display_errors', 'On');
 global $post;
 
 $from_shortcode = false;
@@ -31,7 +31,7 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $_manage_stock = isset($_POST['_manage_stock']) ? $_POST['_manage_stock'] : '';
     $_sold_individually = isset($_POST['_sold_individually']) ? $_POST['_sold_individually'] : '';
     $_stock = isset($_POST['_stock']) ? $_POST['_stock'] : '';
-    $_stock_status = isset( $_POST['_stock_status']) ?  $_POST['_stock_status'] : '';
+    $_stock_status = isset($_POST['_stock_status']) ? $_POST['_stock_status'] : '';
     $_backorders = isset($_POST['_backorders']) ? $_POST['_backorders'] : '';
     $_weight = isset($_POST['_weight']) ? $_POST['_weight'] : '';
     $_length = isset($_POST['_length']) ? $_POST['_length'] : '';
@@ -40,10 +40,10 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $_overwrite_shipping = isset($_POST['_overwrite_shipping']) ? $_POST['_overwrite_shipping'] : '';
     $_additional_product_price = isset($_POST['_additional_product_price']) ? $_POST['_additional_product_price'] : '';
 
-    $_additional_price = waa_get_woocs_int_price_reverse(isset($_POST['_additional_price']) ? $_POST['_additional_price'] : '');
-    $_additional_qty = waa_get_woocs_int_price_reverse(isset($_POST['_additional_qty']) ? $_POST['_additional_qty'] : '');
+   # $_additional_price = isset($_POST['_additional_price']) ? waa_get_woocs_int_price_reverse($_POST['_additional_price']) : '';
+    $_additional_qty = isset($_POST['_additional_qty']) ? waa_get_woocs_int_price_reverse($_POST['_additional_qty']) : '';
     $_purchase_note = isset($_POST['_purchase_note']) ? $_POST['_purchase_note'] : '';
-   # $product_shipping_pt = isset($_POST['_dps_processing_time']) ? $_POST['_dps_processing_time'] : '';
+    # $product_shipping_pt = isset($_POST['_dps_processing_time']) ? $_POST['_dps_processing_time'] : '';
 }
 
 if (isset($_GET['product_id'])) {
@@ -96,7 +96,7 @@ if (isset($product)) {
 
     $processing_time = waa_get_shipping_processing_times();
     $_disable_shipping = (get_post_meta($post_id, '_disable_shipping', true)) ? get_post_meta($post_id, '_disable_shipping', true) : 'no';
-    $_additional_price = waa_get_woocs_int_price_reverse(get_post_meta($post_id, '_additional_price', true));
+    #$_additional_price = waa_get_woocs_int_price_reverse(get_post_meta($post_id, '_additional_price', true));
     $_additional_qty = waa_get_woocs_int_price_reverse(get_post_meta($post_id, '_additional_qty', true));
     $_processing_time = get_post_meta($post_id, '_dps_processing_time', true);
     $dps_shipping_type_price = get_user_meta($user_id, '_dps_shipping_type_price', true);
@@ -142,7 +142,7 @@ if ($_POST['waa_product_type'] == 'sell-prints' || $waa_product_type == 'sell-pr
             setWaaProductTypePrints();
         }); </script>
 <?php }
-if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both' || $waa_product_type == 'fallback' ) {
+if ($_POST['waa_product_type'] == 'sell-both' || $waa_product_type == 'sell-both' || $waa_product_type == 'fallback') {
     ?>
     <script>jQuery(document).ready(function () {
             setWaaProductTypeBoth();
@@ -158,7 +158,7 @@ if (empty($waa_product_type) && !empty($product))
     }
     function setWaaProductTypeOriginal() {
         showProductContainer();
-        jQuery('.hide-if-sell-original').hide();
+        jQuery('.hide-if-sell-original').addClass('display-none');
         jQuery('.hide_if_only_print').show();
         jQuery('#waa_only_print').attr('checked', true);
         jQuery('#_sold_individually').attr('checked', true);
@@ -169,7 +169,7 @@ if (empty($waa_product_type) && !empty($product))
     }
     function setWaaProductTypePrints() {
         showProductContainer();
-        jQuery('.hide-if-sell-prints').hide();
+        jQuery('.hide-if-sell-prints').css('display', 'none !important');
         jQuery('#waa_only_print').attr('checked', false);
         jQuery('#_sold_individually').attr('checked', false);
         jQuery('#waa_product_type').val('sell-prints');
@@ -177,7 +177,7 @@ if (empty($waa_product_type) && !empty($product))
     }
     function setWaaProductTypeBoth() {
         showProductContainer();
-        jQuery('.hide-if-sell-both').hide();
+        jQuery('.hide-if-sell-both').css('display', 'none !important');
         jQuery('#waa_product_type').val('sell-both');
     }
 </script>
@@ -362,7 +362,8 @@ if (empty($waa_product_type) && !empty($product))
                                                                 <span
                                                                     class="waa-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
                                                                     <?php waa_post_input_box($post_id, '_regular_price', array('placeholder' => __('0.00', 'waa'), 'value' => $_regular_price), 'number', true); ?>
-                                                                    <input type="hidden" name="waa_currency" value="<?= get_woocommerce_currency_symbol(); ?>"/>
+                                                                    <input type="hidden" name="waa_currency"
+                                                                           value="<?= get_woocommerce_currency_symbol(); ?>"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -578,7 +579,9 @@ if (empty($waa_product_type) && !empty($product))
                                                         <tr>
                                                             <th width="20%"><?= __('Variant', 'waa') ?></th>
                                                             <th width="35%"><?= __('Material / Ausführung', 'waa') ?></th>
-                                                            <th width="20%"><?= __('Price', 'waa') ?> (in <?= get_woocommerce_currency_symbol(); ?>)</th>
+                                                            <th width="20%"><?= __('Price', 'waa') ?>
+                                                                (in <?= get_woocommerce_currency_symbol(); ?>)
+                                                            </th>
                                                             <th width="5%"></th>
                                                         </tr>
                                                         </thead>
@@ -586,7 +589,7 @@ if (empty($waa_product_type) && !empty($product))
                                                         <tr class="print-variation">
                                                             <td>
                                                                 <input type="text" name="attribute_pa_print_groesse[]"
-                                                                       id="print-size" maxlength="7" value=""
+                                                                       class="print-size" maxlength="14" value=""
                                                                        placeholder="<?= __('z.B. 60x40', 'waa'); ?>">
                                                                 <span
                                                                     id="print-size-alert"><?= __('Verwende folgendes Format: 60x40', 'waa') ?></span>
@@ -632,7 +635,8 @@ if (empty($waa_product_type) && !empty($product))
                                                 <?php if ($post_id): ?>
                                                     <?php do_action('waa_product_edit_after_variations'); ?>
                                                 <?php endif; ?>
-                                                <label class="form-label hide-if-sell-prints hide-if-sell-original" for="waa_only_print">
+                                                <label class="form-label hide-if-sell-prints hide-if-sell-original"
+                                                       for="waa_only_print">
                                                     <input name="waa_only_print" id="waa_only_print" value="yes"
                                                            type="checkbox" <?php checked($waa_only_print, 'yes'); ?>>
                                                     <?= __('Ich möchte das Original nicht verkaufen.', 'waa') ?>
@@ -728,7 +732,8 @@ if (empty($waa_product_type) && !empty($product))
                                                     <h2><?php _e('Shipping & Tax', 'waa'); ?></h2>
 
                                                     <p>
-                                                        <?php _e('Manage shipping and tax for this product', 'waa'); ?>
+                                                        <?php _e('Manage shipping and tax for this product', 'waa'); ?><br>
+                                                        <strong><?php echo __('Angaben in', 'waa') . ' ' . get_woocommerce_currency_symbol();?> <?php _e('inkl. MwSt.', 'waa'); ?></strong>
                                                     </p>
                                                 </div>
 
@@ -753,28 +758,59 @@ if (empty($waa_product_type) && !empty($product))
                                                             <?php if ($post_id): ?>
                                                                 <?php do_action('waa_product_options_shipping'); ?>
                                                             <?php endif; ?>
+
                                                             <div class="waa-shipping-product-options">
-                                                                <input name="_overwrite_shipping" id="_overwrite_shipping" value="yes" type="checkbox" checked="checked" style="display:none">
+                                                                <input name="_overwrite_shipping"
+                                                                       id="_overwrite_shipping" value="yes"
+                                                                       type="checkbox" checked="checked"
+                                                                       style="display:none">
 
                                                                 <div class="waa-form-group show_if_override">
-                                                                    <label class="waa-control-label"
-                                                                           for="_additional_product_price"><span
-                                                                            class="hide-if-sell-original hide-if-sell-both"><?php _e('Versandkosten für einen Print', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span>
-                                                                        <span
-                                                                            class="hide-if-sell-prints hide-if-sell-both"><?php _e('Versandkosten', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span>
-                                                                        <span
-                                                                        class="hide-if-sell-prints hide-if-sell-original"><?php _e('Versandkosten für das Original', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)</span></label>
-                                                                    <input id="_additional_product_price"
-                                                                           value="<?php echo $_additional_price; ?>"
-                                                                           name="_additional_price"
-                                                                           placeholder="z.B. 9,99"
-                                                                           class="waa-form-control" type="number"
-                                                                           step="any">
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $dps_country_rates = get_user_meta($user_id, '_dps_country_rates', true);
+                                                                        $_additional_price = get_post_meta($post_id, '_additional_price', true);
+                                                                        foreach ($dps_country_rates as $country => $cost) { ?>
+
+                                                                            <div class="col-md-4">
+                                                                                <input name="dps_country_to[]"
+                                                                                       type="hidden"
+                                                                                       value="<?= $country; ?>"/>
+
+                                                                                <label class="waa-control-label"
+                                                                                       for="dps_country_to_price[]"><span
+                                                                                        class="hide-if-sell-both">
+                                                                                         <?php
+                                                                                         if(get_user_meta($user_id, '_dps_form_location', true) == $country) {
+                                                                                             _e('Nationaler Versand', 'waa');
+                                                                                         } elseif($country == 'everywhere') {
+                                                                                             _e('Versand in die EU', 'waa'); }
+                                                                                         elseif($country == 'CH') {
+                                                                                             _e('Versand in die Schweiz', 'waa'); }
+                                                                                         elseif($country == 'DE') {
+                                                                                             _e('Versand nach Deutschland', 'waa'); } ?>
+                                                                                        </span>
+
+                                                                                </label>
+                                                                                <input
+                                                                                    value="<?php echo $_additional_price[$country] ?>"
+                                                                                    name="dps_country_to_price[]"
+                                                                                    id="dps_country_to_price"
+                                                                                    placeholder="z.B. 9,99"
+                                                                                    min="0"
+                                                                                    class="waa-form-control"
+                                                                                    type="number"
+                                                                                    step="any">
+                                                                            </div>
+                                                                        <?php } ?>
+                                                                    </div>
                                                                 </div>
 
-                                                                <div class="waa-form-group show_if_override hide-if-sell-original">
+                                                                <div
+                                                                    class="waa-form-group hide-if-sell-original">
                                                                     <label class="waa-control-label"
-                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?> (in <?php echo get_woocommerce_currency_symbol(); ?>)<span
+                                                                           for="dps_additional_qty"><?php _e('Per Qty Additional Price', 'waa'); ?>
+                                                                       <span
                                                                             class="waa-tooltips-help tips" title=""
                                                                             data-original-title="<?= __('Falls ein Kunde mehr als nur einen Print kaufen möchte, kannst du hier festlegen, wie viel zusätzliche Versandkosten dafür anfallen sollen.', 'waa') ?>">
 																			<i class="ui ui-question-circle"></i>
@@ -782,6 +818,7 @@ if (empty($waa_product_type) && !empty($product))
                                                                     <input id="additional_qty"
                                                                            value="<?php echo ($_additional_qty) ? $_additional_qty : $dps_additional_qty; ?>"
                                                                            name="_additional_qty"
+                                                                           min="0"
                                                                            placeholder="z.B. 1,99"
                                                                            class="waa-form-control" type="number"
                                                                            step="any">

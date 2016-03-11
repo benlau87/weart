@@ -28,10 +28,14 @@ global $product;
 	 	return;
 	 }
 
+#error_reporting(E_ALL);
+#ini_set("display_errors", "1");
+
 #print_r(get_post_meta($product->id, '_additional_price', true));
 #print_r(get_post_meta($product->id));
 #print_r($product);
 $product_processing_time      = get_post_meta( $product->id, '_dps_processing_time', true );
+$dps_processing        = get_user_meta( $product->post->post_author, '_dps_pt', true );
 $processing_time              = ( $product_processing_time ) ? $product_processing_time : $dps_processing;
 $country_obj = new WC_Countries();
 $countries   = $country_obj->countries;
@@ -77,15 +81,13 @@ $from              = get_user_meta( $product->post->post_author, '_dps_form_loca
 
 			if ( $processing_time ) { ?>
 				<p>
-					<strong>
 						<?php _e( 'Ready to ship in', 'waa' ); ?> <?php echo waa_get_processing_time_value( $processing_time ); ?>
 
 						<?php
 						if ( $from ) {
-							echo __( 'from', 'waa' ) . ' ' . $countries[$from];
+							echo '('.__( 'from', 'waa' ) . ' ' . ($countries[$from] == "Schweiz" ? 'der ' . $countries[$from] : $countries[$from]) . ')';
 						}
 						?>
-					</strong>
 				</p>
 			<?php }
 
