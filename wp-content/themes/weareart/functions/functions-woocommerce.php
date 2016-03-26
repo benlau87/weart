@@ -167,7 +167,7 @@ function waa_get_variable_price($product_id) {
 function waa_get_variable_price_html($product_id) {
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
-    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="'.waa_get_shipping_costs($product_id).'">zzgl. Versand</a></small></p>';
+    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="Versandkosten abhängig Größen- und Material-Auswahl">zzgl. Versand</a></small></p>';
 }
 
 /**
@@ -239,6 +239,28 @@ function custom_override_checkout_fields( $fields ) {
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
 function waa_get_shipping_costs($product_id) {
+    $shipping_costs = get_post_meta($product_id, '_additional_price', true);
+    $out = '<ul>';
+    if (is_array($shipping_costs)) {
+        foreach ($shipping_costs as $country => $costs) {
+            $out .= '<li>';
+            if ($country == 'DE') {
+                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' .get_woocommerce_currency_symbol();
+            } elseif ($country == 'CH') {
+                $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            } elseif ($country == 'everywhere') {
+                $out .= __('EU Ausland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            }
+            $out .= '</li>';
+        }
+    } else {
+        $out .= '<li>keine Versandkosten angegeben</li>';
+    }
+    $out .= '</ul>';
+    return $out;
+}
+
+function waa_get_variable_shipping_costs($variable_product_id) {
     $shipping_costs = get_post_meta($product_id, '_additional_price', true);
     $out = '<ul>';
     if (is_array($shipping_costs)) {

@@ -309,12 +309,12 @@ function waa_get_dashboard_nav() {
             'icon'  => '<i class="ui ui-paint-brush"></i>',
             'url'   => waa_get_navigation_url( 'products' )
         ),
-        'order' => array(
+  /*      'order' => array(
             'title' => __( 'Orders', 'waa'),
             'icon'  => '<i class="ui ui-shopping-cart"></i>',
             'url'   => waa_get_navigation_url( 'orders' )
         ),
-  /*      'coupon' => array(
+        'coupon' => array(
             'title' => __( 'Coupons', 'waa'),
             'icon'  => '<i class="ui ui-gift"></i>',
             'url'   => waa_get_navigation_url( 'coupons' )
@@ -323,7 +323,7 @@ function waa_get_dashboard_nav() {
             'title' => __( 'Reviews', 'waa'),
             'icon'  => '<i class="ui ui-comments-o"></i>',
             'url'   => waa_get_navigation_url( 'reviews' )
-        ), */
+        ), 
 				'report' => array(
             'title' => __( 'Reports', 'waa'),
             'icon'  => '<i class="ui ui-line-chart"></i>',
@@ -333,7 +333,7 @@ function waa_get_dashboard_nav() {
             'title' => __( 'Withdraw', 'waa'),
             'icon'  => '<i class="ui ui-upload"></i>',
             'url'   => waa_get_navigation_url( 'withdraw' )
-        ),
+        ), */
     );
 
     $urls = apply_filters( 'waa_get_dashboard_nav', $urls );
@@ -377,6 +377,12 @@ function waa_get_dashboard_nav() {
         'icon'  => '<i class="ui ui-share-alt-square"></i>',
         'url'   => waa_get_navigation_url( 'settings/social' )
     );
+		$settings_sub['account'] = array(
+        'title' => __( 'My Account', 'waa'),
+        'icon'  => '<i class="ui ui-cog"></i>',
+        'url'   => wc_customer_edit_account_url()
+    );
+
     if ( waa_get_option( 'store_seo', 'waa_general', 'on' ) === 'on' ) {
         $settings_sub['seo'] = array(
             'title' => __( 'Store SEO', 'waa' ),
@@ -436,7 +442,6 @@ function waa_dashboard_nav( $active_menu = '' ) {
         $class = ( $active_menu == $key ) ? 'active ' . $key : $key;
         $menu .= sprintf( '<li class="%s"><a href="%s">%s %s</a></li>', $class, $item['url'], $item['icon'], $item['title'] );
     }
-		$menu .= '<li><a href="'. wc_customer_edit_account_url() .'" title="'.__("My Account","waa").'"><i class="ui ui-cog"></i> '.__('My Account', 'waa').'</a></li>';
 		$menu .= '<li><a href="'.wp_logout_url( home_url() ).'"><i class="ui ui-power-off"></i> '.__('Logout', 'waa').'</a></li>';
     $menu .= '</ul>';
 

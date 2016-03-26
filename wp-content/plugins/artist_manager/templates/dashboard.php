@@ -9,6 +9,7 @@ $earning = waa_author_total_sales($user_id);
 $products_url = waa_get_navigation_url('products');
 $orders_url = waa_get_navigation_url('orders');
 $reviews_url = waa_get_navigation_url('reviews');
+
 ?>
 
 <div class="waa-dashboard-wrap">
@@ -17,7 +18,9 @@ $reviews_url = waa_get_navigation_url('reviews');
     <div class="waa-dashboard-content">
 
         <?php
-        if (!waa_is_seller_enabled($user_id)) { ?>
+        if (!waa_is_seller_enabled($user_id)) { 
+				wp_enqueue_style('get-started-style', waa_PLUGIN_ASSEST . '/css/get-started.css');
+?>
 
             <script>
                 jQuery(document).ready(function ($) {
@@ -29,16 +32,12 @@ $reviews_url = waa_get_navigation_url('reviews');
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
-                            <h4 class="modal-title"><?= __('Gleich kann es losgehen..', 'waa'); ?></h4>
-                        </div>
-                        <div class="modal-body waa-settings-content">
-                            <p><?= __('Um direkt mit dem Verkauf von Kunstwerken zu beginnen, benötigen wir noch ein paar Informationen von dir.', 'waa'); ?></p>
-
-                            <form id="get-started-form" action="" method="post" class="waa-form-horizontal waa-settings-area">
-                                <?php waa_seller_address_fields(true, true); ?>
-                            </form>
+                        <div class="modal-body">
+                            <?php 
+																require_once(waa_DIR . '/classes/get-started-modal.php');														
+																$getStarted = new waa_GetStarted();
+																$getStarted->output_step();
+														?>
                         </div>
                         <!-- <a class="close-popup" data-dismiss="modal" href="#">Schließen</a>-->
                     </div>
@@ -51,7 +50,61 @@ $reviews_url = waa_get_navigation_url('reviews');
 
         <article class="dashboard-content-area">
             <?php echo waa_get_profile_progressbar(); ?>
+						
+						<div class="waa-dashboard-intro">
+							<h2><?= __('Was möchtest du tun?', 'waa'); ?></h2>
+							<div class="waa-w6 waa-dash-left">
+							<form action="<?php echo waa_get_navigation_url( 'new-product' ); ?>"><button type="submit"><i class="ui ui-plus"></i> &nbsp;<?= __('Neues Kunstwerk hinzufügen', 'waa'); ?></button></form>
+							<br>
+							</div>
+							
+							<div class="waa-w6 waa-dash-right">
+							<form action="<?= waa_get_navigation_url( 'withdraw' ); ?>"><button type="submit"><i class="ui ui-upload"></i> &nbsp;<?= __('Auszahlung beantragen', 'waa'); ?></button></form>
+							<br>
+							</div>
+						</div>
+						
+						
+						
+						
             <div class="waa-w6 waa-dash-left">
+								<div class="dashboard-widget products">
+                    <div class="widget-title">
+                        <i class="icon-briefcase"></i> <?php _e('Products', 'waa'); ?>
+
+                        <span class="pull-right">
+                            <a href="<?php echo waa_get_navigation_url('new-product'); ?>"><?php _e('+ Add new product', 'waa'); ?></a>
+                        </span>
+                    </div>
+
+                    <ul class="list-unstyled list-count">
+                        <li>
+                            <a href="<?php echo $products_url; ?>">
+                                <span class="title"><?php _e('Total', 'waa'); ?></span> <span
+                                    class="count"><?php echo $post_counts->total; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo add_query_arg(array('post_status' => 'publish'), $products_url); ?>">
+                                <span class="title"><?php _e('Live', 'waa'); ?></span> <span
+                                    class="count"><?php echo $post_counts->publish; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo add_query_arg(array('post_status' => 'draft'), $products_url); ?>">
+                                <span class="title"><?php _e('Offline', 'waa'); ?></span> <span
+                                    class="count"><?php echo $post_counts->draft; ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo add_query_arg(array('post_status' => 'pending'), $products_url); ?>">
+                                <span class="title"><?php _e('Pending Review', 'waa'); ?></span> <span
+                                    class="count"><?php echo $post_counts->pending; ?></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div> <!-- .products -->
+								
                 <div class="dashboard-widget big-counter">
                     <ul class="list-inline">
                         <li>
@@ -185,44 +238,6 @@ $reviews_url = waa_get_navigation_url('reviews');
                     </ul>
                 </div> <!-- .reviews -->
 								*/ ?>
-
-                <div class="dashboard-widget products">
-                    <div class="widget-title">
-                        <i class="icon-briefcase"></i> <?php _e('Products', 'waa'); ?>
-
-                        <span class="pull-right">
-                            <a href="<?php echo waa_get_navigation_url('new-product'); ?>"><?php _e('+ Add new product', 'waa'); ?></a>
-                        </span>
-                    </div>
-
-                    <ul class="list-unstyled list-count">
-                        <li>
-                            <a href="<?php echo $products_url; ?>">
-                                <span class="title"><?php _e('Total', 'waa'); ?></span> <span
-                                    class="count"><?php echo $post_counts->total; ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo add_query_arg(array('post_status' => 'publish'), $products_url); ?>">
-                                <span class="title"><?php _e('Live', 'waa'); ?></span> <span
-                                    class="count"><?php echo $post_counts->publish; ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo add_query_arg(array('post_status' => 'draft'), $products_url); ?>">
-                                <span class="title"><?php _e('Offline', 'waa'); ?></span> <span
-                                    class="count"><?php echo $post_counts->draft; ?></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo add_query_arg(array('post_status' => 'pending'), $products_url); ?>">
-                                <span class="title"><?php _e('Pending Review', 'waa'); ?></span> <span
-                                    class="count"><?php echo $post_counts->pending; ?></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div> <!-- .products -->
-
             </div> <!-- .col-md-6 -->
 
             <div class="waa-w6 waa-dash-right">

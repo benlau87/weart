@@ -538,8 +538,9 @@ if (empty($waa_product_type) && !empty($product))
                                                 <input name="_has_attribute" id="_has_attribute" value="yes"
                                                        type="checkbox"
                                                        style="display:none" <?php checked($_create_variations, 'yes'); ?>>
-                                                <?= __('Biete Prints in verschiedenen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>
+                                                
                                             </label>
+																						<?= __('Biete Prints in verschiedenen Größen und Ausführungen an. Eine Zeile steht für eine Printvariante.', 'waa') ?>
 
                                             <?php if ($_create_variations != 'yes'): ?>
                                                 <div class="waa-side-body waa-attribute-content-wrapper waa-hide">
@@ -577,11 +578,32 @@ if (empty($waa_product_type) && !empty($product))
                                                     <table class="waa-table">
                                                         <thead>
                                                         <tr>
-                                                            <th width="20%"><?= __('Variant', 'waa') ?></th>
-                                                            <th width="35%"><?= __('Material / Ausführung', 'waa') ?></th>
-                                                            <th width="20%"><?= __('Price', 'waa') ?>
+                                                            <th width="15%"><?= __('Variant', 'waa') ?></th>
+                                                            <th width="25%"><?= __('Material / Ausführung', 'waa') ?></th>
+                                                            <th width="15%"><?= __('Price', 'waa') ?>
                                                                 (in <?= get_woocommerce_currency_symbol(); ?>)
                                                             </th>
+																														
+																														<?php
+																															$dps_country_rates = get_user_meta($user_id, '_dps_country_rates', true);
+																															$_additional_price = get_post_meta($post_id, '_additional_price', true);
+																															foreach ($dps_country_rates as $country => $cost) { ?>
+																																	<th width="15%">
+																																		<span	
+																																						class="hide-if-sell-both">
+																																						 <?php
+																																						 if(get_user_meta($user_id, '_dps_form_location', true) == $country) {
+																																								 _e('Versand (inland)', 'waa');
+																																						 } elseif($country == 'everywhere') {
+																																								 _e('Versand (EU)', 'waa'); }
+																																						 elseif($country == 'CH') {
+																																								 _e('Versand (CH)', 'waa'); }
+																																						 elseif($country == 'DE') {
+																																								 _e('Versand (DE)', 'waa'); } ?>
+																																						</span>                                                                                
+																																	</th>
+                                                             <?php } ?>
+																						
                                                             <th width="5%"></th>
                                                         </tr>
                                                         </thead>
@@ -611,13 +633,28 @@ if (empty($waa_product_type) && !empty($product))
                                                                 <input type="hidden" name="variable_sku[]"
                                                                        placeholder="SKU" class="waa-form-control">
                                                             </td>
+																														
+																														
+																														
+																														<?php foreach ($dps_country_rates as $country => $cost) { ?>
+																														<td class="hide-if-sell-both">
+																																<input
+																																	name="variable_shipping_price_<?= $country; ?>[]"
+																																	placeholder="0,00"
+																																	min="0"
+																																	class="waa-form-control"
+																																	type="number"
+																																	step="any">
+																															</td>
+																														 <?php } ?>
+																														
                                                             <td>
                                                                 <a href="#" class="btn-remove-new-print"><i
                                                                         class="ui ui-trash-o"></i></a>
                                                             </td>
                                                         </tr>
                                                         <tr class="add-print-btn">
-                                                            <td colspan="4"><a href="#" class="btn-add-print"
+                                                            <td colspan="6"><a href="#" class="btn-add-print"
                                                                                id="add-row"><i class="ui ui-plus"></i>
                                                                     &nbsp;<?= __('Add Variation', 'waa'); ?></a><br><br>
                                                             </td>

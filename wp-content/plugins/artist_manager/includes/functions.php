@@ -1649,7 +1649,8 @@ function waa_get_profile_progressbar() {
 
     $output = ob_get_clean();
 
-    return $output;
+    #return $output;
+    return '';
 }
 
 /**
@@ -1867,7 +1868,7 @@ function waa_get_social_profile_fields() {
  * @return void
  */
 
-function waa_seller_address_fields( $verified = false, $required = false ) {
+function waa_seller_address_fields( $verified = false, $required = false, $data = false ) {
 
     $disabled = $verified ? 'disabled' : '';
 
@@ -1899,19 +1900,30 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
     );
 
     $profile_info = waa_get_store_info( get_current_user_id() );
+		
+		if ($data) :
+			
+			$address_street1 = isset( $data['street_1'] ) ? $data['street_1'] : '';
+			$address_city = isset( $data['city'] ) ? $data['city'] : '';
+			$address_zip = isset( $data['zip'] ) ? $data['zip'] : '';
+			$address_country = isset( $data['country'] ) ? $data['country'] : '';
+		
+		else :
 
-    $address         = isset( $profile_info['address'] ) ? $profile_info['address'] : '';
-    $address_street1 = isset( $profile_info['address']['street_1'] ) ? $profile_info['address']['street_1'] : '';
-    $address_street2 = isset( $profile_info['address']['street_2'] ) ? $profile_info['address']['street_2'] : '';
-    $address_city    = isset( $profile_info['address']['city'] ) ? $profile_info['address']['city'] : '';
-    $address_zip     = isset( $profile_info['address']['zip'] ) ? $profile_info['address']['zip'] : '';
-    $address_country = isset( $profile_info['address']['country'] ) ? $profile_info['address']['country'] : '';
-    $address_state   = isset( $profile_info['address']['state'] ) ? $profile_info['address']['state'] : '';
+			$address         = isset( $profile_info['address'] ) ? $profile_info['address'] : '';
+			$address_street1 = isset( $profile_info['address']['street_1'] ) ? $profile_info['address']['street_1'] : '';
+			$address_street2 = isset( $profile_info['address']['street_2'] ) ? $profile_info['address']['street_2'] : '';
+			$address_city    = isset( $profile_info['address']['city'] ) ? $profile_info['address']['city'] : '';
+			$address_zip     = isset( $profile_info['address']['zip'] ) ? $profile_info['address']['zip'] : '';
+			$address_country = isset( $profile_info['address']['country'] ) ? $profile_info['address']['country'] : '';
+			$address_state   = isset( $profile_info['address']['state'] ) ? $profile_info['address']['state'] : '';
+		
+		endif;
     ?>
     <input type="hidden" id="waa_selected_country" value="<?php echo $address_country?>" />
     <input type="hidden" id="waa_selected_state" value="<?php echo $address_state?>" />
     <div class="waa-form-group">
-        <label class="waa-w3 waa-control-label" for="setting_address"><?php _e( 'Address', 'waa' ); ?></label>
+        <label class="waa-w3 waa-control-label hide-if-get-started" for="setting_address"><?php _e( 'Address', 'waa' ); ?></label>
 
         <div class="waa-w5 waa-text-left waa-address-fields">
             <?php if ( $seller_address_fields['street_1'] ) { ?>
@@ -1924,7 +1936,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                             <span class="required"> *</span>
                         <?php } ?>
                     </label>
-                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_1]" value="<?php echo esc_attr( $address_street1 ); ?>" name="waa_address[street_1]" placeholder="<?= __('Street ', 'waa') ?>" class="waa-form-control input-md" type="text">
+                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_1]" value="<?php echo esc_attr( $address_street1 ); ?>" name="waa_address[street_1]" placeholder="<?= __('Street ', 'waa') ?>" class="waa-form-control input-md<?= ($address_street1 == '' && $data ? ' waa-error' : ''); ?>" type="text">
                 </div>
             <?php }
             if ( $seller_address_fields['street_2'] ) { ?>
@@ -1937,7 +1949,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                             <span class="required"> *</span>
                         <?php } ?>
                     </label>
-                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_2]" value="<?php echo esc_attr( $address_street2 ); ?>" name="waa_address[street_2]" placeholder="<?= __('Adress-Zusatz', 'waa') ?>" class="waa-form-control input-md" type="text">
+                    <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[street_2]" value="<?php echo esc_attr( $address_street2 ); ?>" name="waa_address[street_2]" placeholder="<?= __('Adress-Zusatz', 'waa') ?>" class="waa-form-control input-md<?= ($address_street1 == '' && $data ? ' waa-error' : ''); ?>" type="text">
                 </div>
             <?php }
             if ( $seller_address_fields['city'] || $seller_address_fields['zip'] ) {
@@ -1953,7 +1965,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                                     <span class="required"> *</span>
                                 <?php } ?>
                             </label>
-                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[city]" value="<?php echo esc_attr( $address_city ); ?>" name="waa_address[city]" placeholder="<?= __('City', 'waa') ?>" class="waa-form-control input-md" type="text">
+                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[city]" value="<?php echo esc_attr( $address_city ); ?>" name="waa_address[city]" placeholder="<?= __('City', 'waa') ?>" class="waa-form-control input-md<?= ($address_city == '' && $data ? ' waa-error' : ''); ?>" type="text">
                         </div>
                     <?php }
                     if ( $seller_address_fields['zip'] ) { ?>
@@ -1966,7 +1978,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                                     <span class="required"> *</span>
                                 <?php } ?>
                             </label>
-                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[zip]" value="<?php echo esc_attr( $address_zip ); ?>" name="waa_address[zip]" placeholder="<?php _e( 'Post/ZIP Code', 'waa' ); ?>" class="waa-form-control input-md" type="text">
+                            <input <?php echo $required_attr; ?> <?php echo $disabled ?> id="waa_address[zip]" value="<?php echo esc_attr( $address_zip ); ?>" name="waa_address[zip]" placeholder="<?php _e( 'Post/ZIP Code', 'waa' ); ?>" class="waa-form-control input-md<?= ($address_zip == '' && $data ? ' waa-error' : ''); ?>" type="text">
                         </div>
                     <?php } ?>
                     <div class="waa-clearfix"></div>
@@ -1987,7 +1999,7 @@ function waa_seller_address_fields( $verified = false, $required = false ) {
                             <span class="required"> *</span>
                         <?php } ?>
                     </label>
-                    <select <?php echo $required_attr; ?> <?php echo $disabled ?> name="waa_address[country]" class="country_to_state waa-form-control" id="waa_address_country">
+                    <select <?php echo $required_attr; ?> <?php echo $disabled ?> name="waa_address[country]" class="country_to_state waa-form-control<?= ($address_country == '' && $data ? ' waa-error' : ''); ?>" id="waa_address_country">
                         <?php waa_country_dropdown( $countries, $address_country, false ); ?>
                     </select>
                 </div>

@@ -239,7 +239,7 @@ function add_customer_menu($items, $args)
             foreach ($nav_urls as $key => $item) {
                 $items .= '<li><a href="' . $item['url'] . '">' . $item['icon'] . ' &nbsp;' . $item['title'] . '</a></li>';
             }
-            $items .= '<li><a href="' . get_permalink(get_option("woocommerce_myaccount_page_id")) . '" title="' . __("My Account", "waa") . '"><i class="ui ui-cog"></i> ' . __('My Account', 'waa') . '</a></li>';
+            #$items .= '<li><a href="' . get_permalink(get_option("woocommerce_myaccount_page_id")) . '" title="' . __("My Account", "waa") . '"><i class="ui ui-cog"></i> ' . __('My Account', 'waa') . '</a></li>';
             $items .= '<li><a href="' . wp_logout_url(home_url()) . '"><i class="ui ui-power-off"></i> ' . __('Logout', 'waa') . '</a></li>';
             $items .= '
                     </ul>

@@ -1,0 +1,521 @@
+.waa-get-started .hide-if-get-started {
+	display:none;
+}
+
+.waa-get-started input[type="text"], .waa-get-started select, .waa-get-started input[type="email"], .waa-get-started .waa-form-group, .waa-get-started .waa-address-fields {
+	width: 100%;
+}
+
+/* -------------------------------- 
+1-2-3 Step Navigation
+-------------------------------- */
+.cd-breadcrumb, .cd-multi-steps {
+  width: 90%;
+  max-width: 768px;
+  padding: 0.5em 1em;
+  margin: 1.5em auto 0.5em;
+  background-color: #edeff0;
+  border-radius: .25em;
+}
+.cd-breadcrumb:after, .cd-multi-steps:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-breadcrumb li, .cd-multi-steps li {
+  display: inline-block;
+  float: left;
+  margin: 0.5em 0;
+}
+.cd-breadcrumb li::after, .cd-multi-steps li::after {
+  /* this is the separator between items */
+  display: inline-block;
+  content: '\00bb';
+  margin: 0 .6em;
+  color: #009dce;
+}
+.cd-breadcrumb li:last-of-type::after, .cd-multi-steps li:last-of-type::after {
+  /* hide separator after the last item */
+  display: none;
+}
+.cd-breadcrumb li > *, .cd-multi-steps li > * {
+  /* single step */
+  display: inline-block;
+  font-size: 1.4rem;
+  color: #2c3f4c;
+}
+.cd-breadcrumb li.current > *, .cd-multi-steps li.current > * {
+  /* selected step */
+  color: #009dce;
+}
+.no-touch .cd-breadcrumb a:hover, .no-touch .cd-multi-steps a:hover {
+  /* steps already visited */
+  color: #009dce;
+}
+.cd-breadcrumb.custom-separator li::after, .cd-multi-steps.custom-separator li::after {
+  /* replace the default arrow separator with a custom icon */
+  content: '';
+  height: 16px;
+  width: 16px;
+  background: url(../img/cd-custom-separator.svg) no-repeat center center;
+  vertical-align: middle;
+}
+.cd-breadcrumb.custom-icons li > *::before, .cd-multi-steps.custom-icons li > *::before {
+  /* add a custom icon before each item */
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: .4em;
+  margin-top: -2px;
+  background: url(../img/cd-custom-icons-01.svg) no-repeat 0 0;
+  vertical-align: middle;
+}
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(2) > *::before, .cd-multi-steps.custom-icons li:not(.current):nth-of-type(2) > *::before {
+  /* change custom icon using image sprites */
+  background-position: -20px 0;
+}
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(3) > *::before, .cd-multi-steps.custom-icons li:not(.current):nth-of-type(3) > *::before {
+  background-position: -40px 0;
+}
+.cd-breadcrumb.custom-icons li:not(.current):nth-of-type(4) > *::before, .cd-multi-steps.custom-icons li:not(.current):nth-of-type(4) > *::before {
+  background-position: -60px 0;
+}
+.cd-breadcrumb.custom-icons li.current:first-of-type > *::before, .cd-multi-steps.custom-icons li.current:first-of-type > *::before {
+  /* change custom icon for the current item */
+  background-position: 0 -20px;
+}
+.cd-breadcrumb.custom-icons li.current:nth-of-type(2) > *::before, .cd-multi-steps.custom-icons li.current:nth-of-type(2) > *::before {
+  background-position: -20px -20px;
+}
+.cd-breadcrumb.custom-icons li.current:nth-of-type(3) > *::before, .cd-multi-steps.custom-icons li.current:nth-of-type(3) > *::before {
+  background-position: -40px -20px;
+}
+.cd-breadcrumb.custom-icons li.current:nth-of-type(4) > *::before, .cd-multi-steps.custom-icons li.current:nth-of-type(4) > *::before {
+  background-position: -60px -20px;
+}
+
+
+/* -------------------------------- 
+
+Custom icons hover effects - breadcrumb and multi-steps
+
+-------------------------------- */
+@media only screen and (min-width: 768px) {
+  .no-touch .cd-breadcrumb.triangle.custom-icons li:first-of-type a:hover::before, .cd-breadcrumb.triangle.custom-icons li.current:first-of-type em::before, .no-touch .cd-multi-steps.text-center.custom-icons li:first-of-type a:hover::before, .cd-multi-steps.text-center.custom-icons li.current:first-of-type em::before {
+    /* change custom icon using image sprites - hover effect or current item */
+    background-position: 0 -40px;
+  }
+  .no-touch .cd-breadcrumb.triangle.custom-icons li:nth-of-type(2) a:hover::before, .cd-breadcrumb.triangle.custom-icons li.current:nth-of-type(2) em::before, .no-touch .cd-multi-steps.text-center.custom-icons li:nth-of-type(2) a:hover::before, .cd-multi-steps.text-center.custom-icons li.current:nth-of-type(2) em::before {
+    background-position: -20px -40px;
+  }
+  .no-touch .cd-breadcrumb.triangle.custom-icons li:nth-of-type(3) a:hover::before, .cd-breadcrumb.triangle.custom-icons li.current:nth-of-type(3) em::before, .no-touch .cd-multi-steps.text-center.custom-icons li:nth-of-type(3) a:hover::before, .cd-multi-steps.text-center.custom-icons li.current:nth-of-type(3) em::before {
+    background-position: -40px -40px;
+  }
+  .no-touch .cd-breadcrumb.triangle.custom-icons li:nth-of-type(4) a:hover::before, .cd-breadcrumb.triangle.custom-icons li.current:nth-of-type(4) em::before, .no-touch .cd-multi-steps.text-center.custom-icons li:nth-of-type(4) a:hover::before, .cd-multi-steps.text-center.custom-icons li.current:nth-of-type(4) em::before {
+    background-position: -60px -40px;
+  }
+}
+/* -------------------------------- 
+
+Multi steps indicator 
+
+-------------------------------- */
+@media only screen and (min-width: 768px) {
+  .cd-multi-steps {
+    /* reset style */
+    background-color: transparent;
+    padding: 0;
+    text-align: center;
+  }
+
+  .cd-multi-steps li {
+    position: relative;
+    float: none;
+    margin: 0.4em 40px 0.4em 0;
+  }
+  .cd-multi-steps li:last-of-type {
+    margin-right: 0;
+  }
+  .cd-multi-steps li::after {
+    /* this is the line connecting 2 adjacent items */
+    position: absolute;
+    content: '';
+    height: 4px;
+    background: #edeff0;
+    /* reset style */
+    margin: 0;
+  }
+  .cd-multi-steps li.visited::after {
+    background-color: #009dce;
+  }
+  .cd-multi-steps li > *, .cd-multi-steps li.current > * {
+    position: relative;
+    color: #2c3f4c;
+  }
+
+  .cd-multi-steps.custom-separator li::after {
+    /* reset style */
+    height: 4px;
+    background: #edeff0;
+  }
+
+  .cd-multi-steps.text-center li::after {
+    width: 100%;
+    top: 50%;
+    left: 100%;
+    -webkit-transform: translateY(-50%) translateX(-1px);
+    -moz-transform: translateY(-50%) translateX(-1px);
+    -ms-transform: translateY(-50%) translateX(-1px);
+    -o-transform: translateY(-50%) translateX(-1px);
+    transform: translateY(-50%) translateX(-1px);
+  }
+  .cd-multi-steps.text-center li > * {
+    z-index: 1;
+    padding: .6em 1em;
+    border-radius: .25em;
+    background-color: #edeff0;
+  }
+  .no-touch .cd-multi-steps.text-center a:hover {
+    background-color: #2c3f4c;
+  }
+  .cd-multi-steps.text-center li.current > *, .cd-multi-steps.text-center li.visited > * {
+    color: #ffffff;
+    background-color: #009dce;
+  }
+  .cd-multi-steps.text-center.custom-icons li.visited a::before {
+    /* change the custom icon for the visited item - check icon */
+    background-position: 0 -60px;
+  }
+
+  .cd-multi-steps.text-top li, .cd-multi-steps.text-bottom li {
+    width: 80px;
+    text-align: center;
+  }
+  .cd-multi-steps.text-top li::after, .cd-multi-steps.text-bottom li::after {
+    /* this is the line connecting 2 adjacent items */
+    position: absolute;
+    left: 50%;
+    /* 40px is the <li> right margin value */
+    width: calc(100% + 40px);
+  }
+  .cd-multi-steps.text-top li > *::before, .cd-multi-steps.text-bottom li > *::before {
+    /* this is the spot indicator */
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #edeff0;
+  }
+  .cd-multi-steps.text-top li.visited > *::before,
+  .cd-multi-steps.text-top li.current > *::before, .cd-multi-steps.text-bottom li.visited > *::before,
+  .cd-multi-steps.text-bottom li.current > *::before {
+    background-color: #009dce;
+  }
+  .no-touch .cd-multi-steps.text-top a:hover, .no-touch .cd-multi-steps.text-bottom a:hover {
+    color: #009dce;
+  }
+  .no-touch .cd-multi-steps.text-top a:hover::before, .no-touch .cd-multi-steps.text-bottom a:hover::before {
+    box-shadow: 0 0 0 3px rgba(150, 192, 61, 0.3);
+  }
+
+  .cd-multi-steps.text-top li::after {
+    /* this is the line connecting 2 adjacent items */
+    bottom: 4px;
+  }
+  .cd-multi-steps.text-top li > * {
+    padding-bottom: 20px;
+  }
+  .cd-multi-steps.text-top li > *::before {
+    /* this is the spot indicator */
+    bottom: 0;
+  }
+
+  .cd-multi-steps.text-bottom li::after {
+    /* this is the line connecting 2 adjacent items */
+    top: 3px;
+  }
+  .cd-multi-steps.text-bottom li > * {
+    padding-top: 20px;
+  }
+  .cd-multi-steps.text-bottom li > *::before {
+    /* this is the spot indicator */
+    top: 0;
+  }
+}
+/* -------------------------------- 
+
+Add a counter to the multi-steps indicator 
+
+-------------------------------- */
+.cd-multi-steps.count li {
+  counter-increment: steps;
+}
+
+.cd-multi-steps.count li > *::before {
+  content: counter(steps) " - ";
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-multi-steps.text-top.count li > *::before,
+  .cd-multi-steps.text-bottom.count li > *::before {
+    /* this is the spot indicator */
+    content: counter(steps);
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    font-size: 1.4rem;
+    color: #ffffff;
+  }
+
+  .cd-multi-steps.text-top.count li:not(.current) em::before,
+  .cd-multi-steps.text-bottom.count li:not(.current) em::before {
+    /* steps not visited yet - counter color */
+    color: #2c3f4c;
+  }
+
+  .cd-multi-steps.text-top.count li::after {
+    bottom: 11px;
+  }
+
+  .cd-multi-steps.text-top.count li > * {
+    padding-bottom: 34px;
+  }
+
+  .cd-multi-steps.text-bottom.count li::after {
+    top: 11px;
+  }
+
+  .cd-multi-steps.text-bottom.count li > * {
+    padding-top: 34px;
+  }
+}
+
+#pageWrap {width:100%;overflow:hidden;}
+#rocket{display:block;margin:0 auto;margin-top:0px; margin-bottom:25px;}
+
+/*=============================================
+[ Inactive State Styles ]
+==============================================*/
+
+.rocket_inner {
+    transform: translateY(15px) translateX(-3px);
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    transition: .3s;
+}
+.icon_circle {
+    transition: .2s;
+    fill: #22303e;
+}
+.large_window_path {
+    transition: .2s;
+    fill: #22303e;
+}
+.small_window_path {
+    fill: #22303e;
+}
+.wing_shadow {
+    fill: #34495e;
+}
+.rocket_bottom { fill: #34495e }
+.rocket_base { fill: #34495e }
+.rocket_shadow { fill: #34495e }
+.window_grandient { stop-color: #2DCB73 }
+.window_grandient1 { stop-color: #2AC16D }
+.window_grandient2 { stop-color: #29B968 }
+.window_grandient3 { stop-color: #28B767 }
+.wing_base { fill: #34495e }
+.fire_path { fill: #FC0 }
+
+/*=============================================
+[ Hover Styles ]
+==============================================*/
+.rocket_wrap:hover .rocket_base {
+    fill: #FFFFFF !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .rocket_shadow {
+    fill: #EDEDED !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .icon_circle {
+    fill: #282e3a !important;
+    stroke: #fff !important;
+    stroke-width: 7px !important;
+}
+.rocket_wrap:hover .small_window_path {
+    fill: #28B767 !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .wing_shadow {
+    display: block !important;
+    fill: #FC9252 !important;
+}
+.rocket_wrap:hover .wing_base {
+    fill: #E16E36 !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .rocket_bottom {
+    fill: #2DCB73 !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .large_window_path {
+    fill: url(#SVGID_2_) !important;
+    stroke-width: 0px !important;
+}
+.rocket_wrap:hover .rocket_inner { transform: translateY(0px) translateX(-3px) !important; }
+
+/*=============================================
+[ Animation Classes ]
+==============================================*/
+.fire {
+    display: none;
+    animation-delay: 0s;
+    fill-opacity: 1;
+    animation-timing-function: ease-in;
+    stroke-width: 0px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+    animation-direction: normal;
+}
+.rocket_wrap:hover #fireLeft {
+    display: block;
+    animation-delay: 0s;
+    animation-name: fireLeft, fillOpacity1;
+    animation-duration: 1.2s;
+}
+.rocket_wrap:hover #fireMiddle {
+    display: block;
+    animation-delay: 0s;
+    animation-name: fireMiddle, fillOpacity1;
+    animation-duration: 1s;
+}
+.rocket_wrap:hover #fireRight {
+    display: block;
+    animation-delay: 0s;
+    animation-name: fireRight, fillOpacity1;
+    animation-duration: 1.3s;
+}
+.rocket_wrap:hover #fireSmallLeft {
+    display: block;
+    animation-delay: 0s;
+    animation-name: fireSmall, fillOpacity2;
+    animation-duration: 1.3s;
+    transform-origin: bottom;
+}
+.rocket_wrap:hover #fireSmallRight {
+    display: block;
+    animation-delay: 0.3s;
+    animation-name: fireSmall, fillOpacity3;
+    animation-duration: 1.6s;
+    transform-origin: bottom;
+}
+/*=============================================
+[ KeyFrame Animations ]
+==============================================*/
+@keyframes fireSmall { 
+    10% { transform: rotate(17deg) translateY(1px) }
+    20% { transform: rotate(-13deg) translateY(2px) }
+    30% { transform: rotate(21deg) translateY(3px) }
+    40% { transform: rotate(-34deg)translateY(4px) }
+    50% { transform: rotate(24deg) translateY(5px) }
+    60% { transform: rotate(-17deg) translateY(6px) }
+    70% { transform: rotate(31deg) translateY(7px) }
+    80% { transform: rotate(-28deg) translateY(8px) }
+    90% { transform: rotate(14deg) translateY(9px) }
+    99% { transform: rotate(0deg) translateY(10px) }
+}
+@keyframes fireLeft { 
+    6% { transform: rotate(25deg) }
+    15% { transform: rotate(-19deg) }
+    25% { transform: rotate(25deg) }
+    32% { transform: rotate(-30deg) }
+    46% { transform: rotate(22deg) }
+    54% { transform: rotate(-29deg) }
+    61% { transform: rotate(32deg) }
+    74% { transform: rotate(-9deg) }
+    83% { transform: rotate(16deg) }
+    99% { transform: rotate(0deg) }
+}
+@keyframes fireMiddle { 
+    10% { transform: rotate(25deg) }
+    20% { transform: rotate(-25deg) }
+    30% { transform: rotate(30deg) }
+    40% { transform: rotate(-22deg) }
+    50% { transform: rotate(29deg) }
+    60% { transform: rotate(-45deg) }
+    70% { transform: rotate(37deg) }
+    80% { transform: rotate(-15deg) }
+    90% { transform: rotate(16deg) }
+    99% { transform: rotate(0deg) }
+}
+@keyframes fireRight { 
+    15% { transform: rotate(17deg) }
+    23% { transform: rotate(-13deg) }
+    37% { transform: rotate(21deg) }
+    45% { transform: rotate(-34deg) }
+    54% { transform: rotate(24deg) }
+    67% { transform: rotate(-17deg) }
+    72% { transform: rotate(31deg) }
+    84% { transform: rotate(-28deg) }
+    96% { transform: rotate(14deg) }
+    99% { transform: rotate(0deg) }
+}
+@keyframes fillOpacity1 { 
+    0% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    50% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    100% {
+        fill-opacity: 0;
+        stroke-opacity: 0;
+    }
+}
+@keyframes fillOpacity2 { 
+    0% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    25% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    100% {
+        fill-opacity: 0;
+        stroke-opacity: 0;
+    }
+}
+@keyframes fillOpacity3 { 
+    0% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    67% {
+        fill-opacity: 1;
+        stroke-opacity: 1;
+    }
+    100% {
+        fill-opacity: 0;
+        stroke-opacity: 0;
+    }
+}
+@keyframes rocektMove { 
+    0% { transform: translateY(0px) }
+    100% { transform: translateY(20px) }
+}
+	

@@ -1396,6 +1396,9 @@ function waa_new_save_variations( $post_id ) {
         $variable_sku                   = isset( $_POST['variable_sku'] ) ? $_POST['variable_sku'] : array();
         $variable_regular_price         = isset( $_POST['variable_regular_price'] ) ? $_POST['variable_regular_price'] : array();
         $variable_sale_price            = isset( $_POST['variable_sale_price'] ) ? $_POST['variable_sale_price'] : array();
+        $variable_shipping_price_de            = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+        $variable_shipping_price_eu            = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+        $variable_shipping_price_ch            = isset( $_POST['variable_shipping_price_CH'] ) ? $_POST['variable_shipping_price_CH'] : array();
         $upload_image_id                = isset( $_POST['upload_image_id'] ) ? $_POST['upload_image_id'] : array();
         $variable_download_limit        = isset( $_POST['variable_download_limit'] ) ? $_POST['variable_download_limit'] : array();
         $variable_download_expiry       = isset( $_POST['variable_download_expiry'] ) ? $_POST['variable_download_expiry'] : array();
@@ -1449,8 +1452,16 @@ function waa_new_save_variations( $post_id ) {
 
                 $waa_currency = get_post_meta($post_id, 'waa_currency', true);
                 $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
+								
+								$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
+								$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
+								$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
+				
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
                 update_post_meta( $variation_id, '_price', $regular_price );
+                update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
+                update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
+                update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
                 update_post_meta( $variation_id, '_sku', wc_clean( $variable_sku[ $i ] ) );
                 update_post_meta( $variation_id, '_thumbnail_id', absint( $upload_image_id[ $i ] ) );
 
@@ -1566,11 +1577,19 @@ function waa_new_save_variations( $post_id ) {
                 // Price handling
                 $waa_currency = get_post_meta($post_id, 'waa_currency', true);
                 $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
+								
+								$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
+								$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
+								$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
+								
                 $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( waa_get_woocs_int_price($variable_sale_price[ $i ], $waa_currency) ) );
                 $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
                 $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
+                update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
+                update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
+                update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
                 update_post_meta( $variation_id, '_sale_price', $sale_price );
 
                 // Save Dates
@@ -1834,13 +1853,21 @@ function waa_save_variations( $post_id ) {
 
             // Price handling
             $waa_currency = get_post_meta($post_id, 'waa_currency', true);
-            $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], 'CHF') );
+						$regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
+						
+						$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
+						$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
+						$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
+						
             $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
             $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
             $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
             update_post_meta( $variation_id, '_regular_price', $regular_price );
             update_post_meta( $variation_id, '_price', $regular_price );
+            update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
+            update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
+            update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
             #update_post_meta( $variation_id, '_sale_price', $sale_price );
 
          /*   // Save Dates

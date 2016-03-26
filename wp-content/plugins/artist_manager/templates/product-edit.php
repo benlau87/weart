@@ -20,6 +20,9 @@ if ( $post->post_author != $seller_id ) {
 }
 
 $_regular_price         = get_post_meta( $post_id, '_regular_price', true );
+$_shipping_price_de         = get_post_meta( $post_id, '_shipping_price_de', true );
+$_shipping_price_eu         = get_post_meta( $post_id, '_shipping_price_eu', true );
+$_shipping_price_ch         = get_post_meta( $post_id, '_shipping_price_ch', true );
 $_sale_price            = get_post_meta( $post_id, '_sale_price', true );
 $is_discount            = ( $_sale_price != '' ) ? true : false;
 $_sale_price_dates_from = get_post_meta( $post_id, '_sale_price_dates_from', true );
