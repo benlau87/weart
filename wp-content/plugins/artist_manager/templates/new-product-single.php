@@ -24,7 +24,6 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
     $post_excerpt = '';
     $post_status = 'publish';
     $from_shortcode = true;
-    $waa_date_created = isset($_POST['waa_date_created']) ? $_POST['waa_date_created'] : '';
     $waa_product_type = isset($_POST['waa_product_type']) ? $_POST['waa_product_type'] : '';
     $_has_attribute = isset($_POST['_has_attribute']) ? $_POST['_has_attribute'] : '';
     #$_create_variations = $_POST['_create_variation'];
@@ -87,7 +86,6 @@ if (isset($product)) {
     $_create_variations = get_post_meta($post_id, '_create_variation', true);
 
     /* Art specific fields */
-    $waa_date_created = get_post_meta($post_id, 'waa_date_created', true);
     // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
     $waa_only_print = get_post_meta($post_id, 'waa_only_print', true) == 'yes' ? 'no' : 'yes';
     $waa_original_price = get_post_meta($post_id, 'waa_original_price', true);
@@ -369,23 +367,6 @@ if (empty($waa_product_type) && !empty($product))
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="waa-clearfix waa-form-group">
-                                                    <label for="waa_date_created"
-                                                           class="form-label"><?php _e('Erstellungsdatum', 'waa'); ?></label>
-
-                                                    <div class="waa-input-group">
-                                                        <span class="waa-input-group-addon"><i
-                                                                class="ui ui-calendar"></i></span>
-                                                        <input type="text" name="waa_date_created"
-                                                               class="waa-form-control datepicker"
-                                                               value="<?php echo esc_attr($waa_date_created); ?>"
-                                                               maxlength="10"
-                                                               pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
-                                                               placeholder="TT.MM.JJJJ">
-                                                    </div>
-                                                </div>
                                             </div><!-- .content-half-part -->
 
                                             <div class="content-half-part featured-image">
@@ -571,6 +552,10 @@ if (empty($waa_product_type) && !empty($product))
                                                     <input type="hidden" name="variation_menu_order[]" value="0">
                                                     <input type="hidden" name="variable_enabled[]" value="yes">
                                                     <input type="hidden" name="variable_sku[]">
+                                                    <input type="hidden" name="variable_shipping_price_DE[]">
+                                                    <input type="hidden" name="variable_shipping_price_everywhere[]">
+                                                    <input type="hidden" name="variable_shipping_price_CH[]">
+                                                    <input type="hidden" name="variable_shipping_price_AT[]">
                                                     <input type="hidden" name="variable_regular_price[]"
                                                            id="original-price"
                                                            value="<?= ($_regular_price ? $_regular_price : '') ?>">
@@ -764,7 +749,7 @@ if (empty($waa_product_type) && !empty($product))
 
                                         <?php if ('yes' == get_option('woocommerce_calc_shipping') || 'yes' == get_option('woocommerce_calc_taxes')): ?>
                                             <div
-                                                class="waa-product-shipping-tax waa-edit-row waa-clearfix <?php echo ('no' == get_option('woocommerce_calc_shipping')) ? 'woocommerce-no-shipping' : '' ?> <?php echo ('no' == get_option('woocommerce_calc_taxes')) ? 'woocommerce-no-tax' : '' ?>">
+                                                class="waa-product-shipping-tax waa-edit-row waa-clearfix hide-if-sell-prints<?php echo ('no' == get_option('woocommerce_calc_shipping')) ? 'woocommerce-no-shipping' : '' ?> <?php echo ('no' == get_option('woocommerce_calc_taxes')) ? 'woocommerce-no-tax' : '' ?>">
                                                 <div class="waa-side-left">
                                                     <h2><?php _e('Shipping & Tax', 'waa'); ?></h2>
 
@@ -782,15 +767,6 @@ if (empty($waa_product_type) && !empty($product))
                                                                    value="0">
                                                             <input type="checkbox" id="_disable_shipping"
                                                                    name="_disable_shipping" <?php checked($_disable_shipping, 'no'); ?>>
-
-                                                            <div
-                                                                class="waa-shipping-dimention-options hide-if-sell-prints">
-                                                                <?php waa_post_input_box($post_id, '_weight', array('class' => '', 'placeholder' => __('Gewicht (' . esc_html(get_option('woocommerce_weight_unit')) . ')', 'waa'), 'value' => $_weight), 'number'); ?>
-                                                                <?php waa_post_input_box($post_id, '_length', array('class' => '', 'placeholder' => __('L&auml;nge (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_length), 'number'); ?>
-                                                                <?php waa_post_input_box($post_id, '_width', array('class' => '', 'placeholder' => __('Breite (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_width), 'number'); ?>
-                                                                <?php waa_post_input_box($post_id, '_height', array('class' => '', 'placeholder' => __('H&ouml;he (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_height), 'number'); ?>
-                                                                <div class="waa-clearfix"></div>
-                                                            </div>
 
                                                             <?php if ($post_id): ?>
                                                                 <?php do_action('waa_product_options_shipping'); ?>
@@ -875,6 +851,39 @@ if (empty($waa_product_type) && !empty($product))
                                         <?php if ($post_id): ?>
                                             <?php do_action('waa_product_edit_after_shipping'); ?>
                                         <?php endif; ?>
+
+
+
+
+
+
+                                        <div class="waa-other-options waa-edit-row waa-clearfix hide-if-sell-prints">
+                                            <div class="waa-side-left">
+                                                <h2><?php _e('Dimensions', 'waa'); ?></h2>
+                                                <p>
+                                                    <?php _e('Bitte gib hier die Maße deines Kunstwerks an.', 'waa'); ?><br>
+                                                </p>
+                                            </div>
+
+                                            <div class="waa-side-right">
+                                                <div
+                                                    class="waa-clearfix hide_if_downloadable waa-shipping-container">
+
+                                                <div
+                                                    class="waa-shipping-dimention-options">
+                                                    <?php waa_post_input_box($post_id, '_weight', array('class' => '', 'placeholder' => __('Gewicht (' . esc_html(get_option('woocommerce_weight_unit')) . ')', 'waa'), 'value' => $_weight), 'number'); ?>
+                                                    <?php waa_post_input_box($post_id, '_length', array('class' => '', 'placeholder' => __('L&auml;nge (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_length), 'number'); ?>
+                                                    <?php waa_post_input_box($post_id, '_width', array('class' => '', 'placeholder' => __('Breite (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_width), 'number'); ?>
+                                                    <?php waa_post_input_box($post_id, '_height', array('class' => '', 'placeholder' => __('H&ouml;he (' . esc_html(get_option('woocommerce_dimension_unit')) . ')', 'waa'), 'value' => $_height), 'number'); ?>
+                                                    <div class="waa-clearfix"></div>
+                                                </div>
+
+                                            </div>
+                                                </div>
+                                        </div><!-- .waa-other-options -->
+
+
+
                                         <div class="waa-other-options waa-edit-row waa-clearfix">
                                             <div class="waa-side-left">
                                                 <h2><?php _e('Other Options', 'waa'); ?></h2>

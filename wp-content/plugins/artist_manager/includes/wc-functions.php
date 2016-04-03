@@ -473,7 +473,7 @@ function waa_process_product_meta( $post_id ) {
     $product_type       = empty( $_POST['_product_type'] ) ? 'simple' : sanitize_title( stripslashes( $_POST['_product_type'] ) );
     $is_downloadable    = isset( $_POST['_downloadable'] ) ? 'yes' : 'no';
     $is_virtual         = ( $is_downloadable == 'yes' ) ? 'yes' : 'no';
-		
+
 		// do not sell original?
         // reverse logic: waa_only_prints now stands for "i want to sell the original art as well"
 		$waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
@@ -672,16 +672,16 @@ function waa_process_product_meta( $post_id ) {
         }
     }
     uasort( $attributes, 'attributes_cmp' );
-		
+
 		$waa_region_val = $_POST['waa_region_val'];
-		array_push($attributes, array('name' => 'pa_stadt' , 'value' => $waa_region_val, 'position' => 1, 'is_visible' => 0, 'is_variation' => 0, 'is_taxonomy' =>1));	
-		
+		array_push($attributes, array('name' => 'pa_stadt' , 'value' => $waa_region_val, 'position' => 1, 'is_visible' => 0, 'is_variation' => 0, 'is_taxonomy' =>1));
+
 
     update_post_meta( $post_id, '_product_attributes', $attributes );
-		
+
 		// Save waa_region
 	 $waa_region_val = $_POST['waa_region_val'];
-		update_post_meta( $post_id, '_has_attribute', 'yes' );    
+		update_post_meta( $post_id, '_has_attribute', 'yes' );
 
     // Sales and prices
     if ( in_array( $product_type, array( 'variable' ) ) ) {
@@ -897,7 +897,7 @@ function waa_new_process_product_meta( $post_id ) {
     // reverse logic: waa_only_print now stands for "i want to sell the original art as well"
     $waa_only_print  = ( isset( $_POST['waa_only_print'] ) && $_POST['waa_only_print'] == 'yes' ) ? 'no' : 'yes';
     $waa_currency = isset( $_POST['waa_currency'] ) ? $_POST['waa_currency']  : '€';
-		
+
     // Save has variation and create variations flag
     update_post_meta( $post_id, '_required_tax', $_required_tax );
     update_post_meta( $post_id, '_has_attribute', 'yes' );
@@ -906,7 +906,7 @@ function waa_new_process_product_meta( $post_id ) {
     update_post_meta( $post_id, 'waa_currency',$waa_currency );
 
 		// save original price, if original can be bought
-		if($waa_only_print == 'no') {				
+		if($waa_only_print == 'no') {
 			update_post_meta( $post_id, 'waa_original_price', waa_get_woocs_int_price($_POST['_regular_price'], $waa_currency) );
 		}
 
@@ -914,10 +914,11 @@ function waa_new_process_product_meta( $post_id ) {
     wp_set_object_terms( $post_id, $product_type, 'product_type' );
     update_post_meta( $post_id, '_downloadable', $is_downloadable );
     update_post_meta( $post_id, '_virtual', $is_virtual );
-		
+
     // WAA Values
-    $waa_date_created       = ( isset( $_POST['waa_date_created'] ) ) ?  $_POST['waa_date_created'] : '';
-    update_post_meta( $post_id, 'waa_date_created', $waa_date_created );
+    /* nicht mehr gewünscht
+     * $waa_date_created       = ( isset( $_POST['waa_date_created'] ) ) ?  $_POST['waa_date_created'] : '';
+    update_post_meta( $post_id, 'waa_date_created', $waa_date_created ); */
 
     $waa_product_type       = ( isset( $_POST['waa_product_type'] ) ) ?  $_POST['waa_product_type'] : '';
     update_post_meta( $post_id, 'waa_product_type', $waa_product_type );
@@ -934,17 +935,17 @@ function waa_new_process_product_meta( $post_id ) {
     if ( isset( $_POST['_sale_price'] ) ) {
         update_post_meta( $post_id, '_sale_price', ( $_POST['_sale_price'] === '' ? '' : wc_format_decimal( $_POST['_sale_price'] ) ) );
     }
-		
+
 		// Save waa_region & wwa_stil
 	 $waa_region_attr = 'pa_stadt';
 	 $waa_region_val = $_POST['waa_region_val'];
-	 
+
 	  if( $_has_attribute == 'no') {
 			// Update post terms
 			if ( taxonomy_exists( $waa_region_attr ) ) {
 					wp_set_object_terms( $post_id, $waa_region_val, $waa_region_attr );
 			}
-		
+
 			 $attributes[ sanitize_title( $waa_region_attr ) ] = array(
 						'name'          => wc_clean( $waa_region_attr ),
 						'value'         => $waa_region_val,
@@ -952,8 +953,8 @@ function waa_new_process_product_meta( $post_id ) {
 						'is_visible'    => 0,
 						'is_variation'  => 0,
 						'is_taxonomy'   => 1
-				);			
-													
+				);
+
 			 update_post_meta( $post_id, '_product_attributes', $attributes );
 		}
 
@@ -1069,7 +1070,7 @@ function waa_new_process_product_meta( $post_id ) {
     }
 
     // Save Product Attributes options
-    if( $_has_attribute == 'yes') {	
+    if( $_has_attribute == 'yes') {
         $attributes = get_post_meta( $post_id, '_product_attributes', true ) ? get_post_meta( $post_id, '_product_attributes', true ) : array();
         $use_as_variation = ( isset( $_POST['_create_variation'] ) ) ? 1 : 0;
         $attr_tax = $attr_pos = $attr_visible = $attr_variation = array();
@@ -1077,14 +1078,14 @@ function waa_new_process_product_meta( $post_id ) {
         if ( isset( $_POST['attribute_names'] ) ) {
             $attribute_names = $_POST['attribute_names'];
             $attr_values = $_POST['attribute_values'];
-						
-						
-						$groesse_values = $_POST['attribute_pa_print_groesse'];
-						$groesse_string = implode(",", $groesse_values);
-						$material_values = $_POST['attribute_pa_print_material'];			
-						$material_string = implode(",", $material_values);						
-						$all_values = array($groesse_string, $material_string);				
-										
+
+
+            $groesse_values = $_POST['attribute_pa_print_groesse'];
+            $groesse_string = implode(",", $groesse_values);
+            $material_values = $_POST['attribute_pa_print_material'];
+            $material_string = implode(",", $material_values);
+            $all_values = array($groesse_string, $material_string);
+
 
             foreach ( $attribute_names as $key => $value ) {
                 $attr_pos[$key]       = $key;
@@ -1170,15 +1171,15 @@ function waa_new_process_product_meta( $post_id ) {
         }
 
         uasort( $attributes, 'attributes_cmp' );
-				
-				
+
+
 				// add city to attribute array
 				$waa_region_attr = 'pa_stadt';
 				$waa_region_val = $_POST['waa_region_val'];
 				array_push($attributes, array('name' => 'pa_stadt' , 'value' => $waa_region_val, 'position' => 1, 'is_visible' => 0, 'is_variation' => 0, 'is_taxonomy' =>1));
-			
+
         update_post_meta( $post_id, '_product_attributes', $attributes );
-				
+
 				if ( taxonomy_exists( $waa_region_attr ) ) {
 					wp_set_object_terms( $post_id, $waa_region_val, $waa_region_attr );
 				}
@@ -1396,9 +1397,6 @@ function waa_new_save_variations( $post_id ) {
         $variable_sku                   = isset( $_POST['variable_sku'] ) ? $_POST['variable_sku'] : array();
         $variable_regular_price         = isset( $_POST['variable_regular_price'] ) ? $_POST['variable_regular_price'] : array();
         $variable_sale_price            = isset( $_POST['variable_sale_price'] ) ? $_POST['variable_sale_price'] : array();
-        $variable_shipping_price_de            = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
-        $variable_shipping_price_eu            = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
-        $variable_shipping_price_ch            = isset( $_POST['variable_shipping_price_CH'] ) ? $_POST['variable_shipping_price_CH'] : array();
         $upload_image_id                = isset( $_POST['upload_image_id'] ) ? $_POST['upload_image_id'] : array();
         $variable_download_limit        = isset( $_POST['variable_download_limit'] ) ? $_POST['variable_download_limit'] : array();
         $variable_download_expiry       = isset( $_POST['variable_download_expiry'] ) ? $_POST['variable_download_expiry'] : array();
@@ -1416,6 +1414,12 @@ function waa_new_save_variations( $post_id ) {
         $variable_manage_stock          = isset( $_POST['variable_manage_stock'] ) ? $_POST['variable_manage_stock'] : array();
         $variable_stock_status          = isset( $_POST['variable_stock_status'] ) ? $_POST['variable_stock_status'] : array();
         $variable_backorders            = isset( $_POST['variable_backorders'] ) ? $_POST['variable_backorders'] : array();
+
+        /* Shipping costs per country */
+        $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+        $variable_shipping_price_eu    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+        $variable_shipping_price_ch    = isset( $_POST['variable_shipping_price_CH'] ) ? $_POST['variable_shipping_price_CH'] : array();
+        $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
 
         $variable_enabled               = isset( $_POST['variable_enabled'] ) ? $_POST['variable_enabled'] : array();
         $variable_is_virtual            = isset( $_POST['variable_is_virtual'] ) ? $_POST['variable_is_virtual'] : array();
@@ -1452,20 +1456,13 @@ function waa_new_save_variations( $post_id ) {
 
                 $waa_currency = get_post_meta($post_id, 'waa_currency', true);
                 $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
-								
-								$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
-								$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
-								$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
-				
+
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
                 update_post_meta( $variation_id, '_price', $regular_price );
-                update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
-                update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
-                update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
                 update_post_meta( $variation_id, '_sku', wc_clean( $variable_sku[ $i ] ) );
                 update_post_meta( $variation_id, '_thumbnail_id', absint( $upload_image_id[ $i ] ) );
 
-                $post_status = isset( $variable_enabled[ $i ] ) ? 'publish' : 'private';
+				$post_status = isset( $variable_enabled[ $i ] ) ? 'publish' : 'private';
 
                 $variation_post_title = sprintf( __( 'Variation #%s of %s', 'waa' ), absint( $variation_id ), esc_html( get_the_title( $post_id ) ) );
                 $wpdb->update( $wpdb->posts, array( 'post_status' => $post_status, 'post_title' => $variation_post_title, 'menu_order' => $variable_menu_order[ $i ] ), array( 'ID' => $variation_id ) );
@@ -1564,6 +1561,7 @@ function waa_new_save_variations( $post_id ) {
                     delete_post_meta( $variation_id, '_stock' );
                 }
 
+                $waa_currency = get_post_meta($post_id, 'waa_currency', true);
                 if ( isset( $variable_weight[ $i ] ) )
                     update_post_meta( $variation_id, '_weight', ( $variable_weight[ $i ] === '' ) ? '' : wc_format_decimal( $variable_weight[ $i ] ) );
                 if ( isset( $variable_length[ $i ] ) )
@@ -1572,24 +1570,25 @@ function waa_new_save_variations( $post_id ) {
                     update_post_meta( $variation_id, '_width', ( $variable_width[ $i ] === '' ) ? '' : wc_format_decimal( $variable_width[ $i ] ) );
                 if ( isset( $variable_height[ $i ] ) )
                     update_post_meta( $variation_id, '_height', ( $variable_height[ $i ] === '' ) ? '' : wc_format_decimal( $variable_height[ $i ] ) );
+                if ( isset( $variable_shipping_price_de[ $i ] ) )
+                    update_post_meta( $variation_id, '_shipping_price_de', wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) ) );
+                if ( isset( $variable_shipping_price_eu[ $i ] ) )
+                    update_post_meta( $variation_id, '_shipping_price_eu', wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) ) );
+                if ( isset( $variable_shipping_price_ch[ $i ] ) )
+                    update_post_meta( $variation_id, '_shipping_price_ch', wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) ) );
+                if ( isset( $variable_shipping_price_at[ $i ] ) )
+                    update_post_meta( $variation_id, '_shipping_price_at', wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_at[ $i ], $waa_currency) ) );
 
 
                 // Price handling
-                $waa_currency = get_post_meta($post_id, 'waa_currency', true);
                 $regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
-								
-								$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
-								$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
-								$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
-								
+
+
                 $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( waa_get_woocs_int_price($variable_sale_price[ $i ], $waa_currency) ) );
                 $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
                 $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
                 update_post_meta( $variation_id, '_regular_price', $regular_price );
-                update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
-                update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
-                update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
                 update_post_meta( $variation_id, '_sale_price', $sale_price );
 
                 // Save Dates
@@ -1854,20 +1853,19 @@ function waa_save_variations( $post_id ) {
             // Price handling
             $waa_currency = get_post_meta($post_id, 'waa_currency', true);
 						$regular_price  = wc_format_decimal( waa_get_woocs_int_price($variable_regular_price[ $i ], $waa_currency) );
-						
-						$shipping_price_de    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) );
-						$shipping_price_eu    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
-						$shipping_price_ch    = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
-						
+
             $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
             $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
             $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
             update_post_meta( $variation_id, '_regular_price', $regular_price );
             update_post_meta( $variation_id, '_price', $regular_price );
-            update_post_meta( $variation_id, '_shipping_price_de', $shipping_price_de );
-            update_post_meta( $variation_id, '_shipping_price_eu', $shipping_price_eu );
-            update_post_meta( $variation_id, '_shipping_price_ch', $shipping_price_ch );
+
+
+            update_post_meta( $variation_id, '_shipping_price_de', $variable_shipping_price_de[ $i ] );
+						update_post_meta( $variation_id, '_shipping_price_eu', $variable_shipping_price_eu[ $i ] );
+						update_post_meta( $variation_id, '_shipping_price_ch', $variable_shipping_price_ch[ $i ] );
+						update_post_meta( $variation_id, '_shipping_price_at', $variable_shipping_price_at[ $i ]);
             #update_post_meta( $variation_id, '_sale_price', $sale_price );
 
          /*   // Save Dates
@@ -2366,7 +2364,7 @@ function waa_on_create_seller( $user_id, $data ) {
 				'enable_services'	=> $_POST['enable_services'],
 				'country'	=> $_POST['country'],
 				'region'	=> $_POST['region'],
-        'show_email'     => 'no',        
+        'show_email'     => 'no',
         'location'       => '',
         'find_address'   => '',
         'waa_category' => '',

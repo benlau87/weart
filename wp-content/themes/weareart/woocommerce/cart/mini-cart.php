@@ -43,15 +43,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 						), $cart_item_key );
 						?>
 						<?php if ( ! $_product->is_visible() ) : ?>
-							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
+							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $_product->get_title() . '&nbsp;'; ?>
 						<?php else : ?>
 							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">
-								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
+								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $_product->get_title() . '&nbsp;'; ?>
 							</a>
 						<?php endif; ?>
-						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
+						<?php #echo WC()->cart->get_item_data( $cart_item ); ?>
 
-						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], waa_get_woocs_int_price_reverse($_product->price) . ' ' . get_woocommerce_currency_symbol() ) . '</span>', $cart_item, $cart_item_key ); ?>
 					</li>
 					<?php
 				}
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 
-	<p class="total"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="total"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?>:</strong> <?php echo waa_get_woocs_int_price_reverse(WC()->cart->subtotal) . ' ' . get_woocommerce_currency_symbol(); ?></p>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 

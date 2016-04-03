@@ -92,7 +92,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<td class="product-price">
 						<?php
 							#$price = get_post_meta($values['product_id'] , '_price', true);
-							echo number_format(waa_get_woocs_int_price_reverse($_product->price), 2, ',', '.') . get_woocommerce_currency_symbol();
+							echo waa_get_woocs_int_price_reverse($_product->price) . ' ' . get_woocommerce_currency_symbol();
 							#echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 						?>
 					</td>
@@ -116,7 +116,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-subtotal">
 						<?php
-							echo number_format(waa_get_woocs_int_price_reverse($_product->price*$cart_item['quantity']), 2, ',', '.') . get_woocommerce_currency_symbol();
+							echo waa_get_woocs_int_price_reverse($_product->price*$cart_item['quantity']) . ' ' . get_woocommerce_currency_symbol();
 							#echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
 						?>
 					</td>

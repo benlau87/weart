@@ -1,66 +1,73 @@
 <?php
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
 
-function my_theme_wrapper_start() {
-  echo '<section id="content" role="main">';
+function my_theme_wrapper_start()
+{
+    echo '<section id="content" role="main">';
 }
 
-function my_theme_wrapper_end() {
-  echo '</section>';
+function my_theme_wrapper_end()
+{
+    echo '</section>';
 }
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
-    add_theme_support( 'woocommerce' );
+
+add_action('after_setup_theme', 'woocommerce_support');
+function woocommerce_support()
+{
+    add_theme_support('woocommerce');
 }
 
 /**
  * @param $price
  * @return string
  */
-function format_currency_price($price) {
+function format_currency_price($price)
+{
     $price = number_format($price, 2, ',', ',');
-    $currency_pos = get_option( 'woocommerce_currency_pos');
+    $currency_pos = get_option('woocommerce_currency_pos');
     $currency = get_woocommerce_currency_symbol();
-    switch ( $currency_pos ) {
-         case 'left' :
-             $format = $currency.$price;
-         break;
-         case 'right' :
-             $format = $price.$currency;
-         break;
-         case 'left_space' :
-             $format = $currency.'&nbsp;'.$price;
-         break;
-         case 'right_space' :
-             $format = $price.'&nbsp;'.$currency;
-         break;
-     }
+    switch ($currency_pos) {
+        case 'left' :
+            $format = $currency . $price;
+            break;
+        case 'right' :
+            $format = $price . $currency;
+            break;
+        case 'left_space' :
+            $format = $currency . '&nbsp;' . $price;
+            break;
+        case 'right_space' :
+            $format = $price . '&nbsp;' . $currency;
+            break;
+    }
 
-     return $format;
+    return $format;
 }
 
-add_action( 'woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9 );
-function cj_show_dimensions() {
-	global $product;
-	$dimensions = $product->get_dimensions();
-	$dimensions = explode( ' x ', $dimensions );
-	$dimension_h = explode(' ', $dimensions[1], 2);
-  if ( is_array($dimensions ) ) {
-		echo '<span class="dimensions">';
-		echo $dimensions[0] . ' B x ' . $dimension_h[0] . ' H ' . $dimension_h[1];
-		echo '</span>';
-	}
+add_action('woocommerce_after_shop_loop_item_title', 'cj_show_dimensions', 9);
+function cj_show_dimensions()
+{
+    global $product;
+    $dimensions = $product->get_dimensions();
+    $dimensions = explode(' x ', $dimensions);
+    $dimension_h = explode(' ', $dimensions[1], 2);
+    if (is_array($dimensions)) {
+        echo '<span class="dimensions">';
+        echo $dimensions[0] . ' B x ' . $dimension_h[0] . ' H ' . $dimension_h[1];
+        echo '</span>';
+    }
 }
 
-function woocommerce_product_loop_tags() {
+function woocommerce_product_loop_tags()
+{
     global $post, $product;
 
-    $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
+    $tag_count = sizeof(get_the_terms($post->ID, 'product_tag'));
 
-    echo $product->get_tags( ', ', '<span class="tagged_as">' . _n( '', '', $tag_count, 'woocommerce' ) . ' ', '</span>' );
+    echo $product->get_tags(', ', '<span class="tagged_as">' . _n('', '', $tag_count, 'woocommerce') . ' ', '</span>');
 }
 
 /**
@@ -68,10 +75,12 @@ function woocommerce_product_loop_tags() {
  * @param string $name
  * @return bool
  */
-function wc_reg_for_menus( $register, $name = '' ) {
-     if ( $name == 'pa_stadt' ) $register = true;
-     return $register;
+function wc_reg_for_menus($register, $name = '')
+{
+    if ($name == 'pa_stadt') $register = true;
+    return $register;
 }
+
 add_filter('woocommerce_attribute_show_in_nav_menus', 'wc_reg_for_menus', 1, 2);
 
 /**
@@ -79,11 +88,13 @@ add_filter('woocommerce_attribute_show_in_nav_menus', 'wc_reg_for_menus', 1, 2);
  * @param $message
  * @return string
  */
-function custom_add_to_cart_message( $message  ){
-	return '';
+function custom_add_to_cart_message($message)
+{
+    return '';
 }
-add_filter( 'woocommerce_add_to_cart_message', 'custom_add_to_cart_message' );
-add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
+
+add_filter('woocommerce_add_to_cart_message', 'custom_add_to_cart_message');
+add_filter('_add_to_cart_message', 'custom_add_to_cart_message');
 
 /**
  * get all (visible) variation prices for a product
@@ -91,71 +102,74 @@ add_filter( '_add_to_cart_message', 'custom_add_to_cart_message' );
  * @param bool|false $count
  * @return int|string
  */
-function waa_get_variation_prices($product, $count = false) {
-	global $woocommerce;
-	$variation_ids = $product->children['visible'];
-	$i = 0;
-	foreach ($variation_ids as $variation) {
-		$product_variation = new WC_Product_Variation($variation);
-		$variation_id[$i] = $variation;
-		$regular_price[$i] = $product_variation->regular_price;
-		$variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
-		if ( $variation_name[$i] != 'original')
-			$output .= '<input type="hidden" id="variation_price_'.$variation_id[$i].'" value="'.$regular_price[$i].'" name="'.$variation_id[$i].'" />';
-		$i++;
-	}
-	if ($count)
-		return count($variation_ids);
-	else
-		return $output;
+function waa_get_variation_prices($product, $count = false)
+{
+    global $woocommerce;
+    $variation_ids = $product->children['visible'];
+    $i = 0;
+    foreach ($variation_ids as $variation) {
+        $product_variation = new WC_Product_Variation($variation);
+        $variation_id[$i] = $variation;
+        $regular_price[$i] = $product_variation->regular_price;
+        $variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
+        if ($variation_name[$i] != 'original')
+            $output .= '<input type="hidden" id="variation_price_' . $variation_id[$i] . '" value="' . $regular_price[$i] . '" name="' . $variation_id[$i] . '" />';
+        $i++;
+    }
+    if ($count)
+        return count($variation_ids);
+    else
+        return $output;
 }
 
 /**
  * @param $product_id
  * @return array|mixed
  */
-function waa_get_max_variation_price($product_id) {
-	global $wpdb;
-	$sql = "SELECT
+function waa_get_max_variation_price($product_id)
+{
+    global $wpdb;
+    $sql = "SELECT
 								ID
 							FROM 
 								{$wpdb->prefix}posts
 							WHERE
 								post_parent = {$product_id}";
 
-	$data = $wpdb->get_results( $sql );
+    $data = $wpdb->get_results($sql);
 
     $output = '';
-	foreach($data as $variation) {
-		$variation_price = get_post_meta($variation->ID, '_regular_price', true);
-		$variation_name = get_post_meta($variation->ID, 'attribute_pa_print_groesse', true);
+    foreach ($data as $variation) {
+        $variation_price = get_post_meta($variation->ID, '_regular_price', true);
+        $variation_name = get_post_meta($variation->ID, 'attribute_pa_print_groesse', true);
 
-		if($variation_name != 'original') {
-			$output[] = $variation_price;
-		}
-	}
+        if ($variation_name != 'original') {
+            $output[] = $variation_price;
+        }
+    }
 
-	$output = (is_array($output) ? max($output) : $output);
+    $output = (is_array($output) ? max($output) : $output);
 
-	return $output;
+    return $output;
 }
 
 /**
  * @param $product_id
  * @return string
  */
-function waa_get_variable_price($product_id) {
+function waa_get_variable_price($product_id)
+{
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
     $_create_variation = get_post_meta($product_id, '_create_variation', true);
     $_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
     $_max_variation_price = waa_get_max_variation_price($product_id);
 
-    if($_create_variation == 'no' || $_min_variation_price == $_max_variation_price) {
-        $_min_variation_price = $_min_variation_price 	? '_min_variation_price' : '_regular_price';
+    if ($_create_variation == 'no' || $_min_variation_price == $_max_variation_price) {
+        $_min_variation_price = $_min_variation_price ? '_min_variation_price' : '_regular_price';
         $output = waa_get_woocs_price($product_id, $_min_variation_price);
     } else {
-        $output = __('ab', 'waa').' '.number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+        $output = __('ab', 'waa') . ' ' . number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
     }
     return $output;
 }
@@ -164,10 +178,11 @@ function waa_get_variable_price($product_id) {
  * @param $product_id
  * @return string
  */
-function waa_get_variable_price_html($product_id) {
+function waa_get_variable_price_html($product_id)
+{
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
-    return  '<p class="price"><span class="amount">'.waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="Versandkosten abhängig Größen- und Material-Auswahl">zzgl. Versand</a></small></p>';
+    return '<p class="price"><span class="amount">' . waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="Versandkosten abhängig Größen- und Material-Auswahl">zzgl. Versand</a></small></p>';
 }
 
 /**
@@ -175,10 +190,11 @@ function waa_get_variable_price_html($product_id) {
  * @param $key
  * @return string
  */
-function waa_get_woocs_int_price($price, $currency) {
+function waa_get_woocs_int_price($price, $currency)
+{
     $woocs = new WOOCS();
 
-    if($currency != '€') {
+    if ($currency != '€') {
         return $woocs->woocs_exchange_value($price);
     } else {
         return $price;
@@ -190,11 +206,12 @@ function waa_get_woocs_int_price($price, $currency) {
  * @param $key
  * @return string
  */
-function waa_get_woocs_int_price_reverse($value) {
+function waa_get_woocs_int_price_reverse($value)
+{
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
 
-    return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
+    return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, ',', '.');
 }
 
 /**
@@ -202,7 +219,8 @@ function waa_get_woocs_int_price_reverse($value) {
  * @param $key
  * @return string
  */
-function waa_get_woocs_price($product_id, $key) {
+function waa_get_woocs_price($product_id, $key)
+{
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
     return number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
@@ -213,12 +231,13 @@ function waa_get_woocs_price($product_id, $key) {
  * @param $key
  * @return string
  */
-function waa_get_woocs_price_html($product_id, $key) {
+function waa_get_woocs_price_html($product_id, $key)
+{
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
     #print_r(get_post_meta($product_id, '_additional_price'));
 
-    $out = '<p class="price"><span class="amount">'.number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips"     data-html="true" data-original-title="'.waa_get_shipping_costs($product_id).'">zzgl. Versand</a></small></p>';
+    $out = '<p class="price"><span class="amount">' . number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips"     data-html="true" data-original-title="' . waa_get_shipping_costs($product_id) . '">zzgl. Versand</a></small></p>';
 
     #' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '
     return $out;
@@ -228,24 +247,56 @@ function waa_get_woocs_price_html($product_id, $key) {
  * @param $fields
  * @return mixed
  */
-function custom_override_checkout_fields( $fields ) {
+function custom_override_checkout_fields($fields)
+{
     # unset($fields['order']['order_comments']);
-     unset($fields['billing']['billing_address_2']);
-     unset($fields['billing']['billing_phone']);
-     unset($fields['shipping']['shipping_address_2']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_phone']);
+    unset($fields['shipping']['shipping_address_2']);
 
-     return $fields;
+    return $fields;
 }
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 
-function waa_get_shipping_costs($product_id) {
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+function waa_get_shipping_costs($product_id)
+{
     $shipping_costs = get_post_meta($product_id, '_additional_price', true);
     $out = '<ul>';
     if (is_array($shipping_costs)) {
         foreach ($shipping_costs as $country => $costs) {
             $out .= '<li>';
             if ($country == 'DE') {
-                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' .get_woocommerce_currency_symbol();
+                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            } elseif ($country == 'CH') {
+                $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            } elseif ($country == 'everywhere') {
+                $out .= __('EU Ausland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            } elseif ($country == 'AT') {
+                $out .= __('Österreich', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+            }
+            $out .= '</li>';
+        }
+    } else {
+        $out .= '<li>keine Versandkosten angegeben</li>';
+    }
+    $out .= '</ul>';
+    return $out;
+}
+
+/**
+ * @param $variable_product_id
+ * @return string
+ */
+function waa_get_variable_shipping_costs($variable_product_id)
+{
+    $shipping_costs = get_post_meta($variable_product_id, '_additional_price', true);
+    $out = '<ul>';
+    if (is_array($shipping_costs)) {
+        foreach ($shipping_costs as $country => $costs) {
+            $out .= '<li>';
+            if ($country == 'DE') {
+                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'CH') {
                 $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'everywhere') {
@@ -260,25 +311,89 @@ function waa_get_shipping_costs($product_id) {
     return $out;
 }
 
-function waa_get_variable_shipping_costs($variable_product_id) {
-    $shipping_costs = get_post_meta($product_id, '_additional_price', true);
-    $out = '<ul>';
-    if (is_array($shipping_costs)) {
-        foreach ($shipping_costs as $country => $costs) {
-            $out .= '<li>';
-            if ($country == 'DE') {
-                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' .get_woocommerce_currency_symbol();
-            } elseif ($country == 'CH') {
-                $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
-            } elseif ($country == 'everywhere') {
-                $out .= __('EU Ausland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
-            }
-            $out .= '</li>';
-        }
-    } else {
-        $out .= '<li>keine Versandkosten angegeben</li>';
-    }
-    $out .= '</ul>';
-    return $out;
+/**
+ * @param $type
+ * @param $id
+ * @return string the "from location" - where the artist ships from
+ */
+function waa_get_artist_location($id)
+{
+    $user_id = get_post_field('post_author', $id);
+    $location = get_user_meta($user_id, '_dps_form_location', true);
+    return $location;
 }
+
+/**
+ * @param $id
+ * @return mixed
+ */
+function waa_get_artist_by_product($id)
+{
+    $user_id = get_post_field('post_author', $id);
+    return $user_id;
+}
+
+/**
+ * @param $type
+ * @param $id
+ * @return array of countries  the artist ships to
+ */
+function waa_get_artist_delivery_locations($type, $id)
+{
+    if ($type == 'variation') {
+        $user_id = get_post_field('post_author', $id);
+        $locations = get_user_meta($user_id, '_dps_country_rates', true);
+    }
+    if ($type == 'original') {
+        $locations = get_post_meta($id, '_additional_price', true);
+    }
+    return $locations;
+}
+
+/**
+ * @param $order
+ * @return string shipping method id/slug
+ */
+function waa_get_shipping_method($order)
+{
+    $shipping_details = $order->get_items('shipping');
+    $shipping_method = reset($shipping_details)['method_id'];
+    return $shipping_method;
+}
+
+/**
+ * @param $order
+ * @param bool|false $formatted
+ * @return string
+ */
+function waa_get_artist_pickup_details($order, $formatted = false)
+{
+    $items = $order->get_items();
+    $product_id = '';
+    foreach ($items as $item) {
+        $product_id = $item['product_id'];
+        $product_variation_id = $item['variation_id'];
+    }
+    $artist_id = get_post_field('post_author', $product_id);
+    $artist_info = waa_get_store_info($artist_id);
+
+    if ($formatted) {
+        $user_info = get_userdata($artist_id);
+        $first_name = $user_info->first_name;
+        $last_name = $user_info->last_name;
+        $mail = $user_info->user_email;
+
+        $out = '<strong>' . $first_name . ' ' . $last_name . '</strong> (' . __('Künstlername', 'waa') . ': ' . $artist_info['store_name'] . ')<br>';
+        $out .= $artist_info['address']['street_1'] . '<br>';
+        $out .= $artist_info['address']['zip'] . ' ' . $artist_info['address']['city'] . '<br>';
+        $out .= WC()->countries->countries[$artist_info['address']['country']] . '<br>';
+        $out .= 'E-Mail-Adresse: ' . $mail . '<br>';
+        $artist_info['phone'] != '' ? $out .= 'Telefon: ' . $artist_info['phone'] . '<br>' : $out .= '';
+        return $out;
+    } else {
+        return $artist_info;
+    }
+}
+
+
 ?>

@@ -10,7 +10,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+$chosen_shipping = $chosen_methods[0];
 ?>
 <div class="woocommerce-shipping-fields">
 	<?php if ( WC()->cart->needs_shipping_address() === true ) : ?>
@@ -26,6 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$ship_to_different_address = $checkout->get_value( 'ship_to_different_address' );
 
 			}
+
+		if($chosen_shipping != 'local_pickup') :
 		?>
 
 		<h3 id="ship-to-different-address">
@@ -46,6 +49,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>
 
 		</div>
+
+		<?php endif; ?>
 
 	<?php endif; ?>
 

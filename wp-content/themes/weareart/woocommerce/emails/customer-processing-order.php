@@ -19,6 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text ); ?>
 
+<?php
+if(waa_get_shipping_method($order) == 'local_pickup') : ?>
+<p><? _e('Im Folgenden erhältst du die Kontaktdaten des Künstlers. Bitte kontaktiere diesen, um die Abholung vor Ort zu vereinbaren:', 'waa'); ?></p>
+<p>
+<?php echo waa_get_artist_pickup_details($order, true); ?>
+</p>
+
+<?php endif; ?>
+
+
 <h2><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?></h2>
 
 <table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
