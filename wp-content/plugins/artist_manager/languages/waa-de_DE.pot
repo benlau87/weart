@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-03 01:21+0100\n"
+"PO-Revision-Date: 2016-04-03 14:19+0100\n"
 "Language-Team: Benedikt Laufer <info@benlau.de>\n"
 "X-Generator: Poedit 1.7.4\n"
 "Last-Translator: \n"
@@ -1970,7 +1970,7 @@ msgstr "Aktionen"
 
 #: includes/admin-functions.php:53
 msgid "Sub Order"
-msgstr ""
+msgstr "Einzelbestellungen"
 
 #: includes/admin-functions.php:79
 msgid "Sub Order of"
@@ -2578,13 +2578,15 @@ msgstr ""
 
 #: includes/wc-template.php:117
 msgid "Note:"
-msgstr ""
+msgstr "Hinweis:"
 
 #: includes/wc-template.php:118
 msgid ""
 "This order has products from multiple vendors/sellers. So we divided this order into multiple seller orders.\n"
 "        Each order will be handled by their respective seller independently."
 msgstr ""
+"Diese Bestellung enthält Produkte von mehreren Künstlern und wurde daher in einzelne Bestellungen aufgeteilt.\n"
+"Jede Bestellung wird daher vom zuständigen Künstler separat behandelt."
 
 #: includes/wc-template.php:153 templates/my-orders.php:55
 msgid "%s for %s item"
