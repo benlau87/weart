@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
             if(selected_country == "CH")
                 $('#region-select-container').find('> label').html('Kanton wählen');
             $.ajax({
-                url:    'http://localhost/weart/wp-content/themes/weareart/js/'+selected_country+".regions.json",
+                url:    waa_url + '/js/' + selected_country+".regions.json",
                 dataType: 'json',
                 success: function( data ) {
 

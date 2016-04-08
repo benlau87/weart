@@ -1,14 +1,14 @@
-Hello there,
+Hallo We Art,
 
-A new seller has been registered to your site (%site_url%).
+ein neuer Künstler hat sich soeben auf (%site_url%) registriert.
 
-Seller Details:
+Künstler Details:
 ------------------------
 
-Seller: %seller_name%
-Seller Store: %store_url%
+Name: %seller_name%
+Sein Profil: %store_url%
 
-To edit seller access and details visit - %seller_edit%
+Um die Künstlerinformationen zu bearbeiten klicke hier: %seller_edit%
 
 ---
 %site_name%

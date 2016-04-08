@@ -68,61 +68,77 @@ $chosen_shipping = $chosen_methods[0];
         <?php do_action('woocommerce_review_order_before_shipping'); ?>
 
         <?php
-        #wc_cart_totals_shipping_html();
         $shipping_costs = 0;
         $shipping_price_de = 0;
         $shipping_price_eu = 0;
         $shipping_price_ch = 0;
         $shipping_price_at = 0;
-        $artist_location = 0;
+        $artist_location = array();
+        $artist_ids = array();
+        $i=0;
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
             $variation_id = $cart_item['variation_id'];
             $product_id = $cart_item['product_id'];
-            if(isset($cart_item['variation_id']) && !empty($cart_item['variation_id'])) {
-                $shipping_price_de += (get_post_meta($variation_id, '_shipping_price_de', true) * $cart_item['quantity']);
-                $shipping_price_eu += (get_post_meta($variation_id, '_shipping_price_eu', true) * $cart_item['quantity']);
-                $shipping_price_ch += (get_post_meta($variation_id, '_shipping_price_ch', true) * $cart_item['quantity']);
-                $shipping_price_at += (get_post_meta($variation_id, '_shipping_price_at', true) * $cart_item['quantity']);
-                $artist_location = waa_get_artist_location($variation_id);
 
+            if (isset($cart_item['variation_id']) && !empty($cart_item['variation_id'])) {
+                $artist_location = waa_get_artist_location($variation_id);
+                $shipping_price_de += ($artist_location == 'DE' ? get_post_meta($variation_id, '_shipping_price_de', true) : get_post_meta($variation_id, '_shipping_price_eu', true)) * $cart_item['quantity'];
+                #$shipping_price_eu += (get_post_meta($variation_id, '_shipping_price_eu', true) * $cart_item['quantity']);
+                $shipping_price_ch += (get_post_meta($variation_id, '_shipping_price_ch', true) * $cart_item['quantity']);
+                $shipping_price_at += ($artist_location == 'AT' ? get_post_meta($variation_id, '_shipping_price_at', true) : get_post_meta($variation_id, '_shipping_price_eu', true)) * $cart_item['quantity'];
+                $artist_ids[$i] = waa_get_artist_by_product($variation_id);
             } else {
-                $shipping_prices = get_post_meta($product_id, '_additional_price', true);
-                $shipping_price_de += ($shipping_prices['DE'] * $cart_item['quantity']);
-                $shipping_price_eu += ($shipping_prices['everywhere'] * $cart_item['quantity']);
-                $shipping_price_ch += ($shipping_prices['CH'] * $cart_item['quantity']);
-                $shipping_price_at += ($shipping_prices['AT'] * $cart_item['quantity']);
                 $artist_location = waa_get_artist_location($product_id);
+
+                $shipping_prices = get_post_meta($product_id, '_additional_price', true);
+
+                $shipping_price_de += ($artist_location == 'DE' ? $shipping_prices['DE'] : $shipping_prices['everywhere']) * $cart_item['quantity'];
+                #$shipping_price_eu += ($shipping_prices['everywhere'] * $cart_item['quantity']);
+                $shipping_price_ch += ($shipping_prices['CH'] * $cart_item['quantity']);
+                $shipping_price_at += ($artist_location == 'AT' ? $shipping_prices['AT'] : $shipping_prices['everywhere']) * $cart_item['quantity'];
+                $artist_location = waa_get_artist_location($product_id);
+                $artist_ids[$i] = waa_get_artist_by_product($product_id);
+                $i++;
             }
         }
-
-        /**
-         * todo: wenn mehrere Produkte verschiedener Künstler im Warenkorb liegen, muss $artist_location berücksichtigt werden
-         */
 
         if (isset($_POST['country'])) {
-            $country = isset($_POST['s_country']) ? $_POST['s_country'] : $_POST['country'];
-            switch ($country) {
+            switch ($_POST['country']) {
                 case 'AT':
-                    $shipping_costs = $artist_location == 'AT' ? $shipping_price_at : $shipping_price_eu;
-                    $shipping_country_to = 'AT';
+                    $shipping_costs += $shipping_price_at;
                     break;
                 case 'DE':
-                    $shipping_costs = $artist_location == 'DE' ? $shipping_price_de : $shipping_price_eu;
-                    $shipping_country_to = 'DE';
+                    $shipping_costs += $shipping_price_de;
                     break;
                 case 'CH':
-                    $shipping_costs = $shipping_price_ch;
-                    $shipping_country_to = 'CH';
+                    $shipping_costs += $shipping_price_ch;
                     break;
             }
         }
 
+        WC()->session->set( 'shipping_total' , $shipping_costs );
+        WC()->session->set( 'total' , WC()->cart->total+$shipping_costs );
+        WC()->session->set( 'subtotal' , WC()->cart->total+$shipping_costs );
+        WC()->session->set( 'cart_contents_total' , WC()->cart->total+$shipping_costs );
+        #echo $shipping_costs;
+
+        echo WC()->cart->shipping_total;
+        #echo WC()->cart->shipping_total;
+        WC()->cart->cart_session_data['shipping_total'] = $shipping_costs;
+        #echo WC()->cart->shipping_total;
+        #echo WC()->cart->get_cart_shipping_total();
+        #print_r(WC()->cart->get_shipping_packages())
         ?>
-        <tr class="shipping">
-            <th><?= __('Shipping', 'woocommerce'); ?></th>
-            <td><?= $chosen_shipping == 'local_pickup' ? number_format(0, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() : waa_get_woocs_int_price_reverse($shipping_costs) . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>'; ?>
-            </td>
-        </tr>
+
+        <?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+            <?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
+            <?php wc_cart_totals_shipping_html(); ?>
+
+            <?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
+        <?php endif; ?>
 
         <?php do_action('woocommerce_review_order_after_shipping'); ?>
 
@@ -156,13 +172,15 @@ $chosen_shipping = $chosen_methods[0];
     <tr class="order-total">
         <th><?php _e('Total', 'woocommerce'); ?></th>
         <td><strong><?php
-                echo $chosen_shipping == 'local_pickup' ? waa_get_woocs_int_price_reverse(WC()->cart->total) . ' ' . get_woocommerce_currency_symbol() : waa_get_woocs_int_price_reverse(WC()->cart->total+$shipping_costs) . ' ' . get_woocommerce_currency_symbol();
+                echo $chosen_shipping == 'local_pickup' ? waa_get_woocs_int_price_reverse(WC()->cart->total) . ' ' . get_woocommerce_currency_symbol() : waa_get_woocs_int_price_reverse(WC()->cart->total) . ' ' . get_woocommerce_currency_symbol();
                 ?></strong>
             <small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small>
         </td>
     </tr>
 
     <?php
+   # print_r($_REQUEST);
+
     function woocommerce_custom_surcharge($shipping_costs) {
         global $woocommerce;
 

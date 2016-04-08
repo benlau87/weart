@@ -1,8 +1,8 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+#error_reporting(E_ALL);
+#ini_set('display_errors', 'On');
 /**
  * Class waa_GetStarted.
  *

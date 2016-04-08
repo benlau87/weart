@@ -46,6 +46,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<span class="waa-input-group-addon"><?= get_woocommerce_currency_symbol(); ?></span>
     <input type="number" min="0" step="any" size="5" name="variable_regular_price[<?php echo $loop; ?>]" value="<?php if ( isset( $_regular_price ) ) echo $_regular_price; ?>" class="waa-form-control" placeholder="<?php _e( '0.00', 'waa' ); ?>" size="10"/>
 </td>
+<?php
+foreach ($dps_country_rates as $country => $cost) {
+	$country_code = ($country == 'everywhere' ? 'EU' : $country); ?>
+	<td class="hide-if-sell-both">
+		<input
+				name="variable_shipping_price_<?= $country; ?>[<?php echo $loop; ?>]"
+				placeholder="0,00"
+				min="0"
+				class="waa-form-control"
+				type="number"
+				value="<?= isset( $variation_data[ '_shipping_price_' . sanitize_title( $country_code ) ][0] ) ? waa_get_woocs_int_price_reverse($variation_data[ '_shipping_price_' . sanitize_title( $country_code ) ][0], true) : '' ?>"
+				step="any">
+	</td>
+<?php } ?>
 
         
 

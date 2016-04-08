@@ -82,9 +82,7 @@ $cu_slug = get_user_meta($user_id, 'nickname', true);
                        value="<?php if (empty ($cu_slug)) {
                            if (!empty($_POST['shopurl'])) echo esc_attr($_POST['shopurl']);
                        } else echo esc_attr($cu_slug); ?>" required="required"/>
-                <small><?php echo home_url() . '/' . waa_get_option('custom_store_url', 'waa_selling', 'store'); ?>
-                    /<strong
-                        id="url-alart"></strong></small>
+                <small><?php echo home_url() . '/' . waa_get_option('custom_store_url', 'waa_selling', 'store'); ?>/<strong id="url-alart"></strong></small>
             </p>
 
             <p class="form-row form-group form-row-wide">

@@ -1,15 +1,16 @@
-Hi %username%,
+Hallo %username%,
 
-Your withdraw request has been approved, congrats!
+Deine Auszahlungsanfrage wurde akzeptiert!
 
-You sent a withdraw request of:
+Deine Anfrage:
 
-Amount: %amount%
-Method: %method%
+Betrag: %amount%
+Auszahlungsmethode: %method%
 
-We'll transfer this amount to your preferred destination shortly.
+Wir werden den o.g. Betrag in Kürze auf dein Konto überweisen.
 
-Thanks for being with us.
+
+Vielen Dank für dein Engagement und weiterhin viel Erfolg beim Verkauf deiner Kunstwerke!
 
 ---
 %site_name%

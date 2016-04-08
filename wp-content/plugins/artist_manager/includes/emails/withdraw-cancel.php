@@ -1,13 +1,13 @@
-Hi %username%,
+Hallo %username%,
 
-Your withdraw request has been cancelled!
+Deine Auszahlungsanfrage wurde abgelehnt.
 
-You sent a withdraw request of:
+Du hast folgende Anfrage gestellt:
 
-Amount: %amount%
-Method: %method%
+Betrag: %amount%
+Auszahlungsmethode: %method%
 
-Here's the reason, why:
+Aus folgendem Grund wurde deine Anfrage abgelehnt:
 %notes%
 
 ---

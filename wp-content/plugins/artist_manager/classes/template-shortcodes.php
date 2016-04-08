@@ -755,6 +755,10 @@ class waa_Template_Shortcodes
                 update_user_meta($user_id, '_dps_form_location', $_POST['dps_form_location']);
             }
 
+            if (isset($_POST['_purchase_note'])) {
+                update_user_meta($user_id, '_purchase_note', $_POST['_purchase_note']);
+            }
+
             if (isset($_POST['dps_country_to'])) {
 
                 foreach ($_POST['dps_country_to'] as $key => $value) {

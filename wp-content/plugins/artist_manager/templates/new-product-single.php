@@ -41,7 +41,7 @@ if (isset($post->ID) && $post->ID && $post->post_type == 'product') {
 
    # $_additional_price = isset($_POST['_additional_price']) ? waa_get_woocs_int_price_reverse($_POST['_additional_price']) : '';
     $_additional_qty = isset($_POST['_additional_qty']) ? waa_get_woocs_int_price_reverse($_POST['_additional_qty']) : '';
-    $_purchase_note = isset($_POST['_purchase_note']) ? $_POST['_purchase_note'] : '';
+    $_purchase_note = isset($_POST['_purchase_note']) ? $_POST['_purchase_note'] : get_user_meta($user_id, '_purchase_note',true);
     # $product_shipping_pt = isset($_POST['_dps_processing_time']) ? $_POST['_dps_processing_time'] : '';
 }
 
@@ -127,6 +127,7 @@ if (!$from_shortcode) {
 }
 
 $woocs = new WOOCS();
+$currencies = $woocs->get_currencies();
 
 if ($_POST['waa_product_type'] == 'sell-original' || $waa_product_type == 'sell-original') {
     ?>
@@ -168,6 +169,7 @@ if (empty($waa_product_type) && !empty($product))
     function setWaaProductTypePrints() {
         showProductContainer();
         jQuery('.hide-if-sell-prints').css('display', 'none !important');
+        jQuery('.hide-if-sell-prints').hide();
         jQuery('#waa_only_print').attr('checked', false);
         jQuery('#_sold_individually').attr('checked', false);
         jQuery('#waa_product_type').val('sell-prints');
@@ -503,7 +505,6 @@ if (empty($waa_product_type) && !empty($product))
                                             ?>
                                         </div>
 
-
                                         <div
                                             class="waa-edit-row waa-clearfix waa-variation-container hide-if-sell-original">
 
@@ -569,24 +570,24 @@ if (empty($waa_product_type) && !empty($product))
                                                                 (in <?= get_woocommerce_currency_symbol(); ?>)
                                                             </th>
 																														
-																														<?php
-																															$dps_country_rates = get_user_meta($user_id, '_dps_country_rates', true);
-																															$_additional_price = get_post_meta($post_id, '_additional_price', true);
-																															foreach ($dps_country_rates as $country => $cost) { ?>
-																																	<th width="15%">
-																																		<span	
-																																						class="hide-if-sell-both">
-																																						 <?php
-																																						 if(get_user_meta($user_id, '_dps_form_location', true) == $country) {
-																																								 _e('Versand (inland)', 'waa');
-																																						 } elseif($country == 'everywhere') {
-																																								 _e('Versand (EU)', 'waa'); }
-																																						 elseif($country == 'CH') {
-																																								 _e('Versand (CH)', 'waa'); }
-																																						 elseif($country == 'DE') {
-																																								 _e('Versand (DE)', 'waa'); } ?>
-																																						</span>                                                                                
-																																	</th>
+                                                            <?php
+                                                                $dps_country_rates = get_user_meta($user_id, '_dps_country_rates', true);
+                                                                $_additional_price = get_post_meta($post_id, '_additional_price', true);
+                                                                foreach ($dps_country_rates as $country => $cost) { ?>
+                                                                        <th width="15%">
+                                                                            <span
+                                                                                            class="hide-if-sell-both">
+                                                                                             <?php
+                                                                                             if(get_user_meta($user_id, '_dps_form_location', true) == $country) {
+                                                                                                     _e('Versand (inland)', 'waa');
+                                                                                             } elseif($country == 'everywhere') {
+                                                                                                     _e('Versand (EU)', 'waa'); }
+                                                                                             elseif($country == 'CH') {
+                                                                                                     _e('Versand (CH)', 'waa'); }
+                                                                                             elseif($country == 'DE') {
+                                                                                                     _e('Versand (DE)', 'waa'); } ?>
+                                                                                            </span>
+                                                                        </th>
                                                              <?php } ?>
 																						
                                                             <th width="5%"></th>
@@ -611,28 +612,23 @@ if (empty($waa_product_type) && !empty($product))
                                                                        placeholder="<?= __('z.B. Hochglanzpapier', 'waa'); ?>">
                                                             </td>
                                                             <td class="">
-
                                                                 <input type="number" name="variable_regular_price[]"
                                                                        placeholder="0,00" class="waa-form-control"
                                                                        min="0" step="any">
                                                                 <input type="hidden" name="variable_sku[]"
                                                                        placeholder="SKU" class="waa-form-control">
                                                             </td>
-																														
-																														
-																														
-																														<?php foreach ($dps_country_rates as $country => $cost) { ?>
-																														<td class="hide-if-sell-both">
-																																<input
-																																	name="variable_shipping_price_<?= $country; ?>[]"
-																																	placeholder="0,00"
-																																	min="0"
-																																	class="waa-form-control"
-																																	type="number"
-																																	step="any">
-																															</td>
-																														 <?php } ?>
-																														
+                                                            <?php foreach ($dps_country_rates as $country => $cost) { ?>
+                                                            <td class="hide-if-sell-both">
+                                                                    <input
+                                                                        name="variable_shipping_price_<?= $country; ?>[]"
+                                                                        placeholder="0,00"
+                                                                        min="0"
+                                                                        class="waa-form-control"
+                                                                        type="number"
+                                                                        step="any">
+                                                                </td>
+                                                             <?php } ?>
                                                             <td>
                                                                 <a href="#" class="btn-remove-new-print"><i
                                                                         class="ui ui-trash-o"></i></a>
@@ -747,7 +743,7 @@ if (empty($waa_product_type) && !empty($product))
                                             <?php do_action('waa_product_options_shipping_before'); ?>
                                         <?php endif; ?>
 
-                                        <?php if ('yes' == get_option('woocommerce_calc_shipping') || 'yes' == get_option('woocommerce_calc_taxes')): ?>
+                                        <?php if (('yes' == get_option('woocommerce_calc_shipping') || 'yes' == get_option('woocommerce_calc_taxes'))): ?>
                                             <div
                                                 class="waa-product-shipping-tax waa-edit-row waa-clearfix hide-if-sell-prints<?php echo ('no' == get_option('woocommerce_calc_shipping')) ? 'woocommerce-no-shipping' : '' ?> <?php echo ('no' == get_option('woocommerce_calc_taxes')) ? 'woocommerce-no-tax' : '' ?>">
                                                 <div class="waa-side-left">
@@ -806,7 +802,7 @@ if (empty($waa_product_type) && !empty($product))
 
                                                                                 </label>
                                                                                 <input
-                                                                                    value="<?php echo $_additional_price[$country] ?>"
+                                                                                    value="<?php echo  number_format(($_additional_price[$country] / $currencies[$woocs->current_currency]['rate']), 2, '.', ','); ?>"
                                                                                     name="dps_country_to_price[]"
                                                                                     id="dps_country_to_price"
                                                                                     placeholder="z.B. 9,99"
@@ -919,6 +915,8 @@ if (empty($waa_product_type) && !empty($product))
                                                     <label for="_purchase_note"
                                                            class="form-label"><?php _e('Purchase Note', 'waa'); ?></label>
                                                     <?php waa_post_input_box($post_id, '_purchase_note', array('placeholder' => __('Customer will get this info in their order email', 'waa'), 'value' => $_purchase_note), 'textarea'); ?>
+
+                                                    <a href="<?= waa_get_navigation_url('settings/shipping'); ?>" target="_blank" style="border-bottom: 1px solid #000;">&raquo; <?= __('Text-Vorlage bearbeiten', 'waa'); ?></a>
                                                 </div>
                                             </div>
                                         </div><!-- .waa-other-options -->

@@ -206,12 +206,15 @@ function waa_get_woocs_int_price($price, $currency)
  * @param $key
  * @return string
  */
-function waa_get_woocs_int_price_reverse($value)
+function waa_get_woocs_int_price_reverse($value, $reverse = false)
 {
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
 
-    return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, ',', '.');
+    if($reverse)
+        return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
+    else
+        return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, ',', '.');
 }
 
 /**
@@ -261,19 +264,21 @@ add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 
 function waa_get_shipping_costs($product_id)
 {
+    $woocs = new WOOCS();
+    $currencies = $woocs->get_currencies();
     $shipping_costs = get_post_meta($product_id, '_additional_price', true);
     $out = '<ul>';
     if (is_array($shipping_costs)) {
         foreach ($shipping_costs as $country => $costs) {
             $out .= '<li>';
             if ($country == 'DE') {
-                $out .= __('Deutschland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Deutschland', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'CH') {
-                $out .= __('Schweiz', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Schweiz', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'everywhere') {
-                $out .= __('EU Ausland', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('EU', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'AT') {
-                $out .= __('Österreich', 'waa') . ': ' . number_format($costs, 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Österreich', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             }
             $out .= '</li>';
         }
@@ -366,34 +371,79 @@ function waa_get_shipping_method($order)
  * @param bool|false $formatted
  * @return string
  */
-function waa_get_artist_pickup_details($order, $formatted = false)
+function waa_get_artist_pickup_details($order, $formatted = true)
 {
     $items = $order->get_items();
-    $product_id = '';
+    $i=0;
+    $artist_infos = array();
     foreach ($items as $item) {
-        $product_id = $item['product_id'];
-        $product_variation_id = $item['variation_id'];
+        $product_id = !empty($item['product_id']) ? $item['product_id'] : $item['variation_id'];
+        $artist_id = get_post_field('post_author', $product_id);
+        $artist_info[$i] = waa_get_store_info($artist_id);
+        $user_info[$i] = get_userdata($artist_id);
+        $artist_infos = array_merge($artist_info, $user_info);
     }
-    $artist_id = get_post_field('post_author', $product_id);
-    $artist_info = waa_get_store_info($artist_id);
-
     if ($formatted) {
-        $user_info = get_userdata($artist_id);
-        $first_name = $user_info->first_name;
-        $last_name = $user_info->last_name;
-        $mail = $user_info->user_email;
-
-        $out = '<strong>' . $first_name . ' ' . $last_name . '</strong> (' . __('Künstlername', 'waa') . ': ' . $artist_info['store_name'] . ')<br>';
-        $out .= $artist_info['address']['street_1'] . '<br>';
-        $out .= $artist_info['address']['zip'] . ' ' . $artist_info['address']['city'] . '<br>';
-        $out .= WC()->countries->countries[$artist_info['address']['country']] . '<br>';
-        $out .= 'E-Mail-Adresse: ' . $mail . '<br>';
-        $artist_info['phone'] != '' ? $out .= 'Telefon: ' . $artist_info['phone'] . '<br>' : $out .= '';
-        return $out;
+        foreach ($artist_infos as $artist_info) {
+            $first_name = $artist_info[1]->first_name;
+            $last_name = $artist_info[1]->last_name;
+            $mail = $artist_info[1]->user_email;
+            $out = '<strong>' . $first_name . ' ' . $last_name . '</strong> (' . __('Künstlername', 'waa') . ': ' . $artist_info[0]['store_name'] . ')<br>';
+            $out .= $artist_info[0]['address']['street_1'] . '<br>';
+            $out .= $artist_info[0]['address']['zip'] . ' ' . $artist_info[0]['address']['city'] . '<br>';
+            $out .= WC()->countries->countries[$artist_info[0]['address']['country']] . '<br>';
+            $out .= 'E-Mail-Adresse: ' . $mail . '<br>';
+            $artist_info[0]['phone'] != '' ? $out .= 'Telefon: ' . $artist_info[0]['phone'] . '<br>' : $out .= '';
+            return $out;
+        }
     } else {
-        return $artist_info;
+        return $artist_infos;
     }
 }
 
+/**
+ * @param $artist_ids
+ * @return bool
+ */
+function cart_allows_pickup($artist_ids)
+{
+    foreach ($artist_ids as $artist_id) {
+        $cart_allows_pickup = artist_has_pickup($artist_id);
+        if(!$cart_allows_pickup)
+            return false;
+    }
+    return true;
+}
+
+/**
+ * Notify Admin when new user registers
+ * @param $user_login
+ */
+function new_customer_registered_send_email_admin($user_login) {
+    ob_start();
+    do_action('woocommerce_email_header', 'Neue Kunde registriert');
+    $email_header = ob_get_clean();
+    ob_start();
+    do_action('woocommerce_email_footer');
+    $email_footer = ob_get_clean();
+
+    woocommerce_mail(
+        get_bloginfo('admin_email'),
+        get_bloginfo('name').' - Neue Kunde registriert',
+        $email_header.'<p>Der Nutzer '.esc_html( $user_login ).' hat sich auf weare-art.com registriert.</p>'.$email_footer
+    );
+}
+add_action('new_customer_registered', 'new_customer_registered_send_email_admin');
+
+/**
+* Return the permalink of the shop page for the continue shopping redirect filter
+*
+ * @param  string $return_to
+* @return string
+*/
+function my_woocommerce_continue_shopping_redirect( $return_to ) {
+    return get_permalink( wc_get_page_id( 'shop' ) );
+}
+add_filter( 'woocommerce_continue_shopping_redirect', 'my_woocommerce_continue_shopping_redirect', 20 );
 
 ?>

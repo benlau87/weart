@@ -1,18 +1,16 @@
-Hello there,
+Hallo We Art,
 
-A new product has been submitted to your site (%site_url%).
+ein neues Produkt wurde auf (%site_url%) hinzugefügt.
 
-Summary of the product:
+Details zum Produkt:
 ------------------------
 
-Title: %title%
-Price: %price%
-Seller: %seller_name% (%seller_url%)
-Category: %category%
+Titel: %title%
+Preis: %price%
+Künstler: %seller_name% (%seller_url%)
+Kategorie: %category%
 
-The product is currently in "publish" state. So everyone can view the product.
-
-In case it needs to be moderated:
+Link zum bearbeiten/moderieren des Kunstwerks:
 %product_link%
 
 ---

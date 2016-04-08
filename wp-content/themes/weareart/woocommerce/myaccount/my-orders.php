@@ -56,7 +56,7 @@ if ( $customer_orders ) : ?>
 						<?php echo wc_get_order_status_name( $order->get_status() ); ?>
 					</td>
 					<td class="order-total" data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>">
-						<?php echo sprintf( _n( '%s for %s item', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
+						<?php echo sprintf( _n( '%s for %s item', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) ; ?>
 					</td>
 					<td class="order-actions">
 						<?php

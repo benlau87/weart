@@ -17,58 +17,32 @@ $reviews_url = waa_get_navigation_url('reviews');
 
     <div class="waa-dashboard-content">
 
-        <?php
-        if (!waa_is_seller_enabled($user_id)) { 
-				wp_enqueue_style('get-started-style', waa_PLUGIN_ASSEST . '/css/get-started.css');
-?>
-
-            <script>
-                jQuery(document).ready(function ($) {
-                    $('#get-started').modal('show');
-                });
-
-            </script>
-            <div class="modal bsfade in" id="get-started" tabindex="-1" role="dialog" aria-labelledby="get-started"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <?php 
-																require_once(waa_DIR . '/classes/get-started-modal.php');														
-																$getStarted = new waa_GetStarted();
-																$getStarted->output_step();
-														?>
-                        </div>
-                        <!-- <a class="close-popup" data-dismiss="modal" href="#">Schließen</a>-->
-                    </div>
-                </div>
-            </div>
-            <?php
-            #waa_seller_not_enabled_notice();
-        }
-        ?>
-
         <article class="dashboard-content-area">
             <?php echo waa_get_profile_progressbar(); ?>
-						
-						<div class="waa-dashboard-intro">
-							<h2><?= __('Was möchtest du tun?', 'waa'); ?></h2>
-							<div class="waa-w6 waa-dash-left">
-							<form action="<?php echo waa_get_navigation_url( 'new-product' ); ?>"><button type="submit"><i class="ui ui-plus"></i> &nbsp;<?= __('Neues Kunstwerk hinzufügen', 'waa'); ?></button></form>
-							<br>
-							</div>
-							
-							<div class="waa-w6 waa-dash-right">
-							<form action="<?= waa_get_navigation_url( 'withdraw' ); ?>"><button type="submit"><i class="ui ui-upload"></i> &nbsp;<?= __('Auszahlung beantragen', 'waa'); ?></button></form>
-							<br>
-							</div>
-						</div>
-						
-						
-						
-						
+
+            <div class="waa-dashboard-intro">
+                <h2><?= __('Was möchtest du tun?', 'waa'); ?></h2>
+
+                <div class="waa-w6 waa-dash-left">
+                    <form action="<?php echo waa_get_navigation_url('new-product'); ?>">
+                        <button type="submit"><i class="ui ui-plus"></i>
+                            &nbsp;<?= __('Neues Kunstwerk hinzufügen', 'waa'); ?></button>
+                    </form>
+                    <br>
+                </div>
+
+                <div class="waa-w6 waa-dash-right">
+                    <form action="<?= waa_get_navigation_url('withdraw'); ?>">
+                        <button type="submit"><i class="ui ui-upload"></i>
+                            &nbsp;<?= __('Auszahlung beantragen', 'waa'); ?></button>
+                    </form>
+                    <br>
+                </div>
+            </div>
+
+
             <div class="waa-w6 waa-dash-left">
-								<div class="dashboard-widget products">
+                <div class="dashboard-widget products">
                     <div class="widget-title">
                         <i class="icon-briefcase"></i> <?php _e('Products', 'waa'); ?>
 
@@ -104,7 +78,7 @@ $reviews_url = waa_get_navigation_url('reviews');
                         </li>
                     </ul>
                 </div> <!-- .products -->
-								
+
                 <div class="dashboard-widget big-counter">
                     <ul class="list-inline">
                         <li>

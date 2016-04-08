@@ -1568,11 +1568,11 @@ h1.product_title {
 }
 
 .woocommerce .shop_table .product-price {
-    width: 7%;
+    width: 10%;
 }
 
 .woocommerce .shop_table .product-quantity {
-    width: 10%;
+    width: 7%;
 }
 
 .woocommerce .shop_table .product-subtotal {
@@ -1664,9 +1664,20 @@ h1.product_title {
     margin-bottom: 0
 }
 
-.woocommerce .cart .button, .woocommerce .cart input.button {
-    float: none;
+.woocommerce .shop_table .button {
+    float: right;
+    margin-right: 15px;
+    height: 45px;
+    line-height: 25px;
+    width: auto;
 }
+
+.woocommerce .cart .checkout-button {
+    float: right;
+    height: 45px;
+    line-height:28px;
+}
+
 
 .woocommerce .cart-collaterals, .woocommerce-page .cart-collaterals {
     width: 100%;

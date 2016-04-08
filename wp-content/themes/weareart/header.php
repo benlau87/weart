@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 <?php wp_head(); ?>
+  <script type="text/javascript">
+    var waa_url = '<?= get_bloginfo("template_url"); ?>';
+  </script>
 </head>
 <body <?php body_class(); ?>>
   <a id="skippy" class="sr-only sr-only-focusable" tabindex="-1" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>

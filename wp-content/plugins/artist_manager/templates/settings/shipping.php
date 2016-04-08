@@ -16,6 +16,7 @@ $dps_state_rates = get_user_meta($user_id, '_dps_state_rates', true);
 $dps_pt = get_user_meta($user_id, '_dps_pt', true);
 $dps_shipping_policy = get_user_meta($user_id, '_dps_ship_policy', true);
 $dps_refund_policy = get_user_meta($user_id, '_dps_refund_policy', true);
+$_purchase_note = get_user_meta($user_id, '_purchase_note', true);
 
 $dps_country_to = get_user_meta($user_id, '_dps_country_rates', true);
 
@@ -130,7 +131,7 @@ if(is_array($dps_country_to)) { $dps_switzerland = array_key_exists('CH', $dps_c
                             </span>
                         </label>
 
-                        <div class="waa-w5 waa-text-left">
+                        <div class="waa-w6 waa-text-left">
                             <select name="dps_pt" id="dps_pt" class="waa-form-control" required>
                                 <?php foreach ($processing_time as $processing_key => $processing_value): ?>
                                     <option
@@ -180,10 +181,25 @@ if(is_array($dps_country_to)) { $dps_switzerland = array_key_exists('CH', $dps_c
                             </span>
                         </label>
 
-                        <div class="waa-w5">
+                        <div class="waa-w6">
                             <select name="dps_form_location" class="waa-form-control" required>
                                 <?php waa_country_dropdown($countries, $dps_form_location); ?>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="waa-form-group">
+                        <label class="waa-w4 waa-control-label" for="dps_form_location">
+                            <?php _e('Nachricht an Kunden:', 'waa'); ?> *
+                            <span class="waa-tooltips-help tips"
+                                  title="<?php _e('Hinterlasse dem Kunden nach Abschluss der Bestellung eine Nachricht.', 'waa'); ?>">
+                                <i class="ui ui-question-circle"></i>
+                            </span>
+                        </label>
+
+                        <div class="waa-w6 waa-text-left">
+                                <textarea name="_purchase_note" id=""
+                                      class="waa-form-control"><?php echo $_purchase_note; ?></textarea>
                         </div>
                     </div>
 

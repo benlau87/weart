@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce\n"
 "Report-Msgid-Bugs-To: https://github.com/woothemes/woocommerce/issues\n"
 "POT-Creation-Date: 2015-08-24 16:25:50+00:00\n"
-"PO-Revision-Date: Sat Apr 02 2016 06:14:08 GMT+0200 (MitteleuropÃ¤ische "
+"PO-Revision-Date: Thu Apr 07 2016 12:24:44 GMT+0200 (MitteleuropÃ¤ische "
 "Sommerzeit)\n"
 "Last-Translator: benlau <weart@benlau.de>\n"
 "Language-Team: German (Germany) (http://www.transifex."
@@ -10635,7 +10635,7 @@ msgstr "zahlen"
 #, c-format
 msgid "Thanks for creating an account on %s. Your username is <strong>%s</strong>."
 msgstr ""
-"Vielen Dank, dass Sie ein Konto bei %s erstellt haben. Ihr Benutzername ist "
+"Vielen Dank, dass du ein Konto bei %s erstellt hast. Dein Benutzername ist "
 "<strong>%s</strong>."
 
 #: templates/emails/customer-new-account.php:22
@@ -10650,8 +10650,8 @@ msgid ""
 "You can access your account area to view your orders and change your "
 "password here: %s."
 msgstr ""
-"Um Bestellungen anzusehen oder Ihr Passwort zu ändern, melden Sie sich hier "
-"in Ihrem Benutzerkonto an: %s"
+"Um Bestellungen anzusehen oder dein Passwort zu ändern, melde dich hier in "
+"deinem Benutzerkonto an: %s"
 
 #: templates/emails/customer-note.php:18
 #: templates/emails/plain/customer-note.php:16

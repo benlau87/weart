@@ -1,4 +1,4 @@
-Hi,
+Hallo We Art,
 
 es gibt eine neue Auszahlungsanfrage von %username%.
 

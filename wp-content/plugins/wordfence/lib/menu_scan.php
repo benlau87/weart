@@ -38,9 +38,21 @@
 				Premium scanning enabled.	
 			</div>
 			<?php } else { ?>
-			<div style="margin: 0 0 20px 5px; width: 795px;">
-				<strong style="color: #F00;">How to upgrade:</strong> If you would like access to our <a href="http://support.wordfence.com/" target="_blank">Premium Support help system</a> and features like Cellphone Sign-in, Country Blocking, external site scanning and the ability to schedule scans, simply <a href="https://www.wordfence.com/gnl1scanUpgrade/wordfence-signup/" target="_blank">visit our Wordfence Premium sign-up page</a> and sign up for a Premium Wordfence API key. Then go to the Wordfence options page on this site and replace your free API key with your new premium key. You will immediately be upgraded to Wordfence Premium with all the features it includes and you will have instant access to our ticketing system on <a href="http://support.wordfence.com/" target="_blank">support.wordfence.com</a>.
-			</div>
+				<div class="wf-premium-callout" style="margin: 20px 0 20px 2px;width: 765px;">
+					<h3>Upgrade to Wordfence Premium today for less than $5 per month</h3>
+					<ul>
+						<li>Advanced features like IP reputation monitoring, country blocking, an advanced comment spam
+							filter and cell phone sign-in give you the best protection available
+						</li>
+						<li>Remote, frequent and scheduled scans</li>
+						<li>Access to Premium Support</li>
+						<li>Discounts of up to 90% for multiyear and multi-license purchases</li>
+					</ul>
+					<p class="center"><a class="button button-primary"
+					                     href="https://www.wordfence.com/gnl1scanUpgrade/wordfence-signup/">
+							Get Premium</a></p>
+				</div>
+
 
 			<?php } ?>
 			<div class="consoleHead" style="margin-top: 20px;">
@@ -83,6 +95,18 @@
 				<strong>Docs:</strong> Our <a href="http://support.wordfence.com/" target="_blank">Support Site</a> can answer many common (and some less common) questions. It also includes our priority support ticketing system for Premium Wordfence users. 
 				<?php $unknownFilesLink = wfUtils::siteURLRelative() . '?_wfsf=unknownFiles&nonce=' . wp_create_nonce('wp-ajax'); ?>
 			</div>
+
+			<div class="wf-premium-callout" style="margin: 20px 0 20px 2px;width: 765px;">
+				<h3>Have you been hacked?</h3>
+				<p>If your site has been compromised by attackers it is vitally important to restore it to working
+					order as quickly as possible. But cleaning up a hacked website can be difficult if you've never
+					done it before, sometimes it takes professional intervention. Let our team of seasoned Security
+					Analysts resolve it for you quickly and professionally.</p>
+				<p class="center"><a class="button button-primary"
+				                     href="https://www.wordfence.com/gnl1scanGetHelp/wordfence-site-cleanings/">
+						Get Help</a></p>
+			</div>
+
 
 		</div>
 		<div style="margin-top: 20px;">
