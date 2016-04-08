@@ -76,76 +76,10 @@ global $woocommerce;
 
 		<tr class="order-total">
 			<th><?php _e( 'Total', 'woocommerce' ); ?></th>
-			<td><?php #wc_cart_totals_order_total_html();
-				// todo: coupons berechnen
-				$coupon_amount = 0;
-				foreach ( WC()->cart->coupon_discount_amounts as $key => $amount ) {
-					$coupon_amount += $amount;
-				}
-
-				$shipping_costs = 0;
-				$shipping_price_de = 0;
-				$shipping_price_eu = 0;
-				$shipping_price_ch = 0;
-				$shipping_price_at = 0;
-				$artist_location = 0;
-				foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-					$variation_id = $cart_item['variation_id'];
-					$product_id = $cart_item['product_id'];
-					if(isset($cart_item['variation_id']) && !empty($cart_item['variation_id'])) {
-						$shipping_price_de += (get_post_meta($variation_id, '_shipping_price_de', true) * $cart_item['quantity']);
-						$shipping_price_eu += (get_post_meta($variation_id, '_shipping_price_eu', true) * $cart_item['quantity']);
-						$shipping_price_ch += (get_post_meta($variation_id, '_shipping_price_ch', true) * $cart_item['quantity']);
-						$shipping_price_at += (get_post_meta($variation_id, '_shipping_price_at', true) * $cart_item['quantity']);
-						$artist_location = waa_get_artist_location($variation_id);
-
-					} else {
-						$shipping_prices = get_post_meta($product_id, '_additional_price', true);
-						$shipping_price_de += ($shipping_prices['DE'] * $cart_item['quantity']);
-						$shipping_price_eu += ($shipping_prices['everywhere'] * $cart_item['quantity']);
-						$shipping_price_ch += ($shipping_prices['CH'] * $cart_item['quantity']);
-						$shipping_price_at += ($shipping_prices['AT'] * $cart_item['quantity']);
-						$artist_location = waa_get_artist_location($product_id);
-					}
-				}
-
-				/**
-				 * todo: wenn mehrere Produkte verschiedener Künstler im Warenkorb liegen, muss $artist_location berücksichtigt werden
-				 */
-				if (isset($_POST['calc_shipping_country'])) {
-					switch ($_POST['calc_shipping_country']) {
-						case 'AT':
-							$shipping_costs = $artist_location == 'AT' ? $shipping_price_at : $shipping_price_eu;
-							$shipping_country_to = 'AT';
-							break;
-						case 'DE':
-							$shipping_costs = $artist_location == 'DE' ? $shipping_price_de : $shipping_price_eu;
-							$shipping_country_to = 'DE';
-							break;
-						case 'CH':
-							$shipping_costs = $shipping_price_ch;
-							$shipping_country_to = 'CH';
-							break;
-					}
-				}
-
-				echo waa_get_woocs_int_price_reverse(WC()->cart->total+$shipping_costs) . ' ' . get_woocommerce_currency_symbol(); ?> <small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small></td>
+			<td><?php echo waa_get_woocs_int_price_reverse(WC()->cart->total) . ' ' . get_woocommerce_currency_symbol(); ?> <small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small></td>
 		</tr>
 
-		<?php do_action( 'woocommerce_cart_totals_after_order_total' );
-
-		$rate = array(
-				'id' => 'waa_product_shipping',
-				'label' => 'Shipping',
-				'cost' => $shipping_costs,
-				'calc_tax' => 'per_order'
-		);
-
-		// Register the rate
-		$shipping = new waa_WC_Shipping();
-		$shipping->add_rate( $rate );
-		#print_r($shipping->rates);
-		?>
+		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>
 
 	</table>
 

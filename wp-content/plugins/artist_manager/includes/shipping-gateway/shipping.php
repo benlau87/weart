@@ -204,12 +204,17 @@ class waa_WC_Shipping extends WC_Shipping_Method {
                         $default_shipping_qty_price = get_post_meta( $product['product_id'], '_additional_qty', true );
 
                         $dps_country_rates = get_post_meta( $product['product_id'], '_additional_price', true );
+
+
+                        if ( $product['variation_id'] ) {
+                            $dps_country_rates = get_post_meta( $product['variation_id'], '_additional_price', true );
+                        }
+
                         if ( !array_key_exists( $destination_country, $dps_country_rates ) ) {
                             $price[$seller_id]['addition_price'] = isset( $dps_country_rates['everywhere'] ) ? $dps_country_rates['everywhere'] : 0;
                         } else {
                             $price[$seller_id]['addition_price'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
                         }
-
 
                         #$price[ $seller_id ]['addition_price'][] = get_post_meta( $product['product_id'], '_additional_price', true );
                     } else {
@@ -220,16 +225,16 @@ class waa_WC_Shipping extends WC_Shipping_Method {
                     $price[ $seller_id ]['default'] = $default_shipping_price;
 
                     if ( $product['quantity'] > 1 ) {
-                        $price[ $seller_id ]['qty'][] = ( ( $product['quantity'] - 1 ) * $default_shipping_qty_price );
+                        $price[ $seller_id ]['qty'][] = ( ( $product['quantity'] - 1 ) * $price[$seller_id]['addition_price'] );
                     } else {
                         $price[ $seller_id ]['qty'][] = 0;
                     }
 
-                    if( count( $products) > 1 ) {
-                        $price[ $seller_id ]['add_product'] = $default_shipping_add_price * ( count( $products) - 1 );
-                    } else {
-                        $price[ $seller_id ]['add_product'] = 0;
-                    }
+                  #  if( count( $products) > 1 ) {
+                  #      $price[ $seller_id ]['add_product'] = $default_shipping_add_price * ( count( $products) - 1 );
+                  #  } else {
+                  #      $price[ $seller_id ]['add_product'] = 0;
+                  #  }
 
                 }
 

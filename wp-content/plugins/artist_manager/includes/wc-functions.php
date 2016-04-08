@@ -1462,10 +1462,23 @@ function waa_new_save_variations( $post_id ) {
                 update_post_meta( $variation_id, '_sku', wc_clean( $variable_sku[ $i ] ) );
                 update_post_meta( $variation_id, '_thumbnail_id', absint( $upload_image_id[ $i ] ) );
 
-                $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+                $artist_location = get_user_meta(get_current_user_id(), '_dps_form_location', true);
+
+                if($artist_location == 'DE') {
+                    $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+                } else {
+                    $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+                }
+                if($artist_location == 'AT') {
+                    $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
+                } else {
+                    $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+                }
+
+                #$variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
                 $variable_shipping_price_eu    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
                 $variable_shipping_price_ch    = isset( $_POST['variable_shipping_price_CH'] ) ? $_POST['variable_shipping_price_CH'] : array();
-                $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
+               # $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
                 if ( isset( $variable_shipping_price_de[ $i ] ) )
                     update_post_meta( $variation_id, '_shipping_price_de', wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_de[ $i ], $waa_currency) ) );
                 if ( isset( $variable_shipping_price_eu[ $i ] ) )
@@ -1592,6 +1605,26 @@ function waa_new_save_variations( $post_id ) {
                 }
 
                 $waa_currency = get_post_meta($post_id, 'waa_currency', true);
+
+                $artist_location = get_user_meta(get_current_user_id(), '_dps_form_location', true);
+
+                if($artist_location == 'DE') {
+                    $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+                } else {
+                    $variable_shipping_price_de    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+                }
+                if($artist_location == 'AT') {
+                    $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
+                } else {
+                    $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+                }
+
+                #$variable_shipping_price_de    = isset( $_POST['variable_shipping_price_DE'] ) ? $_POST['variable_shipping_price_DE'] : array();
+                $variable_shipping_price_eu    = isset( $_POST['variable_shipping_price_everywhere'] ) ? $_POST['variable_shipping_price_everywhere'] : array();
+                $variable_shipping_price_ch    = isset( $_POST['variable_shipping_price_CH'] ) ? $_POST['variable_shipping_price_CH'] : array();
+                # $variable_shipping_price_at    = isset( $_POST['variable_shipping_price_AT'] ) ? $_POST['variable_shipping_price_AT'] : array();
+
+
                 if ( isset( $variable_weight[ $i ] ) )
                     update_post_meta( $variation_id, '_weight', ( $variable_weight[ $i ] === '' ) ? '' : wc_format_decimal( $variable_weight[ $i ] ) );
                 if ( isset( $variable_length[ $i ] ) )
@@ -1616,7 +1649,7 @@ function waa_new_save_variations( $post_id ) {
                     $rates['everywhere'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
                 }
                 if (isset($_POST['variable_shipping_price_CH'])) {
-                    $rates['DE'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
+                    $rates['CH'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
                 }
                 if (isset($_POST['variable_shipping_price_AT'])) {
                     $rates['AT'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_at[ $i ], $waa_currency) );

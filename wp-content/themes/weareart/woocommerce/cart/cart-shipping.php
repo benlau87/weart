@@ -23,63 +23,20 @@ if (!defined('ABSPATH')) {
         ?></th>
     <td>
         <?php
-        $shipping_costs = 0;
-        $shipping_price_de = 0;
-        $shipping_price_eu = 0;
-        $shipping_price_ch = 0;
-        $shipping_price_at = 0;
-        $artist_location = array();
-        $artist_ids = array();
-        $i = 0;
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
             $variation_id = $cart_item['variation_id'];
             $product_id = $cart_item['product_id'];
 
             if (isset($cart_item['variation_id']) && !empty($cart_item['variation_id'])) {
-                $artist_location = waa_get_artist_location($variation_id);
-                $shipping_price_de += ($artist_location == 'DE' ? get_post_meta($variation_id, '_shipping_price_de', true) : get_post_meta($variation_id, '_shipping_price_eu', true)) * $cart_item['quantity'];
-                #$shipping_price_eu += (get_post_meta($variation_id, '_shipping_price_eu', true) * $cart_item['quantity']);
-                $shipping_price_ch += (get_post_meta($variation_id, '_shipping_price_ch', true) * $cart_item['quantity']);
-                $shipping_price_at += ($artist_location == 'AT' ? get_post_meta($variation_id, '_shipping_price_at', true) : get_post_meta($variation_id, '_shipping_price_eu', true)) * $cart_item['quantity'];
                 $artist_ids[$i] = waa_get_artist_by_product($variation_id);
             } else {
-                $artist_location = waa_get_artist_location($product_id);
-
-                $shipping_prices = get_post_meta($product_id, '_additional_price', true);
-
-                $shipping_price_de += ($artist_location == 'DE' ? $shipping_prices['DE'] : $shipping_prices['everywhere']) * $cart_item['quantity'];
-                #$shipping_price_eu += ($shipping_prices['everywhere'] * $cart_item['quantity']);
-                $shipping_price_ch += ($shipping_prices['CH'] * $cart_item['quantity']);
-                $shipping_price_at += ($artist_location == 'AT' ? $shipping_prices['AT'] : $shipping_prices['everywhere']) * $cart_item['quantity'];
-                $artist_location = waa_get_artist_location($product_id);
                 $artist_ids[$i] = waa_get_artist_by_product($product_id);
                 $i++;
             }
         }
 
-        if (isset($_POST['calc_shipping_country'])) {
-            switch ($_POST['calc_shipping_country']) {
-                case 'AT':
-                    $shipping_costs += $shipping_price_at;
-                    break;
-                case 'DE':
-                    $shipping_costs += $shipping_price_de;
-                    break;
-                case 'CH':
-                    $shipping_costs += $shipping_price_ch;
-                    break;
-            }
-        }
-
         if (!empty($available_methods)) {
-        $shipping_costs = is_checkout() ? WC()->cart->shipping_total : $shipping_costs;
-        #if (isset($_POST['calc_shipping_country'])) {
-        if ($chosen_method == 'local_pickup')
-            echo waa_get_woocs_int_price_reverse(0) . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>';
-        else
-            echo waa_get_woocs_int_price_reverse($shipping_costs) . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>';
-        # }
-
+            echo waa_get_woocs_int_price_reverse(WC()->cart->shipping_total) . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>';
         ?>
 
         <?php
