@@ -35,6 +35,8 @@ if (!defined('ABSPATH')) {
             }
         }
 
+
+
         if (!empty($available_methods)) {
             echo waa_get_woocs_int_price_reverse(WC()->cart->shipping_total) . ' ' . get_woocommerce_currency_symbol() . ' <small>(' . __('inkl. MwSt.', 'waa') . ')</small>';
         ?>

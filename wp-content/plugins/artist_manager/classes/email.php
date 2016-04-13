@@ -231,21 +231,24 @@ class waa_Email {
         $body = ob_get_clean();
 
         $seller = get_user_by( 'id', $seller_id );
+        $seller_info = get_userdata( $seller_id );
 
         $find = array(
-            '%seller_name%',
             '%store_url%',
             '%seller_edit%',
             '%site_name%',
-            '%site_url%'
+            '%site_url%',
+            '%seller_full_name%',
+            '%seller_email'
         );
 
         $replace = array(
-            $seller->display_name,
             waa_get_store_url( $seller_id ),
             admin_url( 'user-edit.php?user_id=' . $seller_id ),
             $this->get_from_name(),
             home_url(),
+            $seller_info->first_name . ' ' . $seller_info->last_name,
+            $seller_info->user_email
         );
 
         $body = str_replace( $find, $replace, $body);

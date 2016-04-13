@@ -2219,6 +2219,10 @@ li.payment_method_paypal img {
         width: 49%;
         margin-bottom: 1%;
     }
+
+    #footer h4 {
+        margin-top: 25px;
+    }
 }
 
 @media all and (max-width: 768px) {

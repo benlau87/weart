@@ -5,8 +5,11 @@ ein neuer Künstler hat sich soeben auf (%site_url%) registriert.
 Künstler Details:
 ------------------------
 
-Name: %seller_name%
+Name: %seller_full_name%
+E-Mail-Adresse: %seller_email%
+
 Sein Profil: %store_url%
+
 
 Um die Künstlerinformationen zu bearbeiten klicke hier: %seller_edit%
 

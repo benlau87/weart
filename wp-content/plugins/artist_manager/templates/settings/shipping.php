@@ -190,7 +190,7 @@ if(is_array($dps_country_to)) { $dps_switzerland = array_key_exists('CH', $dps_c
 
                     <div class="waa-form-group">
                         <label class="waa-w4 waa-control-label" for="dps_form_location">
-                            <?php _e('Nachricht an Kunden:', 'waa'); ?> *
+                            <?php _e('Nachricht an Kunden', 'waa'); ?>
                             <span class="waa-tooltips-help tips"
                                   title="<?php _e('Hinterlasse dem Kunden nach Abschluss der Bestellung eine Nachricht.', 'waa'); ?>">
                                 <i class="ui ui-question-circle"></i>

@@ -46,18 +46,8 @@ if ( $order ) : ?>
 			</li>
 			<li class="total">
 				<?php _e( 'Total:', 'woocommerce' ); ?>
-				<strong><?php
-print_r($order->get_shipping_methods());
-if ( $order->get_shipping_method() == 'Versand durch Künstler')
-	echo 'Versand';
-
-              # echo $chosen_shipping == 'local_pickup' ? waa_get_woocs_int_price_reverse($order->total) . ' ' . get_woocommerce_currency_symbol() : waa_get_woocs_int_price_reverse(order->total+$shipping_costs) . ' ' . get_woocommerce_currency_symbol();
-                ?></strong>
+				<strong><?php echo waa_get_woocs_int_price_reverse($order->get_total()) . ' ' . get_woocommerce_currency_symbol(); ?></strong>
 				<small>(<?php _e('inkl. MwSt.', 'waa') ?>)</small>
-
-
-
-					#echo $order->get_formatted_order_total(); ?></strong>
 			</li>
 			<?php if ( $order->payment_method_title ) : ?>
 			<li class="method">

@@ -198,16 +198,12 @@ class waa_WC_Shipping extends WC_Shipping_Method {
                     }
 
                     $default_shipping_price     = get_user_meta( $seller_id, '_dps_shipping_type_price', true );
-                    $default_shipping_add_price = get_user_meta( $seller_id, '_dps_additional_product', true );
 
                     if ( get_post_meta( $product['product_id'], '_overwrite_shipping', true ) == 'yes' ) {
-                        $default_shipping_qty_price = get_post_meta( $product['product_id'], '_additional_qty', true );
-
                         $dps_country_rates = get_post_meta( $product['product_id'], '_additional_price', true );
 
-
                         if ( $product['variation_id'] ) {
-                            $dps_country_rates = get_post_meta( $product['variation_id'], '_additional_price', true );
+                            $dps_country_rates = get_post_meta( $product['variation_id'], '_additional_price', true ) ? get_post_meta( $product['variation_id'], '_additional_price', true ) : array();
                         }
 
                         if ( !array_key_exists( $destination_country, $dps_country_rates ) ) {
@@ -215,60 +211,26 @@ class waa_WC_Shipping extends WC_Shipping_Method {
                         } else {
                             $price[$seller_id]['addition_price'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
                         }
-
-                        #$price[ $seller_id ]['addition_price'][] = get_post_meta( $product['product_id'], '_additional_price', true );
                     } else {
-                        $default_shipping_qty_price = get_user_meta( $seller_id, '_dps_additional_qty', true );
                         $price[ $seller_id ]['addition_price'][] = 0;
                     }
 
                     $price[ $seller_id ]['default'] = $default_shipping_price;
 
+                    /**
+                     * todo: qty wird noch nicht berechnet..
+                     */
                     if ( $product['quantity'] > 1 ) {
                         $price[ $seller_id ]['qty'][] = ( ( $product['quantity'] - 1 ) * $price[$seller_id]['addition_price'] );
                     } else {
                         $price[ $seller_id ]['qty'][] = 0;
-                    }
-
-                  #  if( count( $products) > 1 ) {
-                  #      $price[ $seller_id ]['add_product'] = $default_shipping_add_price * ( count( $products) - 1 );
-                  #  } else {
-                  #      $price[ $seller_id ]['add_product'] = 0;
-                  #  }
-
-                }
-
-                $dps_country_rates = get_user_meta( $seller_id, '_dps_country_rates', true );
-                $dps_state_rates   = get_user_meta( $seller_id, '_dps_state_rates', true );
-
-                if ( isset( $dps_state_rates[$destination_country] ) ) {
-
-                    if ( array_key_exists( $destination_state, $dps_state_rates[$destination_country] ) ) {
-                        if ( isset( $dps_state_rates[$destination_country][$destination_state] ) ) {
-                            $price[$seller_id]['state_rates'] = $dps_state_rates[$destination_country][$destination_state];
-                        } else {
-                            $price[$seller_id]['state_rates'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
-                        }
-
-                    } elseif ( array_key_exists( 'everywhere', $dps_state_rates[$destination_country] ) ) {
-                        $price[$seller_id]['state_rates'] = ( isset( $dps_state_rates[$destination_country]['everywhere'] ) ) ? $dps_state_rates[$destination_country]['everywhere'] : 0;
-                    } else {
-                        $price[$seller_id]['state_rates'] = 0;
-                    }
-
-                } else {
-
-                    if ( !array_key_exists( $destination_country, $dps_country_rates ) ) {
-                        $price[$seller_id]['state_rates'] = isset( $dps_country_rates['everywhere'] ) ? $dps_country_rates['everywhere'] : 0;
-                    } else {
-                        $price[$seller_id]['state_rates'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
                     }
                 }
             }
         }
         if ( !empty( $price ) ) {
             foreach ( $price as $s_id => $value ) {
-                $amount = $amount + ( isset($value['addition_price']) ? $value['addition_price'] : 0 + $value['default']+array_sum( $value['qty'] )+$value['add_product']+ ( isset($value['state_rates']) ? $value['state_rates'] : 0 ) );
+                $amount = $amount + floatval( reset($value['qty']) ) + ( isset($value['addition_price']) ? $value['addition_price'] : 0 + $value['default']);
             }
         }
 

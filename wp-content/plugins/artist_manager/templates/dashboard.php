@@ -254,7 +254,7 @@ $reviews_url = waa_get_navigation_url('reviews');
                                         <div
                                             class="announce-day"><?php echo date('d', strtotime($notice->post_date)); ?></div>
                                         <div
-                                            class="announce-month"><?php echo date('l', strtotime($notice->post_date)); ?></div>
+                                            class="announce-month"><?php echo waa_german_weekday($notice->post_date); ?></div>
                                         <div
                                             class="announce-year"><?php echo date('Y', strtotime($notice->post_date)); ?></div>
                                     </div>

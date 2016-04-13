@@ -27,6 +27,14 @@ wc_print_notices(); ?>
 	?>
 </p>
 
+<p>
+	<?php if(waa_is_user_seller($current_user->ID)) :
+		echo '<h3>'.__('Kunstwerke verwalten', 'waa').'</h3>';
+		printf( __('Um deine Kunstwerke und dein <a href="%s">Künstlerprofil</a> zu verwalten, <a href="%s">klicke hier</a>.', 'waa'), waa_get_page_url('settings/store'), waa_get_page_url('dashboard'));
+		endif;
+	?>
+</p>
+
 <?php do_action( 'woocommerce_before_my_account' ); ?>
 
 <?php wc_get_template( 'myaccount/my-downloads.php' ); ?>

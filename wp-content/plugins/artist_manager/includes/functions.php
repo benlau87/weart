@@ -1689,7 +1689,7 @@ function waa_product_listing_filter_months_dropdown( $user_id ) {
     $date = isset( $_GET['date'] ) ? (int) $_GET['date'] : 0;
     ?>
     <select name="date" id="filter-by-date" class="waa-form-control">
-        <option<?php selected( $date, 0 ); ?> value="0"><?php _e( 'All dates' ); ?></option>
+        <option<?php selected( $date, 0 ); ?> value="0"><?php _e( 'All dates', 'waa' ); ?></option>
     <?php
     foreach ( $months as $arc_row ) {
         if ( 0 == $arc_row->year )
@@ -1761,7 +1761,7 @@ function waa_product_listing_filter() {
         <?php wp_nonce_field( 'waa_product_search', 'waa_product_search_nonce' ); ?>
 
         <div class="waa-form-group waa-right">
-            <input type="text" class="waa-form-control" name="product_search_name" placeholder="Search Products" value="<?php echo isset( $_GET['product_search_name'] ) ? $_GET['product_search_name'] : '' ?>">
+            <input type="text" class="waa-form-control" name="product_search_name" placeholder="<?php _e('Produkt suchen', 'waa');?>" value="<?php echo isset( $_GET['product_search_name'] ) ? $_GET['product_search_name'] : '' ?>">
         </div>
 
         <?php
@@ -2119,3 +2119,14 @@ function waa_get_toc_url( $store_id ) {
     return apply_filters( 'waa_get_toc_url', $userstore ."toc" );
 }
 
+/**
+ * @param $timestamp
+ * @return mixed Wochentag
+ */
+function waa_german_weekday( $timestamp )
+{
+    $tage = array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
+    date_default_timezone_set("Europe/Berlin");
+    $tag = date('w', strtotime($timestamp));
+    return $tage[$tag];
+}
