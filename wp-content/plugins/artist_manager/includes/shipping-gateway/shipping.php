@@ -212,7 +212,7 @@ class waa_WC_Shipping extends WC_Shipping_Method {
                             $price[$seller_id]['addition_price'] = ( isset( $dps_country_rates[$destination_country] ) ) ? $dps_country_rates[$destination_country] : 0;
                         }
                     } else {
-                        $price[ $seller_id ]['addition_price'][] = 0;
+                        $price[ $seller_id ]['addition_price'] = 0;
                     }
 
                     $price[ $seller_id ]['default'] = $default_shipping_price;

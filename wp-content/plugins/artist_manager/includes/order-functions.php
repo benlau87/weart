@@ -301,6 +301,24 @@ function waa_get_seller_id_by_order( $order_id ) {
     return 0;
 }
 
+function waa_get_seller_ids_by( $order_id ) {
+    global $wpdb;
+
+    $sql = "SELECT p.post_author AS seller_id
+            FROM {$wpdb->prefix}woocommerce_order_items oi
+            LEFT JOIN {$wpdb->prefix}woocommerce_order_itemmeta oim ON oim.order_item_id = oi.order_item_id
+            LEFT JOIN $wpdb->posts p ON oim.meta_value = p.ID
+            WHERE oim.meta_key = '_product_id' AND oi.order_id = %d GROUP BY p.post_author";
+
+    $sellers = $wpdb->get_results( $wpdb->prepare( $sql, $order_id ) );
+
+    if ( count( $sellers ) == 1 ) {
+        return (int) reset( $sellers )->seller_id;
+    }
+
+    return 0;
+}
+
 
 /**
  * Get bootstrap label class based on order status

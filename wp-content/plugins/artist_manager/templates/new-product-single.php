@@ -292,14 +292,14 @@ if (empty($waa_product_type) && !empty($product))
                                                     <input type="hidden" name="_discounted_price" value="no">
 
                                                     <label for="post_title"
-                                                           class="form-label"><?php _e('Title', 'waa'); ?></label>
+                                                           class="form-label"><?php _e('Title', 'waa'); ?> *</label>
                                                     <?php waa_post_input_box($post_id, 'post_title', array('placeholder' => __('Product name..', 'waa'), 'value' => $post_title, 'required' => true)); ?>
                                                 </div>
 
                                                 <?php if (waa_get_option('product_category_style', 'waa_selling', 'single') == 'single'): ?>
                                                     <div class="waa-form-group">
                                                         <label for="product_cat"
-                                                               class="form-label"><?php _e('Category', 'waa'); ?></label>
+                                                               class="form-label"><?php _e('Category', 'waa'); ?> *</label>
                                                         <?php
                                                         $product_cat = ($_POST['product_cat'] ? $_POST['product_cat'] : -1);
                                                         $term = array();
@@ -356,7 +356,7 @@ if (empty($waa_product_type) && !empty($product))
                                                         <div class="waa-form-group waa-clearfix waa-price-container">
                                                             <div class="regular-price">
                                                                 <label for="_regular_price"
-                                                                       class="form-label"><?php _e('Price', 'waa'); ?></label>
+                                                                       class="form-label"><?php _e('Price', 'waa'); ?> *</label>
 
                                                                 <div class="waa-input-group">
                                                                 <span
@@ -401,7 +401,7 @@ if (empty($waa_product_type) && !empty($product))
                                                         <a href="#"
                                                            class="waa-feat-image-btn btn btn-sm"><?php _e('Upload a product cover image', 'waa'); ?></a>
 
-                                                        <p><?= __('Das Bild sollte mindestens 800x800 Pixel groß sein.', 'waa') ?></p>
+                                                        <p><?= __('Das Bild sollte mindestens 500x500 Pixel groß sein.', 'waa') ?></p>
                                                     </div>
 
                                                     <div class="image-wrap<?php echo $wrap_class; ?>">
@@ -418,7 +418,7 @@ if (empty($waa_product_type) && !empty($product))
                                                                    class="waa-feat-image-btn btn btn-sm"><?php _e('Upload a product cover image', 'waa'); ?></a>
 
                                                                 <p><span
-                                                                        style="font-weight:bold; color:red;"><?= __('Das Bild ist zu klein!', 'waa') ?></span><br><?= __('Das Bild sollte mindestens 800x800 Pixel groß sein.', 'waa') ?>
+                                                                        style="font-weight:bold; color:red;"><?= __('Das Bild ist zu klein!', 'waa') ?></span><br><?= __('Das Bild sollte mindestens 500x500 Pixel groß sein.', 'waa') ?>
                                                                 </p>
                                                             </div>
                                                             <img height="" width=""
@@ -561,13 +561,13 @@ if (empty($waa_product_type) && !empty($product))
                                                            id="original-price"
                                                            value="<?= ($_regular_price ? $_regular_price : '') ?>">
 
-                                                    <table class="waa-table">
+                                                    <table class="waa-table waa-table-variations">
                                                         <thead>
                                                         <tr>
-                                                            <th width="15%"><?= __('Variant', 'waa') ?></th>
-                                                            <th width="25%"><?= __('Material / Ausführung', 'waa') ?></th>
+                                                            <th width="15%"><?= __('Variant', 'waa') ?> *</th>
+                                                            <th width="25%"><?= __('Material / Ausführung', 'waa') ?> *</th>
                                                             <th width="15%"><?= __('Price', 'waa') ?>
-                                                                (in <?= get_woocommerce_currency_symbol(); ?>)
+                                                                (in <?= get_woocommerce_currency_symbol(); ?>) *
                                                             </th>
 																														
                                                             <?php
@@ -585,7 +585,7 @@ if (empty($waa_product_type) && !empty($product))
                                                                                              elseif($country == 'CH') {
                                                                                                      _e('Versand (CH)', 'waa'); }
                                                                                              elseif($country == 'DE') {
-                                                                                                     _e('Versand (DE)', 'waa'); } ?>
+                                                                                                     _e('Versand (DE)', 'waa'); } ?>*
                                                                                             </span>
                                                                         </th>
                                                              <?php } ?>
@@ -798,12 +798,12 @@ if (empty($waa_product_type) && !empty($product))
                                                                                              elseif($country == 'CH') {
                                                                                                  _e('Versand in die Schweiz', 'waa'); }
                                                                                              elseif($country == 'DE') {
-                                                                                                 _e('Versand nach Deutschland', 'waa'); } ?>
+                                                                                                 _e('Versand nach Deutschland', 'waa'); } ?> *
                                                                                             </span>
 
                                                                                     </label>
                                                                                     <input
-                                                                                        value="<?php echo  number_format(($_additional_price[$country] / $currencies[$woocs->current_currency]['rate']), 2, '.', ','); ?>"
+                                                                                        value="<?= isset($_additional_price[$country]) ? number_format(($_additional_price[$country] / $currencies[$woocs->current_currency]['rate']), 2, '.', ',') : ''; ?>"
                                                                                         name="dps_country_to_price[]"
                                                                                         id="dps_country_to_price"
                                                                                         placeholder="z.B. 9,99"
@@ -930,7 +930,11 @@ if (empty($waa_product_type) && !empty($product))
                                         <?php wp_nonce_field('waa_add_new_product', 'waa_add_new_product_nonce'); ?>
                                         <input type="submit" name="waa_add_product"
                                                class="waa-btn waa-btn-theme waa-btn-lg btn-block"
-                                               value="<?php esc_attr_e('Save Product', 'waa'); ?>"/>
+                                               value="<?php esc_attr_e('Kunstwerk veröffentlichen', 'waa'); ?>"/>
+                                        <div style="text-align:center">
+                                            oder:<br><a href="#" id="save-draft">als Entwurf speichern</a>
+                                            <input type="hidden" name="waa_save_as_draft" id="waa_save_as_draft">
+                                        </div>
 
                                     </form>
 

@@ -239,7 +239,7 @@ class waa_Email {
             '%site_name%',
             '%site_url%',
             '%seller_full_name%',
-            '%seller_email'
+            '%seller_email%'
         );
 
         $replace = array(

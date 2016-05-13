@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) {
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
             $variation_id = $cart_item['variation_id'];
             $product_id = $cart_item['product_id'];
-
+            $i=0;
             if (isset($cart_item['variation_id']) && !empty($cart_item['variation_id'])) {
                 $artist_ids[$i] = waa_get_artist_by_product($variation_id);
             } else {

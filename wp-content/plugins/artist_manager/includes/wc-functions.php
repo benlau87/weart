@@ -533,18 +533,18 @@ function waa_process_product_meta( $post_id ) {
     //Save shipping meta data
     update_post_meta( $post_id, '_disable_shipping', 'no'  );
 
-    if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
-        update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
+   # if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
+        update_post_meta( $post_id, '_overwrite_shipping', 'yes' );
         update_post_meta( $post_id, '_additional_price', stripslashes( isset( $_POST['_additional_price'] ) ? waa_get_woocs_int_price($_POST['_additional_price'], $waa_currency ) : '' ) );
         update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? waa_get_woocs_int_price($_POST['_additional_qty'], $waa_currency ) : '' ) );
         $user_id = get_current_user_id();
         update_post_meta( $post_id, '_dps_processing_time', stripslashes( get_user_meta($user_id, '_dps_pt', true) ) );
-    } else {
-        update_post_meta( $post_id, '_overwrite_shipping', 'no' );
-        update_post_meta( $post_id, '_additional_price', '' );
-        update_post_meta( $post_id, '_additional_qty', '' );
-        update_post_meta( $post_id, '_dps_processing_time', '' );
-    }
+  #  } else {
+  #      update_post_meta( $post_id, '_overwrite_shipping', 'no' );
+  #      update_post_meta( $post_id, '_additional_price', '' );
+  #      update_post_meta( $post_id, '_additional_qty', '' );
+  #      update_post_meta( $post_id, '_dps_processing_time', '' );
+  #  }
 
     // Save shipping class
     $product_shipping_class = $_POST['product_shipping_class'] > 0 && $product_type != 'external' ? absint( $_POST['product_shipping_class'] ) : '';
@@ -1006,8 +1006,9 @@ function waa_new_process_product_meta( $post_id ) {
         //
         update_post_meta( $post_id, '_disable_shipping', 'no' );
 
-        if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
-            update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
+    #    if ( isset( $_POST['_overwrite_shipping'] ) && $_POST['_overwrite_shipping'] == 'yes' ) {
+     #      update_post_meta( $post_id, '_overwrite_shipping', stripslashes( $_POST['_overwrite_shipping'] ) );
+           update_post_meta( $post_id, '_overwrite_shipping', 'yes' );
 
 
             if (isset($_POST['dps_country_to_price'])) {
@@ -1031,12 +1032,12 @@ function waa_new_process_product_meta( $post_id ) {
             update_post_meta( $post_id, '_additional_qty', stripslashes( isset( $_POST['_additional_qty'] ) ? waa_get_woocs_int_price($_POST['_additional_qty'], $waa_currency) : '' ) );
             $user_id = get_current_user_id();
             update_post_meta( $post_id, '_dps_processing_time', stripslashes( get_user_meta($user_id, '_dps_pt', true) ) );
-        } else {
-            update_post_meta( $post_id, '_overwrite_shipping', 'no' );
-            update_post_meta( $post_id, '_additional_price', '' );
-            update_post_meta( $post_id, '_additional_qty', '' );
-            update_post_meta( $post_id, '_dps_processing_time', '' );
-        }
+    #    } else {
+    #        update_post_meta( $post_id, '_overwrite_shipping', 'no' );
+    #        update_post_meta( $post_id, '_additional_price', '' );
+    #        update_post_meta( $post_id, '_additional_qty', '' );
+    #        update_post_meta( $post_id, '_dps_processing_time', '' );
+    #    }
 
         // Save shipping class
         $product_shipping_class = $_POST['product_shipping_class'] > 0 && $product_type != 'external' ? absint( $_POST['product_shipping_class'] ) : '';
@@ -1496,7 +1497,7 @@ function waa_new_save_variations( $post_id ) {
                     $rates['everywhere'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_eu[ $i ], $waa_currency) );
                 }
                 if (isset($_POST['variable_shipping_price_CH'])) {
-                    $rates['DE'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
+                    $rates['CH'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_ch[ $i ], $waa_currency) );
                 }
                 if (isset($_POST['variable_shipping_price_AT'])) {
                     $rates['AT'] = wc_format_decimal( waa_get_woocs_int_price($variable_shipping_price_at[ $i ], $waa_currency) );

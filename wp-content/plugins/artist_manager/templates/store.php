@@ -12,8 +12,13 @@ $store_info = waa_get_store_info($store_user->ID);
 $scheme = is_ssl() ? 'https' : 'http';
 
 wp_enqueue_script('google-maps', $scheme . '://maps.google.com/maps/api/js?sensor=true');
-
+function assignPageTitle(){
+    return "Title goes here";
+}
+add_filter('wp_title', 'assignPageTitle');
 get_header('shop');
+
+
 ?>
     <div id="content">
         <div class="showcase woocommerce">

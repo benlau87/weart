@@ -51,6 +51,13 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
     });
 
+    $('#save-draft').click(function(e) {
+        e.preventDefault();
+        //alert('test');
+        $('#waa_save_as_draft').val('yes');
+        $('input[name="waa_add_product"]').click();
+    });
+
     function setWaaProductTypeOriginal() {
         $('.product-set-type').hide();
         $('.product-edit-new-container').show();
@@ -63,6 +70,8 @@ jQuery(document).ready(function ($) {
         $('#_stock').val(1);
         $('#waa_product_type').val('sell-original');
         $('#_regular_price').attr('required', true);
+        $('input[name^="dps_country_to_price"]').attr('required', true);
+        $('#product_cat').attr('required', true);
         $('#_has_attribute').attr('checked', false).trigger("change");
         $('#_overwrite_shipping').attr('checked', true).trigger("change");
     }
@@ -81,6 +90,10 @@ jQuery(document).ready(function ($) {
         $('#_sold_individually').attr('checked', false);
         $('#waa_product_type').val('sell-prints');
         $('#_regular_price').attr('required', false);
+        $('input[name^="attribute_pa_print"]').attr('required', true);
+        $('input[name^="variable_shipping_price_"]').attr('required', true);
+        $('#product_cat').attr('required', true);
+        $('input[name^="variable_regular_price"]').attr('required', true);
         $('#_has_attribute').attr('checked', true).trigger("change");
         $('#_overwrite_shipping').attr('checked', true).trigger("change");
     }
@@ -1343,7 +1356,7 @@ jQuery(document).ready(function ($) {
                         wrap.find('img').attr('data-height', attachment.height);
                         wrap.find('img').attr('data-width', attachment.width);
 
-                        if ($('.image-wrap img').attr('data-height') < 800 || $('.image-wrap img').attr('data-width') < 800) {
+                        if ($('.image-wrap img').attr('data-height') < 500 || $('.image-wrap img').attr('data-width') < 500) {
                             $('#image_size_warning').show();
                             $('.image-wrap').removeClass('no_warning');
                         } else {

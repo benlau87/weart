@@ -2179,6 +2179,10 @@ li.payment_method_paypal img {
     border-color: #fff;
 }
 
+.mc4wp-checkbox {
+    margin-bottom: 0;
+}
+
 /*
 *
 * media queries

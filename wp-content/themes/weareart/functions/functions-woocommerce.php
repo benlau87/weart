@@ -107,14 +107,16 @@ function waa_get_variation_prices($product, $count = false)
     global $woocommerce;
     $variation_ids = $product->children['visible'];
     $i = 0;
-    foreach ($variation_ids as $variation) {
-        $product_variation = new WC_Product_Variation($variation);
-        $variation_id[$i] = $variation;
-        $regular_price[$i] = $product_variation->regular_price;
-        $variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
-        if ($variation_name[$i] != 'original')
-            $output .= '<input type="hidden" id="variation_price_' . $variation_id[$i] . '" value="' . $regular_price[$i] . '" name="' . $variation_id[$i] . '" />';
-        $i++;
+    if(is_array($variation_ids)) {
+        foreach ($variation_ids as $variation) {
+            $product_variation = new WC_Product_Variation($variation);
+            $variation_id[$i] = $variation;
+            $regular_price[$i] = $product_variation->regular_price;
+            $variation_name[$i] = get_post_meta($variation_id[$i], 'attribute_pa_print_groesse', true);
+            if ($variation_name[$i] != 'original')
+                $output = '<input type="hidden" id="variation_price_' . $variation_id[$i] . '" value="' . $regular_price[$i] . '" name="' . $variation_id[$i] . '" />';
+            $i++;
+        }
     }
     if ($count)
         return count($variation_ids);
@@ -445,5 +447,26 @@ function my_woocommerce_continue_shopping_redirect( $return_to ) {
     return get_permalink( wc_get_page_id( 'shop' ) );
 }
 add_filter( 'woocommerce_continue_shopping_redirect', 'my_woocommerce_continue_shopping_redirect', 20 );
+
+function waa_add_terms_to_registration(){
+if ( wc_get_page_id( 'terms' ) > 0 && apply_filters( 'woocommerce_checkout_show_terms', true ) ) : ?>
+    <p class="form-row terms">
+        <label for="terms">
+            <input type="checkbox" class="input-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); ?> id="terms" />
+            <?php printf( __( 'I&rsquo;ve read and accept the <a href="%s" target="_blank">terms &amp; conditions</a>', 'woocommerce' ), esc_url( wc_get_page_permalink( 'terms' ) ) ); ?>
+        </label>
+    </p>
+<?php endif;
+}
+add_action( 'register_form', 'waa_add_terms_to_registration', 80 );
+
+function waa_terms_validation_registration( $errors, $username, $password, $email ){
+    if ( empty( $_POST['terms'] ) ) {
+        throw new Exception( __( 'You must accept our Terms &amp; Conditions.', 'woocommerce' ) );
+    }
+    return $errors;
+}
+add_action( 'woocommerce_process_registration_errors', 'waa_terms_validation_registration', 10, 4 );
+
 
 ?>

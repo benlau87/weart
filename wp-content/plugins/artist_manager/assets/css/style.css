@@ -2009,8 +2009,7 @@ table.waa-single-attribute-options-table tbody tr td button.remove_attribute {
   margin: 0;
 }
 .waa-single-store .profile-frame {
-  height: 300px;
-  padding: 0px;
+  padding: 0;
   margin-bottom: 30px;
   position: relative;
   background-size: 100% auto;
@@ -2287,6 +2286,9 @@ ul.waa_tabs li.active {
 }
 .waa-table > tbody + tbody {
   border-top: 2px solid #ededed;
+}
+.waa-table-variations th {
+  font-size: 15px;
 }
 .chart-tooltip {
   position: absolute;

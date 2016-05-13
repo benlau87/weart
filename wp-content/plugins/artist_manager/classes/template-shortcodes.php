@@ -233,10 +233,12 @@ class waa_Template_Shortcodes
 
                 if (isset($_POST['waa_product_id']) && empty($_POST['waa_product_id'])) {
 
+                    $post_status = isset($_POST['waa_save_as_draft']) && $_POST['waa_save_as_draft'] == 'yes' ? 'draft' : 'publish';
+
                     $post_data = apply_filters('waa_insert_product_post_data', array(
                         'post_type' => 'product',
                         # 'post_status'  => 'draft',
-                        'post_status' => 'publish',
+                        'post_status' => $post_status,
                         'post_title' => $post_title,
                         'post_content' => $post_content,
                         'post_excerpt' => $post_excerpt,
@@ -247,13 +249,14 @@ class waa_Template_Shortcodes
                 } else {
                     $post_id = (int)$_POST['waa_product_id'];
                     $product_status = waa_get_new_post_status();
+                    $post_status = isset($_POST['waa_save_as_draft']) && $_POST['waa_save_as_draft'] == 'yes' ? 'draft' : 'publish';
                     $product_info = apply_filters('waa_update_product_post_data', array(
                         'ID' => $post_id,
                         'post_title' => sanitize_text_field($_POST['post_title']),
                         'post_content' => $_POST['post_content'],
                         'post_excerpt' => $_POST['post_excerpt'],
                         #  'post_status'    => isset( $_POST['post_status'] ) ? ( $_POST['post_status'] == 'draft' ) ? $product_status : $_POST['post_status'] : 'pending',
-                        'post_status' => 'publish',
+                        'post_status' => $post_status,
                         'comment_status' => isset($_POST['_enable_reviews']) ? 'open' : 'closed'
                     ));
 

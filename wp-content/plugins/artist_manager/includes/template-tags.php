@@ -162,9 +162,9 @@ function waa_product_listing_status_filter() {
         <li<?php echo $status_class == 'publish' ? ' class="active"' : ''; ?>>
             <a href="<?php echo add_query_arg( array( 'post_status' => 'publish' ), $permalink ); ?>"><?php printf( __( 'Online (%d)', 'waa' ), $post_counts->publish ); ?></a>
         </li>
-        <li<?php echo $status_class == 'pending' ? ' class="active"' : ''; ?>>
-            <a href="<?php echo add_query_arg( array( 'post_status' => 'pending' ), $permalink ); ?>"><?php printf( __( 'Pending Review (%d)', 'waa' ), $post_counts->pending ); ?></a>
-        </li>
+        <!--<li<?php /*echo $status_class == 'pending' ? ' class="active"' : ''; */?>>
+            <a href="<?php /*echo add_query_arg( array( 'post_status' => 'pending' ), $permalink ); */?>"><?php /*printf( __( 'Pending Review (%d)', 'waa' ), $post_counts->pending ); */?></a>
+        </li>-->
         <li<?php echo $status_class == 'draft' ? ' class="active"' : ''; ?>>
             <a href="<?php echo add_query_arg( array( 'post_status' => 'draft' ), $permalink ); ?>"><?php printf( __( 'Draft (%d)', 'waa' ), $post_counts->draft ); ?></a>
         </li>
