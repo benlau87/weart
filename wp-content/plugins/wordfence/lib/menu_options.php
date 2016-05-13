@@ -672,7 +672,7 @@ $w = new wfConfig();
 						require( 'wfAction.php' ); ?></td>
 				</tr>
 				<tr>
-					<th>If 404's for known vulnerable URL's exceed:<a
+					<th>If 404s for known vulnerable URLs exceed:<a
 							href="http://docs.wordfence.com/en/Wordfence_options#If_404.27s_for_known_vulnerable_URL.27s_exceed"
 							target="_blank" class="wfhelp"></a></th>
 					<td><?php $rateName = 'maxScanHits';
@@ -885,11 +885,10 @@ $w = new wfConfig();
 					           value="<?php $w->f( 'bannedURLs' ); ?>" size="40"/></td>
 				</tr>
 				<tr>
-					<th colspan="2" style="color: #999;">Separate multiple URL's with commas. If you see an attacker
-						repeatedly probing your site for a known vulnerability you can use this to immediately block
-						them.<br/>
-						All URL's must start with a '/' without quotes and must be relative. e.g. /badURLone/,
-						/bannedPage.html, /dont-access/this/URL/
+					<th colspan="2" style="color: #999;">Separate multiple URL's with commas. Asterisks are wildcards,
+						but use with care. If you see an attacker repeatedly probing your site for a known vulnerability
+						you can use this to immediately block them. All URL's must start with a '/' without quotes and
+						must be relative. e.g. /badURLone/, /bannedPage.html, /dont-access/this/URL/, /starts/with-*
 						<br/><br/></th>
 				</tr>
 

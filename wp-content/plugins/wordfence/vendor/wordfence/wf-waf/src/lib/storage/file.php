@@ -22,6 +22,7 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		fflush($tmpHandle);
 		self::lock($tmpHandle, LOCK_UN);
 		fclose($tmpHandle);
+		chmod($tmpFile, 0640);
 
 		// Attempt to verify file has finished writing (sometimes the disk will lie for better benchmarks)
 		$tmpContents = file_get_contents($tmpFile);
@@ -482,7 +483,17 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 			return;
 		}
 
-		wfWAFStorageFile::atomicFilePutContents($this->getConfigFile(), self::LOG_FILE_HEADER . serialize($this->data));
+		if (WFWAF_IS_WINDOWS) {
+			self::lock($this->configFileHandle, LOCK_UN);
+			fclose($this->configFileHandle);
+			file_put_contents($this->getConfigFile(), self::LOG_FILE_HEADER . serialize($this->data), LOCK_EX);
+		} else {
+			wfWAFStorageFile::atomicFilePutContents($this->getConfigFile(), self::LOG_FILE_HEADER . serialize($this->data));
+		}
+
+		if (WFWAF_IS_WINDOWS) {
+			$this->configFileHandle = fopen($this->getConfigFile(), 'r+');
+		}
 	}
 
 	/**
@@ -1051,7 +1062,11 @@ class wfWAFAttackDataStorageFileEngine {
 	public function truncate() {
 		$defaultHeader = $this->getDefaultHeader();
 		$this->close();
-		wfWAFStorageFile::atomicFilePutContents($this->getFile(), $defaultHeader, 'attack');
+		if (WFWAF_IS_WINDOWS) {
+			file_put_contents($this->getFile(), $defaultHeader, LOCK_EX);
+		} else {
+			wfWAFStorageFile::atomicFilePutContents($this->getFile(), $defaultHeader, 'attack');
+		}
 		$this->header = array();
 		$this->offsetTable = array();
 		$this->open();
