@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3a05fdd-3ee1-4195-b6ca-55f595236e40" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="f3a05fdd-3ee1-4195-b6ca-55f595236e40" name="Default" comment="" />
     <ignored path="weart.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -23,108 +21,57 @@
     <favorites_list name="weart" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp23520/wp-content/themes/geerscutting_2014/library/css/style.css">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="dokan-invoice.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan-invoice/dokan-invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.807692">
-              <caret line="1781" column="2" selection-start-line="1781" selection-start-column="2" selection-end-line="1781" selection-end-column="2" />
+            <state vertical-scroll-proportion="-98.73077">
+              <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp48308/httpdocs/sm55/xtshop/templates/sm55_reiniger/css/stylesheet.css">
+      <file leaf-file-name="woocommerce-pdf-invoices-packingslips.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.269231">
-              <caret line="2244" column="23" selection-start-line="2244" selection-start-column="23" selection-end-line="2244" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="678" column="104" selection-start-line="678" selection-start-column="83" selection-end-line="678" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp52041/httpdocs/sm55/xtshop/templates/sm55_reiniger/scripts/custom.js">
+      <file leaf-file-name="new-product-single.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2744887">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subpage_payment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp23094/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout/subpage_payment.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.054545">
-              <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11647/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/payment/index.html">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp02370/var/www/vhosts/advo2call.de/httpdocs/cdn/mein-nachbarrecht/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="payment_default.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11922/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/payment/payment_default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="payment_default.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/xt_paypal_plus_1.2.0/payment_default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11224/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.5">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout_backup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp12922/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout_backup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="js.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp14979/httpdocs/sm55/xtshop/templates/sm55_reiniger/javascript/js.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state vertical-scroll-proportion="-0.6181818">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="26" />
               <folding>
-                <element signature="e#6#1016#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="free-trial-modal.html" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/scp02439/var/www/vhosts/advo2call.de/httpdocs/cdn/free-trial-modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,57 +93,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/weareart/functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/wc-functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/templates/products-listing.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/products-listing.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp06512/httpdocs/weart/wp-content/plugins/artist_manager/templates/new-product.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp22515/httpdocs/weart/wp-content/plugins/artist_manager/assets/css/waa-extra.css" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp47307/httpdocs/weart/wp-content/plugins/artist_manager/includes/functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp12374/httpdocs/weart/wp-content/plugins/artist_manager/templates/edit/variation-item.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp11991/httpdocs/weart/wp-content/plugins/artist_manager/templates/edit/load_variation_template.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp13313/httpdocs/weart/wp-content/plugins/artist_manager/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/settings/shipping.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/shipping-gateway/shipping.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp44392/httpdocs/weart/wp-content/plugins/artist_manager/templates/settings/shipping.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/includes/wc-template.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp33335/httpdocs/weart/wp-content/themes/weareart/woocommerce/content-single-product.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp29828/httpdocs/weart/wp-content/themes/weareart/woocommerce/single-product/add-to-cart/simple.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp39169/httpdocs/weart/wp-content/plugins/artist_manager/includes/wc-functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp48229/httpdocs/weart/wp-content/themes/weareart/woocommerce/single-product/price.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp50914/httpdocs/weart/wp-content/themes/weareart/functions/functions-woocommerce.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp11098/httpdocs/weart/wp-content/plugins/artist_manager/includes/shipping-gateway/shipping.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp05012/httpdocs/weart/wp-content/plugins/artist_manager/templates/new-product-single.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp16760/httpdocs/weart/wp-content/plugins/artist_manager/assets/js/all.js" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp01718/httpdocs/weart/wp-content/themes/weareart/woocommerce/cart/cart.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp25853/httpdocs/weart/wp-content/themes/weareart/woocommerce/cart/cart-shipping.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp01772/httpdocs/weart/wp-content/themes/weareart/woocommerce/cart/cart-totals.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp57372/httpdocs/weart/wp-content/plugins/artist_manager/templates/new-product-single.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp58041/httpdocs/weart/wp-content/plugins/artist_manager/includes/wc-functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp13087/httpdocs/weart/wp-content/themes/weareart/functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp55801/httpdocs/weart/wp-content/themes/weareart/css/bootstrap.min.css" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp01544/httpdocs/weart/wp-content/plugins/artist_manager/templates/settings/shipping.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp34008/httpdocs/weart/wp-content/plugins/artist_manager/templates/dashboard.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp11085/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/homepage.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp55950/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/js/script.js" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp50385/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/js/script.js" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp53642/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce/emails/customer-completed-order.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp25177/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp33543/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce-custom-functions.php" />
-        <option value="$PROJECT_DIR$/test.html" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp14581/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce/checkout/cart-errors.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp27558/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/js/coupon-form.js" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp24027/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce-custom-functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp57289/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/woocommerce-custom-functions.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp49804/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/js/coupon-form.js" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp07355/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/woocommerce/checkout/cart-errors.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp23520/wp-content/themes/geerscutting_2014/library/css/style.css" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp14979/httpdocs/sm55/xtshop/templates/sm55_reiniger/javascript/js.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp23094/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout/subpage_payment.html" />
-        <option value="$USER_HOME$/AppData/Local/Temp/scp11922/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/payment/payment_default.html" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp48308/httpdocs/sm55/xtshop/templates/sm55_reiniger/css/stylesheet.css" />
         <option value="$USER_HOME$/AppData/Local/Temp/scp52041/httpdocs/sm55/xtshop/templates/sm55_reiniger/scripts/custom.js" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp38102/httpdocs/weart/wp-content/plugins/artist_manager/includes/shipping-gateway/shipping.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp47725/httpdocs/weart/wp-content/plugins/artist_manager/includes/wc-functions.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp48049/benlau/rezensionen.html" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/checkout/payment.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp58893/httpdocs/weart/wp-content/themes/weareart/woocommerce/checkout/payment.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp25433/httpdocs/weart/wp-content/plugins/artist_manager/classes/email.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp14164/httpdocs/weart/wp-content/plugins/woo-confirmation-email/woocommerc-confirmation-email.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp47970/httpdocs/weart/wp-content/plugins/artist_manager/assets/css/style.css" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp51029/httpdocs/weart/wp-content/plugins/artist_manager/classes/template-shortcodes.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp07306/httpdocs/weart/.htaccess" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp17918/httpdocs/weart/wp-content/plugins/artist_manager/includes/template-tags.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp58938/httpdocs/weart/wp-content/plugins/artist_manager/assets/js/all.js" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp30108/httpdocs/weart/wp-content/plugins/artist_manager/includes/functions.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp40456/httpdocs/weart/wp-content/plugins/artist_manager/templates/new-product-single.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp56748/httpdocs/weart/wp-content/plugins/artist_manager/includes/order-functions.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp56594/httpdocs/weart/wp-content/plugins/artist_manager/includes/functions.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp31511/httpdocs/weart/wp-content/plugins/dokan-invoice/dokan-invoice.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp04505/httpdocs/weart/wp-content/themes/weareart/woocommerce/single-product/add-to-cart/variable.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp05616/httpdocs/weart/wp-content/themes/weareart/functions/functions-woocommerce.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp06880/httpdocs/weart/wp-content/plugins/artist_manager/templates/store-header.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp07156/httpdocs/weart/wp-content/themes/weareart/woocommerce/cart/cart-shipping.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp22431/test.geers4industry.com/app/design/frontend/default/geers4industry/template/catalog/product/list.phtml" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp33699/httpdocs/app/design/frontend/default/geers4industry/template/catalog/product/list.phtml" />
+        <option value="$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/add-to-cart/variable.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp13997/httpdocs/weart/wp-content/themes/weareart/woocommerce/single-product/add-to-cart/variable.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp41140/httpdocs/weart/wp-content/plugins/artist_manager/templates/settings/store.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp50346/httpdocs/weart/wp-content/plugins/artist_manager/includes/template-tags.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp28033/httpdocs/weart/wp-content/themes/weareart/functions/functions-shortcodes.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp38181/httpdocs/weart/wp-content/themes/weareart/functions/functions-woocommerce.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp57391/httpdocs/weart/wp-content/plugins/artist_manager/includes/admin/sellers.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp48477/httpdocs/weart/wp-content/themes/weareart/woocommerce/content-product_cat.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/weareart/functions/functions-shortcodes.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp40277/httpdocs/weart/wp-content/themes/weareart/functions/functions-shortcodes.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp47345/httpdocs/weart/wp-content/themes/weareart/woocommerce/archive-product.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp47978/httpdocs/weart/wp-content/themes/weareart/woocommerce/content-single-product.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/content-single-product.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp55373/httpdocs/weart/wp-content/themes/weareart/woocommerce/content-product.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp22335/httpdocs/weart/wp-content/themes/weareart/woocommerce/content-product_all.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp23475/httpdocs/weart/wp-content/plugins/artist_manager/templates/store.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp36209/httpdocs/weart/wp-content/themes/weareart/css/global.css" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp54983/httpdocs/weart/wp-content/themes/weareart/woocommerce/emails/email-footer.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp57237/httpdocs/weart/wp-content/themes/weareart/woocommerce/emails/email-styles.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/dokan-invoice/dokan-invoice.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp16866/httpdocs/weart/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/templates/pdf/Simple/style.css" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp07287/httpdocs/weart/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/templates/pdf/Simple/invoice.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp09694/httpdocs/weart/wp-content/themes/weareart/functions/functions-shortcodes.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp02370/var/www/vhosts/advo2call.de/httpdocs/cdn/mein-nachbarrecht/index.html" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp02439/var/www/vhosts/advo2call.de/httpdocs/cdn/free-trial-modal.html" />
       </list>
     </option>
   </component>
@@ -265,7 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -420,7 +367,101 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="single-product" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="add-to-cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weareart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="loop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weareart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="checkout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weareart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,87 +561,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artist_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artist_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artist_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -685,9 +648,9 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19270833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -714,87 +677,27 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan-invoice/dokan-invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5384617">
-          <caret line="793" column="20" selection-start-line="793" selection-start-column="20" selection-end-line="793" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/class-wc-cart.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8846154">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="678" column="104" selection-start-line="678" selection-start-column="83" selection-end-line="678" selection-end-column="104" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2016-01/artist_manager/includes/shipping-gateway/shipping.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="119" column="27" selection-start-line="119" selection-start-column="27" selection-end-line="119" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/edit/shipping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.807693">
-          <caret line="77" column="39" selection-start-line="75" selection-start-column="20" selection-end-line="77" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2016-01/artist_manager/includes/wc-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.269231">
-          <caret line="1988" column="0" selection-start-line="1988" selection-start-column="0" selection-end-line="1988" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/class-wc-shipping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.004823151">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/shipping-gateway/shipping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.230769">
-          <caret line="239" column="82" selection-start-line="239" selection-start-column="82" selection-end-line="239" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/includes/wc-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.046623792">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/includes/wc-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.046623792">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/includes/template-tags.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.046623792">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/includes/shipping-gateway/shipping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.046623792">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2015-10/artist_manager/templates/edit/shipping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7459807">
-          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -833,31 +736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34562212">
-          <caret line="787" column="13" selection-start-line="787" selection-start-column="13" selection-end-line="787" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/functions/functions-woocommerce.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.843318">
-          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-cart-functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="241" column="128" selection-start-line="241" selection-start-column="128" selection-end-line="241" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -875,18 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.230769">
-          <caret line="1869" column="9" selection-start-line="1869" selection-start-column="9" selection-end-line="1869" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/theme.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="543" column="36" selection-start-line="543" selection-start-column="36" selection-end-line="543" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,209 +768,204 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/checkout/payment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.576923">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#1;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#2;n#tfoot#0;n#table#0;n#td#1;n#tr#0;n#tbody#0;n#table#1;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-16.884615">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp55333/opt/bitnami/apps/advo2call.de/wp-content/plugins/woocommerce/includes/class-wc-coupon.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/wordfence/lib/wordfenceClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-159.8">
-          <caret line="517" column="62" selection-start-line="517" selection-start-column="35" selection-end-line="517" selection-end-column="62" />
-          <folding>
-            <marker date="1454810560000" expanded="true" signature="4264:4371" placeholder="SELECT ID FR..${$wpdb-&gt;posts}..." />
-            <marker date="1454810560000" expanded="true" signature="8176:8284" placeholder="SELECT meta_..${$wpdb-&gt;postmeta}..." />
-          </folding>
+        <state vertical-scroll-proportion="-5.3846154">
+          <caret line="1083" column="94" selection-start-line="1083" selection-start-column="94" selection-end-line="1083" selection-end-column="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp14581/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce/checkout/cart-errors.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/class-wc-form-handler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding />
+        <state vertical-scroll-proportion="-14.076923">
+          <caret line="897" column="46" selection-start-line="897" selection-start-column="46" selection-end-line="897" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp27558/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/js/coupon-form.js">
+    <entry file="file://$PROJECT_DIR$/wp-includes/category-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5868331">
+          <caret line="362" column="14" selection-start-line="362" selection-start-column="12" selection-end-line="362" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2016-01/artist_manager/includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34279227">
+          <caret line="390" column="9" selection-start-line="390" selection-start-column="9" selection-end-line="390" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/single-product/add-to-cart/variable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-template-functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
-          <folding />
+          <caret line="1946" column="26" selection-start-line="1946" selection-start-column="18" selection-end-line="1946" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp24027/opt/bitnami/apps/dev.advo2call.de/wp-content/themes/advo/woocommerce-custom-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.5">
-          <caret line="412" column="84" selection-start-line="412" selection-start-column="84" selection-end-line="412" selection-end-column="84" />
-          <folding>
-            <marker date="1457447692255" expanded="true" signature="16475:16488" placeholder="..." />
-            <marker date="1457447692255" expanded="true" signature="17560:17606" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp49804/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/js/coupon-form.js">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/template-tags.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
-          <folding />
+          <caret line="536" column="6" selection-start-line="536" selection-start-column="6" selection-end-line="536" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp07355/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/woocommerce/checkout/cart-errors.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/emails/customer-processing-order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp57289/opt/bitnami/apps/advo2call.de/wp-content/themes/advo/woocommerce-custom-functions.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/functions/functions-woocommerce.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.923077">
-          <caret line="459" column="5" selection-start-line="459" selection-start-column="5" selection-end-line="459" selection-end-column="5" />
-          <folding>
-            <marker date="1457448382682" expanded="true" signature="16475:16488" placeholder="..." />
-            <marker date="1457448382682" expanded="true" signature="17560:17606" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="373" column="38" selection-start-line="373" selection-start-column="9" selection-end-line="373" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp22170/wp-content/themes/geerscutting_2014/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.090909">
-          <caret line="81" column="38" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp23520/wp-content/themes/geerscutting_2014/library/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.807692">
-          <caret line="1781" column="2" selection-start-line="1781" selection-start-column="2" selection-end-line="1781" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/xt_paypal_plus_1.2.0/payment_default.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/checkout/form-checkout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11224/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/checkout/review-order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp12922/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout_backup.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/checkout/form-billing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp39729/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout/subpage_pay.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/cart/cart-totals.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/cart/cart-shipping.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/cart/cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2016-01/artist_manager/includes/admin/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.3357577">
+          <caret line="356" column="23" selection-start-line="356" selection-start-column="13" selection-end-line="356" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/includes/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3461537">
+          <caret line="1595" column="29" selection-start-line="1595" selection-start-column="29" selection-end-line="1595" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-comments-post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/functions/functions-shortcodes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.346153">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/weareart/woocommerce/content-single-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.192307">
+          <caret line="149" column="25" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan_backup/2016-01/artist_manager/templates/store.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.346153">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dokan-invoice/dokan-invoice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-98.73077">
+          <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp23094/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/checkout/subpage_payment.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.054545">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="678" column="104" selection-start-line="678" selection-start-column="83" selection-end-line="678" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/artist_manager/templates/new-product-single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp02370/var/www/vhosts/advo2call.de/httpdocs/cdn/mein-nachbarrecht/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6181818">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11647/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/payment/index.html">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp02439/var/www/vhosts/advo2call.de/httpdocs/cdn/free-trial-modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp11922/httpdocs/sm55/xtshop/templates/sm55_reiniger/xtCore/pages/payment/payment_default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp48308/httpdocs/sm55/xtshop/templates/sm55_reiniger/css/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.269231">
-          <caret line="2244" column="23" selection-start-line="2244" selection-start-column="23" selection-end-line="2244" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp14979/httpdocs/sm55/xtshop/templates/sm55_reiniger/javascript/js.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
-            <element signature="e#6#1016#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp52041/httpdocs/sm55/xtshop/templates/sm55_reiniger/scripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2744887">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
