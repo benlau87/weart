@@ -4,3 +4,5 @@
 wp-config.php
 .idea
 /wp-content/plugins/wordfence/tmp
+.idea/workspace.xml
+.idea/workspace.xml
