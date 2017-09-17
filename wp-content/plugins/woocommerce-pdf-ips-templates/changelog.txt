@@ -1,0 +1,142 @@
+2.2.1 (2017-02-08)
+* Feature: {{private_order_notes}} placeholder
+* Feature: new template action hooks wpo_wcpdf_before_document & wpo_wcpdf_after_document
+* Fix: discount percentage in totals
+* Fix: warnings when address data missing
+* Tweak: Customizer styles 
+
+2.2.0 (2016-11-28)
+* Feature: Use placeholders in templates settings fields (footer, extra fields, etc)
+* Feature: Option to hide custom field block if custom field is empty
+* Feature: Added percent option to discount column block
+* Fix: Credit note placeholders
+
+2.1.13 (2016-11-07)
+* Feature: Option to show discount percentage in totals
+* Feature: Product categories block
+* Feature: Total quantity block (totals)
+* Feature: {{order_time}} placeholder (for custom blocks)
+* Fix: Modern template credit note date setting
+* Translations: Added Norwegian
+
+2.1.12 (2016-07-18)
+* Feature: Added several formatted prices to the Custom blocks placeholders
+* Feature: Added regular price block
+* Feature: Option to show coupon code/codes with discount total
+
+2.1.11 (2016-06-14)
+* Feature: WooCommerce Checkout Add-Ons compatibility (fee description/label)
+* Fix: {{order_notes}} placeholder in custom blocks
+* Tweak: Plugin styles compatibilies
+
+2.1.10 (2016-05-10)
+* Fix: Product description for non-variable products with variation description enabled
+
+2.1.9 (2016-05-05)
+* Feature: Add tax base (total excluding tax per tax rate) to totals
+* Feature: Variation description added to Product description column
+
+2.1.8 (2016-04-12)
+* Feature: Use order data placeholders in Custom blocks
+* Feature: New column blocks - Checkbox, position & Static text
+* Feature: Option to hide shipping block for free shipping
+* Fix: Custom block options (hides non-applicable)
+* Fix: PHP notice when using custom text block after order data
+* Fix: Single item meta block
+
+2.1.7 (2016-02-03)
+* Feature: Add custom blocks (text or custom field) via customizer
+* Feature: Option to show certain columns only for discounted orders
+* Feature: Separate variation/item meta in columns (all or single)
+* Feature: Bundles compatibility for Modern & Business template (product names indented)
+* Templates: Before & after customer notes action
+* Fix: Shipping method showing method twice
+
+2.1.6 (unreleased)
+
+2.1.5 (2016-01-05)
+* Feature: Product description block
+* Fix: YITH plugin compatibility (YITH plugins load their styles on all backend pages causing conflicts)
+* Fix: Allow positive 'discounts'
+* Fix: Footer height setting for Simple Premium template
+* Tweak: text domain in plugin header
+* Dev: pass item_id to wpo_wcpdf_item_row_class filter separately from class name
+
+2.1.4 (2015-11-23)
+* Fix: Customizer interface conflicts
+* Dev: Added filter for item columns (wpo_wcpdf_templates_item_column_data)
+
+2.1.3 (2015-11-11)
+* Feature: Show total order weight in totals
+* Feature: option to show single or total item weight (column block)
+* Fix: Packing slip ships to different address check
+* Fix: Empty tax label when using custom label in preceding total block
+* Translations: Updated dutch
+
+2.1.2 (2015-10-20)
+* Feature: option to show shipping method in stead of cost
+* Fix: Warning when free version is not activated
+
+2.1.1 (2015-09-22)
+* Fix: YITH theme compatibility
+* Fix: fee keys notifications (on debug output)
+
+2.1.0 (2015-09-08)
+* Feature: New line item columns (weight, product custom field and product attribute)
+* Feature: WooCommerce Product Bundle compatibility
+* Fix: missing </tr> in modern template
+
+2.0.3 (2015-06-15)
+* Tweak: Use new/better address comparison functions
+* Fix: bug for Subtotal block
+
+2.0.2 (2015-05-20)
+* Several small bugfixes
+
+2.0.0 (2015-04-28)
+* Mayor plugin overhaul with new features
+* Feature: Template editor to define columns & totals
+* Feature: enter custom template styles in the settings
+* New template: Simple Premium, customizable version of the Simple template
+
+1.3.3 (2015-04-21)
+* Fix: billing address on Modern packing slip 
+
+1.3.2 (2015-03-31)
+* Feature: Before & after item meta actions
+* Tweak: item id in items loop
+
+1.3.1 (2015-03-23)
+* Fix: template wrapper error
+
+1.3.0 (2015-03-23)
+* Feature: display shipping address on invoice (requires 1.5.6 of main plugin)
+* Feature: display email address & phone number on invoice or packing slip (same as above)
+* Feature: footer height setting + smarter footer clearing
+* Feature: Various template actions
+* Feature: Custom styles action
+* Tweak: Improved sidekick notice
+* Tweak: several small layout adjustments / tweaks
+* Fix: Document titles for Credit Note & Proforma
+
+1.2.0 (2014-10-27)
+* Feature: support for proforma invoices and credit notes extension (estimated release: november 2014)
+* Tweak: Order number is now displayed be default, invoice number (still) optional.
+* Tweak: Shipping method in Business packing slip
+* Tweak: template body now has document type class (for CSS tweaks)
+* Fix: Bold & italic font for modern template
+
+1.1.3 (2014-10-15)
+* Fix: URL underlines
+* Fix: Modern packing slip date format now follows WP settings
+* Tweak: HTML cleanup
+
+1.1.2 (2014-04-16)
+* Fix: Modern template translation strings (Order number & Order date)
+
+1.1.1 (2014-02-17)
+* Feature: Support for invoice number & date
+* Tweak: Variation data on a single line (WooCommerce 2.1)
+
+1.1.0 (2014-01-24)
+* Improved output of variations & totals

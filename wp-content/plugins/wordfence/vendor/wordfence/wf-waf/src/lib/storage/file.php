@@ -3,6 +3,8 @@
 class wfWAFStorageFile implements wfWAFStorageInterface {
 
 	const LOG_FILE_HEADER = "<?php exit('Access denied'); __halt_compiler(); ?>\n";
+	const LOG_INFO_HEADER = "******************************************************************\nThis file is used by the Wordfence Web Application Firewall. Read \nmore at https://docs.wordfence.com/en/Web_Application_Firewall_FAQ\n******************************************************************\n";
+	const IP_BLOCK_RECORD_SIZE = 24;
 
 	public static function atomicFilePutContents($file, $content, $prefix = 'config') {
 		$tmpFile = @tempnam(dirname($file), $prefix . '.tmp.');
@@ -22,7 +24,7 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		fflush($tmpHandle);
 		self::lock($tmpHandle, LOCK_UN);
 		fclose($tmpHandle);
-		chmod($tmpFile, 0640);
+		chmod($tmpFile, 0660); 
 
 		// Attempt to verify file has finished writing (sometimes the disk will lie for better benchmarks)
 		$tmpContents = file_get_contents($tmpFile);
@@ -291,12 +293,12 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	 * @return mixed|void
 	 * @throws wfWAFStorageFileException
 	 */
-	public function blockIP($timestamp, $ip) {
+	public function blockIP($timestamp, $ip, $type = wfWAFStorageInterface::IP_BLOCKS_SINGLE) {
 		$this->open();
 		if (!$this->isIPBlocked($ip)) {
 			self::lock($this->ipCacheFileHandle, LOCK_EX);
 			fseek($this->ipCacheFileHandle, 0, SEEK_END);
-			fwrite($this->ipCacheFileHandle, wfWAFUtils::inet_pton($ip) . pack('V', $timestamp));
+			fwrite($this->ipCacheFileHandle, wfWAFUtils::inet_pton($ip) . pack('V', $timestamp) . pack('V', $type));
 			fflush($this->ipCacheFileHandle);
 			self::lock($this->ipCacheFileHandle, LOCK_UN);
 		}
@@ -312,11 +314,16 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		fseek($this->ipCacheFileHandle, wfWAFUtils::strlen(self::LOG_FILE_HEADER), SEEK_SET);
 		self::lock($this->ipCacheFileHandle, LOCK_SH);
 		while (!feof($this->ipCacheFileHandle)) {
-			$ipStr = fread($this->ipCacheFileHandle, 20);
+			$ipStr = fread($this->ipCacheFileHandle, self::IP_BLOCK_RECORD_SIZE);
+			if (wfWAFUtils::strlen($ipStr) < self::IP_BLOCK_RECORD_SIZE) { break; }
 			$ip2 = wfWAFUtils::substr($ipStr, 0, 16);
-			if ($ipBin === $ip2 && unpack('V', wfWAFUtils::substr($ipStr, 16, 4)) >= time()) {
-				self::lock($this->ipCacheFileHandle, LOCK_UN);
-				return true;
+			$unpacked = @unpack('V', wfWAFUtils::substr($ipStr, 16, 4));
+			if (is_array($unpacked)) {
+				$t = array_shift($unpacked);
+				if ($ipBin === $ip2 && $t >= time()) {
+					self::lock($this->ipCacheFileHandle, LOCK_UN);
+					return true;
+				}
 			}
 		}
 		self::lock($this->ipCacheFileHandle, LOCK_UN);
@@ -343,13 +350,14 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 
 		$files = array(
 			array($this->getIPCacheFile(), 'ipCacheFileHandle', self::LOG_FILE_HEADER),
-			array($this->getConfigFile(), 'configFileHandle', self::LOG_FILE_HEADER . serialize($this->getDefaultConfiguration())),
+			array($this->getConfigFile(), 'configFileHandle', self::LOG_FILE_HEADER . self::LOG_INFO_HEADER . serialize($this->getDefaultConfiguration())),
 		);
 		foreach ($files as $file) {
 			list($filePath, $fileHandle, $defaultContents) = $file;
 			if (!file_exists($filePath)) {
 				@file_put_contents($filePath, $defaultContents, LOCK_EX);
 			}
+			@chmod($filePath, 0660);
 			$this->$fileHandle = @fopen($filePath, 'r+');
 			if (!$this->$fileHandle) {
 				throw new wfWAFStorageFileException('Unable to open ' . $filePath . ' for reading and writing.');
@@ -383,19 +391,54 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		$writePointer = wfWAFUtils::strlen(self::LOG_FILE_HEADER);
 		fseek($this->ipCacheFileHandle, $readPointer, SEEK_SET);
 		self::lock($this->ipCacheFileHandle, LOCK_EX);
+		$ipCacheRow = fread($this->ipCacheFileHandle, self::IP_BLOCK_RECORD_SIZE);
 		while (!feof($this->ipCacheFileHandle)) {
-			$ipCacheRow = fread($this->ipCacheFileHandle, 20);
-			$expires = unpack('V', wfWAFUtils::substr($ipCacheRow, 16, 4));
-			if ($expires >= time()) {
-				fseek($this->ipCacheFileHandle, $writePointer, SEEK_SET);
-				fwrite($this->ipCacheFileHandle, $ipCacheRow);
-				$writePointer += 20;
-				fseek($this->ipCacheFileHandle, $readPointer, SEEK_SET);
+			$unpacked = @unpack('V', wfWAFUtils::substr($ipCacheRow, 16, 4));
+			if (is_array($unpacked)) {
+				$expires = array_shift($unpacked);
+				if ($expires >= time()) {
+					fseek($this->ipCacheFileHandle, $writePointer, SEEK_SET);
+					fwrite($this->ipCacheFileHandle, $ipCacheRow);
+					$writePointer += self::IP_BLOCK_RECORD_SIZE;
+				}
 			}
-			$readPointer += 20;
+			$readPointer += self::IP_BLOCK_RECORD_SIZE;
 			fseek($this->ipCacheFileHandle, $readPointer, SEEK_SET);
+			$ipCacheRow = fread($this->ipCacheFileHandle, self::IP_BLOCK_RECORD_SIZE);
 		}
 		ftruncate($this->ipCacheFileHandle, $writePointer);
+		fflush($this->ipCacheFileHandle);
+		self::lock($this->ipCacheFileHandle, LOCK_UN);
+	}
+	
+	/**
+	 * Remove all existing IP blocks.
+	 */
+	public function purgeIPBlocks($types = wfWAFStorageInterface::IP_BLOCKS_ALL) {
+		$this->open();
+		$readPointer = wfWAFUtils::strlen(self::LOG_FILE_HEADER);
+		$writePointer = wfWAFUtils::strlen(self::LOG_FILE_HEADER);
+		fseek($this->ipCacheFileHandle, $readPointer, SEEK_SET);
+		self::lock($this->ipCacheFileHandle, LOCK_EX);
+		if ($types !== wfWAFStorageInterface::IP_BLOCKS_ALL) {
+			$ipCacheRow = fread($this->ipCacheFileHandle, self::IP_BLOCK_RECORD_SIZE);
+			while (!feof($this->ipCacheFileHandle)) {
+				$unpacked = @unpack('Vexpires/Vtype', wfWAFUtils::substr($ipCacheRow, 16, 8));
+				if (is_array($unpacked)) {
+					$type = $unpacked['type'];
+					if (($type & $types) == 0) {
+						fseek($this->ipCacheFileHandle, $writePointer, SEEK_SET);
+						fwrite($this->ipCacheFileHandle, $ipCacheRow);
+						$writePointer += self::IP_BLOCK_RECORD_SIZE;
+					}
+				}
+				$readPointer += self::IP_BLOCK_RECORD_SIZE;
+				fseek($this->ipCacheFileHandle, $readPointer, SEEK_SET);
+				$ipCacheRow = fread($this->ipCacheFileHandle, self::IP_BLOCK_RECORD_SIZE);
+			}
+		}
+		ftruncate($this->ipCacheFileHandle, $writePointer);
+		fflush($this->ipCacheFileHandle);
 		self::lock($this->ipCacheFileHandle, LOCK_UN);
 	}
 
@@ -405,7 +448,8 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	 * @return mixed
 	 */
 	public function getConfig($key, $default = null) {
-		if (!$this->data) {
+		if (!$this->data)
+		{
 			$this->fetchConfigData();
 		}
 		return array_key_exists($key, $this->data) ? $this->data[$key] : $default;
@@ -416,14 +460,16 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	 * @param mixed $value
 	 */
 	public function setConfig($key, $value) {
-		if (!$this->data) {
+		if (!$this->data)
+		{
 			$this->fetchConfigData();
 		}
 		if (!$this->dataChanged && (
 				(array_key_exists($key, $this->data) && $this->data[$key] !== $value) ||
 				!array_key_exists($key, $this->data)
 			)
-		) {
+		)
+		{
 			$this->dataChanged = array($key, true);
 			register_shutdown_function(array($this, 'saveConfig'));
 		}
@@ -434,10 +480,12 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	 * @param string $key
 	 */
 	public function unsetConfig($key) {
-		if (!$this->data) {
+		if (!$this->data)
+		{
 			$this->fetchConfigData();
 		}
-		if (!$this->dataChanged && array_key_exists($key, $this->data)) {
+		if (!$this->dataChanged && array_key_exists($key, $this->data))
+		{
 			$this->dataChanged = array($key, true);
 			register_shutdown_function(array($this, 'saveConfig'));
 		}
@@ -459,10 +507,13 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		while (!feof($this->configFileHandle)) {
 			$serializedData .= fread($this->configFileHandle, 1024);
 		}
+		if (wfWAFUtils::substr($serializedData, 0, 1) == '*') {
+			$serializedData = wfWAFUtils::substr($serializedData, wfWAFUtils::strlen(self::LOG_INFO_HEADER));
+		}
 		$this->data = @unserialize($serializedData);
 
 		if ($this->data === false) {
-			throw new wfWAFStorageFileConfigException('Error reading config data, configuration file could be corrupted.');
+			throw new wfWAFStorageFileConfigException('Error reading Wordfence Firewall config data, configuration file could be corrupted or inaccessible. Path: ' . $this->getConfigFile());
 		}
 
 		self::lock($this->configFileHandle, LOCK_UN);
@@ -486,9 +537,9 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 		if (WFWAF_IS_WINDOWS) {
 			self::lock($this->configFileHandle, LOCK_UN);
 			fclose($this->configFileHandle);
-			file_put_contents($this->getConfigFile(), self::LOG_FILE_HEADER . serialize($this->data), LOCK_EX);
+			file_put_contents($this->getConfigFile(), self::LOG_FILE_HEADER . self::LOG_INFO_HEADER . serialize($this->data), LOCK_EX);
 		} else {
-			wfWAFStorageFile::atomicFilePutContents($this->getConfigFile(), self::LOG_FILE_HEADER . serialize($this->data));
+			wfWAFStorageFile::atomicFilePutContents($this->getConfigFile(), self::LOG_FILE_HEADER . self::LOG_INFO_HEADER . serialize($this->data));
 		}
 
 		if (WFWAF_IS_WINDOWS) {
@@ -512,9 +563,9 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	 * @return bool
 	 */
 	public function isInLearningMode() {
-		if ($this->getConfig('wafStatus') == 'learning-mode') {
-			if ($this->getConfig('learningModeGracePeriodEnabled')) {
-				if ($this->getConfig('learningModeGracePeriod') > time()) {
+		if ($this->getConfig('wafStatus', '') == 'learning-mode') {
+			if ($this->getConfig('learningModeGracePeriodEnabled', false)) {
+				if ($this->getConfig('learningModeGracePeriod', 0) > time()) {
 					return true;
 				} else {
 					// Reached the end of the grace period, activate the WAF.
@@ -530,7 +581,7 @@ class wfWAFStorageFile implements wfWAFStorageInterface {
 	}
 
 	public function isDisabled() {
-		return $this->getConfig('wafStatus') === 'disabled' || $this->getConfig('wafDisabled');
+		return $this->getConfig('wafStatus', '') === 'disabled' || $this->getConfig('wafDisabled', 0);
 	}
 
 	/**
@@ -772,6 +823,7 @@ class wfWAFAttackDataStorageFileEngine {
 		if (!file_exists($this->file)) {
 			@file_put_contents($this->file, $this->getDefaultHeader(), LOCK_EX);
 		}
+		@chmod($this->file, 0660);
 		$this->fileHandle = @fopen($this->file, 'r+');
 		if (!$this->fileHandle) {
 			throw new wfWAFStorageFileException('Unable to open ' . $this->file . ' for reading and writing.');
@@ -1010,11 +1062,18 @@ class wfWAFAttackDataStorageFileEngine {
 		$this->seek(wfWAFUtils::strlen(wfWAFStorageFile::LOG_FILE_HEADER) + wfWAFUtils::strlen(self::FILE_SIGNATURE) + 8 + 8);
 		$this->lockRead();
 		list(, $rowCount) = unpack('V', $this->read(4));
+		$this->unlock();
 		if ($rowCount >= self::MAX_ROWS) {
-			$this->unlock();
 			return false;
 		}
+		
+		$this->lockWrite();
+		
+		//Re-read the row count in case it changed between releasing the shared lock and getting the exclusive
+		$this->seek(wfWAFUtils::strlen(wfWAFStorageFile::LOG_FILE_HEADER) + wfWAFUtils::strlen(self::FILE_SIGNATURE) + 8 + 8);
+		list(, $rowCount) = unpack('V', $this->read(4));
 
+		//Start the write
 		$this->header = array();
 		$this->offsetTable = array();
 
@@ -1022,8 +1081,6 @@ class wfWAFAttackDataStorageFileEngine {
 		list(, $nextRowOffset) = unpack('V', $this->read(4));
 
 		$rowString = $row->pack();
-
-		$this->lockWrite();
 
 		// Update offset table
 		$this->seek(wfWAFUtils::strlen(wfWAFStorageFile::LOG_FILE_HEADER) + wfWAFUtils::strlen(self::FILE_SIGNATURE) + 8 + 8 + 4 + (($rowCount + 1) * 4));

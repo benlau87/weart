@@ -5,6 +5,7 @@
 				<?php dynamic_sidebar('footer-col-2'); ?>
 				<?php dynamic_sidebar('footer-col-3'); ?>
 				<?php dynamic_sidebar('footer-col-4'); ?>
+				<?php dynamic_sidebar('footer-col-5'); ?>
 			<div class="clearfix"></div>
 			<div id="copyright">
 				<div class="col-md-8">

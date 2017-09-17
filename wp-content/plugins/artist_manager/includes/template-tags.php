@@ -524,10 +524,11 @@ function waa_store_categories( $seller_id ) { ?>
 						$i = 0;
             foreach ($categories as $category) {
 							#$url = get_term_link( $category, 'product_cat' );
-							if(++$i === $numItems) {
+							if(++$i == $numItems) {
 								return $category->name;
 							} else {
-								return $category->name.', ';
+								#return $category->name.', ';
+								return $category->name.' ';
 							}
 						}
             ?>
@@ -558,7 +559,15 @@ add_action( 'save_post', 'waa_store_category_delete_transient' );
 
 
 function waa_seller_reg_form_fields() {
-    $role = isset( $_POST['role'] ) ? $_POST['role'] : 'customer';
+if ( isset ( $_GET['role'] ) && !isset ( $_POST['role'] ) ) {
+    $role = $_GET['role'];
+} else {
+    if ( isset ( $_POST['role'] )) {
+        $role = $_POST['role'];
+    } else {
+        $role = 'customer';
+    }
+}
     $role_style = ( $role == 'customer' ) ? ' style="display:none"' : '';
     ?>
 		<script>
@@ -650,7 +659,7 @@ function waa_seller_reg_form_fields() {
 		</div>
 		<div class="radio user-role">
         <label>
-            <input type="radio" name="role" value="seller"<?php checked( $role, 'seller' ); ?>>
+            <input type="radio" name="role" value="seller"<?php checked( $role, 'artist' ); ?>>
             <?php _e( 'I am a seller', 'waa' ); ?>
         </label>
 			</div>

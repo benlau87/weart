@@ -61,12 +61,12 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 #template_footer #credit {
     border:0;
-    color: <?php echo esc_attr( $base_lighter_40 ); ?>;
+    color: #cacaca;
     font-family: Arial;
     font-size:12px;
     line-height:125%;
     text-align:center;
-    padding: 0 48px 48px 48px;
+    padding: 0 48px 0 48px;
 }
 
 #body_content {

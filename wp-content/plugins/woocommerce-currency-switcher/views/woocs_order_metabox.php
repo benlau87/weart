@@ -27,16 +27,16 @@ if (empty($base_currency))
     <strong><?php _e('Total amount', 'woocommerce-currency-switcher') ?></strong>: 
     <?php
     $_REQUEST['no_woocs_order_amount_total'] = 1;
-    echo trim(number_format($order->get_total(), 2) . ' ' . $currency);
+    echo trim(number_format($order->get_total(), $this->price_num_decimals) . ' ' . $currency);
     ?><br />
     <hr />
-    <a href="javascript:woocs_change_order_data();void(0);" class="button woocs_change_order_curr_button"><?php _e('Change order currency', 'woocommerce-currency-switcher') ?>&nbsp;<img class="help_tip" data-tip="<?php _e('For new manual order ONLY!!', 'woocommerce-currency-switcher') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" /></a>
+    <a href="javascript:woocs_change_order_data();void(0);" class="button woocs_change_order_curr_button"><?php _e('Change order currency', 'woocommerce-currency-switcher') ?>&nbsp;<img class="help_tip" data-tip="<?php _e('For new manual order ONLY!!', 'woocommerce-currency-switcher') ?>" src="<?php echo WOOCS_LINK ?>/img/help.png" height="16" width="16" /></a>
     <a href="javascript:woocs_cancel_order_data();void(0);" style="display: none;" class="button woocs_cancel_order_curr_button"><?php _e('cancel', 'woocommerce-currency-switcher') ?></a><br />
 
 
     <?php if ($currency !== $this->default_currency): ?>
         <hr />
-        <a href="javascript:woocs_recalculate_order_data();void(0);" class="button woocs_recalculate_order_curr_button"><?php _e("Recalculate order", 'woocommerce-currency-switcher') ?>&nbsp;<img class="help_tip" data-tip="<?php _e('Recalculate current order with basic currency. Recommended test this option on the clone of your site! Read the documentation of the plugin about it!', 'woocommerce-currency-switcher') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" /></a><br />
+        <a href="javascript:woocs_recalculate_order_data();void(0);" class="button woocs_recalculate_order_curr_button"><?php _e("Recalculate order", 'woocommerce-currency-switcher') ?>&nbsp;<img class="help_tip" data-tip="<?php _e('Recalculate current order with basic currency. Recommended test this option on the clone of your site! Read the documentation of the plugin about it!', 'woocommerce-currency-switcher') ?>" src="<?php echo WOOCS_LINK ?>/img/help.png" height="16" width="16" /></a><br />
         <?php endif; ?>
 
 </div>

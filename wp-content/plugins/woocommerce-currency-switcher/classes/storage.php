@@ -4,7 +4,7 @@ if (!defined('ABSPATH'))
     die('No direct access allowed');
 
 //keeps current user data
-class WOOCS_STORAGE
+final class WOOCS_STORAGE
 {
 
     public $type = 'session'; //session, transient, cookie
@@ -25,13 +25,15 @@ class WOOCS_STORAGE
                 @session_start();
             }
         }
-        //$this->user_ip = $_SERVER['REMOTE_ADDR'];
+        
         $this->user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
         $this->transient_key = md5($this->user_ip);
     }
 
     public function set_val($key, $value)
     {
+        $value=sanitize_text_field(esc_html($value));
+        //***
         switch ($this->type)
         {
             case 'session':
@@ -88,7 +90,7 @@ class WOOCS_STORAGE
                 break;
         }
 
-        return $value;
+        return sanitize_text_field(esc_html($value));
     }
 
     public function is_isset($key)

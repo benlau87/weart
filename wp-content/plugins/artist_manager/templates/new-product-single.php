@@ -3,6 +3,14 @@
 #ini_set('display_errors', 'On');
 global $post;
 
+
+// disable srcset for images
+function meks_disable_srcset( $sources ) {
+		return false;
+}
+
+#add_filter( 'wp_calculate_image_srcset', 'meks_disable_srcset' );
+
 $from_shortcode = false;
 
 $user_id = get_current_user_id();
@@ -475,7 +483,7 @@ if (empty($waa_product_type) && !empty($product))
 																			<i class="ui ui-question-circle"></i>
 																		</span></label>
                                             <textarea name="post_content"
-                                                      style="width:100%; height:150px"><?= $post_content ?></textarea>
+                                                      style="width:100%; height:150px" placeholder="<?= __('Beschreibe dein Kunstwerk möglichst genau. Was hat dich bei deiner Arbeit inspiriert? Welche Emotionen möchtest du beim Betrachter erwecken? Welchen Rahmen hat das Kunstwerk und wie wird es versandt?', 'waa') ?>"><?= $post_content ?></textarea>
                                         </div>
 
                                         <div class="waa-form-group tag-group">

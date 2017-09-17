@@ -11,15 +11,58 @@ $store_user = get_userdata(get_query_var('author'));
 $store_info = waa_get_store_info($store_user->ID);
 $scheme = is_ssl() ? 'https' : 'http';
 
-wp_enqueue_script('google-maps', $scheme . '://maps.google.com/maps/api/js?sensor=true');
-function assignPageTitle(){
-    return "Title goes here";
+$store_desc = strlen($store_info['description']) > 155 ? substr($store_info['description'],0,155)."..." : $store_info['description'];
+global $wpseo_front;
+if(defined($wpseo_front)){
+    remove_action('wp_head',array($wpseo_front,'head'),1);
 }
-add_filter('wp_title', 'assignPageTitle');
-get_header('shop');
-
-
+else {
+    $wp_thing = WPSEO_Frontend::get_instance();
+    remove_action('wp_head',array($wp_thing,'head'),1);
+}
 ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+    <head>
+        <title>Shop von <?= $store_info['store_name'] ?> auf WeAre-Art.com</title>
+        <meta charset="<?php bloginfo( 'charset' ); ?>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+
+        <meta name="description" content="<?= $store_desc; ?>" />
+        <meta name="twitter:card" value="<?= $store_desc; ?>">
+        <meta property="og:title" content="Shop von <?= $store_info['store_name'] ?> auf WeAre-Art.com" />
+        <meta property="og:type" content="profile" />
+        <meta property="profile:first_name" content="<?= $store_user->user_firstname; ?>">
+        <meta property="profile:last_name" content="<?= $store_user->user_lastname; ?>">
+        <meta property="profile:username" content="<?= $store_info['store_name']; ?>">
+        <meta property="og:url" content="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+        <meta property="og:image" content="<?= the_post_thumbnail_url(); ?>" />
+        <meta property="og:description" content="<?= $store_desc; ?>" />
+
+        <?php wp_head(); ?>
+    </head>
+<body <?php body_class(); ?>>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+<header class="navbar navbar-static-top" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <a href="<?= home_url(); ?>" class="navbar-brand"><img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="We are Art" /></a>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav navbar-nav' ) );			?>
+        </nav>
+    </div>
+</header>
+
+
     <div id="content">
         <div class="showcase woocommerce">
             <div class="container">
@@ -134,7 +177,7 @@ get_header('shop');
 
                                         <?php while (have_posts()) : the_post(); ?>
 
-                                            <?php wc_get_template_part('content', 'product'); ?>
+                                            <?php wc_get_template_part('content', 'product_all'); ?>
 
                                         <?php endwhile; // end of the loop. ?>
 

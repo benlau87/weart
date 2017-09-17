@@ -3,8 +3,14 @@
 interface wfWAFRequestInterface {
 
 	public function getBody();
+	
+	public function getRawBody();
+	
+	public function getMd5Body();
 
 	public function getQueryString();
+	
+	public function getMd5QueryString();
 
 	public function getHeaders();
 
@@ -17,6 +23,9 @@ interface wfWAFRequestInterface {
 	public function getHost();
 
 	public function getURI();
+	
+	public function setMetadata($metadata);
+	public function getMetadata();
 
 	public function getPath();
 
@@ -55,6 +64,7 @@ class wfWAFRequest implements wfWAFRequestInterface {
 
 		$request->setAuth(array());
 		$request->setBody(array());
+		$request->setMd5Body(array());
 		$request->setCookies(array());
 		$request->setFileNames(array());
 		$request->setFiles(array());
@@ -65,12 +75,22 @@ class wfWAFRequest implements wfWAFRequestInterface {
 		$request->setPath('');
 		$request->setProtocol('');
 		$request->setQueryString(array());
+		$request->setMd5QueryString(array());
 		$request->setTimestamp('');
 		$request->setURI('');
+		$request->setMetadata(array());
 
 		list($headersString, $bodyString) = explode("\n\n", $requestString, 2);
 		$headersString = trim($headersString);
 		$bodyString = trim($bodyString);
+		
+		if (defined('WFWAF_DISABLE_RAW_BODY') && WFWAF_DISABLE_RAW_BODY) {
+			$request->setRawBody('');
+		}
+		else {
+			$request->setRawBody($bodyString);
+		}
+		
 		$headers = explode("\n", $headersString);
 		// Assume first is method
 		if (preg_match('/^([a-z]+) (.*?) HTTP\/1.[0-9]/i', $headers[0], $matches)) {
@@ -112,13 +132,9 @@ class wfWAFRequest implements wfWAFRequestInterface {
 
 				case 'cookie':
 					$cookieArray = array();
-					$cookies = explode(';', $headerValue);
-					foreach ($cookies as $cookie) {
-						if (wfWAFUtils::strpos($cookie, '=') !== false) {
-							list($cookieName, $cookieValue) = explode('=', $cookie, 2);
-							$cookieArray[trim($cookieName)] = urldecode(trim($cookieValue));
-						}
-					}
+					$cookies = str_replace('&', '%26', $headerValue);
+					$cookies = preg_replace('/\s*;\s*/', '&', $cookies);
+					parse_str($cookies, $cookieArray);
 					$request->setCookies($cookieArray);
 					break;
 			}
@@ -239,8 +255,16 @@ class wfWAFRequest implements wfWAFRequestInterface {
 		$request->setProtocol('');
 		$request->setTimestamp('');
 		$request->setURI('');
+		$request->setMetadata(array());
 
 		$request->setBody(wfWAFUtils::stripMagicQuotes($_POST));
+		if (defined('WFWAF_DISABLE_RAW_BODY') && WFWAF_DISABLE_RAW_BODY) {
+			$request->setRawBody('');
+		}
+		else {
+			$request->setRawBody(wfWAFUtils::rawPOSTBody());
+		}
+		
 		$request->setQueryString(wfWAFUtils::stripMagicQuotes($_GET));
 		$request->setCookies(wfWAFUtils::stripMagicQuotes($_COOKIE));
 		$request->setFiles(wfWAFUtils::stripMagicQuotes($_FILES));
@@ -316,6 +340,8 @@ class wfWAFRequest implements wfWAFRequestInterface {
 
 	private $auth;
 	private $body;
+	private $rawBody;
+	private $md5Body;
 	private $cookies;
 	private $fileNames;
 	private $files;
@@ -326,8 +352,10 @@ class wfWAFRequest implements wfWAFRequestInterface {
 	private $path;
 	private $protocol;
 	private $queryString;
+	private $md5QueryString;
 	private $timestamp;
 	private $uri;
+	private $metadata;
 
 	private $highlightParamFormat;
 	private $highlightMatchFormat;
@@ -360,6 +388,18 @@ class wfWAFRequest implements wfWAFRequestInterface {
 		}
 		return $this->body;
 	}
+	
+	public function getRawBody() {
+		return $this->rawBody;
+	}
+	
+	public function getMd5Body() {
+		if (func_num_args() > 0) {
+			$args = func_get_args();
+			return $this->_arrayValueByKeys($this->md5Body, $args);
+		}
+		return $this->md5Body;
+	}
 
 	public function getQueryString() {
 		if (func_num_args() > 0) {
@@ -367,6 +407,14 @@ class wfWAFRequest implements wfWAFRequestInterface {
 			return $this->_arrayValueByKeys($this->queryString, $args);
 		}
 		return $this->queryString;
+	}
+	
+	public function getMd5QueryString() {
+		if (func_num_args() > 0) {
+			$args = func_get_args();
+			return $this->_arrayValueByKeys($this->md5QueryString, $args);
+		}
+		return $this->md5QueryString;
 	}
 
 	public function getHeaders() {
@@ -383,6 +431,48 @@ class wfWAFRequest implements wfWAFRequestInterface {
 			return $this->_arrayValueByKeys($this->cookies, $args);
 		}
 		return $this->cookies;
+	}
+
+	/*
+	 * Formats the provided cookie array (or $this->getCookies() if null) into a string
+	 * and preserves arrays.
+	 *
+	 * The format is in "cookie1=value; cookie2=value, ..."
+	 *
+	 * @param array|null $cookies
+	 * @param string|null $baseKey The base key used when recursing.
+	 * @return string
+	 */
+	public function getCookieString($cookies = null, $baseKey = null, $preventRedaction = false) {
+		if ($cookies == null) {
+			$cookies = $this->getCookies();
+		}
+		$isAssoc = (array_keys($cookies) !== range(0, count($cookies) - 1));
+		$cookieString = '';
+		foreach ($cookies as $cookieName => $cookieValue) {
+			$resolvedName = $cookieName;
+			if ($baseKey !== null) {
+				if ($isAssoc) {
+					$resolvedName = $baseKey . '[' . $cookieName . ']';
+				}
+				else {
+					$resolvedName = $baseKey . '[]';
+				}
+			}
+
+			if (is_array($cookieValue)) {
+				$nestedCookies = $this->getCookieString($cookieValue, $resolvedName);
+				$cookieString .= $nestedCookies;
+			}
+			else {
+				if (strpos($resolvedName, 'wordpress_') === 0 && !$preventRedaction) {
+					$cookieValue = '<redacted>';
+				}
+				
+				$cookieString .= $resolvedName . '=' . urlencode($cookieValue) . '; ';
+			}
+		}
+		return $cookieString;
 	}
 
 	public function getFiles() {
@@ -407,6 +497,14 @@ class wfWAFRequest implements wfWAFRequestInterface {
 
 	public function getURI() {
 		return $this->uri;
+	}
+	
+	public function getMetadata() {
+		if (func_num_args() > 0) {
+			$args = func_get_args();
+			return $this->_arrayValueByKeys($this->metadata, $args);
+		}
+		return $this->metadata;
 	}
 
 	public function getPath() {
@@ -450,11 +548,11 @@ class wfWAFRequest implements wfWAFRequestInterface {
 	 * @return string
 	 */
 	public function highlightFailedParams($failedParams = array(), $highlightParamFormat = '[param]%s[/param]',
-	                                      $highlightMatchFormat = '[match]%s[/match]') {
+	                                      $highlightMatchFormat = '[match]%s[/match]', $preventRedaction = false) {
 		$highlights = array();
 
-		// Cap at 50kb
-		$maxRequestLen = 1024 * 50;
+		// Cap at 47.5kb
+		$maxRequestLen = 1024 * 47.5;
 
 		$this->highlightParamFormat = $highlightParamFormat;
 		$this->highlightMatchFormat = $highlightMatchFormat;
@@ -493,7 +591,7 @@ class wfWAFRequest implements wfWAFRequestInterface {
 		}
 		$queryString = $this->getQueryString();
 		if ($queryString) {
-			$uri .= '?' . http_build_query($queryString);
+			$uri .= '?' . http_build_query($queryString, null, '&');
 		}
 		if (!empty($highlights['queryString'])) {
 			foreach ($highlights['queryString'] as $matches) {
@@ -524,11 +622,7 @@ class wfWAFRequest implements wfWAFRequestInterface {
 				switch (wfWAFUtils::strtolower($header)) {
 					case 'cookie':
 						// TODO: Hook up highlights to cookies
-						$cookies = '';
-						foreach ($this->getCookies() as $cookieName => $cookieValue) {
-							$cookies .= $cookieName . '=' . urlencode($cookieValue) . '; ';
-						}
-						$request .= 'Cookie: ' . trim($cookies) . "\n";
+						$request .= 'Cookie: ' . trim($this->getCookieString(null, null, $preventRedaction)) . "\n";
 						break;
 
 					case 'host':
@@ -538,7 +632,7 @@ class wfWAFRequest implements wfWAFRequestInterface {
 					case 'authorization':
 						$hasAuth = true;
 						if ($auth) {
-							$request .= 'Authorization: Basic ' . base64_encode($auth['user'] . ':' . $auth['password']) . "\n";
+							$request .= 'Authorization: Basic ' . ($preventRedaction ? base64_encode($auth['user'] . ':' . $auth['password']) : '<redacted>') . "\n";
 						}
 						break;
 
@@ -550,25 +644,13 @@ class wfWAFRequest implements wfWAFRequestInterface {
 		}
 
 		if (!$hasAuth && $auth) {
-			$request .= 'Authorization: Basic ' . base64_encode($auth['user'] . ':' . $auth['password']) . "\n";
+			$request .= 'Authorization: Basic ' . ($preventRedaction ? base64_encode($auth['user'] . ':' . $auth['password']) : '<redacted>') . "\n";
 		}
 
 		$body = $this->getBody();
 		$contentType = $this->getHeaders('Content-Type');
 		if (is_array($body)) {
-			if (wfWAFUtils::stripos($contentType, 'application/x-www-form-urlencoded') === 0) {
-				$body = http_build_query($body);
-				if (!empty($highlights['body'])) {
-					foreach ($highlights['body'] as $matches) {
-						if (!empty($matches['param'])) {
-							$this->highlightMatches = $matches['match'];
-							$body = preg_replace_callback('/(&|^)(' . preg_quote(urlencode($matches['param']), '/') . ')=(.*?)(&|$)/', array(
-								$this, 'highlightParam',
-							), $body);
-						}
-					}
-				}
-			} else if (preg_match('/^multipart\/form\-data; boundary=(.*?)$/i', $contentType, $boundaryMatches)) {
+			if (preg_match('/^multipart\/form\-data;(?:\s*(?!boundary)(?:[^\x00-\x20\(\)<>@,;:\\"\/\[\]\?\.=]+)=[^;]+;)*\s*boundary=([^;]*)(?:;\s*(?:[^\x00-\x20\(\)<>@,;:\\"\/\[\]\?\.=]+)=[^;]+)*$/i', $contentType, $boundaryMatches)) {
 				$boundary = $boundaryMatches[1];
 				$bodyArray = array();
 				foreach ($body as $key => $value) {
@@ -646,6 +728,19 @@ FORM;
 					$body .= "--$boundary--\n";
 				}
 			}
+			else { //Assume application/x-www-form-urlencoded and re-encode the body
+				$body = http_build_query($body, null, '&');
+				if (!empty($highlights['body'])) {
+					foreach ($highlights['body'] as $matches) {
+						if (!empty($matches['param'])) {
+							$this->highlightMatches = $matches['match'];
+							$body = preg_replace_callback('/(&|^)(' . preg_quote(urlencode($matches['param']), '/') . ')=(.*?)(&|$)/', array(
+								$this, 'highlightParam',
+							), $body);
+						}
+					}
+				}
+			}
 		}
 		if (!is_string($body)) {
 			$body = '';
@@ -697,6 +792,30 @@ FORM;
 	private function callHighlightMatchFilter($match) {
 		return is_callable($this->highlightMatchFilter) ? call_user_func($this->highlightMatchFilter, $match) : $match;
 	}
+	
+	/**
+	 * Encodes all of the keys with the MD5 hash.
+	 * 
+	 * @param array|string $value
+	 * @return array|string
+	 */
+	private function md5EncodeKeys($value) {
+		if (!is_array($value)) {
+			return md5($value);
+		}
+		
+		$result = array();
+		foreach ($value as $k => $v) {
+			$md5Key = md5($k);
+			if (is_array($v)) {
+				$result[$md5Key] = $this->md5EncodeKeys($v);
+			}
+			else {
+				$result[$md5Key] = $v;
+			}
+		}
+		return $result;
+	}
 
 	/**
 	 * @param string $key
@@ -728,6 +847,18 @@ FORM;
 	 */
 	public function setBody($body) {
 		$this->body = $body;
+		$this->setMd5Body($this->md5EncodeKeys($body));
+	}
+	
+	public function setRawBody($rawBody) {
+		$this->rawBody = $rawBody;
+	}
+	
+	/**
+	 * @param mixed $md5Body
+	 */
+	public function setMd5Body($md5Body) {
+		$this->md5Body = $md5Body;
 	}
 
 	/**
@@ -798,6 +929,14 @@ FORM;
 	 */
 	public function setQueryString($queryString) {
 		$this->queryString = $queryString;
+		$this->setMd5QueryString($this->md5EncodeKeys($queryString));
+	}
+	
+	/**
+	 * @param mixed $md5QueryString
+	 */
+	public function setMd5QueryString($md5QueryString) {
+		$this->md5QueryString = $md5QueryString;
 	}
 
 	/**
@@ -812,6 +951,13 @@ FORM;
 	 */
 	public function setUri($uri) {
 		$this->uri = $uri;
+	}
+	
+	/**
+	 * @param array $metadata
+	 */
+	public function setMetadata($metadata) {
+		$this->metadata = $metadata;
 	}
 }
 

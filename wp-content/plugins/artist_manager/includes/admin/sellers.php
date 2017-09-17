@@ -12,12 +12,12 @@
                     <th class="check-column">
                         <input type="checkbox" class="waa-withdraw-allcheck">
                     </th>
-                    <th><?php _e( 'Username', 'waa' ); ?></th>
                     <th><?php _e( 'Name', 'waa' ); ?></th>
                     <th><?php _e( 'Shop Name', 'waa' ); ?></th>
                     <th><?php _e( 'E-mail', 'waa' ); ?></th>
                     <th><?php _e( 'Products', 'waa' ); ?></th>
                     <th><?php _e( 'Balance', 'waa' ); ?></th>
+                    <th><?php _e( 'Kontodaten', 'waa' ); ?></th>
                     <th><?php _e( 'Phone', 'waa' ); ?></th>
                     <th><?php _e( 'Status', 'waa' ); ?></th>
                 </tr>
@@ -43,8 +43,7 @@
                             <th class="check-column">
                                 <input type="checkbox" class="waa-withdraw-allcheck" value="<?php echo $user->ID; ?>" name="users[]">
                             </th>
-                            <td>
-                                <strong><a href="<?php echo $edit_link ?>"><?php echo $user->user_login; ?></strong></a>
+                            <td><?php echo $user->display_name; ?>
                                 <div class="row-actions toggle-seller-status">
                                     <?php if ( !$seller_enable ) { ?>
                                         <span class="active"><a class="toggle-seller" href="#" data-id="<?php echo $user->ID; ?>" data-type="yes"><?php _e( 'Activate Selling', 'waa' ); ?></a> | </span>
@@ -54,9 +53,7 @@
 
                                     <span class="products-link"><a href="<?php echo admin_url( 'edit.php?post_type=product&author=' . $user->ID ); ?>"><?php _e( 'Products', 'waa' ); ?></a> | </span>
                                     <span class="orders-link"><a href="<?php echo admin_url( 'edit.php?post_type=shop_order&author=' . $user->ID ); ?>"><?php _e( 'Orders', 'waa' ); ?></a></span>
-                                </div>
-                            </td>
-                            <td><?php echo $user->display_name; ?></td>
+                                </div></td>
                             <td><?php echo empty( $info['store_name'] ) ? '--' : $info['store_name']; ?></td>
                             <td><?php echo $user->user_email; ?></td>
                             <td>
@@ -65,6 +62,14 @@
                                 </a>
                             </td>
                             <td><?php echo waa_get_seller_balance( $user->ID ); ?></td>
+                            <td><?php
+                                echo empty ( $info['payment']['bank']['ac_name'] ) ? '' : 'Kontoinhaber: ' . $info['payment']['bank']['ac_name'] . '<br>';
+                                echo empty ( $info['payment']['bank']['bank_name'] ) ? '' : 'Bank: ' . $info['payment']['bank']['bank_name'] . '<br>';
+                                echo empty ( $info['payment']['bank']['ac_iban'] ) ? '' : 'IBAN: ' . $info['payment']['bank']['ac_iban'] . '<br>';
+                                echo empty ( $info['payment']['bank']['ac_bic'] ) ? '' : 'BIC: ' . $info['payment']['bank']['ac_bic'] . '<br>';
+                                echo empty ( $info['payment']['paypal']['email'] ) ? '' : 'PayPal: ' . $info['payment']['paypal']['email'] . '<br>';
+
+                                ?></td>
                             <td><?php echo empty( $info['phone'] ) ? '--' : $info['phone']; ?></td>
                             <td>
                                 <?php if ( $seller_enable ) {

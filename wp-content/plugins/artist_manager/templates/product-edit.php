@@ -1,4 +1,4 @@
-<?php
+	<?php
 global $post, $product;
 
 wp_enqueue_script( 'waa-tabs-scripts' );

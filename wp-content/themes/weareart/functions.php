@@ -44,7 +44,7 @@ function waa_widgets_init()
     register_sidebar(array(
         'name' => __('Footer Col 1', 'waa'),
         'id' => 'footer-col-1',
-        'before_widget' => '<div class="col-md-3" id="%1$s">',
+        'before_widget' => '<div class="col first" id="%1$s">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
@@ -52,7 +52,7 @@ function waa_widgets_init()
     register_sidebar(array(
         'name' => __('Footer Col 2', 'waa'),
         'id' => 'footer-col-2',
-        'before_widget' => '<div class="col-md-3" id="%1$s">',
+        'before_widget' => '<div class="col" id="%1$s">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
@@ -60,18 +60,27 @@ function waa_widgets_init()
     register_sidebar(array(
         'name' => __('Footer Col 3', 'waa'),
         'id' => 'footer-col-3',
-        'before_widget' => '<div class="col-md-3" id="%1$s">',
+        'before_widget' => '<div class="col" id="%1$s">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ));
     register_sidebar(array(
-        'name' => __('Footer Col 4', 'waa'),
-        'id' => 'footer-col-4',
-        'before_widget' => '<div class="col-md-3" id="%1$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>',
+      'name' => __('Footer Col 4', 'waa'),
+      'id' => 'footer-col-4',
+      'before_widget' => '<div class="col" id="%1$s">',
+      'after_widget' => '</div>',
+      'before_title' => '<h4 class="widget-title">',
+      'after_title' => '</h4>',
+    ));
+
+    register_sidebar(array(
+      'name' => __('Footer Col 5', 'waa'),
+      'id' => 'footer-col-5',
+      'before_widget' => '<div class="col last" id="%1$s">',
+      'after_widget' => '</div>',
+      'before_title' => '<h4 class="widget-title">',
+      'after_title' => '</h4>',
     ));
 
 }

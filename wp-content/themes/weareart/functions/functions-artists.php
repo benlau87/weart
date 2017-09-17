@@ -441,5 +441,56 @@ function fix_media_counts($views) {
     $views['detached'] = '<a href="upload.php?detached=1"' . ( $detached ? ' class="current"' : '' ) . '>' . sprintf( __( 'Unattached <span class="count">(%s)</span>', 'detached files' ), $total_orphans ) . '</a>';
     return $views;
 }
+
+/**
+ * @param $user_ID
+ * @return int
+ */
+function count_featured_products_by_artist($user_ID) {
+		$args = array(
+			'post_type' => 'product',
+			'post_status' => 'publish',
+			'posts_per_page' => 1,
+			'author' => $user_ID,
+			'orderby' => 'rand',
+			'meta_query' => array(
+				array(
+					'key'     => '_featured',
+					'value'   => 'yes',
+					'compare' => 'IN',
+				),
+			),
+		);
+
+		$wp_query = new WP_Query($args);
+		return $wp_query->post_count;
+}
+
+/**
+ * @param $user_ID
+ * @param int $count
+ * @param string $sort
+ * @return array
+ */
+function get_featured_products_by_artist($user_ID, $count = 1, $sort = 'random') {
+		$args = array(
+			'post_type' => 'product',
+			'post_status' => 'publish',
+			'posts_per_page' => $count,
+			'author' => $user_ID,
+			'orderby' => $sort,
+			'meta_query' => array(
+				array(
+					'key'     => '_featured',
+					'value'   => 'yes',
+					'compare' => 'IN',
+				),
+			),
+		);
+
+		$posts_array = get_posts($args);
+
+		return $posts_array;
+}
 	
 ?>

@@ -550,13 +550,36 @@ blockquote em {
     margin-top: 40px;
     background: #ffffff none repeat scroll 0 0;
     display: inline-block;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     width: 100%;
 }
 
 #footer {
     margin-top: 50px;
+}
+
+#footer .col {
+    width: 19%;
+    float: left;
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 800px) {
+    #footer .col {
+        width: 100% !important;
+    }
+}
+
+#footer .col.first {
+    width: 24%;
+}
+
+#footer .col.last {
+    padding-right: 0;
 }
 
 #footer h4 {
@@ -584,7 +607,7 @@ blockquote em {
 }
 
 #copyright {
-    margin-top: 0px;
+    margin-top: 20px;
     height: 30px;
     margin-bottom: 15px;
 }
@@ -849,6 +872,8 @@ ul.products li.product footer .artist {
     font-family: 'Graphik';
     color: #000;
     font-size: 13px;
+    width: 65%;
+    float: left;
 }
 
 ul.products li.product .city {
@@ -904,6 +929,7 @@ ul.products li.product .art-info header .title {
 
 ul.products li.product .art-info header .tagged_as {
     display: block;
+    text-align: left;
 }
 
 ul.products li.product .art-info header .tagged_as a {
@@ -1046,7 +1072,7 @@ ul.products li.product-category.product {
     padding: 0
 }
 
-.grid-sizer-masonry, .post.type-post {
+.grid-sizer-masonry, .blog-grid .post.type-post {
     width: 47%;
     margin: 0 0 35px 0;
 }
@@ -1063,6 +1089,40 @@ article img {
 article h2 {
     font-size: 18px;
     margin-top: 25px;
+}
+
+.blog-grid article.type-post img {
+    margin-top: -18px;
+}
+
+.single .has-post-thumbnail header {
+    display: block;
+    text-align: center;
+    margin: 0 auto 25px;
+}
+
+.single .has-post-thumbnail header img {
+    max-width: 80%;
+    margin-bottom: 25px;
+}
+
+
+.single article, #comments {
+    text-align: justify;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+#comments {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #f0f0ee;
+}
+
+#comments:before {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .img-responsive {
@@ -1511,7 +1571,7 @@ h1.product_title {
 }
 
 .woocommerce .product-name .variation dd, .woocommerce .product-name .variation dt {
-    height: 27px
+    font-size: 13px;
 }
 
 .woocommerce .product-name .variation dd p {
@@ -1565,6 +1625,15 @@ h1.product_title {
 
 .woocommerce .shop_table .product-name .variation {
     margin-bottom: 10px;
+}
+
+@media all and (max-width: 960px) {
+    .woocommerce .shop_table .product-name .variation {
+        display: none;
+    }
+    .woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
+        width: 100% !important;
+    }
 }
 
 .woocommerce .shop_table .product-price {
@@ -1643,6 +1712,10 @@ h1.product_title {
 
 .woocommerce #content table.cart td.actions .coupon, .woocommerce table.cart td.actions .coupon, .woocommerce-page #content table.cart td.actions .coupon, .woocommerce-page table.cart td.actions .coupon {
     float: left;
+}
+
+.woocommerce-page table.cart td.actions .coupon {
+    margin-bottom: 20px;
 }
 
 .woocommerce #content table.cart td.actions .coupon label, .woocommerce table.cart td.actions .coupon label, .woocommerce-page #content table.cart td.actions .coupon label, .woocommerce-page table.cart td.actions .coupon label {
@@ -1749,6 +1822,10 @@ h1.product_title {
 #shipping_method, .payment_methods, .order_details {
     list-style: none
 }
+
+.payment_box.payment_method_paypal {
+	display: block !important;
+	}
 
 li.payment_method_paypal label {
     line-height: 45px;
@@ -2009,6 +2086,12 @@ li.payment_method_paypal img {
     margin-bottom: 50px;
 }
 
+@media all and (min-width: 992px) {
+    .art-slider {
+       height: 600px !important;
+    }
+}
+
 .art-slider ul {
     list-style: none;
     width: 300%;
@@ -2227,6 +2310,11 @@ li.payment_method_paypal img {
     #footer h4 {
         margin-top: 25px;
     }
+
+    .art-slider li img {
+        height: 450px !important;
+        width: auto;
+    }
 }
 
 @media all and (max-width: 768px) {
@@ -2344,14 +2432,19 @@ li.payment_method_paypal img {
         width: 100%;
     }
 
-    .art-slider ul li {
+/*    .art-slider ul li {
         min-height: 150px
+    }*/
+
+    .art-slider li img {
+        height: 350px !important;
+        width: auto;
     }
 
 }
 
 @media all and (max-width: 540px) {
-    ul.products li.product-category.product {
+    ul.products li.product-category.product, ul.products li.product.type-product, .showcase ul.products li.product.type-product {
         width: 100%;
         margin: 0 0 35px 0;
         padding: 0;
@@ -2376,5 +2469,16 @@ li.payment_method_paypal img {
     .page-id-16 ul.products li.product.type-product, #post-14 ul.products li.product.type-product, #artists-page li.product.type-product {
         width: 100%;
         margin-bottom: 1%;
+    }
+
+    .single-product .artist-info .artist-profilepic {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .art-slider li img {
+        height: 250px !important;
+        width: auto;
     }
 }

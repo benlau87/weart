@@ -1868,7 +1868,7 @@ function waa_get_social_profile_fields() {
  * @return void
  */
 
-function waa_seller_address_fields( $verified = false, $required = false, $data = false ) {
+function waa_seller_address_fields( $verified = false, $required = false, $data = false, $profile_pic = false, $profile_desc = false ) {
 
     $disabled = $verified ? 'disabled' : '';
 

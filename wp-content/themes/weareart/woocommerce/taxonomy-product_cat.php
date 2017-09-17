@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying products in a product category. Simply includes the archive template.
+ * The Template for displaying products in a product category. Simply includes the arche template.
  *
  * Override this template by copying it to yourtheme/woocommerce/taxonomy-product_cat.php
  *
@@ -38,6 +38,7 @@ $children = get_terms( $term->taxonomy, array(
 // show artists
 if($children) {
 ?>
+
 	<div id="content">
 		<div class="container">
 			<div class="row">

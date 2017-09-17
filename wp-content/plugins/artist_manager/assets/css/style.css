@@ -704,9 +704,13 @@ body {
   background: #000000;
   color: #FF0000;
   font-size: 100px;
+  line-height: 1px;
   height: 100%;
   opacity: 0.7;
   padding: 25% 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: absolute;
   right: 0;
   text-align: center;
@@ -716,6 +720,9 @@ body {
   display: none;
   cursor: pointer;
 }
+.product-edit-new-container .waa-feat-image-upload a.close:hover {
+  border: none;
+}
 .product-edit-new-container .waa-feat-image-upload .image-wrap { text-align:center }
 
 .product-edit-new-container .waa-feat-image-upload img {
@@ -723,7 +730,7 @@ body {
   width: 300px;
   height: auto;
 }
-.product-edit-new-container .waa-feat-image-upload img:hover a.close {
+.product-edit-new-container .waa-feat-image-upload:hover a.close {
   display: block;
 }
 .product-edit-new-container .waa-feat-image-upload .image-wrap.no_warning:hover a.close {

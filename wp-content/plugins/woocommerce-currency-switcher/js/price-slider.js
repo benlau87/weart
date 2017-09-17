@@ -33,31 +33,38 @@ jQuery(function ($) {
         //+++
         label_min = number_format(label_min, 2, '.', ',');
         label_max = number_format(label_max, 2, '.', ',');
+	
         if ($.inArray(woocs_current_currency.name, woocs_array_no_cents) || woocs_current_currency.hide_cents == 1) {
             label_min = label_min.replace('.00', '');
             label_max = label_max.replace('.00', '');
         }
+	
         //+++
+	
+	var currency_symbol=woocommerce_price_slider_params.currency_symbol;
+	if(typeof currency_symbol == 'undefined'){
+	    currency_symbol=woocommerce_price_slider_params.currency_format_symbol;
+	}	
 
         if (woocs_current_currency.position === 'left') {
 
-            $('.price_slider_amount span.from').html(woocommerce_price_slider_params.currency_symbol + label_min);
-            $('.price_slider_amount span.to').html(woocommerce_price_slider_params.currency_symbol + label_max);
+            $('.price_slider_amount span.from').html(currency_symbol + label_min);
+            $('.price_slider_amount span.to').html(currency_symbol + label_max);
 
         } else if (woocs_current_currency.position === 'left_space') {
 
-            $('.price_slider_amount span.from').html(woocommerce_price_slider_params.currency_symbol + " " + label_min);
-            $('.price_slider_amount span.to').html(woocommerce_price_slider_params.currency_symbol + " " + label_max);
+            $('.price_slider_amount span.from').html(currency_symbol + " " + label_min);
+            $('.price_slider_amount span.to').html(currency_symbol + " " + label_max);
 
         } else if (woocs_current_currency.position === 'right') {
 
-            $('.price_slider_amount span.from').html(label_min + woocommerce_price_slider_params.currency_symbol);
-            $('.price_slider_amount span.to').html(label_max + woocommerce_price_slider_params.currency_symbol);
+            $('.price_slider_amount span.from').html(label_min + currency_symbol);
+            $('.price_slider_amount span.to').html(label_max + currency_symbol);
 
         } else if (woocs_current_currency.position === 'right_space') {
 
-            $('.price_slider_amount span.from').html(label_min + " " + woocommerce_price_slider_params.currency_symbol);
-            $('.price_slider_amount span.to').html(label_max + " " + woocommerce_price_slider_params.currency_symbol);
+            $('.price_slider_amount span.from').html(label_min + " " + currency_symbol);
+            $('.price_slider_amount span.to').html(label_max + " " + currency_symbol);
 
         }
 

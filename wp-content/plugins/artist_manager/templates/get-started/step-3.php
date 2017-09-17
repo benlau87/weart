@@ -180,7 +180,7 @@ if (isset($_POST['dps_country_to'])) {
 <h2 style="text-align: center; margin-top:0;">Geschafft!</h2>
 
 <div class="waa-page-help">
-    <p><?= __('Du hast es geschafft! Nun kannst du dein erstes Kunstwerk einstellen. Mehr Text hier..', 'waa'); ?></p>
+    <p><?= __('Du hast es geschafft! Nun kannst du dein erstes Kunstwerk einstellen.', 'waa'); ?></p>
     <br>
     <button class="" data-dismiss="modal"><?= __('Fenster schließen', 'waa'); ?></button>
 </div>

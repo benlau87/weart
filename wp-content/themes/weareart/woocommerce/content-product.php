@@ -47,6 +47,8 @@ $city_term = get_term_by('id', $store_info['region'], 'pa_stadt');
 $city_id = $city_term->term_id;
 $city_link = get_term_link( $city_id, 'pa_stadt' );
 $city_name = $city_term->name;
+
+#if (get_post_meta($product->id, '_featured', true) == 'yes') :
 ?>
 
 <li <?php post_class( $classes ); ?>>
@@ -119,3 +121,4 @@ $city_name = $city_term->name;
 	?>
 
 </li>
+<?php #endif; ?>

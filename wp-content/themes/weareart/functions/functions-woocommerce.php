@@ -161,8 +161,10 @@ function waa_get_max_variation_price($product_id)
  */
 function waa_get_variable_price($product_id)
 {
-    $woocs = new WOOCS();
-    $currencies = $woocs->get_currencies();
+   # $woocs = new WOOCS();
+   # $currencies = $woocs->get_currencies();
+	global $WOOCS;
+	$currencies = $WOOCS->get_currencies();
     $_create_variation = get_post_meta($product_id, '_create_variation', true);
     $_min_variation_price = get_post_meta($product_id, '_min_variation_price', true);
     $_max_variation_price = waa_get_max_variation_price($product_id);
@@ -171,7 +173,15 @@ function waa_get_variable_price($product_id)
         $_min_variation_price = $_min_variation_price ? '_min_variation_price' : '_regular_price';
         $output = waa_get_woocs_price($product_id, $_min_variation_price);
     } else {
-        $output = __('ab', 'waa') . ' ' . number_format((get_post_meta($product_id, '_min_variation_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+		    $hide_cents = $currencies[$WOOCS->current_currency]['hide_cents'] == 1 ? true : false;
+		    $hide_cents = $currencies[$WOOCS->current_currency]['name'] == 'CHF' ? true : false;
+		    $value = get_post_meta($product_id, '_min_variation_price', true) * $currencies[$WOOCS->current_currency]['rate'];
+
+		    if($hide_cents)
+				$value = number_format($value,0,',','.');
+		    else
+			    $value = number_format($value,2,',','.');
+        $output = __('ab', 'waa') . ' ' . $value . ' ' . get_woocommerce_currency_symbol();
     }
     return $output;
 }
@@ -182,9 +192,7 @@ function waa_get_variable_price($product_id)
  */
 function waa_get_variable_price_html($product_id)
 {
-    $woocs = new WOOCS();
-    $currencies = $woocs->get_currencies();
-    return '<p class="price"><span class="amount">' . waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="Versandkosten abhängig Größen- und Material-Auswahl">zzgl. Versand</a></small></p>';
+	return '<p class="price"><span class="amount">' . waa_get_variable_price($product_id) . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips" data-html="true" data-original-title="Versandkosten abhängig Größen- und Material-Auswahl">zzgl. Versand</a></small></p>';
 }
 
 /**
@@ -210,13 +218,27 @@ function waa_get_woocs_int_price($price, $currency)
  */
 function waa_get_woocs_int_price_reverse($value, $reverse = false)
 {
-    $woocs = new WOOCS();
-    $currencies = $woocs->get_currencies();
+		$woocs = new WOOCS();
+		$currencies = $woocs->get_currencies();
+		$hide_cents = $currencies[$woocs->current_currency]['hide_cents'] == 1 ? true : false;
+		$hide_cents = $currencies[$woocs->current_currency]['name'] == 'CHF' ? true : false;
+		$value = $value * $currencies[$woocs->current_currency]['rate'];
 
-    if($reverse)
-        return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, '.', ',');
-    else
-        return number_format(($value / $currencies[$woocs->current_currency]['rate']), 2, ',', '.');
+		if($hide_cents) {
+						if($reverse)
+								return number_format($value, 0, '.', ',');
+						else
+								return number_format($value, 0, ',', '.');
+
+				} else {
+						if($reverse)
+								return number_format($value, 2, '.', ',');
+						else
+								return number_format($value, 2, ',', '.');
+				}
+
+
+
 }
 
 /**
@@ -228,7 +250,18 @@ function waa_get_woocs_price($product_id, $key)
 {
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
-    return number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+    #print_r( $currencies[$woocs->current_currency]);
+		$hide_cents = $currencies[$woocs->current_currency]['hide_cents'] == 1 ? true : false;
+		$hide_cents = $currencies[$woocs->current_currency]['name'] == 'CHF' ? true : false;
+		#print_r($hide_cents);
+		$value = get_post_meta($product_id, $key, true) * $currencies[$woocs->current_currency]['rate'];
+
+		if($hide_cents)
+				$value = number_format($value,0,',','.');
+		else
+						$value = number_format($value,2,',','.');
+
+    return $value . ' ' . get_woocommerce_currency_symbol();
 }
 
 /**
@@ -241,8 +274,16 @@ function waa_get_woocs_price_html($product_id, $key)
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
     #print_r(get_post_meta($product_id, '_additional_price'));
+		$hide_cents = $currencies[$woocs->current_currency]['hide_cents'] == 1 ? true : false;
+		$hide_cents = $currencies[$woocs->current_currency]['name'] == 'CHF' ? true : false;
+		$value = get_post_meta($product_id, $key, true) * $currencies[$woocs->current_currency]['rate'];
 
-    $out = '<p class="price"><span class="amount">' . number_format((get_post_meta($product_id, $key, true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips"     data-html="true" data-original-title="' . waa_get_shipping_costs($product_id) . '">zzgl. Versand</a></small></p>';
+		if($hide_cents)
+			$value = number_format($value,0,',','.');
+		else
+			$value = number_format($value, 2, ',', '.');
+
+    $out = '<p class="price"><span class="amount">' . $value . ' ' . get_woocommerce_currency_symbol() . '</span> <small class="woocommerce-price-suffix">' . __('inkl. MwSt.', 'waa') . ' <a href="" class="waa-tooltips-help tips"     data-html="true" data-original-title="' . waa_get_shipping_costs($product_id) . '">zzgl. Versand</a></small></p>';
 
     #' . number_format((get_post_meta($product_id, '_additional_price', true) / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol() . '
     return $out;
@@ -269,18 +310,19 @@ function waa_get_shipping_costs($product_id)
     $woocs = new WOOCS();
     $currencies = $woocs->get_currencies();
     $shipping_costs = get_post_meta($product_id, '_additional_price', true);
+
     $out = '<ul>';
     if (is_array($shipping_costs)) {
         foreach ($shipping_costs as $country => $costs) {
             $out .= '<li>';
             if ($country == 'DE') {
-                $out .= __('Deutschland', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Deutschland', 'waa') . ': ' . number_format(($costs * $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'CH') {
-                $out .= __('Schweiz', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Schweiz', 'waa') . ': ' . number_format(($costs * $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'everywhere') {
-                $out .= __('EU', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('EU', 'waa') . ': ' . number_format(($costs * $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             } elseif ($country == 'AT') {
-                $out .= __('Österreich', 'waa') . ': ' . number_format(($costs / $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
+                $out .= __('Österreich', 'waa') . ': ' . number_format(($costs * $currencies[$woocs->current_currency]['rate']), 2, ',', '.') . ' ' . get_woocommerce_currency_symbol();
             }
             $out .= '</li>';
         }
@@ -386,18 +428,15 @@ function waa_get_artist_pickup_details($order, $formatted = true)
         $artist_infos = array_merge($artist_info, $user_info);
     }
     if ($formatted) {
-        foreach ($artist_infos as $artist_info) {
-            $first_name = $artist_info[1]->first_name;
-            $last_name = $artist_info[1]->last_name;
-            $mail = $artist_info[1]->user_email;
-            $out = '<strong>' . $first_name . ' ' . $last_name . '</strong> (' . __('Künstlername', 'waa') . ': ' . $artist_info[0]['store_name'] . ')<br>';
-            $out .= $artist_info[0]['address']['street_1'] . '<br>';
-            $out .= $artist_info[0]['address']['zip'] . ' ' . $artist_info[0]['address']['city'] . '<br>';
-            $out .= WC()->countries->countries[$artist_info[0]['address']['country']] . '<br>';
-            $out .= 'E-Mail-Adresse: ' . $mail . '<br>';
-            $artist_info[0]['phone'] != '' ? $out .= 'Telefon: ' . $artist_info[0]['phone'] . '<br>' : $out .= '';
-            return $out;
-        }
+        $display_name = $artist_infos[1]->data->display_name;
+        $mail = $artist_infos[1]->data->user_email;
+        $out = '<strong>' . $display_name . '</strong> (' . __('Künstlername', 'waa') . ': ' . $artist_infos[0]['store_name'] . ')<br>';
+        $out .= $artist_infos[0]['address']['street_1'] . '<br>';
+        $out .= $artist_infos[0]['address']['zip'] . ' ' . $artist_infos[0]['address']['city'] . '<br>';
+        $out .= WC()->countries->countries[$artist_infos[0]['address']['country']] . '<br>';
+        $out .= 'E-Mail-Adresse: ' . $mail . '<br>';
+        $artist_infos[0]['phone'] != '' ? $out .= 'Telefon: ' . $artist_infos[0]['phone'] . '<br>' : $out .= '';
+        return $out;
     } else {
         return $artist_infos;
     }

@@ -1,0 +1,183 @@
+.fields {
+	position: relative;
+	padding: 20px 40px 10px 10px;
+}
+
+.field-list {
+	min-height: 50px;
+}
+
+h3.fields-caption {
+	color: #6f5f5c;
+	font-size: 15px;
+	position: absolute;
+	top: -15px;
+	left: 20px;
+	padding: 4px 10px;
+	margin: 0;
+	border: 2px solid #ccc;
+	background-color: white;
+}
+
+.fields.library {
+	border: 2px dotted #ccc;
+	margin-top: 20px;
+}
+
+.fields h4 {
+	color: #b6a380;
+	text-transform: uppercase;
+	font-size: 15px;
+	background-color: white;
+	padding: 5px 20px;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #ccc;
+	display: block;
+	margin: 10px -40px 10px -10px;
+}
+
+.ui-draggable-handle,
+.ui-sortable-handle,
+.ui-accordion-header {
+	cursor: hand;
+	cursor: pointer;
+	z-index: 99;
+}
+
+.ui-state-default .ui-icon { 
+	content: "";
+	border-color: transparent transparent transparent #111;
+	border-style: solid;
+	border-width: 0.35em 0.35em 0.35em 0.40em;
+	display: inline-block;
+	height: 0;
+	width: 0;
+	/*top: 0.2em;*/
+	left: -0.3em;
+	position: relative;
+}
+
+.ui-state-active .ui-icon {
+	content: "";
+	border-color: #111 transparent transparent transparent;
+	border-style: solid;
+	border-width: 0.40em 0.35em 0.2em 0.35em !important;
+	display: inline-block;
+	height: 0;
+	width: 0;
+	/*top: 0.2em;*/
+	left: -0.47em;
+	position: relative;
+}
+
+.document-content {
+	border: 2px solid #ccc;
+	background-color: white;
+}
+
+.document.totals, .document.custom-blocks {
+	overflow: hidden;
+}
+
+.document.totals .field, .custom-block {
+	float: left;
+	clear: left;
+	display: block;
+}
+
+.field, .custom-block {
+	vertical-align: top;
+	border: 1px solid #ccc;
+	background-color: #e4e4e4;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 4px;
+	display: inline-block;
+	white-space: normal;
+	position: relative;
+}
+.field-title {
+	font-weight: bold;
+}
+.field-options {
+	margin-top: 10px;
+}
+.field-option {
+	margin-top: 5px;
+}
+
+.custom-block {
+	width: 500px;
+}
+
+.custom-block table,
+.custom-block .custom_text textarea {
+	width: 100%;
+}
+
+.delete-field {
+	position: absolute;
+	right: -9px;
+	top: -5px;
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	background-color: white;
+	border-radius: 8px;
+}
+.library .delete-field {
+	display: none;
+}
+
+#documents {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.document-tabs {
+	display: block;
+	position: relative;
+	z-index: 999;
+	margin: 0 0 -2px 0;
+	margin-left: 20px;
+	overflow: hidden;
+}
+.document-tabs li {
+	display: block;
+	float: left;
+	margin: 0 5px 0 0;
+	border: 2px solid #ccc;
+	border-bottom-width: 0;
+	background-color: #e4e4e4;
+}
+
+.document-tabs li a {
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 15px;
+	color: #555;
+}
+
+.document-tabs :focus,
+.document-tabs :active {
+	outline: none !important;
+}
+
+
+.document-tabs li.ui-tabs-active {
+	background: white;
+	border-bottom-width: 2px;
+	border-bottom-color: white;
+
+}
+
+.document-tabs li.ui-tabs-active a {
+	color: black;
+}
+
+.ui-accordion-content-active {
+	height: auto !important;
+}

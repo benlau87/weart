@@ -9,6 +9,12 @@ if (isset($exclude))
 {
     $exclude = array();
 }
+
+if (!isset($precision))
+{
+    $precision = 2;
+}
+
 $current_currency = $WOOCS->current_currency;
 ?>
 

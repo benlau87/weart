@@ -165,6 +165,8 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 		if ($this->isIPBlocked($ip)) {
 			$this->eventBus->prevBlocked($ip);
 			$e = new wfWAFBlockException();
+			$e->setRequest($this->getRequest());
+			$e->setFailedRules(array('blocked'));
 			$this->blockAction($e);
 		}
 
@@ -188,6 +190,10 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 		} catch (wfWAFBlockSQLiException $e) {
 			$this->eventBus->blockSQLi($ip, $e);
 			$this->blockAction($e);
+			
+		} catch (wfWAFLogException $e) {
+			$this->eventBus->log($ip, $e);
+			$this->logAction($e);
 		}
 
 		$this->runCron();
@@ -306,11 +312,41 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 				$cron = array(
 					new wfWAFCronFetchRulesEvent(time() +
 						(86400 * ($this->getStorageEngine()->getConfig('isPaid') ? .5 : 7))),
+					new wfWAFCronFetchIPListEvent(time() + 86400),
+					new wfWAFCronFetchBlacklistPrefixesEvent(time() + 7200),
 				);
 				$this->getStorageEngine()->setConfig('cron', $cron);
 			}
 
 			// Any migrations to newer versions go here.
+			if ($currentVersion === '1.0.0') {
+				$cron = $this->getStorageEngine()->getConfig('cron');
+				if (is_array($cron)) {
+					$cron[] = new wfWAFCronFetchIPListEvent(time() + 86400);
+				}
+				$this->getStorageEngine()->setConfig('cron', $cron);
+			}
+			
+			if (version_compare($currentVersion, '1.0.2') === -1) {
+				$event = new wfWAFCronFetchRulesEvent(time() - 2);
+				$event->setWaf($this);
+				$event->fire();
+			}
+			
+			if (version_compare($currentVersion, '1.0.3') === -1) {
+				$this->getStorageEngine()->purgeIPBlocks();
+				
+				$cron = $this->getStorageEngine()->getConfig('cron');
+				if (is_array($cron)) {
+					$cron[] = new wfWAFCronFetchBlacklistPrefixesEvent(time() + 7200);
+				}
+				$this->getStorageEngine()->setConfig('cron', $cron);
+				
+				$event = new wfWAFCronFetchBlacklistPrefixesEvent(time() - 2);
+				$event->setWaf($this);
+				$event->fire();
+			}
+			
 			$this->getStorageEngine()->setConfig('version', WFWAF_VERSION);
 		}
 	}
@@ -404,6 +440,57 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 		}
 		return false;
 	}
+	
+	/**
+	 * @return array
+	 */
+	public function getMalwareSignatures() {
+		try {
+			$encoded = $this->getStorageEngine()->getConfig('filePatterns');
+			if (empty($encoded)) {
+				return array();
+			}
+			
+			$authKey = $this->getStorageEngine()->getConfig('authKey');
+			$encoded = base64_decode($encoded);
+			$paddedKey = wfWAFUtils::substr(str_repeat($authKey, ceil(strlen($encoded) / strlen($authKey))), 0, strlen($encoded));
+			$json = $encoded ^ $paddedKey;
+			$signatures = wfWAFUtils::json_decode($json, true);
+			if (!is_array($signatures)) {
+				return array();
+			}
+			return $signatures;
+		}
+		catch (Exception $e) {
+			//Ignore
+		}
+		return array();
+	}
+	
+	/**
+	 * @param array $signatures
+	 * @param bool $updateLastUpdatedTimestamp
+	 */
+	public function setMalwareSignatures($signatures, $updateLastUpdatedTimestamp = true) {
+		try {
+			if (!is_array($signatures)) {
+				$signatures = array();
+			}
+			
+			$authKey = $this->getStorageEngine()->getConfig('authKey');
+			$json = wfWAFUtils::json_encode($signatures);
+			$paddedKey = wfWAFUtils::substr(str_repeat($authKey, ceil(strlen($json) / strlen($authKey))), 0, strlen($json));
+			$payload = $json ^ $paddedKey;
+			$this->getStorageEngine()->setConfig('filePatterns', base64_encode($payload));
+			
+			if ($updateLastUpdatedTimestamp) {
+				$this->getStorageEngine()->setConfig('signaturesLastUpdated', is_int($updateLastUpdatedTimestamp) ? $updateLastUpdatedTimestamp : time());
+			}
+		}
+		catch (Exception $e) {
+			//Ignore
+		}
+	}
 
 	/**
 	 * @param $rules
@@ -421,8 +508,8 @@ auEa+7b+FGTKs7dUo2BNGR7OVifK4GZ8w/ajS0TelhrSRi3BBQCGXLzUO/UURUAh
 			if (!is_writable($this->getCompiledRulesFile())) {
 				throw new wfWAFBuildRulesException('Rules file not writable.');
 			}
-
-			file_put_contents($this->getCompiledRulesFile(), sprintf(<<<PHP
+			
+			wfWAFStorageFile::atomicFilePutContents($this->getCompiledRulesFile(), sprintf(<<<PHP
 <?php
 if (!defined('WFWAF_VERSION')) {
 	exit('Access denied');
@@ -433,9 +520,9 @@ if (!defined('WFWAF_VERSION')) {
 
 %s?>
 PHP
-				, $this->buildRuleSet($rules)), LOCK_EX);
+				, $this->buildRuleSet($rules)), 'rules');
 			if (!empty($ruleString) && !WFWAF_DEBUG) {
-				file_put_contents($this->getStorageEngine()->getRulesDSLCacheFile(), $ruleString, LOCK_EX);
+				wfWAFStorageFile::atomicFilePutContents($this->getStorageEngine()->getRulesDSLCacheFile(), $ruleString, 'rules');
 			}
 
 			if ($updateLastUpdatedTimestamp) {
@@ -484,17 +571,26 @@ PHP
 			if (isset($rules[$key]) && is_array($rules[$key])) {
 				/** @var wfWAFRuleParserURLParam $urlParam */
 				foreach ($rules[$key] as $urlParam) {
-					if ($urlParam->getRules()) {
-						$url = array(
-							'url'   => $urlParam->getUrl(),
-							'rules' => $urlParam->getRules(),
-						);
-					} else {
-						$url = $urlParam->getUrl();
+					if ($urlParam->getConditional()) {
+						
+						$exportedCode .= sprintf("\$this->{$key}[%s][] = array(\n%s => %s,\n%s => %s,\n%s => %s\n);\n", var_export($urlParam->getParam(), true), 
+							var_export('url', true), var_export($urlParam->getUrl(), true),
+							var_export('rules', true), var_export($urlParam->getRules(), true),
+							var_export('conditional', true), $urlParam->getConditional()->render());
 					}
-
-					$exportedCode .= sprintf("\$this->{$key}[%s][] = %s;\n", var_export($urlParam->getParam(), true),
-						var_export($url, true));
+					else {
+						if ($urlParam->getRules()) {
+							$url = array(
+								'url'   => $urlParam->getUrl(),
+								'rules' => $urlParam->getRules(),
+							);
+						} else {
+							$url = $urlParam->getUrl();
+						}
+						
+						$exportedCode .= sprintf("\$this->{$key}[%s][] = %s;\n", var_export($urlParam->getParam(), true), 
+							var_export($url, true));
+					}
 				}
 				$exportedCode .= "\n";
 			}
@@ -719,11 +815,25 @@ HTML
 	 * @param wfWAFBlockException $e
 	 * @param int $httpCode
 	 */
-	public function blockAction($e, $httpCode = 403) {
-		$this->getStorageEngine()->logAttack($e->getFailedRules(), $e->getParamKey(), $e->getParamValue(), $e->getRequest());
-		$this->getStorageEngine()->blockIP($this->getRequest()->getTimestamp(), $this->getRequest()->getIP());
+	public function blockAction($e, $httpCode = 403, $redirect = false, $template = null) {
+		$this->getStorageEngine()->logAttack($e->getFailedRules(), $e->getParamKey(), $e->getParamValue(), $e->getRequest(), $e->getRequest()->getMetadata());
+		
+		if ($redirect) {
+			wfWAFUtils::redirect($redirect); // exits and emits no cache headers
+		}
+		
+		if ($httpCode == 503) {
+			wfWAFUtils::statusHeader(503);
+			wfWAFUtils::doNotCache();
+			if ($secsToGo = $e->getRequest()->getMetadata('503Time')) {
+				header('Retry-After: ' . $secsToGo);
+			}
+			exit($this->getUnavailableMessage($e->getRequest()->getMetadata('503Reason'), $template));
+		}
+		
 		header('HTTP/1.0 403 Forbidden');
-		exit($this->getBlockedMessage());
+		wfWAFUtils::doNotCache();
+		exit($this->getBlockedMessage($template));
 	}
 
 	/**
@@ -731,23 +841,64 @@ HTML
 	 * @param wfWAFBlockXSSException $e
 	 * @param int $httpCode
 	 */
-	public function blockXSSAction($e, $httpCode = 403) {
-		$this->getStorageEngine()->logAttack($e->getFailedRules(), $e->getParamKey(), $e->getParamValue(), $e->getRequest());
+	public function blockXSSAction($e, $httpCode = 403, $redirect = false) {
+		$this->getStorageEngine()->logAttack($e->getFailedRules(), $e->getParamKey(), $e->getParamValue(), $e->getRequest(), $e->getRequest()->getMetadata());
+		
+		if ($redirect) {
+			wfWAFUtils::redirect($redirect); // exits and emits no cache headers
+		}
+		
+		if ($httpCode == 503) {
+			wfWAFUtils::statusHeader(503);
+			wfWAFUtils::doNotCache();
+			if ($secsToGo = $e->getRequest()->getMetadata('503Time')) {
+				header('Retry-After: ' . $secsToGo);
+			}
+			exit($this->getUnavailableMessage($e->getRequest()->getMetadata('503Reason')));
+		}
+		
 		header('HTTP/1.0 403 Forbidden');
+		wfWAFUtils::doNotCache();
 		exit($this->getBlockedMessage());
+	}
+	
+	public function logAction($e) {
+		$this->getStorageEngine()->logAttack(array('logged'), $e->getParamKey(), $e->getParamValue(), $this->getRequest());
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getBlockedMessage() {
-		if ($this->currentUserCanWhitelist()) {
-			return wfWAFView::create('403-roadblock', array(
-				'waf' => $this,
-			))->render();
+	public function getBlockedMessage($template = null) {
+		if ($template === null) {
+			if ($this->currentUserCanWhitelist()) {
+				$template = '403-roadblock';
+			}
+			else {
+				$template = '403';
+			}
 		}
-		return wfWAFView::create('403', array(
+		return wfWAFView::create($template, array(
 			'waf' => $this,
+		))->render();
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getUnavailableMessage($reason = '', $template = null) {
+		if ($template === null) { $template = '503'; }
+		try {
+			$homeURL = wfWAF::getInstance()->getStorageEngine()->getConfig('homeURL');
+		}
+		catch (Exception $e) {
+			//Do nothing
+		}
+		
+		return wfWAFView::create($template, array(
+			'waf' => $this,
+			'reason' => $reason,
+			'homeURL' => $homeURL,
 		))->render();
 	}
 
@@ -827,6 +978,9 @@ HTML
 					if (!in_array($ruleID, $urlRegex['rules'])) {
 						continue;
 					}
+					if (isset($urlRegex['conditional']) && !$urlRegex['conditional']->evaluate()) {
+						continue;
+					}
 					$urlRegex = $urlRegex['url'];
 				}
 				if (preg_match($urlRegex, $urlPath)) {
@@ -863,6 +1017,12 @@ HTML
 		if ($this->getStorageEngine()->getConfig('attackDataKey', false) === false) {
 			$this->getStorageEngine()->setConfig('attackDataKey', mt_rand(0, 0xfff));
 		}
+		
+		if (!$this->getStorageEngine()->getConfig('other_WFNet', true)) {
+			$this->getStorageEngine()->truncateAttackData();
+			$this->getStorageEngine()->unsetConfig('attackDataNextInterval');
+			return;
+		}
 
 		$request = new wfWAFHTTP();
 		try {
@@ -881,13 +1041,19 @@ HTML
 							'k'      => $this->getStorageEngine()->getConfig('apiKey'),
 							's'      => $this->getStorageEngine()->getConfig('siteURL') ? $this->getStorageEngine()->getConfig('siteURL') :
 								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
-						)), $this->getStorageEngine()->getAttackData(), $request);
+							'h'      => $this->getStorageEngine()->getConfig('homeURL') ? $this->getStorageEngine()->getConfig('homeURL') :
+								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
+							't'		 => microtime(true),
+						), null, '&'), $this->getStorageEngine()->getAttackData(), $request);
 
 					if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
 						$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
 						if (is_array($jsonData) && array_key_exists('success', $jsonData)) {
 							$this->getStorageEngine()->truncateAttackData();
 							$this->getStorageEngine()->unsetConfig('attackDataNextInterval');
+						}
+						if (array_key_exists('data', $jsonData) && array_key_exists('watchedIPList', $jsonData['data'])) {
+							$this->getStorageEngine()->setConfig('watchedIPs', $jsonData['data']['watchedIPList']);
 						}
 					}
 				} else if (is_string($response->getBody()) && preg_match('/next check in: ([0-9]+)/', $response->getBody(), $matches)) {
@@ -949,6 +1115,9 @@ HTML
 					if (!in_array($ruleID, $urlRegex['rules'])) {
 						continue;
 					}
+					if (isset($urlRegex['conditional']) && !$urlRegex['conditional']->evaluate()) {
+						continue;
+					}
 					$urlRegex = $urlRegex['url'];
 				}
 				if (preg_match($urlRegex, $urlPath)) {
@@ -1001,6 +1170,33 @@ HTML
 		$algo = function_exists('hash') ? 'sha256' : 'sha1';
 		return wfWAFUtils::hash_hmac($algo, $userID . $role . floor(time() / 43200), $this->getStorageEngine()->getConfig('authKey'));
 	}
+	
+	/**
+	 * @param string $action
+	 * @return bool|string
+	 */
+	public function createNonce($action) {
+		$userInfo = $this->parseAuthCookie();
+		if ($userInfo === false) {
+			$userInfo = array('userID' => 0, 'role' => ''); // Use an empty user like WordPress would
+		}
+		$userID = $userInfo['userID'];
+		$role = $userInfo['role'];
+		$algo = function_exists('hash') ? 'sha256' : 'sha1';
+		return wfWAFUtils::hash_hmac($algo, $action . $userID . $role . floor(time() / 43200), $this->getStorageEngine()->getConfig('authKey'));
+	}
+	
+	/**
+	 * @param string $nonce
+	 * @param string $action
+	 * @return bool
+	 */
+	public function verifyNonce($nonce, $action) {
+		if (empty($nonce)) {
+			return false;
+		}
+		return wfWAFUtils::hash_equals($nonce, $this->createNonce($action));
+	}
 
 	/**
 	 * @param string|null $host
@@ -1033,6 +1229,14 @@ HTML
 	 */
 	public function isIPBlocked($ip) {
 		return $this->getStorageEngine()->isIPBlocked($ip);
+	}
+	
+	/**
+	 * @param wfWAFRequest $request
+	 * @return bool|array false if it should not be blocked, otherwise an array defining the context for the final action
+	 */
+	public function willPerformFinalAction($request) {
+		return false;
 	}
 
 	/**
@@ -1249,8 +1453,10 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 	public function fire() {
 		$waf = $this->getWaf();
 		if (!$waf) {
-			return;
+			return false;
 		}
+		
+		$success = true;
 		$guessSiteURL = sprintf('%s://%s/', $waf->getRequest()->getProtocol(), $waf->getRequest()->getHost());
 		try {
 			$this->response = wfWAFHTTP::get(WFWAF_API_URL_SEC . "?" . http_build_query(array(
@@ -1260,7 +1466,7 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 					'h'        => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
 					'openssl'  => $waf->hasOpenSSL() ? 1 : 0,
 					'betaFeed' => (int) $waf->getStorageEngine()->getConfig('betaThreatDefenseFeed'),
-				)));
+				), null, '&'));
 			if ($this->response) {
 				$jsonData = wfWAFUtils::json_decode($this->response->getBody(), true);
 				if (is_array($jsonData)) {
@@ -1287,14 +1493,70 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 							$waf->getStorageEngine()->setConfig('premiumCount', $jsonData['data']['premiumCount']);
 						}
 					}
-
+					else {
+						$success = false;
+					}
 				}
+				else {
+					$success = false;
+				}
+			}
+			else {
+				$success = false;
+			}
+			
+			$this->response = wfWAFHTTP::get(WFWAF_API_URL_SEC . "?" . http_build_query(array(
+					'action'   => 'get_malware_signatures',
+					'k'        => $waf->getStorageEngine()->getConfig('apiKey'),
+					's'        => $waf->getStorageEngine()->getConfig('siteURL') ? $waf->getStorageEngine()->getConfig('siteURL') : $guessSiteURL,
+					'h'        => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
+					'openssl'  => $waf->hasOpenSSL() ? 1 : 0,
+					'betaFeed' => (int) $waf->getStorageEngine()->getConfig('betaThreatDefenseFeed'),
+				), null, '&'));
+			if ($this->response) {
+				$jsonData = wfWAFUtils::json_decode($this->response->getBody(), true);
+				if (is_array($jsonData)) {
+					if ($waf->hasOpenSSL() &&
+						isset($jsonData['data']['signature']) &&
+						isset($jsonData['data']['signatures']) &&
+						$waf->verifySignedRequest(base64_decode($jsonData['data']['signature']), $jsonData['data']['signatures'])
+					) {
+						$waf->setMalwareSignatures(wfWAFUtils::json_decode(base64_decode($jsonData['data']['signatures'])),
+							isset($jsonData['data']['timestamp']) ? $jsonData['data']['timestamp'] : true);
+						if (array_key_exists('premiumCount', $jsonData['data'])) {
+							$waf->getStorageEngine()->setConfig('signaturePremiumCount', $jsonData['data']['premiumCount']);
+						}
+						
+					} else if (!$waf->hasOpenSSL() &&
+						isset($jsonData['data']['hash']) &&
+						isset($jsonData['data']['signatures']) &&
+						$waf->verifyHashedRequest($jsonData['data']['hash'], $jsonData['data']['signatures'])
+					) {
+						$waf->setMalwareSignatures(wfWAFUtils::json_decode(base64_decode($jsonData['data']['signatures'])),
+							isset($jsonData['data']['timestamp']) ? $jsonData['data']['timestamp'] : true);
+						if (array_key_exists('premiumCount', $jsonData['data'])) {
+							$waf->getStorageEngine()->setConfig('signaturePremiumCount', $jsonData['data']['premiumCount']);
+						}
+					}
+					else {
+						$success = false;
+					}
+				}
+				else {
+					$success = false;
+				}
+			}
+			else {
+				$success = false;
 			}
 		} catch (wfWAFHTTPTransportException $e) {
 			error_log($e->getMessage());
+			$success = false;
 		} catch (wfWAFBuildRulesException $e) {
 			error_log($e->getMessage());
+			$success = false;
 		}
+		return $success;
 	}
 
 	/**
@@ -1316,6 +1578,93 @@ class wfWAFCronFetchRulesEvent extends wfWAFCronEvent {
 				}
 			}
 		}
+		return $newEvent;
+	}
+}
+
+class wfWAFCronFetchIPListEvent extends wfWAFCronEvent {
+	
+	public function fire() {
+		$waf = $this->getWaf();
+		if (!$waf) {
+			return;
+		}
+		$guessSiteURL = sprintf('%s://%s/', $waf->getRequest()->getProtocol(), $waf->getRequest()->getHost());
+		try {
+			//Watch List
+			$request = new wfWAFHTTP();
+			$request->setHeaders(array(
+				'Content-Type' => 'application/json',
+			));
+			$response = wfWAFHTTP::post(WFWAF_API_URL_SEC . "?" . http_build_query(array(
+					'action' => 'send_waf_attack_data',
+					'k'      => $waf->getStorageEngine()->getConfig('apiKey'),
+					's'      => $waf->getStorageEngine()->getConfig('siteURL') ? $waf->getStorageEngine()->getConfig('siteURL') : $guessSiteURL,
+					'h'      => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
+					't'		 => microtime(true),
+				), null, '&'), '[]', $request);
+			
+			if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
+				$jsonData = wfWAFUtils::json_decode($response->getBody(), true);
+				if (array_key_exists('data', $jsonData) && array_key_exists('watchedIPList', $jsonData['data'])) {
+					$waf->getStorageEngine()->setConfig('watchedIPs', $jsonData['data']['watchedIPList']);
+				}
+			}
+		} catch (wfWAFHTTPTransportException $e) {
+			error_log($e->getMessage());
+		}
+	}
+	
+	/**
+	 * @return wfWAFCronEvent|bool
+	 */
+	public function reschedule() {
+		$waf = $this->getWaf();
+		if (!$waf) {
+			return false;
+		}
+		$newEvent = new self(time() + 86400);
+		return $newEvent;
+	}
+}
+
+class wfWAFCronFetchBlacklistPrefixesEvent extends wfWAFCronEvent {
+	
+	public function fire() {
+		$waf = $this->getWaf();
+		if (!$waf) {
+			return;
+		}
+		$guessSiteURL = sprintf('%s://%s/', $waf->getRequest()->getProtocol(), $waf->getRequest()->getHost());
+		try {
+			if ($waf->getStorageEngine()->getConfig('isPaid')) {
+				$request = new wfWAFHTTP();
+				$response = wfWAFHTTP::get(WFWAF_API_URL_SEC . 'blacklist-prefixes.bin' . "?" . http_build_query(array(
+						'k'      => $waf->getStorageEngine()->getConfig('apiKey'),
+						's'      => $waf->getStorageEngine()->getConfig('siteURL') ? $waf->getStorageEngine()->getConfig('siteURL') : $guessSiteURL,
+						'h'      => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
+						't'		 => microtime(true),
+					), null, '&'), $request);
+				
+				if ($response instanceof wfWAFHTTPResponse && $response->getBody()) {
+					$waf->getStorageEngine()->setConfig('blockedPrefixes', base64_encode($response->getBody()));
+					$waf->getStorageEngine()->setConfig('blacklistAllowedCache', '');
+				}
+			}
+		} catch (wfWAFHTTPTransportException $e) {
+			error_log($e->getMessage());
+		}
+	}
+	
+	/**
+	 * @return wfWAFCronEvent|bool
+	 */
+	public function reschedule() {
+		$waf = $this->getWaf();
+		if (!$waf) {
+			return false;
+		}
+		$newEvent = new self(time() + 7200);
 		return $newEvent;
 	}
 }
@@ -1379,6 +1728,13 @@ class wfWAFEventBus implements wfWAFObserver {
 			$observer->blockSQLi($ip, $exception);
 		}
 	}
+	
+	public function log($ip, $exception) {
+		/** @var wfWAFObserver $observer */
+		foreach ($this->observers as $observer) {
+			$observer->log($ip, $exception);
+		}
+	}
 
 
 	public function wafDisabled() {
@@ -1414,6 +1770,8 @@ interface wfWAFObserver {
 	public function blockXSS($ip, $exception);
 
 	public function blockSQLi($ip, $exception);
+	
+	public function log($ip, $exception);
 
 	public function wafDisabled();
 
@@ -1442,6 +1800,10 @@ class wfWAFBaseObserver implements wfWAFObserver {
 
 	public function blockSQLi($ip, $exception) {
 
+	}
+	
+	public function log($ip, $exception) {
+		
 	}
 
 	public function wafDisabled() {
@@ -1538,6 +1900,9 @@ class wfWAFBlockXSSException extends wfWAFRunException {
 }
 
 class wfWAFBlockSQLiException extends wfWAFRunException {
+}
+
+class wfWAFLogException extends wfWAFRunException {
 }
 
 class wfWAFBuildRulesException extends wfWAFException {

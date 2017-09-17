@@ -437,7 +437,7 @@ class WPSEO_Breadcrumbs {
 	private function add_home_crumb() {
 		$this->add_predefined_crumb(
 			$this->options['breadcrumbs-home'],
-			get_home_url(),
+			WPSEO_Utils::home_url(),
 			true
 		);
 	}
@@ -480,8 +480,7 @@ class WPSEO_Breadcrumbs {
 		if ( isset( $this->options[ 'post_types-' . $this->post->post_type . '-maintax' ] ) && $this->options[ 'post_types-' . $this->post->post_type . '-maintax' ] != '0' ) {
 			$main_tax = $this->options[ 'post_types-' . $this->post->post_type . '-maintax' ];
 			if ( isset( $this->post->ID ) ) {
-				// TODO Flagged about being uncached, consider get_the_terms(). Update phpcs.xml if changed. R.
-				$terms = wp_get_object_terms( $this->post->ID, $main_tax );
+				$terms = get_the_terms( $this->post, $main_tax );
 
 				if ( is_array( $terms ) && $terms !== array() ) {
 
@@ -863,6 +862,7 @@ class WPSEO_Breadcrumbs {
 
 	/********************** DEPRECATED METHODS **********************/
 
+	// @codeCoverageIgnoreStart
 	/**
 	 * Wrapper function for the breadcrumb so it can be output for the supported themes.
 	 *
@@ -887,4 +887,5 @@ class WPSEO_Breadcrumbs {
 	public function create_breadcrumbs_string( $links, $wrapper = 'span', $element = 'span' ) {
 		_deprecated_function( __METHOD__, 'WPSEO 1.5.2.3', 'yoast_breadcrumbs' );
 	}
+	// @codeCoverageIgnoreEnd
 }

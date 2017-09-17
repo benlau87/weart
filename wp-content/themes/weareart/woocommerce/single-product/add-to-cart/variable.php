@@ -14,7 +14,10 @@ global $product;
 
 $attribute_keys = array_keys( $attributes );
 
-do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+do_action( 'woocommerce_before_add_to_cart_form' );
+
+
+?>
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->id ); ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
@@ -31,7 +34,12 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						<td class="label"><label for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td>
 						<td class="value">
 							<?php
-								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ? wc_clean( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) : $product->get_variation_default_attribute( $attribute_name );
+							if(count($options) == 1) {
+									$selected = $options[0];
+							} else {
+									$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ? wc_clean( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) : $product->get_variation_default_attribute( $attribute_name );
+							}
+
 								#$waa_only_print = get_post_meta($product->id, 'waa_only_print', true);
 							#	if(waa_get_variation_prices($product, true) == 2 && $waa_only_print == 'yes')
 							#		wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $options[0] ) );

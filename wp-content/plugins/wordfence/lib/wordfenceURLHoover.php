@@ -12,19 +12,22 @@ class wordfenceURLHoover {
 	private $hostKeys = array();
 	private $hostList = array();
 	public $currentHooverID = false;
-	private $dRegex = 'aero|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cs|cu|cv|cx|cy|cz|dd|de|dj|dk|dm|do|dz|ec|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|ss|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw|xn--lgbbat1ad8j|xn--fiqs8s|xn--fiqz9s|xn--wgbh1c|xn--j6w193g|xn--h2brj9c|xn--mgbbh1a71e|xn--fpcrj9c3d|xn--gecrj9c|xn--s9brj9c|xn--xkc2dl3a5ee0h|xn--45brj9c|xn--mgba3a4f16a|xn--mgbayh7gpa|xn--mgbc0a9azcg|xn--ygbi2ammx|xn--wgbl6a|xn--p1ai|xn--mgberp4a5d4ar|xn--90a3ac|xn--yfro4i67o|xn--clchc0ea0b2g2a9gcd|xn--3e0b707e|xn--fzc2c9e2c|xn--xkc2al3hye2a|xn--mgbtf8fl|xn--kprw13d|xn--kpry57d|xn--o3cw4h|xn--pgbs0dh|xn--mgbaam7a8h|xn--54b7fta0cc|xn--90ae|xn--node|xn--4dbrk0ce|xn--80ao21a|xn--mgb9awbf|xn--mgbai9azgqp6j|xn--j1amh|xn--mgb2ddes|xn--kgbechtv|xn--hgbk6aj7f53bba|xn--0zwm56d|xn--g6w251d|xn--80akhbyknj4f|xn--11b5bs3a9aj6g|xn--jxalpdlp|xn--9t4b11yi5a|xn--deba0ad|xn--zckzah|xn--hlcj6aya9esc7a';
+	private $_foundSome = false;
 	private $api = false;
 	private $db = false;
-	public function __sleep(){
+	
+	public function __sleep() {
 		$this->writeHosts();	
-		return array('debug', 'errorMsg', 'table', 'apiKey', 'wordpressVersion', 'dRegex');
+		return array('debug', 'errorMsg', 'table', 'apiKey', 'wordpressVersion');
 	}
-	public function __wakeup(){
+	
+	public function __wakeup() {
 		$this->hostsToAdd = new wfArray(array('owner', 'host', 'path', 'hostKey'));
 		$this->api = new wfAPI($this->apiKey, $this->wordpressVersion);
 		$this->db = new wfDB();
-	}	
-	public function __construct($apiKey, $wordpressVersion, $db = false){
+	}
+	
+	public function __construct($apiKey, $wordpressVersion, $db = false) {
 		$this->hostsToAdd = new wfArray(array('owner', 'host', 'path', 'hostKey'));
 		$this->apiKey = $apiKey;
 		$this->wordpressVersion = $wordpressVersion;
@@ -40,93 +43,54 @@ class wordfenceURLHoover {
 		} else {
 			$this->table = 'wp_wfHoover';
 		}
+		
+		$this->cleanup();
+	}
+	
+	public function cleanup() {
 		$this->db->truncate($this->table);
 	}
-	public function cleanup(){
-		$this->db->truncate($this->table);
-	}
-	public function hoover($id, $data){
-		if(strpos($data, '.') === false){
-			return;
-		}
+	
+	public function hoover($id, $data) {
 		$this->currentHooverID = $id;
-		try {
-			@preg_replace_callback("/(?<=^|[^a-zA-Z0-9\-])((?:[a-zA-Z0-9\-]+\.)+)(" . $this->dRegex . ")($|[\r\n\s\t]|\/[^\r\n\s\t\"\'\$\{\}<>]*)/i", array($this, 'addHost'), $data);
-			//((?:$|[^a-zA-Z0-9\-\.\'\"])[^\r\n\s\t\"\'\$\{\}<>]*)
-			//"\$this->" . "addHost(\$id, '$1$2', '$3')", $data);
-		} catch(Exception $e){ 
-			//error_log("Regex error 1: $e"); 
-		}
-		@preg_replace_callback("/(?<=[^\d]|^)(\d{8,10}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})($|[\r\n\s\t]|\/[^\r\n\s\t\"\'\$\{\}<>]*)/", array($this, 'addIP'), $data);
-		//([^\d\'\"][^\r\n\s\t\"\'\$\{\}<>]*)
-		//"\$this->" . "addIP(\$id, \"$1\",\"$2\")", $data);
+		$this->_foundSome = false;
+		@preg_replace_callback('/\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))/i', array($this, 'captureURL'), $data);
 		$this->writeHosts();
+		return $this->_foundSome;
 	}
-	private function dbg($msg){ 
-		if($this->debug){ 
-			//error_log("DEBUG: $msg\n"); 
-		} 
+	
+	private function dbg($msg) { 
+		if ($this->debug) { wordfence::status(4, 'info', $msg); } 
 	}
-	public function addHost($matches){
+	
+	public function captureURL($matches) {
 		$id = $this->currentHooverID;
-		$host = $matches[1] . $matches[2];
-		$path = $matches[3];
-		if(strpos($path, '/') !== 0){
-			$path = '/';
-		} else {
-			$path = preg_replace_callback('/([^A-Za-z0-9\-\.\_\~:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,;\=]+)/', 'wordfenceURLHoover::urlenc', $path);
-		}
-		$host = strtolower($host);
-		$hostParts = explode('.', $host);
-		if(sizeof($hostParts) == 2){
-			$hostKey = substr(hash('sha256', $hostParts[0] . '.' . $hostParts[1] . '/', true), 0, 4);
-			$this->hostsToAdd->push(array('owner' => $id, 'host' => $host, 'path' => $path, 'hostKey' => $hostKey));
-		} else if(sizeof($hostParts) > 2){
-			$hostKeyThreeParts = substr(hash('sha256',$hostParts[sizeof($hostParts) - 3] . '.' . $hostParts[sizeof($hostParts) - 2] . '.' . $hostParts[sizeof($hostParts) - 1] . '/', true), 0, 4);
-			$hostKeyTwoParts = substr(hash('sha256', $hostParts[sizeof($hostParts) - 2] . '.' . $hostParts[sizeof($hostParts) - 1] . '/', true), 0, 4);
-			$this->hostsToAdd->push(array('owner' => $id, 'host' => $host, 'path' => $path, 'hostKey' => $hostKeyThreeParts));
-			$this->hostsToAdd->push(array('owner' => $id, 'host' => $host, 'path' => $path, 'hostKey' => $hostKeyTwoParts));
-		}
-		if($this->hostsToAdd->size() > 1000){ $this->writeHosts(); }	
-	}
-	public function addIP($matches){
-		$id = $this->currentHooverID;
-		$ipdata = $matches[1];
-		$path = $matches[2];
-		$this->dbg("Add IP called with $ipdata $path");
-		if(strstr($ipdata, '.') === false){
-			if($ipdata >= 16777216 && $ipdata <= 4026531840){
-				$ipdata = long2ip($ipdata);
-			} else {
-				return; //Is int but invalid address.
-			}
-		} 
-		$parts = explode('.', $ipdata);
-		foreach($parts as $part){
-			if($part < 0 || $part > 255){
-				return;
-			}
-		}
-		if(wfUtils::isPrivateAddress($ipdata) ){
+		$url = $matches[0];
+		$components = parse_url($url);
+		if (!isset($components['scheme']) || !preg_match('/^https?$/i', $components['scheme'])) {
 			return;
 		}
-		if(strlen($path) == 1){
-			$path = '/'; //Because it's either a whitespace char or a / anyway. 
-		} else if(strlen($path) > 1){
-			$path = preg_replace_callback('/([^A-Za-z0-9\-\.\_\~:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,;\=]+)/', 'wordfenceURLHoover::urlenc', $path);
+		if (!filter_var($url, FILTER_VALIDATE_URL)) {
+			return;
 		}
-		$hostKey = substr(hash('sha256', $ipdata . '/', true), 0, 4);
-		$this->hostsToAdd->push(array('owner' => $id, 'host' => $ipdata, 'path' => $path, 'hostKey' => $hostKey));
-		if($this->hostsToAdd->size() > 1000){ $this->writeHosts(); }	
+		
+		$host = (isset($components['host']) ? $components['host'] : '');
+		$path = (isset($components['path']) && !empty($components['path']) ? $components['path'] : '/');
+		$hashes = $this->_generateHashes($url);
+		$prefixes = '';
+		foreach ($hashes as $h) {
+			$prefixes .= wfUtils::substr($h, 0, 4);
+		}
+		$this->hostsToAdd->push(array('owner' => $id, 'host' => $host, 'path' => $path, 'hostKey' => $prefixes));
+		
+		if($this->hostsToAdd->size() > 1000){ $this->writeHosts(); }
 	}
-	public static function urlenc($m){
-		return urlencode($m[1]);
-	}
-	private function writeHosts(){
-		if($this->hostsToAdd->size() < 1){ return; }
-		if($this->useDB){
-			$sql = "insert into " . $this->table . " (owner, host, path, hostKey) values ";
-			while($elem = $this->hostsToAdd->shift()){
+	
+	private function writeHosts() {
+		if ($this->hostsToAdd->size() < 1) { return; }
+		if ($this->useDB) {
+			$sql = "INSERT INTO " . $this->table . " (owner, host, path, hostKey) VALUES ";
+			while ($elem = $this->hostsToAdd->shift()) {
 				//This may be an issue for hyperDB or other abstraction layers, but leaving it for now.
 				$sql .= sprintf("('%s', '%s', '%s', '%s'),", 
 						$this->db->realEscape($elem['owner']),
@@ -137,9 +101,13 @@ class wordfenceURLHoover {
 			}
 			$sql = rtrim($sql, ',');
 			$this->db->queryWrite($sql);
-		} else {
-			while($elem = $this->hostsToAdd->shift()){
-				$this->hostKeys[] = $elem['hostKey'];
+		}
+		else {
+			while ($elem = $this->hostsToAdd->shift()) {
+				$keys = str_split($elem['hostKey'], 4);
+				foreach ($keys as $k) {
+					$this->hostKeys[] = $k;
+				}
 				$this->hostList[] = array(
 					'owner' => $elem['owner'],
 					'host' => $elem['host'],
@@ -148,126 +116,417 @@ class wordfenceURLHoover {
 					);
 			}
 		}
+		
+		$this->_foundSome = true;
 	}
-	public function getBaddies(){
+	public function getBaddies() {
 		$allHostKeys = array();
-		if($this->useDB){
-			$q1 = $this->db->querySelect("select distinct hostKey as hostKey from $this->table");
-			foreach($q1 as $hRec){
-				$allHostKeys[] = $hRec['hostKey'];
+		if ($this->useDB) {
+			$q1 = $this->db->querySelect("SELECT DISTINCT hostKey FROM {$this->table}");
+			foreach ($q1 as $hRec) {
+				$keys = str_split($hRec['hostKey'], 4);
+				foreach ($keys as $k) {
+					$allHostKeys[] = $k;
+				}
 			}
-		} else {
+		}
+		else {
 			$allHostKeys = $this->hostKeys;
 		}
-		//Now call API and check if any hostkeys are bad. 
-		//This is a shortcut, because if no hostkeys are bad it saves us having to check URLs
-		if(sizeof($allHostKeys) > 0){ //If we don't have any hostkeys, then we won't have any URL's to check either.
-			//Hostkeys are 4 byte sha256 prefixes
-			//Returned value is 2 byte shorts which are array indexes for bad keys that were passed in the original list
-			$this->dbg("Checking " . sizeof($allHostKeys) . " hostkeys");
-			if($this->debug){
-				foreach($allHostKeys as $key){
+		
+		$allHostKeys = array_values(array_unique($allHostKeys));
+		
+		/**
+		 * Check hash prefixes first. Each one is a 4-byte binary prefix of a SHA-256 hash of the URL. The response will
+		 * be a binary list of 4-byte indices; The full URL for each index should be sent in the secondary query to
+		 * find the true good/bad status.
+		 */
+		if (count($allHostKeys) > 0) {
+			if ($this->debug) {
+				$this->dbg("Checking " . count($allHostKeys) . " hostkeys");
+				foreach ($allHostKeys as $key) {
 					$this->dbg("Checking hostkey: " . bin2hex($key));
 				}
 			}
-			wordfence::status(2, 'info', "Checking " . sizeof($allHostKeys) . " host keys against Wordfence scanning servers.");
+			
+			wordfence::status(2, 'info', "Checking " . count($allHostKeys) . " host keys against Wordfence scanning servers.");
 			$resp = $this->api->binCall('check_host_keys', implode('', $allHostKeys));
 			wordfence::status(2, 'info', "Done host key check.");
-			$this->dbg("Done hostkey check");
+			$this->dbg("Done host key check");
 
 			$badHostKeys = array();
-			if($resp['code'] == 200){
-				if(strlen($resp['data']) > 0){
-					$dataLen = strlen($resp['data']);
-					if($dataLen % 2 != 0){
-						$this->errorMsg = "Invalid data length received from Wordfence server: " . $dataLen;
-						return false;
-					}
-					for($i = 0; $i < $dataLen; $i += 2){
+			if ($resp['code'] >= 200 && $resp['code'] <= 299) {
+				$this->dbg("Host key response: " . bin2hex($resp['data']));
+				$dataLen = strlen($resp['data']);
+				if ($dataLen > 0 && $dataLen % 2 == 0) {
+					$this->dbg("Checking response indexes");
+					for ($i = 0; $i < $dataLen; $i += 2) {
 						$idxArr = unpack('n', substr($resp['data'], $i, 2));
 						$idx = $idxArr[1];
-						if(isset($allHostKeys[$idx]) ){
+						$this->dbg("Checking index {$idx}");
+						if (isset($allHostKeys[$idx])) {
 							$badHostKeys[] = $allHostKeys[$idx];
-							$this->dbg("Got bad hostkey for record: " . var_export($allHostKeys[$idx], true));
-						} else {
+							$this->dbg("Got bad hostkey for record: " . bin2hex($allHostKeys[$idx]));
+						}
+						else {
 							$this->dbg("Bad allHostKeys index: $idx");
 							$this->errorMsg = "Bad allHostKeys index: $idx";
 							return false;
 						}
 					}
 				}
-			} else {
+				else if ($dataLen > 0) {
+					$this->errorMsg = "Invalid data length received from Wordfence server: " . $dataLen;
+					$this->dbg($this->errorMsg);
+					return false;
+				}
+			}
+			else {
 				$this->errorMsg = "Wordfence server responded with an error. HTTP code " . $resp['code'] . " and data: " . $resp['data'];
 				return false;
 			}
-			if(sizeof($badHostKeys) > 0){
+			
+			if (count($badHostKeys) > 0) {
 				$urlsToCheck = array();
 				$totalURLs = 0;
-				//need to figure out which id's have bad hostkeys
-				//need to feed in all URL's from those id's where the hostkey matches a URL
-				foreach($badHostKeys as $badHostKey){
-					if($this->useDB){
-						//Putting a 10000 limit in here for sites that have a huge number of items with the same URL that repeats.
-						// This is an edge case. But if the URLs are malicious then presumably the admin will fix the malicious URLs
-						// and on subsequent scans the items (owners) that are above the 10000 limit will appear.
-						$q1 = $this->db->querySelect("select owner, host, path from $this->table where hostKey='%s' limit 10000", $badHostKey);
-						foreach($q1 as $rec){
+				
+				//Reconcile flagged prefixes with their corresponding URLs
+				foreach ($badHostKeys as $badHostKey) {
+					if ($this->useDB) {
+						/**
+						 * Putting a 10000 limit in here for sites that have a huge number of items with the same URL 
+						 * that repeats. This is an edge case. But if the URLs are malicious then presumably the admin 
+						 * will fix the malicious URLs and on subsequent scans the items (owners) that are above the 
+						 * 10000 limit will appear.
+						 */
+						$q1 = $this->db->querySelect("SELECT owner, host, path, LOCATE('%s', hostKey) AS position FROM {$this->table} HAVING position != 0 AND MOD(position - 1, 4) = 0 LIMIT 10000", $badHostKey);
+						foreach ($q1 as $rec) {
 							$url = 'http://' . $rec['host'] . $rec['path'];
-							if(! isset($urlsToCheck[$rec['owner']])){
+							if (!isset($urlsToCheck[$rec['owner']])) {
 								$urlsToCheck[$rec['owner']] = array();
 							}
-							if(! in_array($url, $urlsToCheck[$rec['owner']])){
+							if (!in_array($url, $urlsToCheck[$rec['owner']])) {
 								$urlsToCheck[$rec['owner']][] = $url;
 								$totalURLs++;
 							}
 						}
-					} else {
-						foreach($this->hostList as $rec){
-							if($rec['hostKey'] == $badHostKey){
+					}
+					else {
+						foreach ($this->hostList as $rec) {
+							$pos = strpos($rec['hostKey'], $badHostKey);
+							if ($pos !== false && $pos % 4 == 0) {
 								$url = 'http://' . $rec['host'] . $rec['path'];
-								if(! isset($urlsToCheck[$rec['owner']])){
+								if (!isset($urlsToCheck[$rec['owner']])) {
 									$urlsToCheck[$rec['owner']] = array();
 								}
-								if(! in_array($url, $urlsToCheck[$rec['owner']])){
+								if (!in_array($url, $urlsToCheck[$rec['owner']])) {
 									$urlsToCheck[$rec['owner']][] = $url;
 									$totalURLs++;
 								}
 							}
 						}
 					}
+					if ($totalURLs > 10000) { break; }
 				}
 
-				if(sizeof($urlsToCheck) > 0){
+				if (count($urlsToCheck) > 0) {
 					wordfence::status(2, 'info', "Checking " . $totalURLs . " URLs from " . sizeof($urlsToCheck) . " sources.");
-					$badURLs = $this->api->call('check_bad_urls', array(), array( 'toCheck' => json_encode($urlsToCheck)) );
+					$badURLs = $this->api->call('check_bad_urls', array(), array('toCheck' => json_encode($urlsToCheck)));
 					wordfence::status(2, 'info', "Done URL check.");
 					$this->dbg("Done URL check");
-					if(is_array($badURLs) && sizeof($badURLs) > 0){
+					if (is_array($badURLs) && count($badURLs) > 0) {
 						$finalResults = array();
-						foreach($badURLs as $file => $badSiteList){
-							if(! isset($finalResults[$file])){
+						foreach ($badURLs as $file => $badSiteList) {
+							if (!isset($finalResults[$file])) {
 								$finalResults[$file] = array();
 							}
-							foreach($badSiteList as $badSite){
+							foreach ($badSiteList as $badSite) {
 								$finalResults[$file][] = array(
 									'URL' => $badSite[0],
 									'badList' => $badSite[1]
 									);
 							}
 						}
+						$this->dbg("Confirmed " . count($badURLs) . " bad URLs");
 						return $finalResults;
-					} else {
-						return array();
 					}
-				} else {
-					return array();
 				}
-			} else {
-				return array();
 			}
-		} else {
-			return array();
 		}
+		
+		return array();
+	}
+	
+	protected function _generateHashes($url) {
+		//The GSB specification requires generating and sending hash prefixes for a number of additional similar URLs. See: https://developers.google.com/safe-browsing/v4/urls-hashing#suffixprefix-expressions
+		
+		$canonicalURL = $this->_canonicalizeURL($url);
+		
+		//Extract the scheme
+		$scheme = 'http';
+		if (preg_match('~^([a-z]+[a-z0-9+\.\-]*)://(.*)$~i', $canonicalURL, $matches)) {
+			$scheme = strtolower($matches[1]);
+			$canonicalURL = $matches[2];
+		}
+		
+		//Separate URL and query string
+		$query = '';
+		if (preg_match('/^([^?]+)(\??.*)/', $canonicalURL, $matches)) {
+			$canonicalURL = $matches[1];
+			$query = $matches[2];
+		}
+		
+		//Separate host and path
+		$path = '';
+		preg_match('~^(.*?)(?:(/.*)|$)~', $canonicalURL, $matches);
+		$host = $matches[1];
+		if (isset($matches[2])) {
+			$path = $matches[2];
+		}
+		
+		//Clean host
+		$host = $this->_normalizeHost($host);
+		
+		//Generate hosts list
+		$hosts = array();
+		if (filter_var(trim($host, '[]'), FILTER_VALIDATE_IP)) {
+			$hosts[] = $host;
+		}
+		else {
+			$hostComponents = explode('.', $host);
+			
+			$numComponents = count($hostComponents) - 7;
+			if ($numComponents < 1) {
+				$numComponents = 1;
+			}
+			
+			$hosts[] = $host;
+			for ($i = $numComponents; $i < count($hostComponents) - 1; $i++) {
+				$hosts[] = implode('.', array_slice($hostComponents, $i));
+			}
+		}
+		
+		//Generate paths list
+		$paths = array('/');
+		$pathComponents = array_filter(explode('/', $path));
+		
+		$numComponents = min(count($pathComponents), 4);
+		for ($i = 1; $i < $numComponents; $i++) {
+			$paths[] = '/' . implode('/', array_slice($pathComponents, 0, $i)) . '/';
+		}
+		if ($path != '/') {
+			$paths[] = $path;
+		}
+		if (strlen($query) > 0) {
+			$paths[] = $path . '?' . $query;
+		}
+		$paths = array_reverse($paths); //So we start at the most specific and move to most generic
+		
+		//Generate hashes
+		$hashes = array();
+		foreach ($hosts as $h) {
+			$hashes[$h] = hash('sha256', $h, true); //WFSB compatibility -- it uses hashes without the path
+			foreach ($paths as $p) {
+				$key = $h . $p;
+				$hashes[$key] = hash('sha256', $key, true);
+			}
+		}
+		
+		return $hashes;
+	}
+	
+	protected function _canonicalizeURL($url) { //Based on https://developers.google.com/safe-browsing/v4/urls-hashing#canonicalization and Google's reference implementation https://github.com/google/safebrowsing/blob/master/urls.go
+		//Strip fragment
+		$url = $this->_array_first(explode('#', $url));
+		
+		//Trim space
+		$url = trim($url);
+		
+		//Remove tabs, CR, LF
+		$url = preg_replace('/[\t\n\r]/', '', $url);
+		
+		//Normalize escapes
+		$url = $this->_normalizeEscape($url);
+		if ($url === false) { return false; }
+		
+		//Extract the scheme
+		$scheme = 'http';
+		if (preg_match('~^([a-z]+[a-z0-9+\.\-]*)://(.*)$~i', $url, $matches)) {
+			$scheme = strtolower($matches[1]);
+			$url = $matches[2];
+		}
+		
+		//Separate URL and query string
+		$query = '';
+		if (preg_match('/^([^?]+)(\??.*)/', $url, $matches)) {
+			$url = $matches[1];
+			$query = $matches[2];
+		}
+		$endsWithSlash = substr($url, -1) == '/';
+		
+		//Separate host and path
+		$path = '';
+		preg_match('~^(.*?)(?:(/.*)|$)~', $url, $matches);
+		$host = $matches[1];
+		if (isset($matches[2])) {
+			$path = $matches[2];
+		}
+		
+		//Clean host
+		$host = $this->_normalizeHost($host);
+		if ($host === false) { return false; }
+		
+		//Clean path
+		$path = preg_replace('~//+~', '/', $path); //Multiple slashes -> single slash
+		$path = preg_replace('~(?:^|/)\.(?:$|/)~', '/', $path); //. path components removed
+		while (preg_match('~/(?!\.\./)[^/]+/\.\.(?:$|/)~', $path)) { //Resolve ..
+			$path = preg_replace('~/(?!\.\./)[^/]+/\.\.(?:$|/)~', '/', $path, 1);
+		}
+		$path = preg_replace('~(?:^|/)\.\.(?:$|/)~', '/', $path); //Eliminate .. at the beginning
+		$path = trim($path, '.');
+		$path = preg_replace('/\.\.+/', '.', $path);
+		
+		if ($path == '.' || $path == '') {
+			$path = '/';
+		}
+		else if ($endsWithSlash && substr($path, -1) != '/') {
+			$path .= '/';
+		}
+		
+		return $scheme . '://' . $host . $path . $query;
+	}
+	
+	protected function _normalizeEscape($url) {
+		$maxDepth = 1024;
+		$i = 0;
+		while (preg_match('/%([0-9a-f]{2})/i', $url)) {
+			$url = preg_replace_callback('/%([0-9a-f]{2})/i', array($this, '_hex2binCallback'), $url);
+			$i++;
+			
+			if ($i > $maxDepth) {
+				return false;
+			}
+		}
+		
+		return preg_replace_callback('/[\x00-\x20\x7f-\xff#%]/', array($this, '_bin2hexCallback'), $url);
+	}
+	
+	protected function _hex2binCallback($matches) {
+		return wfUtils::hex2bin($matches[1]);
+	}
+
+	protected function _bin2hexCallback($matches) {
+		return '%' . bin2hex($matches[0]);	
+	}
+	
+	protected function _normalizeHost($host) {
+		//Strip username:password
+		$host = $this->_array_last(explode('@', $host));
+		
+		//IPv6 literal
+		if (substr($host, 0, 1) == '[') {
+			if (strpos($host, ']') === false) { //No closing bracket
+				return false;
+			}
+		}
+		
+		//Strip port
+		$host = preg_replace('/:\d+$/', '', $host);
+		
+		//Unicode to IDNA
+		$u = rawurldecode($host);
+		if (preg_match('/[\x81-\xff]/', $u)) { //0x80 is technically Unicode, but the GSB canonicalization doesn't consider it one
+			if (function_exists('idn_to_ascii')) { //Some PHP versions don't have this and we don't have a polyfill
+				$host = idn_to_ascii($u);
+			}
+		}
+		
+		//Remove extra dots
+		$host = trim($host, '.');
+		$host = preg_replace('/\.\.+/', '.', $host);
+		
+		//Canonicalize IP addresses
+		if ($iphost = $this->_parseIP($host)) {
+			return $iphost;
+		}
+		
+		return strtolower($host);
+	}
+	
+	protected function _parseIP($host) {
+		// The Windows resolver allows a 4-part dotted decimal IP address to have a
+		// space followed by any old rubbish, so long as the total length of the
+		// string doesn't get above 15 characters. So, "10.192.95.89 xy" is
+		// resolved to 10.192.95.89. If the string length is greater than 15
+		// characters, e.g. "10.192.95.89 xy.wildcard.example.com", it will be
+		// resolved through DNS.
+		if (strlen($host) <= 15) {
+			$host = $this->_array_first(explode(' ', $host));
+		}
+		
+		if (!preg_match('/^((?:0x[0-9a-f]+|[0-9\.])+)$/i', $host)) {
+			return false;
+		}
+		
+		$parts = explode('.', $host);
+		if (count($parts) > 4) {
+			return false;
+		}
+		
+		$strings = array();
+		foreach ($parts as $i => $p) {
+			if ($i == count($parts) - 1) {
+				$strings[] = $this->_canonicalNum($p, 5 - count($parts));
+			}
+			else {
+				$strings[] = $this->_canonicalNum($p, 1);
+			}
+			
+			if ($strings[$i] == '') {
+				return '';
+			}
+		}
+		
+		return implode('.', $strings);
+	}
+	
+	protected function _canonicalNum($part, $n) {
+		if ($n <= 0 || $n > 4) {
+			return '';
+		}
+		
+		if (preg_match('/^0x(\d+)$/i', $part, $matches)) { //hex
+			$part = hexdec($matches[1]);
+		}
+		else if (preg_match('/^0(\d+)$/i', $part, $matches)) { //octal
+			$part = octdec($matches[1]);
+		}
+		else {
+			$part = (int) $part;
+		}
+		
+		$strings = array_fill(0, $n, '');
+		for ($i = $n - 1; $i >= 0; $i--) {
+			$strings[$i] = (string) ($part & 0xff);
+			$part = $part >> 8;
+		}
+		return implode('.', $strings);
+	}
+	
+	protected function _array_first($array) {
+		if (empty($array)) {
+			return null;
+		}
+		
+		return $array[0];
+	}
+	
+	protected function _array_last($array) {
+		if (empty($array)) {
+			return null;
+		}
+		
+		return $array[count($array) - 1];
 	}
 }
 ?>

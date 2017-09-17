@@ -16,10 +16,12 @@ class WOOCS_SELECTOR extends WP_Widget
 
     public function widget($args, $instance)
     {
-        $args['instance'] = $instance;
+        $data = array();
+        $data['args'] = $args;
+        $data['instance'] = $instance;
         wp_enqueue_script('jquery');
         global $WOOCS;
-        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/selector.php', $args);
+        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/selector.php', $data);
     }
 
     public function update($new_instance, $old_instance)
@@ -44,11 +46,11 @@ class WOOCS_SELECTOR extends WP_Widget
             'txt_type' => 'code'
         );
         $instance = wp_parse_args((array) $instance, $defaults);
-        $args = array();
-        $args['instance'] = $instance;
-        $args['widget'] = $this;
+        $data = array();
+        $data['instance'] = $instance;
+        $data['widget'] = $this;
         global $WOOCS;
-        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/selector_form.php', $args);
+        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/selector_form.php', $data);
     }
 
 }

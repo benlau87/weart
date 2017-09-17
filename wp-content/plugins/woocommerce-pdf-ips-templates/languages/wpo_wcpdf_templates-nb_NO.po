@@ -1,0 +1,311 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce PDF Invoices & Packing Slips Premium "
+"Templates\n"
+"POT-Creation-Date: 2016-09-22 14:01+0200\n"
+"PO-Revision-Date: 2016-09-22 14:08+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language: nb_NO\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/functions.php:119 includes/functions.php:184
+#: includes/settings.php:229
+msgid "SKU"
+msgstr "Artikelnummer:"
+
+#: includes/functions.php:125 includes/settings.php:235
+msgid "Description"
+msgstr "Beskrivelse:"
+
+#: includes/functions.php:128 includes/settings.php:248
+msgid "Quantity"
+msgstr "Antall:"
+
+#: includes/functions.php:133 includes/settings.php:251
+msgid "Price"
+msgstr "Pris:"
+
+#: includes/functions.php:137
+msgid "Total"
+msgstr "Sum"
+
+#: includes/functions.php:143 includes/settings.php:281
+#: includes/settings.php:344
+msgid "Discount"
+msgstr "Rabatt"
+
+#: includes/functions.php:146 includes/settings.php:300
+#: includes/settings.php:380
+msgid "VAT"
+msgstr "MVA"
+
+#: includes/functions.php:149 includes/settings.php:319
+msgid "Tax rate"
+msgstr "Skatteklasse"
+
+#: includes/functions.php:185
+msgid "SKU:"
+msgstr "Artikkelnummer:"
+
+#: includes/functions.php:186
+msgid "Weight:"
+msgstr "Vekt:"
+
+#: includes/settings.php:148
+msgid "Editor"
+msgstr "Editor"
+
+#: includes/settings.php:166 templates/Business/html-document-wrapper.php:14
+#: templates/Business/invoice.php:29
+#: templates/Modern/html-document-wrapper.php:14
+#: templates/Modern/invoice.php:41 templates/Simple Premium/invoice.php:9
+#: Premium/invoice.php:21
+msgid "Invoice"
+msgstr "Faktura:"
+
+#: includes/settings.php:167 templates/Business/html-document-wrapper.php:17
+#: templates/Business/packing-slip.php:29
+#: templates/Modern/html-document-wrapper.php:17
+#: templates/Modern/packing-slip.php:41 templates/Simple
+#: Premium/packing-slip.php:9 Premium/packing-slip.php:21
+msgid "Packing Slip"
+msgstr "Følgeseddel"
+
+#: includes/settings.php:169
+msgid "Drag & drop any of these fields to the documents below"
+msgstr "Drag & drop any of these fields to the documents below"
+
+#: includes/settings.php:173 templates/Business/html-document-wrapper.php:20
+#: templates/Business/proforma.php:29
+#: templates/Modern/html-document-wrapper.php:20
+#: templates/Modern/proforma.php:41 templates/Simple Premium/proforma.php:9
+#: Premium/proforma.php:21
+msgid "Proforma Invoice"
+msgstr "Proformafaktura"
+
+#: includes/settings.php:174 templates/Business/credit-note.php:29
+#: templates/Business/html-document-wrapper.php:23
+#: templates/Modern/credit-note.php:41
+#: templates/Modern/html-document-wrapper.php:23 templates/Simple
+#: Premium/credit-note.php:9 Premium/credit-note.php:21
+msgid "Credit Note"
+msgstr "Kreditnota"
+
+#: includes/settings.php:180
+msgid "Custom Styles"
+msgstr "Tilpasset felt"
+
+#: includes/settings.php:187
+msgid "Enter any custom styles here to modify/override the template styles"
+msgstr "Enter any custom styles here to modify/override the template styles"
+
+#: includes/settings.php:232
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: includes/settings.php:239
+msgid "Show SKU"
+msgstr "Vis artikkelnummer"
+
+#: includes/settings.php:243
+msgid "Show weight"
+msgstr "Vis vekt"
+
+#: includes/settings.php:256 includes/settings.php:286
+#: includes/settings.php:305
+msgid "Single price"
+msgstr "Pris:"
+
+#: includes/settings.php:257 includes/settings.php:287
+#: includes/settings.php:306
+msgid "Total price"
+msgstr "Total pris"
+
+#: includes/settings.php:263 includes/settings.php:293
+#: includes/settings.php:330 includes/settings.php:349
+#: includes/settings.php:361 includes/settings.php:373
+#: includes/settings.php:394
+msgid "Including tax"
+msgstr "Inkludert MVA"
+
+#: includes/settings.php:264 includes/settings.php:294
+#: includes/settings.php:331 includes/settings.php:350
+#: includes/settings.php:362 includes/settings.php:374
+#: includes/settings.php:395
+msgid "Excluding tax"
+msgstr "Eks. mva"
+
+#: includes/settings.php:270 includes/settings.php:312
+#: includes/settings.php:337
+msgid "Before discount"
+msgstr "Før rabatt"
+
+#: includes/settings.php:271 includes/settings.php:313
+#: includes/settings.php:338
+msgid "After discount"
+msgstr "Etter rabatt"
+
+#: includes/settings.php:325
+msgid "Subtotal"
+msgstr "Sum"
+
+#: includes/settings.php:356
+msgid "Shipping"
+msgstr "Frakt"
+
+#: includes/settings.php:368
+msgid "Fees"
+msgstr "Gebyrer"
+
+#: includes/settings.php:384
+msgid "Include %"
+msgstr "Inkluder %"
+
+#: includes/settings.php:389
+msgid "Grand total"
+msgstr "Totalbeløp"
+
+#: includes/settings.php:406 includes/settings.php:437
+msgid "Columns"
+msgstr "Rader"
+
+#: includes/settings.php:415 includes/settings.php:438
+msgid "Totals"
+msgstr "Totalt"
+
+#: includes/settings.php:526 templates/Business/template-functions.php:16
+#: templates/Modern/template-functions.php:16
+msgid "Footer height"
+msgstr "Footer height"
+
+#: includes/settings.php:535 templates/Business/template-functions.php:25
+#: templates/Modern/template-functions.php:25
+msgid ""
+"Enter the total height of the footer in mm, cm or in and use a dot for "
+"decimals.<br/>For example: 1.25in or 82mm"
+msgstr ""
+"Enter the total height of the footer in mm, cm or in and use a dot for "
+"decimals.<br/>For example: 1.25in or 82mm"
+
+#: templates/Business/credit-note.php:37 templates/Business/invoice.php:37
+#: templates/Business/packing-slip.php:48 templates/Business/proforma.php:37
+#: templates/Modern/packing-slip.php:35 templates/Simple
+#: Premium/credit-note.php:29 Premium/invoice.php:29
+#: Premium/packing-slip.php:40 Premium/proforma.php:29
+msgid "Billing Address:"
+msgstr "Fakturaadresse:"
+
+#: templates/Business/credit-note.php:48 templates/Business/invoice.php:48
+#: templates/Business/proforma.php:48 templates/Modern/credit-note.php:35
+#: templates/Modern/invoice.php:35 templates/Modern/proforma.php:35
+#: templates/Simple Premium/credit-note.php:40 Premium/invoice.php:40
+#: Premium/proforma.php:40
+msgid "Ship To:"
+msgstr "Leveringsadresse:"
+
+#: templates/Business/credit-note.php:61 templates/Modern/credit-note.php:47
+#: templates/Simple Premium/credit-note.php:48
+msgid "Credit Note Number:"
+msgstr "Kreditnotanummer:"
+
+#: templates/Business/credit-note.php:65 templates/Business/invoice.php:67
+#: templates/Business/packing-slip.php:61 templates/Business/proforma.php:65
+#: templates/Modern/credit-note.php:57 templates/Modern/invoice.php:59
+#: templates/Modern/packing-slip.php:47 templates/Modern/proforma.php:57
+#: templates/Simple Premium/credit-note.php:58 Premium/invoice.php:60
+#: Premium/packing-slip.php:48 Premium/proforma.php:58
+msgid "Order Number:"
+msgstr "Ordrenummer:"
+
+#: templates/Business/credit-note.php:75 templates/Modern/credit-note.php:52
+#: templates/Simple Premium/credit-note.php:53
+msgid "Credit Note Date:"
+msgstr "Kreditnota dato:"
+
+#: templates/Business/credit-note.php:80 templates/Business/invoice.php:82
+#: templates/Business/packing-slip.php:74 templates/Business/proforma.php:80
+#: templates/Modern/credit-note.php:61 templates/Modern/invoice.php:63
+#: templates/Modern/packing-slip.php:51 templates/Modern/proforma.php:61
+#: templates/Simple Premium/credit-note.php:62 Premium/invoice.php:64
+#: Premium/packing-slip.php:52 Premium/proforma.php:62
+msgid "Order Date:"
+msgstr "Orderdato:"
+
+#: templates/Business/credit-note.php:122 templates/Business/invoice.php:124
+#: templates/Business/packing-slip.php:116 templates/Business/proforma.php:122
+#: templates/Modern/invoice.php:104 templates/Modern/packing-slip.php:92
+#: templates/Modern/proforma.php:102 templates/Simple
+#: Premium/credit-note.php:105 Premium/invoice.php:111
+#: Premium/packing-slip.php:99 Premium/proforma.php:109
+msgid "Customer Notes"
+msgstr "Kundens notat:"
+
+#: templates/Business/invoice.php:62 templates/Modern/invoice.php:48
+#: templates/Simple Premium/invoice.php:49
+msgid "Invoice Number:"
+msgstr "Fakturanummer:"
+
+#: templates/Business/invoice.php:77 templates/Modern/invoice.php:54
+#: templates/Simple Premium/invoice.php:55
+msgid "Invoice Date:"
+msgstr "Faktura dato:"
+
+#: templates/Business/packing-slip.php:37 templates/Simple
+#: Premium/packing-slip.php:29
+msgid "Shipping Address:"
+msgstr "Leveransadresse"
+
+#: templates/Business/packing-slip.php:65 templates/Simple
+#: Premium/packing-slip.php:56
+msgid "Shipping Method:"
+msgstr "Leveringsmetode:"
+
+#: templates/Business/proforma.php:61 templates/Modern/proforma.php:47
+#: templates/Simple Premium/proforma.php:48
+msgid "Proforma Invoice Number:"
+msgstr "Proformafakturanummer:"
+
+#: templates/Business/proforma.php:75 templates/Modern/proforma.php:52
+#: templates/Simple Premium/proforma.php:53
+msgid "Proforma Invoice Date:"
+msgstr "Proforma faktura dato:"
+
+#: templates/Modern/credit-note.php:102
+msgid "Reason for refund"
+msgstr "Årsak til tilbakebetaling og refusjon:"
+
+#: templates/Modern/credit-note.php:134 templates/Modern/invoice.php:136
+#: templates/Modern/packing-slip.php:124 templates/Modern/proforma.php:134
+msgid "Shipping method"
+msgstr "Leveringsmetode:"
+
+#: templates/Modern/invoice.php:137 templates/Modern/packing-slip.php:125
+#: templates/Modern/proforma.php:135
+msgid "Payment method"
+msgstr "Betalningsmetode:"
+
+#: templates/Simple Premium/invoice.php:68 Premium/proforma.php:66
+msgid "Payment Method:"
+msgstr "Betalningsmetode:"
+
+#: woocommerce-pdf-ips-templates.php:123
+#, php-format
+msgid ""
+"WooCommerce PDF Invoices & Packing Slips requires %sWooCommerce%s to be "
+"installed & activated!"
+msgstr ""
+"WooCommerce PDF Invoices & Packing Slips requires %sWooCommerce%s to be "
+"installed & activated!"
+

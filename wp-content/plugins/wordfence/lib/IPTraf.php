@@ -21,7 +21,7 @@
 <tr><th>User:</th><td><a href="<?php echo $v['user']['editLink']; ?>" target="_blank"><?php echo $v['user']['avatar'] . ' ' . $v['user']['display_name']; ?></a></td></tr>
 <?php } ?>
 <?php if($v['loc']){ ?>
-<tr><th>Location:</th><td><img src="//www.wordfence.com/images/flags/<?php echo strtolower($v['loc']['countryCode']); ?>.png" width="16" height="11" alt="<?php echo $v['loc']['countryName']; ?>" title="<?php echo $v['loc']['countryName']; ?>" class="wfFlag" />
+<tr><th>Location:</th><td><img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . strtolower($v['loc']['countryCode']); ?>.png" width="16" height="11" alt="<?php echo $v['loc']['countryName']; ?>" title="<?php echo $v['loc']['countryName']; ?>" class="wfFlag" />
 	<?php if($v['loc']['city']){ echo $v['loc']['city'] . ', '; } ?>
 	<?php echo $v['loc']['countryName']; ?>
 	</td></tr>
@@ -31,6 +31,6 @@
 
 </table>
 
-<div class="footer">&copy;&nbsp;2011 to 2015 Wordfence &mdash; Visit <a href="http://wordfence.com/">Wordfence.com</a> for help, security updates and more.</div>
+<div class="footer">&copy;&nbsp;2011 to <?php echo date('Y'); ?> Wordfence &mdash; Visit <a href="http://wordfence.com/">Wordfence.com</a> for help, security updates and more.</div>
 </body>
 </html>

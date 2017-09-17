@@ -94,6 +94,15 @@ span.woocs_price_info_icon{
     margin-left: 3px;
 }
 
+.woocs_price_info + .woocs_price_info{
+    display: none !important;
+}
+
+.woocs_price_info + .woocs_price_info{
+    display: none !important;
+}
+
+
 div.woocs_price_info ul{
     list-style: none;
     position: absolute;
@@ -104,6 +113,7 @@ div.woocs_price_info ul{
     background: #000000 !important;
     height: auto;
     min-height: 19px;
+    /*font-size: 24px;*/
     line-height: normal;
     vertical-align: middle;
     text-align: left;
@@ -111,6 +121,9 @@ div.woocs_price_info ul{
     border-radius: 6px;
     padding: 7px !important;
 }
+
+
+
 div:hover.woocs_price_info ul{
     visibility: visible;
     opacity: 0.85;
@@ -123,11 +136,32 @@ div:hover.woocs_price_info ul{
 div.woocs_price_info ul li{
     padding-bottom: 4px;
     white-space: nowrap;
+    margin: 0 !important;
 }
 
 /***************** price info styles end ****************************/
 
 .woocs_current_product_id{
     display: none;
+}
+
+ul.woocs_price_info_list li span{
+    font-weight: bold;
+}
+
+.woocs_cart_item_price{
+    font-size: 11px;
+    font-style: italic;
+}
+
+#shipping_method .woocs_cart_item_price{
+    display: inline-block;
+    clear: both;
+    text-indent: 0;
+    margin-left: 5px;
+}
+
+.woocs_currency_rate_flag{
+    width: 25px !important; max-width: 25px !important; display: inline;
 }
 

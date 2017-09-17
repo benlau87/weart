@@ -819,7 +819,7 @@ span.prdctfltr_reset label {
 	-moz-box-shadow:0px 0px 5px 0px rgba(128, 128, 128, 0.2);
 	box-shadow:0px 0px 5px 0px rgba(128, 128, 128, 0.2);
 	border:1px solid #ddd;
-	z-index:1;
+	z-index:99 !important;
 }
 
 .prdctfltr_wc.prdctfltr_woocommerce.pf_select .prdctfltr_woocommerce_ordering {

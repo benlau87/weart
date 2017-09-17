@@ -70,6 +70,7 @@ if (!defined('ABSPATH')) {
             <ul id="shipping_method">
                 <?php foreach ($available_methods as $method) :
                     if ($method->id == 'local_pickup') {
+                	#legacy_local_pickup in WC V3
                         if (cart_allows_pickup($artist_ids)) { ?>
                             <li>
                                 <input type="radio" name="shipping_method[<?php echo $index; ?>]"

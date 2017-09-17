@@ -508,8 +508,9 @@ function waa_process_product_meta( $post_id ) {
         update_post_meta( $post_id, '_sale_price', ( $_POST['_sale_price'] === '' ? '' : wc_format_decimal( $_POST['_sale_price'] ) ) );
     }
 
-    if ( isset( $_POST['_tax_status'] ) )
-        update_post_meta( $post_id, '_tax_status', stripslashes( $_POST['_tax_status'] ) );
+    #if ( isset( $_POST['_tax_status'] ) )
+        #update_post_meta( $post_id, '_tax_status', stripslashes( $_POST['_tax_status'] ) );
+        update_post_meta( $post_id, '_tax_status', 'taxable' );
 
     if ( isset( $_POST['_tax_class'] ) )
         update_post_meta( $post_id, '_tax_class', stripslashes( $_POST['_tax_class'] ) );
@@ -978,7 +979,7 @@ function waa_new_process_product_meta( $post_id ) {
     update_post_meta( $post_id, '_sold_individually', $_POST['_sold_individually'] );
 
 
-    if ( isset( $_POST['_required_tax'] ) && $_POST['_required_tax'] == 'yes' ) {
+/*    if ( isset( $_POST['_required_tax'] ) && $_POST['_required_tax'] == 'yes' ) {
         if ( isset( $_POST['_tax_status'] ) )
             update_post_meta( $post_id, '_tax_status', stripslashes( $_POST['_tax_status'] ) );
 
@@ -986,7 +987,9 @@ function waa_new_process_product_meta( $post_id ) {
             update_post_meta( $post_id, '_tax_class', stripslashes( $_POST['_tax_class'] ) );
     } else {
         update_post_meta( $post_id, '_tax_status', 'none' );
-    }
+    }*/
+
+		update_post_meta( $post_id, '_tax_status', 'taxable' );
 
     if ( 'yes' == get_option( 'woocommerce_calc_shipping' ) ) {
 

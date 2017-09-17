@@ -57,8 +57,6 @@ jQuery(document).ready(function ($) {
         delay: 7000
     });
 
-    $slider.height('initial');
-
     $('img').bind('contextmenu', function(e) {
         return false;
     });
@@ -66,4 +64,18 @@ jQuery(document).ready(function ($) {
     $('.tips').tooltip();
 
 
+});
+
+jQuery(document).load(function($) {
+	var heights = $slider.map(function ()
+		{
+			return $(this).height();
+		}).get(),
+
+		maxHeight = Math.max.apply(null, heights);
+
+	//$slider.height('initial');
+
+	//$slider.height($slider.find('li:first-child').find('img').height());
+	$slider.div.style('height', maxHeight, 'important');
 });

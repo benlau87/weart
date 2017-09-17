@@ -15,10 +15,12 @@ class WOOCS_CONVERTER extends WP_Widget
 
     public function widget($args, $instance)
     {
-        $args['instance'] = $instance;
+        $data = array();
+        $data['args'] = $args;
+        $data['instance'] = $instance;
         wp_enqueue_script('jquery');
         global $WOOCS;
-        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/converter.php', $args);
+        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/converter.php', $data);
     }
 
     public function update($new_instance, $old_instance)
@@ -38,11 +40,11 @@ class WOOCS_CONVERTER extends WP_Widget
             'precision' => 4
         );
         $instance = wp_parse_args((array) $instance, $defaults);
-        $args = array();
-        $args['instance'] = $instance;
-        $args['widget'] = $this;
+        $data = array();
+        $data['instance'] = $instance;
+        $data['widget'] = $this;
         global $WOOCS;
-        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/converter_form.php', $args);
+        echo $WOOCS->render_html(WOOCS_PATH . 'views/widgets/converter_form.php', $data);
     }
 
 }

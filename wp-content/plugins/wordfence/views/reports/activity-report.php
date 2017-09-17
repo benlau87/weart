@@ -3,13 +3,13 @@
  * @var wfActivityReportView $this
  */
 ?>
-<a class="wf-logo" href="//www.wordfence.com/zz8/"><img src="//www.wordfence.com/wp-content/themes/wordfence/img/logo.png" alt=""/></a>
+<a class="wf-logo" href="//www.wordfence.com/zz8/"><img src="<?php echo wfUtils::getBaseURL(); ?>images/logo.png" alt=""/></a>
 
-<h2>Top <?php echo (int) $limit; ?> IP's Blocked</h2>
+<h2>Top <?php echo (int) $limit; ?> IPs Blocked</h2>
 
 <?php wfHelperString::cycle(); ?>
 
-<table class="wf-table">
+<table class="wf-striped-table">
 	<thead>
 		<tr>
 			<th>IP</th>
@@ -24,7 +24,7 @@
 					<td><code><?php echo wfUtils::inet_ntop($row->IP) ?></code></td>
 					<td>
 						<?php if ($row->countryCode): ?>
-							<img src="//www.wordfence.com/images/flags/<?php echo esc_attr(strtolower($row->countryCode)) ?>.png" class="wfFlag" height="11" width="16" alt="<?php echo esc_attr($row->countryName) ?>" title="<?php echo esc_attr($row->countryName) ?>">
+							<img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . esc_attr(strtolower($row->countryCode)) ?>.png" class="wfFlag" height="11" width="16" alt="<?php echo esc_attr($row->countryName) ?>" title="<?php echo esc_attr($row->countryName) ?>">
 							&nbsp;
 							<?php echo esc_html($row->countryCode) ?>
 						<?php else: ?>
@@ -37,7 +37,7 @@
 		<?php else: ?>
 			<tr>
 				<td colspan="3">
-					We're collecting data, please check back soon.
+					No IPs blocked yet.
 				</td>
 			</tr>
 		<?php endif ?>
@@ -45,14 +45,14 @@
 </table>
 
 <p>
-	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceBlockedIPs') ?>">Update Blocked IPs</a>
+	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceBlocking#top#blockedips') ?>">Update Blocked IPs</a>
 </p>
 
 <?php wfHelperString::cycle(); ?>
 
 <h2>Top <?php echo (int) $limit; ?> Countries Blocked</h2>
 
-<table class="wf-table">
+<table class="wf-striped-table">
 	<thead>
 		<tr>
 			<th>Country</th>
@@ -66,7 +66,7 @@
 				<tr class="<?php echo wfHelperString::cycle('odd', 'even') ?>">
 					<td>
 						<?php if ($row->countryCode): ?>
-							<img src="//www.wordfence.com/images/flags/<?php echo strtolower($row->countryCode) ?>.png" class="wfFlag" height="11" width="16" alt="<?php echo esc_attr($row->countryName) ?>" title="<?php echo esc_attr($row->countryName) ?>">
+							<img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . strtolower($row->countryCode) ?>.png" class="wfFlag" height="11" width="16" alt="<?php echo esc_attr($row->countryName) ?>" title="<?php echo esc_attr($row->countryName) ?>">
 							&nbsp;
 							<?php echo esc_html($row->countryCode) ?>
 						<?php else: ?>
@@ -80,7 +80,7 @@
 		<?php else: ?>
 			<tr>
 				<td colspan="3">
-					We're collecting data, please check back soon.
+					No requests blocked yet.
 				</td>
 			</tr>
 		<?php endif ?>
@@ -88,14 +88,14 @@
 </table>
 
 <p>
-	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceCountryBlocking') ?>">Update Blocked Countries</a>
+	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceBlocking#top#countryblocking') ?>">Update Blocked Countries</a>
 </p>
 
 <?php wfHelperString::cycle(); ?>
 
 <h2>Top <?php echo (int) $limit; ?> Failed Logins</h2>
 
-<table class="wf-table">
+<table class="wf-striped-table">
 	<thead>
 		<tr>
 			<th>Username</th>
@@ -115,7 +115,7 @@
 		<?php else: ?>
 			<tr>
 				<td colspan="3">
-					We're collecting data, please check back soon.
+					No failed logins yet.
 				</td>
 			</tr>
 		<?php endif ?>
@@ -167,9 +167,12 @@
 <?php if ($updates_needed['plugins']): ?>
 	<h4>Plugins</h4>
 	<ul>
-		<?php foreach ($updates_needed['plugins'] as $plugin): ?>
+		<?php
+		foreach ($updates_needed['plugins'] as $plugin):
+			$newVersion = ($plugin['newVersion'] == 'Unknown' ? $plugin['newVersion'] : "v{$plugin['newVersion']}");
+		?>
 			<li>
-				A new version of the plugin "<?php echo esc_html("{$plugin['Name']} (v{$plugin['newVersion']})") ?>" is available.
+				A new version of the plugin "<?php echo esc_html("{$plugin['Name']} ({$newVersion})") ?>" is available.
 			</li>
 		<?php endforeach ?>
 	</ul>
@@ -177,9 +180,12 @@
 <?php if ($updates_needed['themes']): ?>
 	<h4>Themes</h4>
 	<ul>
-		<?php foreach ($updates_needed['themes'] as $theme): ?>
+		<?php
+		foreach ($updates_needed['themes'] as $theme):
+			$newVersion = ($theme['newVersion'] == 'Unknown' ? $theme['newVersion'] : "v{$theme['newVersion']}");
+		?>
 			<li>
-				A new version of the theme "<?php echo esc_html("{$theme['name']} (v{$theme['newVersion']})") ?>" is available.
+				A new version of the theme "<?php echo esc_html("{$theme['name']} ({$newVersion})") ?>" is available.
 			</li>
 		<?php endforeach ?>
 	</ul>

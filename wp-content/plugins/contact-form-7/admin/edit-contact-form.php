@@ -43,6 +43,7 @@ function wpcf7_admin_save_button( $post_id ) {
 	}
 ?></h1>
 
+<?php do_action( 'wpcf7_admin_warnings' ); ?>
 <?php do_action( 'wpcf7_admin_notices' ); ?>
 
 <?php
@@ -62,7 +63,7 @@ if ( $post ) :
 	}
 ?>
 <input type="hidden" id="post_ID" name="post_ID" value="<?php echo (int) $post_id; ?>" />
-<input type="hidden" id="wpcf7-locale" name="wpcf7-locale" value="<?php echo esc_attr( $post->locale ); ?>" />
+<input type="hidden" id="wpcf7-locale" name="wpcf7-locale" value="<?php echo esc_attr( $post->locale() ); ?>" />
 <input type="hidden" id="hiddenaction" name="action" value="save" />
 <input type="hidden" id="active-tab" name="active-tab" value="<?php echo isset( $_GET['active-tab'] ) ? (int) $_GET['active-tab'] : '0'; ?>" />
 
@@ -132,6 +133,10 @@ if ( $post ) :
 <?php endif; ?>
 </div><!-- #minor-publishing-actions -->
 
+<div id="misc-publishing-actions">
+<?php do_action( 'wpcf7_admin_misc_pub_section', $post_id ); ?>
+</div><!-- #misc-publishing-actions -->
+
 <div id="major-publishing-actions">
 
 <?php
@@ -158,9 +163,9 @@ if ( $post ) :
 <h3><?php echo esc_html( __( 'Information', 'contact-form-7' ) ); ?></h3>
 <div class="inside">
 <ul>
-<li><?php echo wpcf7_link( __( 'http://contactform7.com/docs/', 'contact-form-7' ), __( 'Docs', 'contact-form-7' ) ); ?></li>
-<li><?php echo wpcf7_link( __( 'http://contactform7.com/faq/', 'contact-form-7' ), __( 'FAQ', 'contact-form-7' ) ); ?></li>
-<li><?php echo wpcf7_link( __( 'http://contactform7.com/support/', 'contact-form-7' ), __( 'Support', 'contact-form-7' ) ); ?></li>
+<li><?php echo wpcf7_link( __( 'https://contactform7.com/docs/', 'contact-form-7' ), __( 'Docs', 'contact-form-7' ) ); ?></li>
+<li><?php echo wpcf7_link( __( 'https://contactform7.com/faq/', 'contact-form-7' ), __( 'FAQ', 'contact-form-7' ) ); ?></li>
+<li><?php echo wpcf7_link( __( 'https://contactform7.com/support/', 'contact-form-7' ), __( 'Support', 'contact-form-7' ) ); ?></li>
 </ul>
 </div>
 </div><!-- #informationdiv -->

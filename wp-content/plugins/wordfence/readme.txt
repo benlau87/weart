@@ -1,58 +1,54 @@
 === Wordfence Security ===
 Contributors: mmaunder 
-Tags: wordpress, security, web application firewall, waf, performance, speed, caching, cache, caching plugin, wordpress cache, wordpress caching, wordpress security, security plugin, secure, anti-virus, malware, firewall, antivirus, virus, google safe browsing, phishing, scrapers, hacking, wordfence, securty, secrity, secure, two factor, cellphone sign-in, cellphone signin, cellphone, twofactor, security, secure, htaccess, login, log, users, login alerts, lock, chmod, maintenance, plugin, private, privacy, protection, permissions, 503, base64, injection, code, encode, script, attack, hack, hackers, block, blocked, prevent, prevention, RFI, XSS, CRLF, CSRF, SQL Injection, vulnerability, website security, WordPress security, security log, logging, HTTP log, error log, login security, personal security, infrastructure security, firewall security, front-end security, web server security, proxy security, reverse proxy security, secure website, secure login, two factor security, two factor authentication, maximum login security, heartbleed, heart bleed, heartbleed vulnerability, openssl vulnerability, nginx, litespeed, php5-fpm, woocommerce support, woocommerce caching, IPv6, IP version 6
+Tags: security, secure, security plugin, wordpress security, login security, firewall, malware, antivirus, web application firewall, block hackers, country blocking
 Requires at least: 3.9
-Tested up to: 4.5.2
-Stable tag: 6.1.7
+Tested up to: 4.7.4
+Stable tag: 6.3.8
 
-The Wordfence WordPress security plugin provides free enterprise-class WordPress security, protecting your website from hacks and malware.
+Secure your website with the most comprehensive WordPress security plugin. Firewall, malware scan, blocking, live traffic, login security & more.
+
 == Description ==
 = THE MOST DOWNLOADED WORDPRESS SECURITY PLUGIN =
 
-Wordfence provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, our Web Application Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly in the event your site is compromised. Our Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of addtional tools round out the most complete WordPress security solution available.
+WordPress security is all we do. Secure your WordPress website with Wordfence. Powered by the constantly updated Threat Defense Feed, our Web Application Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly in the event your site is compromised. Our Live Traffic view gives you real-time visibility into traffic and hack attempts on your WordPress website. A deep set of additional tools round out the most complete WordPress security solution available.
 
-Wordfence Security is 100% free and open source. We also offer a Premium API key that gives you Premium Support, Country Blocking, Scheduled Scans, Password Auditing and we even check if your website IP address is being used to Spamvertize. [Click here to sign-up for Wordfence Premium now](http://www.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDescCTA) or simply install Wordfence free and start protecting your website.
+With over 22 million downloads, Wordfence is the most popular WordPress security plugin available. Wordfence Security is 100% free and open source. We also offer a Premium API key that gives you Premium Support, Country Blocking, Scheduled Scans, Password Auditing, real-time updates to the Threat Defense Feed, two-factor authentication, and we even check if your website IP address is being used to Spamvertize. [Click here to sign-up for Wordfence Premium now](http://www.wordfence.com/) or simply install Wordfence free and start protecting your website.
 
-You can find our official documentation at [docs.wordfence.com](http://docs.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc) and our Frequently Asked Questions on our support portal at [support.wordfence.com](https://support.wordfence.com/solution/categories/1000023037/folders/1000035543?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc). We are also active in our community support forums on [wordpress.org](https://wordpress.org/support/plugin/wordfence) if you are one of our free users. Our Premium Support Ticket System is at [support.wordfence.com](https://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc). Learn about WordPress security at [wordfence.com/learn](https://www.wordfence.com/learn/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc).
+You can find our official documentation at [docs.wordfence.com](http://docs.wordfence.com/) and our Frequently Asked Questions on our support portal at [support.wordfence.com](https://support.wordfence.com/solution/categories/1000023037/folders/1000035543). We are also active in our community support forums on [wordpress.org](https://wordpress.org/support/plugin/wordfence) if you are one of our free users. Our Premium Support Ticket System is at [support.wordfence.com](https://support.wordfence.com/). Learn about WordPress security at [wordfence.com/learn](https://www.wordfence.com/learn/).
 
 This is a brief introductory video for Wordfence:
 
 [vimeo http://vimeo.com/134150724]
 
-Wordfence Security is now Multi-Site compatible and includes Cellphone Sign-in which permanently secures your website from brute force hacks. 
+Wordfence Security is Multi-Site compatible and includes Cellphone Sign-in which permanently secures your WordPress website from brute force hacks. 
 
-= WORDFENCE WORDPRESS SECURITY FEATURES =
+= WORDPRESS SECURITY FEATURES =
 
 = WordPress Firewall =
 * Web Application Firewall stops you from getting hacked by identifying malicious traffic, blocking attackers before they can access your website.
 * Threat Defense Feed automatically updates firewall rules that protect you from the latest threats. Premium members receive the real-time version.
-* Block common security threats like fake Googlebots, malicious scans from hackers and botnets.
+* Block common WordPress security threats like fake Googlebots, malicious scans from hackers and botnets.
 
 = Blocking Features =
 * Real-time blocking of known attackers. If another site using Wordfence is attacked and blocks the attacker, your site is automatically protected.
-* Block entire malicious networks. Includes advanced IP and Domain WHOIS to report malicious IP's or networks and block entire networks using the firewall. Report security threats to network owner.
-* Rate limit or block security threats like aggressive crawlers, scrapers and bots doing security scans for vulnerabilities in your site.
-* Choose whether you want to block or throttle users and robots who break your security rules.
+* Block entire malicious networks. Includes advanced IP and Domain WHOIS to report malicious IP's or networks and block entire networks using the firewall. Report WordPress security threats to network owner.
+* Rate limit or block WordPress security threats like aggressive crawlers, scrapers and bots doing security scans for vulnerabilities in your site.
+* Choose whether you want to block or throttle users and robots who break your WordPress security rules.
 * Premium users can also block countries and schedule scans for specific times and a higher frequency.
 
-= Login Security =
+= WordPress Login Security =
 * Sign-in using your password and your cellphone to vastly improve login security. This is called Two Factor Authentication and is used by banks, government agencies and military world-wide for highest security authentication. 
-* Includes two-factor authentication, also referred to as cellphone sign-in. 
 * Enforce strong passwords among your administrators, publishers and users. Improve login security.
 * Checks the strength of all user and admin passwords to enhance login security.
-* Includes login security to lock out brute force hacks and to stop WordPress from revealing info that will compromise security.
+* Includes login security to lock out brute force hacks and to stop WordPress from revealing info that will compromise WordPress security.
 
-= Security Scanning =
-* Scans for the HeartBleed vulnerability - included in the free scan for all users. 
+= Security Scanning = 
 * Scans core files, themes and plugins against WordPress.org repository versions to check their integrity. Verify security of your source.
 * See how files have changed. Optionally repair changed files that are security threats.
-* Scans for signatures of over 44,000 known malware variants that are known security threats.
+* Scans for signatures of over 44,000 known malware variants that are known WordPress security threats.
 * Scans for many known backdoors that create security holes including C99, R57, RootShell, Crystal Shell, Matamu, Cybershell, W4cking, Sniper, Predator, Jackal, Phantasma, GFS, Dive, Dx and many many more.
-* Continuously scans for malware and phishing URL's including all URL's on the Google Safe Browsing List in all your comments, posts and files that are security threats.
+* Continuously scans for malware and phishing URL's including all URLs on the Google Safe Browsing List in all your comments, posts and files that are security threats.
 * Scans for heuristics of backdoors, trojans,  suspicious code and other security issues.
-
-= WordPress Firewall =
-* Includes a firewall to block common security threats like fake Googlebots, malicious scans from hackers and botnets.
 
 = Monitoring Features =
 * See all your traffic in real-time, including robots, humans, 404 errors, logins and logouts and who is consuming most of your content. Enhances your situational awareness of which security threats your site is facing.
@@ -61,13 +57,9 @@ Wordfence Security is now Multi-Site compatible and includes Cellphone Sign-in w
 * Monitor your DNS security for unauthorized DNS changes.
 * Monitors disk space which is related to security because many DDoS attacks attempt to consume all disk space to create denial of service.
 
-= Multi-Site Security =
+= Multi-Site WordPress Security =
 * Wordfence Security for multi-site also scans all posts and comments across all blogs from one admin panel.
-* WordPress Multi-Site (or WordPress MU in the older parlance) compatible.
-
-= Caching Features =
-* Includes Falcon Engine, the fastest WordPress caching engine available today. Falcon is faster because it reduces your web server disk and database activity to a minimum.
-* Wordfence includes two caching modes for compatability and has cache management features like the ability to clear the cache and monitor cache usage. 
+* WordPress Multi-Site (or WordPress MU in the older parlance) compatible. 
 
 = IPv6 Compatible =
 * Fully IPv6 compatible including all whois lookup, location, blocking and security functions.
@@ -76,13 +68,13 @@ Wordfence Security is now Multi-Site compatible and includes Cellphone Sign-in w
 * Includes support for other major plugins and themes like WooCommerce.
 
 = Free Learning Center =
-* The Wordfence website includes an in-depth [WordPress Security Learning Center](https://www.wordfence.com/learn/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc).
+* The Wordfence website includes an in-depth [WordPress Security Learning Center](https://www.wordfence.com/learn/).
 
 The Wordfence WordPress security plugin is full-featured and constantly updated by our team to incorporate the latest security features and to hunt for the newest security threats to your WordPress website.
 
 == Installation ==
 
-To install the Wordfence WordPress security plugin and start protecting your WordPress website:
+Secure your website using the following steps to install Wordfence:
 
 1. Install Wordfence Security automatically or by uploading the ZIP file. 
 1. Activate the security plugin through the 'Plugins' menu in WordPress.
@@ -104,96 +96,347 @@ To install the Wordfence WordPress security plugin on WordPress Multi-Site insta
 
 == Frequently Asked Questions ==
 
-[Visit our support website which contains a FAQ and knowledgebase which is more comprehensive and updated frequently.](http://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc)
+Secure your website with Wordfence. 
 
-= What does Wordfence Security do that other WordPress security plugins don't do? =
+[Visit our documentation website which includes feature descriptions, common solutions and comprehensive help.](http://support.wordfence.com/)
 
-* Wordfence Security is the only WordPress security plugin that is fully integrated with it's own high speed caching engine to avoid security and caching conflicts. 
-* Wordfence Security actually verifies your website source code integrity against the official WordPress repository and shows you the changes. We are the only plugin to do this.
-* Wordfence Security provides two-factor authentication (Cellphone Sign-in) for paid members. We're the first plugin to offer this.
-* Wordfence Security fully supports IPv6 including giving you the ability to look up the location of IPv6 addresses, block IPv6 ranges, detect IPv6 country and do a whois lookup on IPv6 addresses and more.
-* Wordfence Security includes protection against DDoS attacks by giving you a performance boost up to 50X. 
-* Wordfence Security scans check all your files, comments and posts for URL's in Google's Safe Browsing list. We are the only plugin to offer this very important security enhancement.
-* Wordfence Security scans do not consume large amounts of your precious bandwidth because all security scans happen on your web server which makes them very fast.
+= How does Wordfence Security protect sites from attackers? =
+ 
+The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, WordFence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly in the event your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available.
+
+= How will I be alerted if my site has a security problem? =
+
+Wordfence Security sends security alerts via email. Once you install Wordfence Security, you will configure a list of email addresses where security alerts will be sent. When you receive a security alert, make sure you deal with it promptly to ensure your site stays secure.
+
+= Do I need a security plugin like Wordfence if I’m using a cloud based firewall (WAF)? =
+
+Wordfence provides true endpoint security for your WordPress website. Unlike cloud based firewalls, Wordfence executes within the WordPress environment, giving it knowledge like whether the user is signed in, their identity and what access level they have. Wordfence uses the user’s access level in more than 80% of the firewall rules it uses to protect WordPress websites. Learn more about the [Cloud WAF identity problem here](https://www.wordfence.com/blog/2016/10/endpoint-vs-cloud-security-cloud-waf-user-identity-problem/). Additionally, cloud based firewalls can be bypassed, leaving your site exposed to attackers. Because Wordfence is an integral part of the endpoint (your WordPress website), it can’t be bypassed. Learn more about the [Cloud WAF bypass problem here](https://www.wordfence.com/blog/2016/10/endpoint-vs-cloud-security-cloud-waf-bypass-problem/). To fully protect the investment you’ve made in your website you need to employ a defense in depth approach to security. Wordfence takes this approach.
+
+= What differentiates Wordfence from other WordPress Security plugins? =
+
+* Wordfence security provides a WordPress Firewall developed specifically for WordPress and blocks attackers looking for vulnerabilities on your site.  The Firewall is powered by our Threat Defense Feed which is continually updated as new threats emerge.  Premium customers receive updates in real-time.
+* Wordfence Security verifies your website source code integrity against the official	WordPress repository and shows you the changes. 
+* Wordfence Security scans check all your files, comments and posts for URLs in Google's Safe Browsing list. We are the only plugin to offer this very important security enhancement.
+* Wordfence Security scans do not consume large amounts of your bandwidth because all security scans happen on your web server which makes them very fast.
 * Wordfence Security fully supports WordPress Multi-Site which means you can security scan every blog in your Multi-Site installation with one click.
-* Wordfence Security includes Two-Factor authentication, the most secure way to stop brute force attackers in their tracks. 
+* Wordfence Security includes Two-Factor authentication, the most secure way to stop brute force attackers in their tracks.
+* Wordfence Security fully supports IPv6 including giving you the ability to look up the location of IPv6 addresses, block IPv6 ranges, detect IPv6 country and do a whois lookup on IPv6 addresses and more.
 
-= Does Wordfence Security support Multi-Site installations? =
+= Will Wordfence slow down my website? =
 
-Yes. WordPress MU or Multi-Site as it's called now is fully supported. Using Wordfence Security you can security scan every blog in your network with one click. If one of your customers posts a page or post with a known malware URL that threatens your whole domain with being blacklisted by Google, we will tell you within a maximum of one hour which is how often scans occur. 
+No. Wordfence Security is extremely fast and uses techniques like caching its own configuration data to avoid database lookups and blocking malicious attacks that would slow down your site.
 
-= Will Wordfence Security slow my site down? =
+= What if my site has already been hacked? =
 
-No. Actually it will make your site up to 50X faster when Falcon Engine is enabled, up to 30 times faster with our PHP caching engine and even
-without caching Wordfence is extremely fast and uses techniques like caching it's own configuration data to avoid database lookups. Older
-versions of Wordfence did incur a slight performance penalty, but we have not only fixed this issue but knocked it out of the park. Wordfence
-now makes your site faster than any other caching plugin available!! 
-
-= How often is Wordfence Security updated? =
-
-The Wordfence Security plugin is frequently updated and we update the code on our security scanning servers
-more frequently. Our cloud servers are continually updated with the latest known security threats and vulnerabilities so
-that we can blog any security threat as soon as it emerges in the wild.
-
-= What if I need support? =
-
-All our paid customers receive priority support. Excellent customer service is a key part
-of being a Wordfence Security member. As free or Premium member can visit [support.wordfence.com](http://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc) and where you will find out knowledgebase. If you're a Premium member you can also open a support ticket.
-
-= Can I disable certain security features of Wordfence Security? =
-
-Yes! Simply visit the Options page, click on advanced options and enable or disable the security features you want.
-
-= What if my site security has already been compromised by a hacker? =
-
-Wordfence Security is the only WordPress security plugin that is able to repair core files, themes and plugins on sites where security is already compromised.
-However, please note that site security can not be assured unless you do a full reinstall if your site has been hacked. We recommend you only
-use Wordfence Security to get your site into a running state in order to recover the data you need to do a full reinstall. A full reinstall is the only
-way to ensure site security once you have been hacked. 
-
-= How will I be alerted that my site has a security problem? =
-
-Wordfence Security sends security alerts via email. Once you install Wordfence Security, you will configure a list of email addresses where security alerts will be sent.
-When you receive a security alert, make sure you deal with it promptly to ensure your site stays secure.
-
-= My WordPress site is behind a firewall. Doesn't that make it secure? =
-
-If your site is accessible from the web, it means that people you don't know can execute PHP code on your site.
-They have to be able to execute PHP code, like the core WordPress code, in order for your site to work. 
-Most WordPress security threats allow a hacker to execute PHP code on your website. The challenge hackers
-face is how to get their malicious PHP code onto your site to compromise your security. There
-are many upload mechanisms that WordPress itself, themes and plugins offer and the vast majority of these
-are secure. However, every now and then a hacker discovers an upload mechanism that is not secure or 
-a way of fooling your site into allowing an upload. That is usually when security is compromised. Even
-though your site is behind a commercial firewall, it still accepts web requests that include uploads and executes PHP code
-and as long as it does that, it may become face a security vulnerability at some point.
-
-= Will Wordfence Security protect me against the Timthumb security problem? =
-
-The timthumb security exploit occurred in 2011 and all good plugins and themes now use an updated 
-version of timthumb (which the creator of Wordfence Security wrote and donated to the timthumb author) which closes the security hole that
-caused the problem. However we do scan for old version of timthumb for good measure to make sure they don't 
-cause a security hole on your site. 
+Wordfence Security is able to repair core files, themes and plugins on sites where security is already compromised. You can follow this guide on [how to clean a hacked website](https://www.wordfence.com/docs/how-to-clean-a-hacked-wordpress-site-using-wordfence/) using Wordfence. However, please note that site security can not be assured unless you do a full reinstall if your site has been hacked. We recommend you only use Wordfence Security to get your site into a running state in order to recover the data you need to do a full reinstall. If you need help repairing a hacked site, we offer an affordable, high-quality [site cleaning service](https://www.wordfence.com/wordfence-site-cleanings/) that includes a Premium key for a year.
 
 = Does Wordfence Security support IPv6? =
 
-Most definitely! As of Wordfence version 6.0.1 we fully support IPv6 with all security functions including country blocking, range blocking,
-city lookup, whois lookup and all other security functions. If you are not running IPv6 Wordfence will work great on your site too. We are
-fully compatible with both IPv4 and IPv6 whether you run both or only one addressing scheme. 
+Yes. We fully support IPv6 with all security functions including country blocking, range blocking, city lookup, whois lookup and all other security functions. If you are not running IPv6, Wordfence will work great on your site too. We are fully compatible with both IPv4 and IPv6 whether you run both or only one addressing scheme.
+
+= Does Wordfence Security support Multi-Site installations? =
+
+Yes. WordPress Multi-Site is fully supported. Using Wordfence Security you can scan every blog in your network for malware with one click. If one of your customers posts a page or post with a known malware URL that threatens your whole domain with being blacklisted by Google, we will alert you in the next scan.
+
+= What support options are available for Wordfence users? =
+
+Providing excellent customer service is very important to us.  We offer help to all our customers whether you are using the Premium or free version of Wordfence Security.  For help with the free version, you can post in our [forum](https://wordpress.org/support/plugin/wordfence) where we have dedicated staff responding to questions. If you need faster or more in-depth help, Premium customers can submit a [support ticket](https://support.wordfence.com/support/home) to our Premium support team.
 
 = Where can I learn more about WordPress security? =
 
-Designed for every skill level, [The WordPress Security Learning Center](https://www.wordfence.com/learn/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc) is dedicated to deepening user's understanding of security best practices by having access to in-depth articles, videos, industry survey results, graphics and more. 
+Designed for every skill level, [The WordPress Security Learning Center](https://www.wordfence.com/learn/) is dedicated to deepening users’ understanding of security best practices by providing free access to entry-level articles, in-depth articles, videos, industry survey results, graphics and more.
 
 == Screenshots ==
 
-1. The home screen of Wordfence Security where you can see a summary, manage security issues and do a manual security scan. 
-2. The Live Traffic view of Wordfence Security where you can see real-time activity on your site.
-3. The "Blocked IPs" page where you can manage blocked IP's, locked out IP's and see recently throttled IPs that violated security rules.
-4. The basic view of Wordfence Security options. There is very little to configure other than your alert email address and security level.
-5. If you're technically minded, this is the under-the-hood view of Wordfence Security options where you can fine-tune your security settings.
+Secure your website with Wordfence. 
+
+1. The dashboard gives you an overview of your site's security including notifications, attack statistics and Wordfence feature status.
+2. The Web Application Firewall protects your site from common types of attacks and known security vulnerabilities.
+3. The Wordfence Malware Scanner lets you know if your site has been compromised and alerts you to other security issues that need to be addressed.  
+4. The Wordfence Security Live Traffic view shows you real-time activity on your site including bot traffic and exploit attempts.
+5. Block IPs that are known to be malicious, manage IPs that have been locked out and see recently throttled IPs that violated security rules.
+6. The Wordfence Options page is where you manage high-level Wordfence features and upgrade your license to Premium.
+7. The Advanced Options page allows technically-minded users fine-tune their security settings.
 
 == Changelog ==
+
+= 6.3.8 =
+* Fix: Addressed an issue that could cause scans to time out on sites with tens of thousands of potential URLs in files, comments, and posts.
+
+= 6.3.7 =
+* Improvement: All URLs are now checked against the Wordfence Domain Blacklist in addition to Google's.
+* Improvement: Better page load performance for multisite installations with thousands of tables.
+* Improvement: Updated the bundled GeoIP database.
+* Improvement: Integrated blacklist blocking statistics into the dashboard for Premium users.
+* Fix: Added locking to the automatic update process to ensure non-standard crons don't break Wordfence.
+* Fix: Fixed an activation error on multisite installations on very old WordPress versions.
+* Fix: Adjusted the behavior of the blacklist toggle for Free users.
+
+= 6.3.6 =
+* Improvement: Optimized the malware signature scan to reduce memory usage.
+* Improvement: Optimized the overall scan to make fewer network calls.
+* Improvement: Running an update now automatically dismisses the corresponding scan issue if present.
+* Improvement: Added a time limit to the live activity status so only current messages are shown.
+* Improvement: WAF configuration files are now excluded by default from the recently modified files list in the activity report.
+* Improvement: Background pausing for live activity and traffic may now be disabled.
+* Improvement: Added additional WAF support to allow us to more easily address false positives.
+* Improvement: Blocking pages presented by Wordfence now indicate the source and contain information to help diagnose caching problems.
+* Fix: All external URLs in the tour are now https.
+* Fix: Corrected a typo in the unlock email template.
+* Fix: Fixed the target of a label on the options page.
+
+= 6.3.5 =
+* Improvement: Sites can now specify a list of trusted proxies when using X-Forwarded-For for IP resolution.
+* Improvement: Added options to customize which dashboard notifications are shown.
+* Improvement: Improvements to the scanner's malware stage to avoid timing out on larger files.
+* Improvement: Provided additional no-caching indicators for caches that erroneously save pages with HTTP error status codes.
+* Improvement: Updated the bundled GeoIP database.
+* Improvement: Optimized the country update process in the upgrade handler so it only updates changed records.
+* Improvement: Added our own prefixed version of jQuery.DataTables to avoid conflicts with other plugins.
+* Improvement: Changes to readme.txt and readme.md are now ignored by the scanner unless high sensitivity is on.
+* Fix: Addressed an issue with multisite installations where they would execute the upgrade handler for each subsite.
+* Fix: Added additional error handling to the blocked IP list to avoid outputting notices when another plugin resets the error handler.
+* Fix: Made the description in the summary email for blocks resulting from the blacklist more descriptive.
+* Fix: Updated the copyright date on several pages.
+* Fix: Fixed incorrect wrapping of the Group by field on the live traffic page.
+
+= 6.3.4 =
+* Improvement: Added a path for people blocked by the IP blacklist (Premium Feature) to report false positives.
+
+= 6.3.3 =
+* New: Malicious IPs are now preemptively blocked by a regularly-updated blacklist. [Premium Feature]
+* Improvement: Better layout and display for mobile screen sizes.
+* Improvement: Dashboard chart data is now updated more frequently.
+* Fix: Fixed database errors on notifications page on multisite installations.
+* Fix: Fixed site URL detection for multisite installations.
+* Fix: Fixed tour popup positioning on multisite.
+* Fix: Increased the z-index of the AJAX error watcher alert.
+* Fix: Addressed an additional way to enumerate authors with the REST JSON API.
+
+= 6.3.2 =
+* Improvement: Improved the WAF's ability to inspect POST bodies.
+* Improvement: Dashboard now shows up to 100 each of failed/successful logins.
+* Improvement: Updated internal GeoIP database.
+* Improvement: Updated internal browscap database.
+* Improvement: Better documentation on Country Blocking regarding Google AdWords
+* Advanced: Added constant "WORDFENCE_DISABLE_FILE_VIEWER" to prohibit file-viewing actions from Wordfence.
+* Advanced: Added constant "WORDFENCE_DISABLE_LIVE_TRAFFIC" to prohibit live traffic from capturing regular site visits.
+* Fix: Fixed a few links that didn't open the correct configuration pages.
+* Fix: Unknown countries in the dashboard now show "Unknown" rather than empty.
+
+= 6.3.1 =
+* Improvement: Locked out IPs are now enforced at the WAF level to reduce server load.
+* Improvement: Added a "Show more" link to the IP block list and login attempts list.
+* Improvement: Added network data for the top countries blocked list.
+* Improvement: Added a notification when a premium key is installed on one site but registered for another URL.
+* Improvement: Switching tabs in the various pages now updates the page title as well.
+* Improvement: Various styling consistency improvements.
+* Change: Separated the various blocking-related pages out from the Firewall top-level menu into "Blocking".
+* Fix: Improved compatibility with our GeoIP interface.
+* Fix: The updates available notification is refreshed after updates are installed.
+* Fix: The scan notification is refreshed when issues are resolved or ignored.
+
+= 6.3.0 =
+* Enhancement: Added Wordfence Dashboard for quick overview of security activity.
+* Improvement: Simplified the UI by revamping menu structure and styling.
+* Fix: Fixed minor issue with REST API user enumeration blocking.
+* Fix: Fixed undefined index notices on password audit page.
+
+= 6.2.10 =
+* Improvement: Better reporting for failed brute force login attempts.
+* Change: Reworded setting for ignored IPs in the WAF alert email.
+* Change: Updated support link on scan page.
+* Fix: When a key is in place on multiple sites, it's now possible to downgrade the ones not registered for it.
+* Fix: Addressed an issue where the increased attack rate emails would send repeatedly if the threshold value was missing.
+* Fix: Typo fix in firewall rule 11 name.
+
+= 6.2.9 =
+* Improvement: Updated internal GeoIP database.
+* Improvement: Better error handling when a site is unreachable publicly.
+* Fix: Fixed a URL in alert emails that did not correctly detect when sent from a multisite installation.
+* Fix: Addressed an issue where the scan did not alert about a new WordPress version.
+
+= 6.2.8 =
+* Improvement: Added support for hiding the username information revealed by the WordPress 4.7 REST API. Thanks Vladimir Smitka.
+* Improvement: Added vulnerability scanning for themes.
+* Improvement: Reduced memory usage by up to 90% when scanning comments.
+* Improvement: Performance improvements for the dashboard widget.
+* Improvement: Added progressive loading of addresses on the blocked IP list.
+* Improvement: The diagnostics page now displays a config reading/writing test.
+* Change: Support for the Falcon cache has been removed.
+* Fix: Better messaging when the WAF rules are manually updated.
+* Fix: The proxy detection check frequency has been reduced and no longer alerts if the server is unreachable.
+* Fix: Adjusted the behavior of parsing the X-Forwarded-For header for better accuracy. Thanks Jason Woods.
+* Fix: Typo fix on the options page.
+* Fix: Scan issue for known core file now shows the correct links.
+* Fix: Links in "unlock" emails now work for IPv6 and IPv4-mapped-IPv6 addresses.
+* Fix: Restricted caching of responses from the Wordfence Security Network.
+* Fix: Fixed a recording issue with Wordfence Security Network statistics.
+
+= 6.2.7 =
+* Improvement: WordPress 4.7 improvements for the Web Application Firewall.
+* Improvement: Updated signatures for hash-based malware detection.
+* Improvement: Automatically attempt to detect when a site is behind a proxy and has IP information in a different field.
+* Improvement: Added additional contextual help links.
+* Improvement: Significant performance improvement for determining the connecting IP.
+* Improvement: Better messaging for two-factor recovery codes.
+* Fix: Adjusted message when trying to block an IP in the whitelist.
+* Fix: Error log download links now work on Windows servers.
+* Fix: Avoid running out of memory when viewing very large activity logs.
+* Fix: Fixed warning that could be logged when following an unlock email link.
+* Fix: Tour popups on options page now scroll into view correctly.
+
+= 6.2.6 =
+* Improvement: Improved formatting of attack data when it contains binary characters.
+* Improvement: Updated internal GeoIP database.
+* Improvement: Improved the ordering of rules in the malware scan so more specific rules are checked first.
+* Fix: Country blocking redirects are no longer allowed to be cached.
+* Fix: Fixed an issue with 2FA on multisite where the site could report URLs with different schemes depending on the state of plugin loading.
+
+= 6.2.5 =
+* Fix: Fixed an issue that could occur on older WordPress versions when processing login attempts
+
+= 6.2.4 =
+* Improvement: Scan times for very large sites with huge numbers of files are greatly improved.
+* Improvement: Added a configurable time limit for scans to help reduce overall server load and identify configuration problems.
+* Improvement: Email-based logins are now covered by "Don't let WordPress reveal valid users in login errors".
+* Improvement: Extended rate limiting support to the login page.
+* Fix: Fixed a case where files in the site root with issues could have them added multiple times.
+* Fix: Improved IP detection in the WAF when using an IP detection method that can have multiple values.
+* Fix: Added a safety check for when the database fails to return its max_allowed_packet value.
+* Fix: Added safety checks for when the configuration table migration has failed.
+* Fix: Added a couple rare failed login error codes to brute force detection.
+* Fix: Fixed a sequencing problem when adding detection for bot/human that led to it being called on every request.
+* Fix: Suppressed errors if a file is removed between the start of a scan and later scan stages.
+* Fix: Addressed a problem where the scan exclusions list was not checked correctly in some situations.
+
+= 6.2.3 =
+* Improvement: Reworked blocking for IP ranges, country blocking, and direct IP blocking to minimize server impact when under attack.
+* Improvement: Live traffic better indicates the action taken by country blocking when it redirects a visitor.
+* Improvement: Added support for finding server logs to the Diagnostics page to help with troubleshooting.
+* Improvement: Whitelisted StatusCake IP addresses.
+* Improvement: Updated GeoIP database.
+* Improvement: Disabling Wordfence now sends an alert.
+* Improvement: Improved detection for uploaded PHP content in the firewall.
+* Fix: Eliminated memory-related errors resulting from the scan on sites with very large numbers of issues and low memory.
+* Fix: Fixed admin page layout for sites using RTL languages.
+* Fix: Reduced overhead of the dashboard widget.
+* Fix: Improved performance of checking for whitelisted IPs.
+* Fix: Changes to the default plugin hello.php are now detected correctly in scans.
+* Fix: Fixed IPv6 warning in the dashboard widget.
+
+= 6.2.2 =
+* Fix: Replaced a slow query in the dashboard widget that could affect sites with very large numbers of users.
+
+= 6.2.1 =
+* Improvement: Now performing scanning for PHP code in all uploaded files in real-time.
+* Improvement: Improved handling of bad characters and IPv6 ranges in Advanced Blocking.
+* Improvement: Live traffic and scanning activity now display a paused notice when real-time updates are suspended while in the background.
+* Improvement: The file system scan alerts for files flagged by antivirus software with a '.suspected' extension.
+* Improvement: New alert option to get notified only when logins are from a new location/device.
+* Change: First phase for removing the Falcon cache in place, which will add a notice of its pending removal.
+* Fix: Included country flags for Kosovo and Curaçao.
+* Fix: Fixed the .htaccess directives used to hide files found by the scanner.
+* Fix: Dashboard widget shows correct status for failed logins by deleted users.
+* Fix: Removed duplicate issues for modified files in the scan results.
+* Fix: Suppressed warning from reverse lookup on IPv6 addresses without valid DNS records.
+* Fix: Fixed file inclusion error with themes lacking a 404 page.
+* Fix: CSS fixes for activity report email.
+
+= 6.2.0 =
+* Improvement: Massive performance boost in file system scan.
+* Improvement: Added low resource usage scan option for shared hosts.
+* Improvement: Aggregated login attempts when checking the Wordfence Security Network for brute force attackers to reduce total requests.
+* Improvement: Now displaying scan time in a more readable format rather than total seconds.
+* Improvement: Added PHP7 compatible .htaccess directives to disable code execution within uploads directory.
+* Fix: Added throttling to sync the WAF attack data.
+* Fix: Removed unnecessary single quote in copy containing "IP's".
+* Fix: Fixed rare, edge case where cron key does not match the key in the database.
+* Fix: Fixed bug with regex matching carriage returns in the .htaccess based IP block list.
+* Fix: Fixed scans failing in subdirectory sites when updating malware signatures.
+* Fix: Fixed infinite loop in scan caused by symlinks.
+* Fix: Remove extra slash from "File restored OK" message in scan results.
+
+= 6.1.17 =
+* Fix: Replaced calls to json_decode with our own implentation for hosts without the JSON extension enabled.
+
+= 6.1.16 =
+* Improvement: Now performing malware scanning on all uploaded files in real-time.
+* Improvement: Added Web Application Firewall activity to Wordfence summary email.
+* Fix: Now using 503 response code in the page displayed when an IP is locked out.
+* Fix: `wflogs` directory is now correctly removed on uninstall.
+* Fix: Fixed recently introduced bug which caused the Whitelisted 404 URLs feature to no longer work.
+* Fix: Added try/catch to uncaught exception thrown when pinging the API key.
+* Improvement: Improved performance of the Live Traffic page in Firefox.
+* Improvement: Updated GeoIP database.
+
+= 6.1.15 =
+* Improvement: Removed file-based config caching, added support for caching via WordPress's object cache.
+* Improvement: Whitelisted Uptime Robot's IP range.
+* Fix: Notify users if suPHP_ConfigPath is in their WAF setup, and prompt to update Extended Protection.
+* Fix: Fixed bug with allowing logins on admin accounts that are not fully activated with invalid 2FA codes when 2FA is required for all admins.
+* Fix: Removed usage of `wp_get_sites()` which was deprecated in WordPress 4.6.
+* Fix: Fixed PHP notice from `Undefined index: url` with custom/premium plugins.
+* Improvement: Converted the banned URLs input to a textarea.
+
+= 6.1.14 =
+* Improvement: Support downloading a file of 2FA recovery codes.
+* Fix: Fixed PHP Notice: Undefined index: coreUnknown during scans.
+* Improvement: Add note to options page that login security is necessary for 2FA to work.
+* Fix: Fixed WAF false positives introduced with WordPress 4.6.
+* Improvement: Update Geo IP database.
+
+= 6.1.12 =
+* Fix: Fixed fatal error on sites running Wordfence 6.1.11 in subdirectory and 6.1.10 or lower in parent directory.
+* Fix: Added a few common files to be excluded from unknown WordPress core file scan.
+
+= 6.1.11 =
+* Improvement: Alert on added files to wp-admin, wp-includes.
+* Improvement: 2FA is now available via any authenticator program that accepts TOTP secrets.
+* Fix: Fixed bug with specific Advanced Blocking user-agent patterns causing 500 errors.
+* Improvement: Plugin updates are now only a critical issue if there is a security related fix, and a warning otherwise. A link to the changelog is included.
+* Fix: Added group writable permissions to Firewall's configuration files.
+* Improvement: Changed whitelist entry area to textbox on options page.
+* Fix: Move flags and logo served from wordfence.com over to locally hosted files.
+* Fix: Fixed issues with scan in WordPress 4.6 beta.
+* Fix: Fixed bug where Firewall rules could be missing on some sites running IIS.
+* Improvement: Added browser-based malware signatures for .js, .html files in the malware scan.
+* Fix: Added error suppression to `dns_get_record`.
+
+= 6.1.10 =
+* Fix: Fixed fatal error in the event wflogs is not writable.
+
+= 6.1.9 =
+* Fix: Using WP-CLI causes error Undefined index: SERVER_NAME.
+* Improvement: Hooked up restore/delete file scan tools to Filesystem API.
+* Fix: Reworked country blocking authentication check for access to XMLRPC.
+* Improvement: Added option to require cellphone sign-in on all admin accounts.
+* Improvement: Updated IPv6 GeoIP lite data.
+* Fix: Removed suPHP_ConfigPath from WAF installation process.
+* Fix: Prevent author names from being found through /wp-json/oembed.
+* Improvement: Added better solutions for fixing wordfence-waf.php, .user.ini, or .htaccess in scan.
+* Improvement: Added a method to view which files are currently used for WAF and to remove without reinstalling Wordfence.
+* Improvement: Changed rule compilation to use atomic writes.
+* Improvement: Removed security levels from Options page.
+* Improvement: Added option to disable ajaxwatcher (for whitelisting only for Admins) on the front end.
+
+= 6.1.8 =
+* Fix: Change wfConfig::set_ser to split large objects into multiple queries.
+* Fix: Fixed bug in multisite with "You do not have sufficient permissions to access this page" error after logging in.
+* Improvement: Update Geo IP database.
+* Fix: Fixed deadlock when NFS is used for WAF file storage, in wfWAFAttackDataStorageFileEngine::addRow().
+* Fix: Added third param to http_build_query for hosts with arg_separator.output set.
+* Improvement: Show admin notice if WAF blocks an admin (mainly needed for ajax requests).
+* Improvement: Clarify error message "Error reading config data, configuration file could be corrupted."
+* Improvement: Added better crawler detection.
+* Improvement: Add currentUserIsNot('administrator') to any generic firewall rules that are not XSS based.
+* Improvement: Update URLs in Wordfence for documentation about LiteSpeed and lockouts.
+* Improvement: Show message on scan results when a result is caused by enabling "Scan images and binary files as if they were executable" or...
+* Fix: Suppressed warning: dns_get_record(): DNS Query failed.
+* Fix: Suppressed warning gzinflate() error in scan logs.
+* Fix: On WAF roadblock page: Warning: urlencode() expects parameter 1 to be string, array given ...
+* Fix: Scheduled update for WAF rules doesn't decrease from 7 days, to 12 hours, when upgrading to a premium account.
+* Improvement: Better message for dashboard widget when no failed logins.
 
 = 6.1.7 =
 * Security Fix: Fixed reflected XSS vulnerability: CVSS 6.1 (Medium). Thanks Kacper Szurek.
@@ -518,7 +761,7 @@ Designed for every skill level, [The WordPress Security Learning Center](https:/
 * Fixed issue that caused litespeed users to receive multiple warnings about the noabort issue. 
 * Added detection for 5 new malware variants. Thanks to Dave M. and others for the samples. Keep them coming folks! 
 * Updated Wordfence server API to version 2.12.
-* Added facility at bottom of Wordfence options page to send a test email from your WordPress sytem to check if email sending is working. 
+* Added facility at bottom of Wordfence options page to send a test email from your WordPress system to check if email sending is working. 
 * Suppress LOCK_EX flock() warnings in falcon engine that were being generated by sites that use NFS and don't support flock() or reliable file locking.
 * Updated to the October 2014 version of the Geo IP country DB. (newest edition) 
 
@@ -1267,7 +1510,7 @@ Designed for every skill level, [The WordPress Security Learning Center](https:/
 * Added ability for admin's to unlock login and unblock their IP addresses if they're accidentally locked out by the firewall or login security. Uses two security tokens to prevent abuse.
 * Admins can now also disable firewall and login security from the unlock-me email, just in case of emergency.
 * Made advanced security options visible so you know they exist.
-* Fixed dns_get_record() function not existing bug on Windows sytems pre PHP 5.3.0. Was causing scans to hang.
+* Fixed dns_get_record() function not existing bug on Windows systems pre PHP 5.3.0. Was causing scans to hang.
 * Increased login lockout defaults to be much higher which still protects against brute force hacks.
 * Removed CURLOPT_MAXREDIRS in curl to avoid safe mode warnings.
 * Fixed ability to view and diff files on blogs installed in subdirectories.
@@ -1378,4 +1621,3 @@ Wordfence Security to zero (we simply reuse the WordPress DB handle), reduces th
 about 1% of the previous version by removing unneeded status messages and fixes a bug that 
 could cause Wordfence Security to launch multiple concurrent scans that can put high load on your system.
 This is a critical release. Upgrade immediately.
-

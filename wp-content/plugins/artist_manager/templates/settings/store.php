@@ -169,7 +169,7 @@ $scheme = is_ssl() ? 'https' : 'http';
 								<div class="waa-form-group">
                     <label class="waa-w3 waa-control-label" for="dps_enable_shipping" style="margin-top:6px">
                         <?php _e( 'Dienstleistungen', 'waa' ); ?>
-                        <span class="waa-tooltips-help tips" title="<?php _e( 'Man kann dich für Aufträge buchen.Man kann dich für Aufträge buchen. ', 'waa' ); ?>">
+                        <span class="waa-tooltips-help tips" title="<?php _e( 'Man kann dich für Aufträge buchen.', 'waa' ); ?>">
                             <i class="ui ui-question-circle"></i>
                         </span>
                     </label>

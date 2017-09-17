@@ -138,26 +138,26 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 			color:#666666 !important;
 		}
 
-		table.wf-table {
+		table.wf-striped-table {
 			width: 100%;
 			max-width: 100%;
 		}
 
-		table.wf-table th,
-		table.wf-table td {
+		table.wf-striped-table th,
+		table.wf-striped-table td {
 			padding: 6px 4px;
 			border: 1px solid #cccccc;
 		}
 
-		table.wf-table thead th,
-		table.wf-table thead td {
+		table.wf-striped-table thead th,
+		table.wf-striped-table thead td {
 			background-color: #222;
 			color: #FFFFFF;
 			font-weight: bold;
 			border-color: #474747;
 		}
 
-		table.wf-table tbody tr.even td {
+		table.wf-striped-table tbody tr.even td {
 			background-color: #eeeeee;
 		}
 
@@ -295,13 +295,13 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 				<div style="float: right;text-align: right;line-height:1.1;color: #666666;margin:20px 0 0;">
 					Activity for week of<br> <strong><?php echo date_i18n(get_option('date_format')) ?></strong>
 				</div>
-				<a href="http://www.wordfence.com/zz7/"><img src="http://www.wordfence.com/wp-content/themes/wordfence/img/logo.png" alt=""/></a>
+				<a href="http://www.wordfence.com/zz7/"><img src="<?php echo wfUtils::getBaseURL(); ?>images/logo.png" alt=""/></a>
 
-				<h2>Top 10 IP's Blocked</h2>
+				<h2>Top 10 IPs Blocked</h2>
 
 				<?php wfHelperString::cycle(); ?>
 
-				<table class="wf-table">
+				<table class="wf-striped-table">
 					<thead>
 						<tr>
 							<th>IP</th>
@@ -315,7 +315,7 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 								<td><code><?php echo wfUtils::inet_ntop($row->IP) ?></code></td>
 								<td>
 									<?php if ($row->countryCode): ?>
-										<img src="http://www.wordfence.com/images/flags/<?php echo esc_attr(strtolower($row->countryCode)) ?>.png" class="wfFlag" height="11" width="16">
+										<img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . esc_attr(strtolower($row->countryCode)) ?>.png" class="wfFlag" height="11" width="16">
 										&nbsp;
 										<?php echo esc_html($row->countryCode) ?>
 									<?php else: ?>
@@ -329,14 +329,14 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 				</table>
 
 				<p>
-					<a class="button" href="<?php echo network_admin_url('admin.php?page=WordfenceBlockedIPs') ?>">Update Blocked IPs</a>
+					<a class="button" href="<?php echo network_admin_url('admin.php?page=WordfenceWAF#top#blockedips') ?>">Update Blocked IPs</a>
 				</p>
 
 				<?php wfHelperString::cycle(); ?>
 
 				<h2>Top 10 Countries Blocked</h2>
 
-				<table class="wf-table">
+				<table class="wf-striped-table">
 					<thead>
 						<tr>
 							<th>Country</th>
@@ -349,7 +349,7 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 							<tr class="<?php echo wfHelperString::cycle('odd', 'even') ?>">
 								<td>
 									<?php if ($row->countryCode): ?>
-										<img src="http://www.wordfence.com/images/flags/<?php echo strtolower($row->countryCode) ?>.png" class="wfFlag" height="11" width="16">
+										<img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . strtolower($row->countryCode) ?>.png" class="wfFlag" height="11" width="16">
 										&nbsp;
 										<?php echo esc_html($row->countryCode) ?>
 									<?php else: ?>
@@ -364,14 +364,14 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 				</table>
 
 				<p>
-					<a class="button" href="<?php echo network_admin_url('admin.php?page=WordfenceCountryBlocking') ?>">Update Blocked Countries</a>
+					<a class="button" href="<?php echo network_admin_url('admin.php?page=WordfenceWAF#top#countryblocking') ?>">Update Blocked Countries</a>
 				</p>
 
 				<?php wfHelperString::cycle(); ?>
 
 				<h2>Top 10 Failed Logins</h2>
 
-				<table class="wf-table">
+				<table class="wf-striped-table">
 					<thead>
 						<tr>
 							<th>Username</th>
@@ -398,7 +398,7 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 
 				<h2>Recently Modified Files</h2>
 
-				<table class="wf-table">
+				<table class="wf-striped-table">
 					<thead>
 						<tr>
 							<th>Modified</th>
@@ -432,9 +432,12 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 				<?php if ($updates_needed['plugins']): ?>
 					<h4>Plugins</h4>
 					<ul>
-						<?php foreach ($updates_needed['plugins'] as $plugin): ?>
+						<?php
+						foreach ($updates_needed['plugins'] as $plugin):
+							$newVersion = ($plugin['newVersion'] == 'Unknown' ? $plugin['newVersion'] : "v{$plugin['newVersion']}");
+						?>
 							<li>
-								A new version of the plugin "<?php echo esc_html("{$plugin['Name']} (v{$plugin['newVersion']})") ?>" is available.
+								A new version of the plugin "<?php echo esc_html("{$plugin['Name']} ({$newVersion})") ?>" is available.
 							</li>
 						<?php endforeach ?>
 					</ul>
@@ -442,9 +445,12 @@ $title = 'Wordfence Activity for the week of ' . date_i18n(get_option('date_form
 				<?php if ($updates_needed['themes']): ?>
 					<h4>Themes</h4>
 					<ul>
-						<?php foreach ($updates_needed['themes'] as $theme): ?>
+						<?php
+						foreach ($updates_needed['themes'] as $theme):
+							$newVersion = ($theme['newVersion'] == 'Unknown' ? $theme['newVersion'] : "v{$theme['newVersion']}");
+						?>
 							<li>
-								A new version of the theme "<?php echo esc_html("{$theme['name']} (v{$theme['newVersion']})") ?>" is available.
+								A new version of the theme "<?php echo esc_html("{$theme['name']} ({$newVersion})") ?>" is available.
 							</li>
 						<?php endforeach ?>
 					</ul>
